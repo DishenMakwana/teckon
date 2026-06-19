@@ -86,7 +86,7 @@ export default function ProductsCarousel() {
             }}
             className="pb-12"
           >
-            {categories.map((cat) => (
+            {categories.map((cat, index) => (
               <SwiperSlide key={cat.name}>
                 <div className="group bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   <div className="relative h-52 overflow-hidden bg-gray-100">
@@ -96,6 +96,7 @@ export default function ProductsCarousel() {
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading={index === 0 ? "eager" : "lazy"}
                     />
                     {cat.badge && (
                       <span className="absolute top-3 left-3 bg-[#FFBE00] text-[#0B0F19] text-xs font-bold px-3 py-1 rounded-full">

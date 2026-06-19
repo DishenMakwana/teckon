@@ -53,7 +53,7 @@ export default async function ProductDetailPage({ params }: Props) {
             {/* Images */}
             <div className="space-y-4">
               <div className="relative h-80 rounded-2xl overflow-hidden bg-gray-100 shadow-lg">
-                <SafeImage src={product.image} alt={product.name} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                <SafeImage src={product.image} alt={product.name} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" loading="eager" />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative h-40 rounded-xl overflow-hidden bg-gray-100">

@@ -72,7 +72,7 @@ export default function ProductsPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filtered.map((product) => (
+              {filtered.map((product, index) => (
                 <div
                   key={product.slug}
                   className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
@@ -84,6 +84,7 @@ export default function ProductsPage() {
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading={index === 0 ? "eager" : "lazy"}
                     />
                     <span className="absolute top-3 left-3 bg-teckon-blue text-white text-xs font-bold px-2.5 py-1 rounded-full">
                       {product.categoryLabel}
