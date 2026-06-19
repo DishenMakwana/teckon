@@ -15,13 +15,6 @@ const cultureValues = [
   { icon: "🏆", title: "Reward Excellence", desc: "Competitive compensation and recognition for outstanding performance." },
 ];
 
-const openings = [
-  { title: "Hydraulic Systems Engineer", dept: "Engineering", type: "Full-time", location: "Rajkot, Gujarat" },
-  { title: "Sales Executive — Industrial", dept: "Sales", type: "Full-time", location: "Rajkot / Remote" },
-  { title: "Quality Control Inspector", dept: "Manufacturing", type: "Full-time", location: "Rajkot, Gujarat" },
-  { title: "Logistics Coordinator", dept: "Operations", type: "Full-time", location: "Rajkot, Gujarat" },
-];
-
 export default function CareersPage() {
   return (
     <>
@@ -58,46 +51,22 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Open Positions */}
+      {/* Career Opportunities */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">Opportunities</span>
-            <h2 className="text-4xl font-black text-[#111111]">Current Openings</h2>
-          </div>
-
-          <div className="flex flex-col gap-4 mb-12">
-            {openings.map((job) => (
-              <div key={job.title} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:border-teckon-blue transition-all">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div>
-                    <h3 className="font-bold text-[#111111] text-lg mb-1">{job.title}</h3>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="bg-slate-50 text-teckon-blue text-xs font-semibold px-2.5 py-1 rounded-full">{job.dept}</span>
-                      <span className="bg-green-50 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">{job.type}</span>
-                      <span className="bg-gray-100 text-gray-600 text-xs font-semibold px-2.5 py-1 rounded-full">📍 {job.location}</span>
-                    </div>
-                  </div>
-                  <a
-                    href="mailto:shreejihyd4008@gmail.com?subject=Job Application — Teckon"
-                    className="shrink-0 bg-teckon-blue text-white font-bold px-5 py-2.5 rounded-xl text-sm hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors"
-                  >
-                    Apply Now
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* General CTA */}
-          <div className="bg-teckon-blue rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-black text-white mb-3">Don&apos;t see a match?</h3>
-            <p className="text-white/70 mb-6">
-              We&apos;re always looking for talented individuals. Send your resume and we&apos;ll keep you in mind for future openings.
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">Opportunities</span>
+          <h2 className="text-4xl font-black text-[#111111] mb-6">Start Your Journey With Us</h2>
+          <p className="text-gray-600 text-lg leading-relaxed mb-8">
+            We are always on the lookout for talented, driven, and passionate individuals who want to grow their careers in the hydraulic engineering and manufacturing industry. If you want to be a part of our dynamic team in India, please share your details and send your resume directly to our HR department.
+          </p>
+          <div className="inline-block bg-teckon-blue rounded-3xl p-8 border border-white/10 shadow-lg max-w-xl mx-auto w-full">
+            <h3 className="text-xl font-bold text-white mb-4">Submit Your Application</h3>
+            <p className="text-slate-300 text-sm mb-6">
+              Click the button below to email your resume and experience details directly to <strong className="text-[#FFBE00]">shreejihyd4008@gmail.com</strong>. We will review your profile and get back to you if there is a matching opportunity.
             </p>
             <a
               href="mailto:shreejihyd4008@gmail.com?subject=Resume%20Submission%20—%20Teckon%20Quality%20Spares"
-              className="inline-block bg-[#FFBE00] text-[#0B0F19] font-bold px-8 py-3 rounded-xl hover:bg-white transition-colors"
+              className="inline-flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] font-bold px-8 py-4 rounded-xl hover:bg-white hover:text-teckon-blue transition-colors text-base shadow-md"
             >
               📧 Send Your Resume
             </a>
