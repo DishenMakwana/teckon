@@ -82,32 +82,10 @@ export default function AboutPage() {
           {/* Founder 1 */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
-              <Image src="/images/founder-alpesh.png" alt="Mr. Alpesh Patel — Co-Founder & Director" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-top" priority />
+              <Image src="/images/founder-jc-neutral.png" alt="Mr. J.C. Patel — Co-Founder & Director" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-top" priority />
             </div>
             <div>
               <div className="inline-flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] text-xs font-bold px-3 py-1.5 rounded-full mb-4">
-                Co-Founder & Director
-              </div>
-              <h3 className="text-3xl font-black text-teckon-blue mb-2">Mr. Alpesh Patel</h3>
-              <a href="tel:+919426915578" className="text-[#FF6B35] font-semibold mb-4 block hover:underline">
-                📞 +91-94269 15578
-              </a>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                Co-Founder and driving force behind Teckon&apos;s growth, Mr. Alpesh Patel has over 25 years of experience in hydraulic parts distribution and manufacturing. With a deep understanding of the construction equipment industry, he has built Teckon into a trusted name for hydraulic spares across India.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                Under his leadership, Teckon has expanded from a local distributor in Rajkot to a company with nationwide reach, earning ISO 9001:2015 certification and the trust of major equipment operators.
-              </p>
-            </div>
-          </div>
-
-          {/* Founder 2 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-1 lg:order-2 relative h-96 rounded-2xl overflow-hidden shadow-xl">
-              <Image src="/images/founder-jc.png" alt="Mr. J.C. Patel — Co-Founder & Director" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-top" priority />
-            </div>
-            <div className="order-2 lg:order-1">
-              <div className="inline-flex items-center gap-2 bg-teckon-blue text-white text-xs font-bold px-3 py-1.5 rounded-full mb-4">
                 Co-Founder & Director
               </div>
               <h3 className="text-3xl font-black text-teckon-blue mb-2">Mr. J.C. Patel</h3>
@@ -119,6 +97,28 @@ export default function AboutPage() {
               </p>
               <p className="text-gray-600 leading-relaxed">
                 With decades of experience in the hydraulic parts industry, Mr. J.C. Patel continues to guide product development and quality assurance, ensuring every Teckon part meets the highest standards of performance.
+              </p>
+            </div>
+          </div>
+
+          {/* Founder 2 */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-1 lg:order-2 relative h-96 rounded-2xl overflow-hidden shadow-xl">
+              <Image src="/images/founder-alpesh-white.png" alt="Mr. Alpesh Patel — Co-Founder & Director" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-top" priority />
+            </div>
+            <div className="order-2 lg:order-1">
+              <div className="inline-flex items-center gap-2 bg-teckon-blue text-white text-xs font-bold px-3 py-1.5 rounded-full mb-4">
+                Co-Founder & Director
+              </div>
+              <h3 className="text-3xl font-black text-teckon-blue mb-2">Mr. Alpesh Patel</h3>
+              <a href="tel:+919426915578" className="text-[#FF6B35] font-semibold mb-4 block hover:underline">
+                📞 +91-94269 15578
+              </a>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Co-Founder and driving force behind Teckon&apos;s growth, Mr. Alpesh Patel has over 25 years of experience in hydraulic parts distribution and manufacturing. With a deep understanding of the construction equipment industry, he has built Teckon into a trusted name for hydraulic spares across India.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                Under his leadership, Teckon has expanded from a local distributor in Rajkot to a company with nationwide reach, earning ISO 9001:2015 certification and the trust of major equipment operators.
               </p>
             </div>
           </div>
