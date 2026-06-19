@@ -27,6 +27,7 @@ export default function AboutSection() {
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
+                loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19]/50 to-transparent" />
             </div>

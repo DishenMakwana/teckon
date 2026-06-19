@@ -100,6 +100,7 @@ export default function EventsPage() {
                         fill
                         sizes="(max-width: 768px) 100vw, 400px"
                         className="object-cover opacity-80"
+                        loading="eager"
                       />
                       <div className="absolute inset-0 bg-teckon-blue/40 flex items-end p-3">
                         <span className="text-white text-xs font-semibold">

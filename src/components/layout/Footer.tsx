@@ -47,6 +47,7 @@ export default function Footer() {
                   fill
                   sizes="128px"
                   className="object-contain p-2"
+                  loading="eager"
                 />
               </div>
               {/* Make in India Badge */}
@@ -57,6 +58,7 @@ export default function Footer() {
                   fill
                   sizes="204px"
                   className="object-contain p-2"
+                  loading="eager"
                 />
               </div>
             </div>

@@ -13,7 +13,7 @@ export default function SafeImage({
   fallbackText,
   className = "",
   style,
-  loading = "lazy",
+  loading = "eager",
   ...props
 }: SafeImageProps) {
   const [error, setError] = useState(false);

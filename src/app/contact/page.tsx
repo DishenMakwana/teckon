@@ -239,7 +239,7 @@ export default function ContactPage() {
                   height="350"
                   style={{ border: 0 }}
                   allowFullScreen
-                  loading="lazy"
+                  loading="eager"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Teckon Shreeji Hydraulics Location — Gondal Road, Rajkot, Gujarat"
                 />

@@ -78,7 +78,7 @@ export default function QualityPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative h-80 rounded-2xl overflow-hidden shadow-2xl">
-            <Image src="/images/quality-manufacturing.png" alt="Teckon quality control laboratory" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" />
+            <Image src="/images/quality-manufacturing.png" alt="Teckon quality control laboratory" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" loading="eager" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F19]/70 to-transparent flex items-center">
               <div className="p-8">
                 <div className="text-[#FFBE00] font-bold text-sm uppercase tracking-widest mb-2">ISO 9001:2015</div>

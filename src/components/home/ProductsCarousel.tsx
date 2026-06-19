@@ -96,7 +96,7 @@ export default function ProductsCarousel() {
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading={index === 0 ? "eager" : "lazy"}
+                      loading="eager"
                     />
                     {cat.badge && (
                       <span className="absolute top-3 left-3 bg-[#FFBE00] text-[#0B0F19] text-xs font-bold px-3 py-1 rounded-full">
