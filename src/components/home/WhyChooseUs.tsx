@@ -1,0 +1,73 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Factory, Map, BadgeCheck, Wrench } from "lucide-react";
+
+const usps = [
+  {
+    icon: Factory,
+    title: "Advanced Manufacturing",
+    description: "State-of-the-art CNC, VMC, and specialized hydraulic machining facilities with precision engineering capabilities.",
+  },
+  {
+    icon: Map,
+    title: "Pan-India Reach",
+    description: "Serving clients across India with a robust supply network and reliable, on-time delivery of hydraulic spares.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Quality Assured",
+    description: "ISO 9001:2015 certified with rigorous quality control at every production stage. No compromises on standards.",
+  },
+  {
+    icon: Wrench,
+    title: "Specialized Solutions",
+    description: "Expert technical support for custom hydraulic parts matching OEM specifications for JCB, Terex, CAT and more.",
+  },
+];
+
+export default function WhyChooseUs() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section className="py-20 bg-white" ref={ref}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">Our Advantages</span>
+          <h2 className="text-4xl font-black text-[#111111] mb-4">Why Choose Teckon?</h2>
+          <p className="text-gray-500 max-w-2xl mx-auto">
+            With 25+ years in the hydraulic parts industry, Teckon stands apart through quality, reliability, and technical expertise.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {usps.map((usp, i) => {
+            const Icon = usp.icon;
+            return (
+              <motion.div
+                key={usp.title}
+                initial={{ opacity: 0, y: 40 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-teckon-blue transition-colors">
+                  <Icon size={22} className="text-teckon-blue group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="font-bold text-[#111111] mb-2">{usp.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{usp.description}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
