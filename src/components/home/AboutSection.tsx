@@ -10,7 +10,7 @@ export default function AboutSection() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-20 bg-gray-50" ref={ref}>
+    <section className="py-20 bg-[#0B0F19]" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image */}
@@ -44,15 +44,15 @@ export default function AboutSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">About Teckon</span>
-            <h2 className="text-4xl font-black text-[#111111] mb-2">
+            <h2 className="text-4xl font-black text-white mb-2">
               India&apos;s Trusted
-              <span className="block text-teckon-blue">Hydraulic Parts Leader</span>
+              <span className="block text-[#FFBE00]">Hydraulic Parts Leader</span>
             </h2>
             <div className="w-12 h-1.5 bg-[#FFBE00] rounded-full mb-6" />
-            <p className="text-gray-600 leading-relaxed mb-4">
+            <p className="text-slate-300 leading-relaxed mb-4">
               Teckon is a leading manufacturer and distributor of hydraulic parts and spares, established in 2000 under the parent company <strong>Shreeji Hydraulics</strong>. We specialize in high-quality hydraulic components for JCB, Terex, Caterpillar, L770, Tata JD, and other heavy machinery.
             </p>
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <p className="text-slate-300 leading-relaxed mb-6">
               We combine advanced engineering with stringent quality control to deliver world-class hydraulic parts for industrial applications across India. Our ISO 9001:2015 certification reflects our unwavering commitment to quality.
             </p>
 
@@ -63,16 +63,16 @@ export default function AboutSection() {
                 { icon: "✅", label: "ISO 9001:2015 Certified" },
                 { icon: "🔧", label: "5000+ SKUs in Stock" },
               ].map((item) => (
-                <div key={item.label} className="flex items-center gap-2 text-sm text-gray-700 font-medium">
-                  <span className="text-lg">{item.icon}</span>
-                  {item.label}
+                <div key={item.label} className="flex items-center gap-2.5 text-sm text-slate-200 font-medium bg-white/5 border border-white/10 rounded-xl p-3 shadow-inner">
+                  <span className="text-lg leading-none">{item.icon}</span>
+                  <span>{item.label}</span>
                 </div>
               ))}
             </div>
 
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 bg-teckon-blue text-white font-bold px-6 py-3 rounded-xl hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors"
+              className="inline-flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] font-black px-6 py-3 rounded-xl hover:bg-white hover:text-[#0B0F19] transition-colors shadow-lg"
             >
               Read More About Us →
             </Link>

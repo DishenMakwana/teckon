@@ -62,7 +62,7 @@ export default function Testimonials() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-20 bg-gray-50 overflow-hidden" ref={ref}>
+    <section className="py-20 bg-white overflow-hidden" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -104,7 +104,7 @@ export default function Testimonials() {
 
               return (
                 <SwiperSlide key={t.name} className="h-auto">
-                  <div className="group bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full min-h-[280px]">
+                  <div className="group bg-slate-50 rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100 hover:bg-white hover:border-gray-200 hover:shadow-xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full min-h-[280px]">
                     {/* Card Accent Top Line */}
                     <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#FFBE00] to-[#FF6B35] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
 
@@ -135,7 +135,7 @@ export default function Testimonials() {
                     </div>
 
                     {/* Decorative large quote mark */}
-                    <div className="absolute bottom-2 right-6 text-gray-100 pointer-events-none font-serif text-8xl select-none leading-none opacity-45 group-hover:text-[#FF6B35]/10 group-hover:opacity-60 transition-all duration-300">
+                    <div className="absolute bottom-2 right-6 text-slate-200 pointer-events-none font-serif text-8xl select-none leading-none opacity-45 group-hover:text-[#FF6B35]/10 group-hover:opacity-60 transition-all duration-300">
                       ”
                     </div>
                   </div>

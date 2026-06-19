@@ -17,7 +17,7 @@ export default function EventsPage() {
         <div className="absolute inset-0 opacity-10">
           <Image
             src="/images/events-tradeshow.png"
-            alt="Teckon industrial exhibition stall displaying high-quality hydraulic spare parts at a trade show"
+            alt="Industrial heavy machinery trade show showcasing hydraulic components"
             fill
             sizes="100vw"
             className="object-cover"
@@ -30,8 +30,8 @@ export default function EventsPage() {
             Events & Exhibitions
           </h1>
           <p className="text-white/70 text-xl max-w-2xl">
-            Teckon participates in major industry trade shows and exhibitions to
-            connect with clients and showcase our latest hydraulic parts range.
+            Our team visits and explores key automotive component and construction equipment expos
+            to stay updated on the latest hydraulic engineering advancements and build industry partnerships.
           </p>
         </div>
       </section>
@@ -52,7 +52,7 @@ export default function EventsPage() {
               Presence
             </span>
             <h2 className="text-4xl font-black text-[#111111]">
-              Our Exhibition Journey
+              Our Expo Journey
             </h2>
           </div>
 
@@ -92,10 +92,10 @@ export default function EventsPage() {
                   </div>
 
                   {/* Image placeholder */}
-                  <div className="md:w-5/12">
-                    <div className="relative h-36 rounded-xl overflow-hidden bg-gray-200">
+                  <div className="md:w-5/12 w-full">
+                    <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-gray-200">
                       <Image
-                        src="/images/events-tradeshow.png"
+                        src={event.image}
                         alt={event.name}
                         fill
                         sizes="(max-width: 768px) 100vw, 400px"
@@ -119,11 +119,11 @@ export default function EventsPage() {
       <section className="bg-[#FFBE00] py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black text-[#0B0F19] mb-4">
-            Meet Us at an Exhibition
+            Connect with Our Team
           </h2>
           <p className="text-[#0B0F19]/70 mb-8">
-            Contact us to schedule a meeting at an upcoming trade show or visit
-            our Rajkot facility.
+            Planning to attend an upcoming industry expo? Contact us to schedule a meeting
+            or arrange a visit to our Rajkot manufacturing facility.
           </p>
           <a
             href="mailto:shreejihyd4008@gmail.com"

@@ -127,9 +127,11 @@ export default function Navbar() {
 
           {/* Right actions */}
           <div className="flex items-center gap-2">
+            {/* 
             <button className="p-2 text-gray-600 hover:text-[#1E293B] hover:bg-gray-100 rounded-lg transition-colors" aria-label="Search">
               <Search size={18} />
             </button>
+            */}
             <Link
               href="/contact"
               className="hidden lg:flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] font-bold px-4 py-2 rounded-lg text-sm hover:bg-[#FF6B35] hover:text-white transition-colors"

@@ -40,7 +40,7 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1.5 rounded-full mb-4 md:mb-6 animate-pulse"
           >
-            🏭 ISO 9001:2015 Certified | Est. 2000 | Pan-India Coverage
+            🏭 ISO 9001:2015 Certified | Precision Engineered | Pan-India Coverage
           </motion.div>
 
           <motion.h1
@@ -108,7 +108,7 @@ export default function HomePage() {
             <span className="hidden sm:block text-white/20">|</span>
             <span>✅ CAT Components</span>
             <span className="hidden sm:block text-white/20">|</span>
-            <span>✅ 5000+ SKUs</span>
+            <span>✅ OEM Specifications</span>
           </motion.div>
         </div>
 

@@ -66,7 +66,7 @@ export default function QualityPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <BreadcrumbBar items={[{ label: "Quality" }]} />
           <h1 className="text-4xl sm:text-5xl font-black text-white mt-6 mb-4">
-            Precision. Performance. Perfection.
+            Precision, Performance, Perfection
           </h1>
           <p className="text-white/70 text-xl max-w-2xl">
             Teckon is ISO 9001:2015 certified, maintaining the highest standards across every stage of production. All hydraulic parts undergo rigorous testing to ensure reliability and durability.

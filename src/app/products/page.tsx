@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import SafeImage from "@/components/ui/SafeImage";
 import Link from "next/link";
@@ -18,8 +19,18 @@ const categories = [
   { id: "general", label: "General Hydraulics" },
 ];
 
-export default function ProductsPage() {
+function ProductsContent() {
+  const searchParams = useSearchParams();
+  const categoryQuery = searchParams.get("category");
   const [active, setActive] = useState("all");
+
+  useEffect(() => {
+    if (categoryQuery) {
+      setActive(categoryQuery);
+    } else {
+      setActive("all");
+    }
+  }, [categoryQuery]);
 
   const filtered = active === "all" ? PRODUCTS : PRODUCTS.filter((p) => p.category === active);
 
@@ -125,5 +136,18 @@ export default function ProductsPage() {
         </div>
       </section>
     </>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={
+      <div className="py-32 text-center text-gray-500">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-teckon-blue mx-auto mb-4"></div>
+        <p className="font-semibold text-lg text-teckon-blue">Loading products...</p>
+      </div>
+    }>
+      <ProductsContent />
+    </Suspense>
   );
 }

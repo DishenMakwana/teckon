@@ -2,16 +2,16 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { MessageCircle, Mail, Phone, MapPin } from "lucide-react";
+import { MessageCircle, Mail, Phone, MapPin, ChevronRight } from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className="bg-teckon-dark-blue text-white">
       {/* Main footer grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* Column 1: Brand */}
-          <div>
+          <div className="md:col-span-6 lg:col-span-4">
             <div className="flex items-center gap-2 mb-4">
               <div className="bg-[#FFBE00] text-[#0B0F19] px-3 py-1.5 rounded-lg font-black text-xl">TECKON</div>
             </div>
@@ -40,30 +40,30 @@ export default function Footer() {
             {/* Certifications & Badges */}
             <div className="flex items-center gap-4 mt-6">
               {/* ISO 9001 Badge */}
-              <div className="bg-white rounded-xl p-1 flex items-center justify-center h-14 w-14 shadow-md shrink-0 relative">
+              <div className="bg-white rounded-xl p-2 flex items-center justify-center h-32 w-32 shadow-md shrink-0 relative">
                 <Image
                   src="/images/iso-certified.png"
                   alt="ISO 9001:2015 Certified Logo"
                   fill
-                  sizes="56px"
-                  className="object-contain p-1"
+                  sizes="128px"
+                  className="object-contain p-2"
                 />
               </div>
               {/* Make in India Badge */}
-              <div className="bg-white rounded-xl p-1 flex items-center justify-center h-14 w-28 shadow-md shrink-0 relative">
+              <div className="bg-white rounded-xl p-2 flex items-center justify-center h-32 w-[204px] shadow-md shrink-0 relative">
                 <Image
                   src="/images/make-in-india.png"
                   alt="Make in India Logo"
                   fill
-                  sizes="112px"
-                  className="object-contain p-1"
+                  sizes="204px"
+                  className="object-contain p-2"
                 />
               </div>
             </div>
           </div>
 
           {/* Column 2: Quick Links */}
-          <div>
+          <div className="md:col-span-6 lg:col-span-2">
             <h3 className="font-bold text-[#FFBE00] mb-4 uppercase tracking-wider text-xs">Quick Links</h3>
             <ul className="flex flex-col gap-2">
               {[
@@ -77,14 +77,19 @@ export default function Footer() {
                 { name: "Contact Us", href: "/contact" },
               ].map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-white/70 text-sm hover:text-[#FFBE00] transition-colors">→ {link.name}</Link>
+                  <Link href={link.href} className="group flex items-center gap-1.5 text-white/70 text-sm hover:text-[#FFBE00] transition-colors">
+                    <ChevronRight size={12} className="text-[#FFBE00]/40 group-hover:text-[#FFBE00] group-hover:translate-x-0.5 transition-all duration-200 shrink-0" />
+                    <span className="group-hover:translate-x-1 transition-transform duration-200">
+                      {link.name}
+                    </span>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Column 3: Products */}
-          <div>
+          <div className="md:col-span-6 lg:col-span-3">
             <h3 className="font-bold text-[#FFBE00] mb-4 uppercase tracking-wider text-xs">Product Range</h3>
             <ul className="flex flex-col gap-2">
               {[
@@ -97,14 +102,19 @@ export default function Footer() {
                 { name: "General Hydraulics", href: "/products?category=general" },
               ].map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-white/70 text-sm hover:text-[#FFBE00] transition-colors">→ {link.name}</Link>
+                  <Link href={link.href} className="group flex items-center gap-1.5 text-white/70 text-sm hover:text-[#FFBE00] transition-colors">
+                    <ChevronRight size={12} className="text-[#FFBE00]/40 group-hover:text-[#FFBE00] group-hover:translate-x-0.5 transition-all duration-200 shrink-0" />
+                    <span className="group-hover:translate-x-1 transition-transform duration-200">
+                      {link.name}
+                    </span>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Column 4: Contact */}
-          <div>
+          <div className="md:col-span-6 lg:col-span-3">
             <h3 className="font-bold text-[#FFBE00] mb-4 uppercase tracking-wider text-xs">Contact Us</h3>
             <ul className="flex flex-col gap-3">
               <li className="flex items-start gap-2 text-sm text-white/70">
