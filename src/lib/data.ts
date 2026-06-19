@@ -200,6 +200,74 @@ A disciplined maintenance schedule, combined with genuine quality spare parts fr
     `,
   },
   {
+    slug: "hitachi-excavator-hydraulic-pump-guide",
+    title: "Hitachi Excavator Hydraulics: EX200 & Zaxis Troubleshooting",
+    excerpt: "Learn how to diagnose common hydraulic pump failures, maintain pressure levels, and choose the right spare parts for Hitachi EX200 and Zaxis excavators.",
+    date: "2025-03-01",
+    author: "Alpesh Patel",
+    category: "Hitachi Spares",
+    image: "/images/product-excavator.png",
+    content: `
+## Introduction
+Hitachi excavators, especially the legendary EX200 and the modern Zaxis series, are renowned for their speed and heavy digging capabilities. The secret behind this efficiency lies in their high-pressure main hydraulic pumps. Keeping these pumps running smoothly requires technical expertise and high-quality replacement spares.
+
+## 1. Common Hydraulic Pump Failure Indicators
+Before a main pump fails completely, it usually displays warning signs that operators and fleet managers should look out for:
+- **Abnormal Noise:** High-pitched whining or grinding noises often point to aeration (air in the fluid) or cavitation, which can destroy the piston shoes and cylinder block.
+- **Drift in Hydraulic Speed:** If boom or bucket operations become sluggish under load, it indicates internal pump leakage or a failing regulator.
+- **Excessive Oil Heat:** When pump components wear out, internal bypass oil increases, generating friction and spiking the hydraulic oil temperature.
+
+## 2. Main Pump Regulators and Adjustment
+The Hitachi EX200 series uses dual variable displacement axial piston pumps. Troubleshooting often involves inspecting the regulators, which control the pump's displacement based on system pressure:
+- Check the servo valves for sticky movement or dirt accumulation.
+- Ensure the solenoid valves (like the SG or High-Pressure Solenoid) are responding to electrical commands from the controller.
+- Measure control pressures (pilot pressure) to ensure they are at the standard 39 bar.
+
+## 3. Selecting Quality Replacement Spares
+When rebuilding a Hitachi pump (such as the HPV102 or HPV118 series), using premium spares is critical:
+- **Piston Shoe & Cylinder Block:** Must be manufactured from high-tensile brass and hardened steel to withstand pressures up to 34.3 MPa.
+- **Valve Plate & Retainer Plate:** Flatness must be within microns to prevent high-pressure oil bypassing.
+- **Regulator Valves:** Spring tensions and spool clearances must match original specs exactly.
+
+## Conclusion
+Preventative maintenance and early troubleshooting of Hitachi hydraulic pumps can save lakhs in repair costs. When parts replacement becomes necessary, choosing Teckon's premium spares ensures OEM-level reliability.
+    `,
+  },
+  {
+    slug: "jcb-gear-pumps-vs-piston-pumps",
+    title: "JCB 3CX Hydraulics: Gear Pumps vs Piston Pumps Guide",
+    excerpt: "An in-depth technical comparison comparing gear pumps and piston pumps in JCB 3CX loaders, and how to identify which pump spares your machine needs.",
+    date: "2025-02-25",
+    author: "Teckon Technical Team",
+    category: "JCB Spares",
+    image: "/images/product-jcb.png",
+    content: `
+## Introduction
+The JCB 3CX backhoe loader is the backbone of Indian construction. Over the years, JCB has utilized different hydraulic pump architectures to power the loader and backhoe cylinders. For maintenance crews and parts buyers, understanding the difference between Gear Pumps and Variable Displacement Piston Pumps is essential.
+
+## 1. Gear Pumps (Fixed Displacement)
+Most classic JCB 3CX models utilize tandem or triple gear pumps. These are fixed displacement pumps, meaning they deliver a constant volume of oil per engine revolution:
+- **Design:** Robust, simple, and highly resistant to contamination.
+- **Operation:** High flow rates but lower efficiency under varying load conditions, as excess flow is bypassed back to the reservoir via relief valves.
+- **Signs of Wear:** Internal housing wear or side-plate wear leading to low pressure when the oil heats up.
+
+## 2. Piston Pumps (Variable Displacement)
+Modern and eco-friendly JCB models feature axial piston pumps with load-sensing regulators (often manufactured by Rexroth or Parker):
+- **Design:** Complex design with swashplates, pistons, and dynamic controllers.
+- **Operation:** Only pumps the exact amount of oil required by the control valves. This reduces engine load, saves fuel (up to 15%), and reduces hydraulic heat generation.
+- **Signs of Wear:** Cylinder block scoring, piston play, or regulator feedback issues.
+
+## 3. Maintenance and Spares Checklist
+Whether your JCB 3CX runs a gear pump or a piston pump, keep these tips in mind:
+- **Suction Strainers:** Always replace the hydraulic tank suction strainer when replacing a pump. A clogged strainer causes cavitation and immediately ruins a new pump.
+- **Drive Splines:** Inspect the pump drive shaft and engine flywheel coupling splines. Worn splines will strip, leaving the machine powerless.
+- **Relief Valve Setting:** After pump installation, calibrate the main relief valve pressure according to JCB specs (usually 250 bar for backhoe circuits).
+
+## Conclusion
+Identify your JCB's pump model code (e.g., 20/925345 or 20/925580) before ordering parts. At Shreeji Hydraulics, we provide premium-grade replacements for both gear and piston pump architectures.
+    `,
+  },
+  {
     slug: "jcb-vs-cat-hydraulics",
     title: "JCB vs CAT Hydraulic Systems: What You Need to Know",
     excerpt: "A technical comparison of JCB and Caterpillar hydraulic architectures, and why using the right spares matters for each platform.",
@@ -225,6 +293,70 @@ Using substandard replacement hydraulic parts can void warranties, cause prematu
 
 ## Conclusion
 Understanding your specific machine's hydraulic architecture helps you make better maintenance decisions. Our technical team is always available to help identify the right part for your equipment.
+    `,
+  },
+  {
+    slug: "hitachi-swing-motor-maintenance",
+    title: "Guide to Hitachi Swing Motor & Final Drive Maintenance",
+    excerpt: "How to prevent swing motor leaks, troubleshoot gear noise, and inspect track adjusters on Hitachi excavators to avoid costly downtime.",
+    date: "2025-02-14",
+    author: "JC Patel",
+    category: "Hitachi Spares",
+    image: "/images/product-excavator.png",
+    content: `
+## Introduction
+Excavator swing motors and final drives work under immense stress. Slew movements and constant track travel wear down gears, bearings, and hydraulic motors. In Hitachi excavators (such as the Zaxis 200, 210, and 220), keeping the swing and travel devices in pristine condition is paramount to preventing catastrophic gear failures.
+
+## 1. Swing Motor Troubleshooting
+The swing motor rotates the excavator's upper structure. Common issues include:
+- **Swing Drift:** When you release the swing joy-stick, the structure continues to rotate. This is usually caused by worn swing brake disks or faulty relief valves inside the motor head.
+- **Oil Mixing:** Hydraulic oil leaking into the swing gearbox (or vice versa). This is caused by a failure of the main shaft oil seal. If ignored, the hydraulic oil dilutes the gear lube, causing complete gear destruction.
+
+## 2. Final Drive & Travel Motor Spares
+The travel device (final drive) includes a hydraulic motor connected to a planetary gearbox that drives the track sprocket:
+- **Duo-Cone Floating Seals:** These seals protect the final drive gears from mud, dust, and water ingress. If you see oil leaking from the inside of the track sprocket, replace the floating seal immediately.
+- **Planetary Gears:** Inspect gear teeth for pitting or chipping. Even a single damaged tooth can lock up the entire gearbox, breaking the casing.
+
+## 3. Track Adjusters and Tensioners
+A loose or overly tight track causes excessive wear on bottom rollers, carrier rollers, and sprockets:
+- **Tension Cylinder:** Uses grease pressure to push the idler forward. If the seal inside the cylinder fails, it won't hold tension.
+- **Recoil Springs:** Ensure the heavy coil springs are free of cracks and properly aligned.
+
+## Conclusion
+Keep the gear oils changed every 1000 hours, and visually inspect for seal leaks daily. Shreeji Hydraulics stocks a complete range of swing motor gear shafts, planetary gears, bearings, and duo-cone seals for Hitachi excavators.
+    `,
+  },
+  {
+    slug: "jcb-cylinder-seal-kits-guide",
+    title: "JCB Cylinder Seal Kits: How to Prevent Hydraulic Leakage",
+    excerpt: "Understanding seal kit wear, choosing between polyurethane and NBR seals, and step-by-step instructions for replacing boom and bucket cylinder seals on JCB equipment.",
+    date: "2025-01-28",
+    author: "Teckon Quality Team",
+    category: "JCB Spares",
+    image: "/images/product-jcb.png",
+    content: `
+## Introduction
+External oil leaks on hydraulic cylinders are not only messy and expensive, but they also reduce operating pressure and allow contaminants to enter the hydraulic system. For JCB backhoes and loaders, cylinder seal kit maintenance is the most common routine repair. Here is how to do it right.
+
+## 1. Anatomy of a Hydraulic Cylinder Seal Kit
+A heavy-duty cylinder seal kit consists of several distinct seals, each with a specific function:
+- **Rod Seal (U-Cup):** Prevents oil from escaping past the cylinder rod as it strokes.
+- **Buffer Seal:** Installed in front of the rod seal, it absorbs pressure spikes and protects the main rod seal.
+- **Wiper Seal (Dust Seal):** Scrapes dirt, mud, and ice off the rod as it retracts, keeping contaminants out.
+- **Piston Seals:** Double-acting seals that separate the piston side from the rod side inside the cylinder barrel, ensuring pressure holds.
+- **Wear Rings (Guide Rings):** Prevent metal-to-metal contact between the rod/piston and the cylinder body.
+
+## 2. Polyurethane vs. NBR (Nitrile) Seals
+- **Polyurethane (PU):** Offers superior tear resistance, high extrusion resistance, and long life under high pressure. Ideal for the main rod and piston seals.
+- **NBR/Rubber:** Excellent elasticity and sealability at low pressures, commonly used for static O-rings and backup rings.
+
+## 3. Step-by-Step Replacement Tips
+- **Inspect the Rod:** Run your hand along the chrome-plated rod. If you feel any nicks, burrs, or deep scratches, the new seals will be sliced and leak within days. Polish or replace the rod first.
+- **Use Installation Tools:** Never use sharp screwdrivers to seat U-cup seals; you will damage the sealing lip. Use plastic seal twisters or hooks.
+- **Match Seal Dimensions:** Even slightly off-size seals will fail. Always verify the cylinder model (e.g. Boom, Bucket, Dipper, Stabilizer, or Steering cylinder) to get the exact matching Teckon kit.
+
+## Conclusion
+By replacing worn seal kits proactively, you prevent cylinder barrel scoring and maintain full digging power. Teckon seal kits are made from premium imported raw materials to match or exceed OEM longevity.
     `,
   },
   {

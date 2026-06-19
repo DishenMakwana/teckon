@@ -44,7 +44,7 @@ export default function StatsStrip() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           <Counter end={25} suffix="+" label="Years of Experience" />
-          <Counter end={100} suffix="+" label="Countries Served" />
+          <Counter end={10} suffix="+" label="States Served" />
           <Counter end={5000} suffix="+" label="Products in Stock" />
           <Counter end={99} suffix="%" label="Client Satisfaction" />
         </div>

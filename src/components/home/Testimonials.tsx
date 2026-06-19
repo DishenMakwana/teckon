@@ -3,6 +3,11 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Star } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const testimonials = [
   {
@@ -23,6 +28,33 @@ const testimonials = [
     quote: "We've been sourcing CAT 424 hydraulic components from Teckon for 3 years. Their pricing is competitive and the parts match OEM specifications perfectly. Highly recommended.",
     rating: 5,
   },
+  {
+    name: "Vikram Singh",
+    company: "Singh Mining & Earthmovers, Udaipur",
+    quote: "The Hitachi EX200 hydraulic pump spares we bought from Teckon have outperformed any other aftermarket spares we tried. Pressure stands solid at 350 bar under heavy load.",
+    rating: 5,
+  },
+  {
+    name: "Aniket Shinde",
+    company: "Shinde Excavations, Nashik",
+    quote: "Incredibly durable hydraulic seals and cylinder kits for our JCB 3CX fleet. We've experienced zero oil leakage since switching to Teckon's parts. Extremely satisfied!",
+    rating: 5,
+  },
+  {
+    name: "Devendra Rathore",
+    company: "Rathore Roadworks, Indore",
+    quote: "Their final drive motors and swing motor parts for Hitachi Zaxis-120 excavators are top-tier. Sourced multiple parts and all fit perfectly. Pricing is very competitive.",
+    rating: 5,
+  },
+];
+
+const gradients = [
+  "from-[#FF6B35] to-[#FFBE00]",
+  "from-[#1E293B] to-[#0B0F19]",
+  "from-[#3B82F6] to-[#1D4ED8]",
+  "from-[#10B981] to-[#047857]",
+  "from-[#8B5CF6] to-[#6D28D9]",
+  "from-[#EC4899] to-[#BE185D]"
 ];
 
 export default function Testimonials() {
@@ -30,7 +62,7 @@ export default function Testimonials() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-20 bg-gray-50" ref={ref}>
+    <section className="py-20 bg-gray-50 overflow-hidden" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -40,29 +72,78 @@ export default function Testimonials() {
         >
           <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">Client Feedback</span>
           <h2 className="text-4xl font-black text-[#111111] mb-4">What Our Clients Say</h2>
+          <p className="text-gray-500 max-w-2xl mx-auto">
+            Read stories from contractors and fleet operators across India who trust Teckon for their heavy machinery hydraulic spares.
+          </p>
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={t.name}
-              initial={{ opacity: 0, y: 40 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
-            >
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: t.rating }).map((_, j) => (
-                  <Star key={j} size={16} className="text-[#FFBE00] fill-[#FFBE00]" />
-                ))}
-              </div>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4 italic">&ldquo;{t.quote}&rdquo;</p>
-              <div>
-                <div className="font-bold text-[#111111] text-sm">{t.name}</div>
-                <div className="text-gray-400 text-xs">{t.company}</div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
+          <Swiper
+            modules={[Autoplay, Navigation, Pagination]}
+            spaceBetween={24}
+            slidesPerView={1}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            navigation
+            pagination={{ clickable: true }}
+            breakpoints={{
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="pb-16 testimonial-swiper"
+          >
+            {testimonials.map((t, i) => {
+              const initials = t.name
+                .split(" ")
+                .map((n) => n[0])
+                .join("");
+              const gradient = gradients[i % gradients.length];
+
+              return (
+                <SwiperSlide key={t.name} className="h-auto">
+                  <div className="group bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full min-h-[280px]">
+                    {/* Card Accent Top Line */}
+                    <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#FFBE00] to-[#FF6B35] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+
+                    <div>
+                      {/* Header with Avatar and Reviewer Info */}
+                      <div className="flex items-center gap-4 mb-5">
+                        {/* Initial Avatar */}
+                        <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${gradient} text-white flex items-center justify-center font-black text-sm shadow-md shrink-0 select-none`}>
+                          {initials}
+                        </div>
+                        <div>
+                          <h4 className="font-extrabold text-[#0B0F19] text-base leading-snug group-hover:text-[#FF6B35] transition-colors">{t.name}</h4>
+                          <span className="text-gray-500 text-xs font-semibold block mt-0.5">{t.company}</span>
+                        </div>
+                      </div>
+
+                      {/* Star Rating - prominent position */}
+                      <div className="flex gap-1 mb-4">
+                        {Array.from({ length: t.rating }).map((_, j) => (
+                          <Star key={j} size={15} className="text-[#FFBE00] fill-[#FFBE00]" />
+                        ))}
+                      </div>
+
+                      {/* Quote */}
+                      <p className="text-gray-600 text-sm leading-relaxed italic relative z-10">
+                        &ldquo;{t.quote}&rdquo;
+                      </p>
+                    </div>
+
+                    {/* Decorative large quote mark */}
+                    <div className="absolute bottom-2 right-6 text-gray-100 pointer-events-none font-serif text-8xl select-none leading-none opacity-45 group-hover:text-[#FF6B35]/10 group-hover:opacity-60 transition-all duration-300">
+                      ”
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </motion.div>
       </div>
     </section>
   );

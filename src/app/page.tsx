@@ -10,6 +10,7 @@ import WhyChooseUs from "@/components/home/WhyChooseUs";
 import PartnersMarquee from "@/components/home/PartnersMarquee";
 import GlobalPresence from "@/components/home/GlobalPresence";
 import Testimonials from "@/components/home/Testimonials";
+import BlogSection from "@/components/home/BlogSection";
 
 export default function HomePage() {
   return (
@@ -130,6 +131,7 @@ export default function HomePage() {
       <PartnersMarquee />
       <GlobalPresence />
       <Testimonials />
+      <BlogSection />
 
       {/* CTA Banner */}
       <section className="bg-[#FFBE00] py-16">

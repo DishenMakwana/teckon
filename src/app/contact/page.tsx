@@ -57,7 +57,7 @@ export default function ContactPage() {
                 icon: MapPin,
                 title: "Address",
                 content: "36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat 360004",
-                href: "https://maps.google.com/?q=36-C+Bhaktinagar+Gondal+Road+Rajkot+Gujarat",
+                href: "https://maps.app.goo.gl/uxAsDhUD7DvfASts8",
               },
               {
                 icon: Phone,
@@ -234,14 +234,14 @@ export default function ContactPage() {
               {/* Google Maps Embed */}
               <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.2832068870337!2d70.76843737503655!3d22.284792279712697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959ca6c6a3c91c3%3A0x8c6d3adb33e12d8b!2sBhaktinagar%2C%20Rajkot%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.442907409264!2d70.79357007503632!3d22.27978987969395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959cb00052e5469%3A0xd14f057e5cdfa24e!2sSHREEJI%20HYDRAULICS%20(TECKON)!5e0!3m2!1sen!2sin!4v1718800000000!5m2!1sen!2sin"
                   width="100%"
                   height="350"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Teckon Shreeji Hydraulics Location — Bhaktinagar, Rajkot, Gujarat"
+                  title="Teckon Shreeji Hydraulics Location — Gondal Road, Rajkot, Gujarat"
                 />
               </div>
             </div>
