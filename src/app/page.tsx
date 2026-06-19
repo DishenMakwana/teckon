@@ -15,7 +15,7 @@ import BlogSection from "@/components/home/BlogSection";
 export default function HomePage() {
   return (
     <>
-      <section className="relative h-[100dvh] md:h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[calc(100dvh-144px)] sm:min-h-[calc(100dvh-104px)] md:min-h-[calc(100vh-104px)] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -33,7 +33,7 @@ export default function HomePage() {
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FFBE00] via-[#FF6B35] to-[#FFBE00] z-10" />
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-10 md:py-24 flex flex-col justify-center items-center h-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-8 md:py-12 flex flex-col justify-center items-center h-full">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -111,17 +111,6 @@ export default function HomePage() {
             <span>✅ OEM Specifications</span>
           </motion.div>
         </div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-          className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-10"
-        >
-          <div className="w-5 h-8 md:w-6 md:h-10 border-2 border-white/40 rounded-full flex items-start justify-center p-1 md:p-1.5">
-            <div className="w-1 md:w-1.5 h-1.5 md:h-2 bg-white/60 rounded-full" />
-          </div>
-        </motion.div>
       </section>
 
       <StatsStrip />
