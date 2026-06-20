@@ -4,9 +4,9 @@ import Image from "next/image";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 
 export const metadata: Metadata = {
-  title: "Careers | Teckon Quality Spares",
+  title: "Careers | Teckon™ Quality Spares",
   description:
-    "Join the Teckon team. We're looking for talented individuals passionate about hydraulic engineering and manufacturing excellence.",
+    "Join the Teckon™ team. We're looking for talented individuals passionate about hydraulic engineering and manufacturing excellence.",
 };
 
 const cultureValues = [
@@ -25,7 +25,7 @@ export default function CareersPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <BreadcrumbBar items={[{ label: "Careers" }]} />
-          <h1 className="text-4xl sm:text-5xl font-black text-white mt-6 mb-4">Join the Teckon Team</h1>
+          <h1 className="text-4xl sm:text-5xl font-black text-white mt-6 mb-4">Join the Teckon™ Team</h1>
           <p className="text-white/70 text-xl max-w-2xl">
             Be part of India&apos;s leading hydraulic parts company. We&apos;re always looking for talented individuals who share our passion for quality and excellence.
           </p>
@@ -36,7 +36,7 @@ export default function CareersPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">Life at Teckon</span>
+            <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">Life at Teckon™</span>
             <h2 className="text-4xl font-black text-[#111111]">Our Culture</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -65,7 +65,7 @@ export default function CareersPage() {
               Click the button below to email your resume and experience details directly to <strong className="text-[#FFBE00]">shreejihyd4008@gmail.com</strong>. We will review your profile and get back to you if there is a matching opportunity.
             </p>
             <a
-              href="mailto:shreejihyd4008@gmail.com?subject=Resume%20Submission%20—%20Teckon%20Quality%20Spares"
+              href="mailto:shreejihyd4008@gmail.com?subject=Resume%20Submission%20—%20Teckon%E2%84%A2%20Quality%20Spares"
               className="inline-flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] font-bold px-8 py-4 rounded-xl hover:bg-white hover:text-teckon-blue transition-colors text-base shadow-md"
             >
               📧 Send Your Resume

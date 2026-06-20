@@ -4,9 +4,9 @@ import Link from "next/link";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 
 export const metadata: Metadata = {
-  title: "About Us — Teckon Quality Spares | Shreeji Hydraulics",
+  title: "About Us — Teckon™ Quality Spares | Shreeji Hydraulics",
   description:
-    "Learn about Teckon (Shreeji Hydraulics), established in 2000 in Rajkot, Gujarat. Meet our founders Mr. Alpesh Patel and Mr. J.C. Patel and discover our vision and values.",
+    "Learn about Teckon™ (Shreeji Hydraulics), established in 2000 in Rajkot, Gujarat. Meet our founders Mr. Alpesh Patel and Mr. J.C. Patel and discover our vision and values.",
 };
 
 const pillars = [
@@ -45,7 +45,7 @@ export default function AboutPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <BreadcrumbBar items={[{ label: "About Us" }]} />
-          <h1 className="text-4xl sm:text-5xl font-black text-white mt-6 mb-4">About Teckon</h1>
+          <h1 className="text-4xl sm:text-5xl font-black text-white mt-6 mb-4">About Teckon™</h1>
           <p className="text-white/70 text-xl max-w-2xl">
             Over 25 years of delivering premium hydraulic parts and spares across India and beyond.
           </p>
@@ -93,10 +93,10 @@ export default function AboutPage() {
                 📞 +91-94262 02945
               </a>
               <p className="text-gray-600 leading-relaxed mb-4">
-                As Co-Founder, Mr. J.C. Patel brings extensive expertise in hydraulic engineering and supply chain management. His technical knowledge and industry relationships have been instrumental in establishing Teckon&apos;s reputation for quality and reliability.
+                As Co-Founder, Mr. J.C. Patel brings extensive expertise in hydraulic engineering and supply chain management. His technical knowledge and industry relationships have been instrumental in establishing Teckon™&apos;s reputation for quality and reliability.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                With decades of experience in the hydraulic parts industry, Mr. J.C. Patel continues to guide product development and quality assurance, ensuring every Teckon part meets the highest standards of performance.
+                With decades of experience in the hydraulic parts industry, Mr. J.C. Patel continues to guide product development and quality assurance, ensuring every Teckon™ part meets the highest standards of performance.
               </p>
             </div>
           </div>
@@ -115,10 +115,10 @@ export default function AboutPage() {
                 📞 +91-94269 15578
               </a>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Co-Founder and driving force behind Teckon&apos;s growth, Mr. Alpesh Patel has over 25 years of experience in hydraulic parts distribution and manufacturing. With a deep understanding of the construction equipment industry, he has built Teckon into a trusted name for hydraulic spares across India.
+                Co-Founder and driving force behind Teckon™&apos;s growth, Mr. Alpesh Patel has over 25 years of experience in hydraulic parts distribution and manufacturing. With a deep understanding of the construction equipment industry, he has built Teckon™ into a trusted name for hydraulic spares across India.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Under his leadership, Teckon has expanded from a local distributor in Rajkot to a company with nationwide reach, earning ISO 9001:2015 certification and the trust of major equipment operators.
+                Under his leadership, Teckon™ has expanded from a local distributor in Rajkot to a company with nationwide reach, earning ISO 9001:2015 certification and the trust of major equipment operators.
               </p>
             </div>
           </div>
@@ -171,10 +171,10 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-16 bg-[#FFBE00]">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-black text-[#0B0F19] mb-4">Ready to Partner with Teckon?</h2>
+          <h2 className="text-3xl font-black text-[#0B0F19] mb-4">Ready to Partner with Teckon™?</h2>
           <p className="text-[#0B0F19]/70 mb-8">Contact our team today for a quick quote on hydraulic spares for your equipment.</p>
           <Link href="/contact" className="inline-block bg-[#111111] text-white font-bold px-8 py-4 rounded-xl hover:bg-teckon-blue transition-colors">
-            Get in Touch →
+            Get in Touch
           </Link>
         </div>
       </section>

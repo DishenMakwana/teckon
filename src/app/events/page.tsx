@@ -4,9 +4,9 @@ import BreadcrumbBar from '@/components/ui/BreadcrumbBar';
 import { EVENTS } from '@/lib/data';
 
 export const metadata: Metadata = {
-  title: 'Events & Exhibitions | Teckon Quality Spares',
+  title: 'Events & Exhibitions | Teckon™ Quality Spares',
   description:
-    "Teckon's presence at major construction equipment trade shows and exhibitions across India.",
+    "Teckon™'s presence at major construction equipment trade shows and exhibitions across India.",
 };
 
 export default function EventsPage() {
@@ -129,7 +129,7 @@ export default function EventsPage() {
           <a
             href="mailto:shreejihyd4008@gmail.com"
             className="inline-block bg-[#111111] text-white font-bold px-8 py-4 rounded-xl hover:bg-teckon-blue transition-colors">
-            Schedule a Meeting →
+            Schedule a Meeting
           </a>
         </div>
       </section>

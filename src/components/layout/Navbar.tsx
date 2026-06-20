@@ -56,7 +56,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <div className="bg-[#1E293B] text-white px-3 py-1.5 rounded-lg font-black text-lg tracking-wide group-hover:bg-[#FFBE00] group-hover:text-[#0B0F19] transition-colors">
-              TECKON
+              TECKON™
             </div>
             <div className="hidden sm:block">
               <div className="text-[#1E293B] font-bold text-sm leading-tight">Quality Spares</div>
@@ -168,7 +168,7 @@ export default function Navbar() {
               className="fixed right-0 top-0 h-full w-80 bg-white shadow-2xl z-50 lg:hidden overflow-y-auto"
             >
               <div className="p-4 border-b border-gray-100 flex items-center justify-between">
-                <div className="bg-[#1E293B] text-white px-3 py-1.5 rounded-lg font-black text-lg">TECKON</div>
+                <div className="bg-[#1E293B] text-white px-3 py-1.5 rounded-lg font-black text-lg">TECKON™</div>
                 <button onClick={() => setMobileOpen(false)} className="p-2 hover:bg-gray-100 rounded-lg">
                   <X size={20} />
                 </button>

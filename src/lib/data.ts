@@ -2,9 +2,9 @@
 
 export const COMPANY = {
   name: "Shreeji Hydraulics",
-  brand: "Teckon",
-  brandFull: "Teckon Quality Spares",
-  tagline: "Premium Hydraulic Parts & Spares for Heavy Machinery",
+  brand: "Teckon™",
+  brandFull: "Teckon™ Quality Spares",
+  tagline: "Quality Spares",
   founded: 2000,
   email: "shreejihyd4008@gmail.com",
   phones: {
@@ -167,7 +167,7 @@ export const BLOG_POSTS = [
     title: "The Complete Guide to Hydraulic System Maintenance",
     excerpt: "Proper maintenance of hydraulic systems can extend equipment life by up to 40%. Learn the critical checkpoints every operator should know.",
     date: "2025-03-15",
-    author: "Teckon Technical Team",
+    author: "Teckon™ Technical Team",
     category: "Maintenance",
     image: "/images/blog-hydraulics.png",
     content: `
@@ -196,7 +196,7 @@ Hydraulic cylinder rods should be inspected for:
 Annual pressure testing by qualified technicians ensures your system operates within design specifications. Pressure drops indicate seal wear or internal leakage.
 
 ## Conclusion
-A disciplined maintenance schedule, combined with genuine quality spare parts from certified suppliers like Teckon, will significantly reduce downtime and total ownership cost.
+A disciplined maintenance schedule, combined with genuine quality spare parts from certified suppliers like Teckon™, will significantly reduce downtime and total ownership cost.
     `,
   },
   {
@@ -230,7 +230,7 @@ When rebuilding a Hitachi pump (such as the HPV102 or HPV118 series), using prem
 - **Regulator Valves:** Spring tensions and spool clearances must match original specs exactly.
 
 ## Conclusion
-Preventative maintenance and early troubleshooting of Hitachi hydraulic pumps can save lakhs in repair costs. When parts replacement becomes necessary, choosing Teckon's premium spares ensures OEM-level reliability.
+Preventative maintenance and early troubleshooting of Hitachi hydraulic pumps can save lakhs in repair costs. When parts replacement becomes necessary, choosing Teckon™'s premium spares ensures OEM-level reliability.
     `,
   },
   {
@@ -238,7 +238,7 @@ Preventative maintenance and early troubleshooting of Hitachi hydraulic pumps ca
     title: "JCB 3CX Hydraulics: Gear Pumps vs Piston Pumps Guide",
     excerpt: "An in-depth technical comparison comparing gear pumps and piston pumps in JCB 3CX loaders, and how to identify which pump spares your machine needs.",
     date: "2025-02-25",
-    author: "Teckon Technical Team",
+    author: "Teckon™ Technical Team",
     category: "JCB Spares",
     image: "/images/product-jcb.png",
     content: `
@@ -289,7 +289,7 @@ JCB uses a load-sensing variable displacement piston pump system on their JS ser
 Caterpillar equipment generally employs a more complex electro-hydraulic control system on newer models, while older machines like the CAT 424B use conventional open-center hydraulic circuits.
 
 ## Why Original-Quality Spares Matter
-Using substandard replacement hydraulic parts can void warranties, cause premature failure, and in the worst case, create safety hazards. Teckon sources all parts to OEM specifications, ensuring fit, form, and function equivalence.
+Using substandard replacement hydraulic parts can void warranties, cause premature failure, and in the worst case, create safety hazards. Teckon™ sources all parts to OEM specifications, ensuring fit, form, and function equivalence.
 
 ## Conclusion
 Understanding your specific machine's hydraulic architecture helps you make better maintenance decisions. Our technical team is always available to help identify the right part for your equipment.
@@ -331,7 +331,7 @@ Keep the gear oils changed every 1000 hours, and visually inspect for seal leaks
     title: "JCB Cylinder Seal Kits: How to Prevent Hydraulic Leakage",
     excerpt: "Understanding seal kit wear, choosing between polyurethane and NBR seals, and step-by-step instructions for replacing boom and bucket cylinder seals on JCB equipment.",
     date: "2025-01-28",
-    author: "Teckon Quality Team",
+    author: "Teckon™ Quality Team",
     category: "JCB Spares",
     image: "/images/product-jcb.png",
     content: `
@@ -353,23 +353,23 @@ A heavy-duty cylinder seal kit consists of several distinct seals, each with a s
 ## 3. Step-by-Step Replacement Tips
 - **Inspect the Rod:** Run your hand along the chrome-plated rod. If you feel any nicks, burrs, or deep scratches, the new seals will be sliced and leak within days. Polish or replace the rod first.
 - **Use Installation Tools:** Never use sharp screwdrivers to seat U-cup seals; you will damage the sealing lip. Use plastic seal twisters or hooks.
-- **Match Seal Dimensions:** Even slightly off-size seals will fail. Always verify the cylinder model (e.g. Boom, Bucket, Dipper, Stabilizer, or Steering cylinder) to get the exact matching Teckon kit.
+- **Match Seal Dimensions:** Even slightly off-size seals will fail. Always verify the cylinder model (e.g. Boom, Bucket, Dipper, Stabilizer, or Steering cylinder) to get the exact matching Teckon™ kit.
 
 ## Conclusion
-By replacing worn seal kits proactively, you prevent cylinder barrel scoring and maintain full digging power. Teckon seal kits are made from premium imported raw materials to match or exceed OEM longevity.
+By replacing worn seal kits proactively, you prevent cylinder barrel scoring and maintain full digging power. Teckon™ seal kits are made from premium imported raw materials to match or exceed OEM longevity.
     `,
   },
   {
     slug: "teckon-expansion-2025",
-    title: "Teckon Expands Pan-India Distribution Network in 2025",
+    title: "Teckon™ Expands Pan-India Distribution Network in 2025",
     excerpt: "Shreeji Hydraulics strengthens its presence across Gujarat, Rajasthan, Maharashtra and Madhya Pradesh with new distribution partnerships.",
     date: "2025-01-20",
-    author: "Teckon Team",
+    author: "Teckon™ Team",
     category: "Company News",
     image: "/images/about-factory.png",
     content: `
 ## Exciting Expansion News
-We are proud to announce that Teckon Quality Spares has significantly expanded its distribution network across India, making it easier than ever for equipment operators and dealers to access genuine hydraulic spare parts quickly.
+We are proud to announce that Teckon™ Quality Spares has significantly expanded its distribution network across India, making it easier than ever for equipment operators and dealers to access genuine hydraulic spare parts quickly.
 
 ## New Distribution Hubs
 In 2025, we have established new distribution partnerships in:
@@ -381,7 +381,7 @@ In 2025, we have established new distribution partnerships in:
 With these new hubs, we can now guarantee 24-48 hour delivery across major cities in Gujarat, Rajasthan, Maharashtra, and Madhya Pradesh for stocked items.
 
 ## Looking Ahead
-We continue to invest in our inventory, quality systems, and people to serve our growing customer base. With over 5000 SKUs in stock and ISO 9001:2015 certification, Teckon remains committed to being your most reliable hydraulic parts partner.
+We continue to invest in our inventory, quality systems, and people to serve our growing customer base. With over 5000 SKUs in stock and ISO 9001:2015 certification, Teckon™ remains committed to being your most reliable hydraulic parts partner.
 
 For inquiries about distribution partnerships or product availability in your region, contact us at shreejihyd4008@gmail.com.
     `,
@@ -389,14 +389,6 @@ For inquiries about distribution partnerships or product availability in your re
 ];
 
 export const EVENTS = [
-  {
-    year: "2024",
-    name: "ACMA Automechanika New Delhi 2024",
-    location: "New Delhi, India 🇮🇳",
-    description: "Visited the premier auto components expo to explore advancements in high-precision engine and transmission machinery parts.",
-    type: "past",
-    image: "/images/events/automechanika-2024.png",
-  },
   {
     year: "2024",
     name: "Excon South Asia 2024",
@@ -414,14 +406,6 @@ export const EVENTS = [
     image: "/images/events/excon-bengaluru-2023.png",
   },
   {
-    year: "2023",
-    name: "Auto Expo Components 2023",
-    location: "New Delhi, India 🇮🇳",
-    description: "Visited the largest auto components exhibition to analyze the aftermarket spare parts market developments.",
-    type: "past",
-    image: "/images/events/auto-expo-components-2023.png",
-  },
-  {
     year: "2022",
     name: "bauma CONEXPO India 2022",
     location: "Greater Noida, India 🇮🇳",
@@ -436,14 +420,6 @@ export const EVENTS = [
     description: "Visited to evaluate new hydraulics parts designs and network with heavy equipment dealers.",
     type: "past",
     image: "/images/events/excon-south-asia-2022.png",
-  },
-  {
-    year: "2020",
-    name: "Auto Expo Components 2020",
-    location: "New Delhi, India 🇮🇳",
-    description: "Visited to keep abreast of advanced metallurgical standards and sealing technologies in hydraulic systems.",
-    type: "past",
-    image: "/images/events/auto-expo-components-2020.png",
   },
   {
     year: "2019",
@@ -468,14 +444,6 @@ export const EVENTS = [
     description: "Visited to connect with hydraulic power generation specialists and parts vendors across India.",
     type: "past",
     image: "/images/events/excon-bengaluru-2017.png",
-  },
-  {
-    year: "2016",
-    name: "Auto Expo Components 2016",
-    location: "New Delhi, India 🇮🇳",
-    description: "Visited to study precision gear grinding and lapping technologies for hydraulic pumps.",
-    type: "past",
-    image: "/images/events/auto-expo-components-2016.png",
   },
   {
     year: "2015",

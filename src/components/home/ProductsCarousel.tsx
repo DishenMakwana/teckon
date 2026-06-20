@@ -5,9 +5,8 @@ import { motion, useInView } from "framer-motion";
 import SafeImage from "@/components/ui/SafeImage";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const categories = [
@@ -74,20 +73,19 @@ export default function ProductsCarousel() {
           transition={{ duration: 0.7, delay: 0.2 }}
         >
           <Swiper
-            modules={[Autoplay, Navigation, Pagination]}
+            modules={[Autoplay, Pagination]}
             spaceBetween={24}
             slidesPerView={1}
             autoplay={{ delay: 4000, disableOnInteraction: false }}
-            navigation
             pagination={{ clickable: true }}
             breakpoints={{
               640: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
-            className="pb-12"
+            className=""
           >
             {categories.map((cat, index) => (
-              <SwiperSlide key={cat.name}>
+              <SwiperSlide key={cat.name} className="pb-12">
                 <div className="group bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   <div className="relative h-52 overflow-hidden bg-gray-100">
                     <SafeImage
@@ -111,7 +109,7 @@ export default function ProductsCarousel() {
                       href={cat.href}
                       className="inline-flex items-center gap-2 bg-teckon-blue text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors"
                     >
-                      View Products →
+                      View Products
                     </Link>
                   </div>
                 </div>
@@ -125,7 +123,7 @@ export default function ProductsCarousel() {
             href="/products"
             className="inline-flex items-center gap-2 border-2 border-teckon-blue text-teckon-blue font-bold px-6 py-3 rounded-xl hover:bg-teckon-blue hover:text-white transition-colors"
           >
-            View Full Catalog →
+            View Full Catalog
           </Link>
         </div>
       </div>

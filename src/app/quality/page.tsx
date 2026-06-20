@@ -4,9 +4,9 @@ import Link from "next/link";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 
 export const metadata: Metadata = {
-  title: "Quality & Manufacturing | Teckon Quality Spares",
+  title: "Quality & Manufacturing | Teckon™ Quality Spares",
   description:
-    "ISO 9001:2015 certified hydraulic parts manufacturing. Learn about Teckon's precision manufacturing process, quality control, and certifications.",
+    "ISO 9001:2015 certified hydraulic parts manufacturing. Learn about Teckon™'s precision manufacturing process, quality control, and certifications.",
 };
 
 const steps = [
@@ -44,7 +44,7 @@ const steps = [
     num: "06",
     icon: "✅",
     title: "Final Testing",
-    description: "Hydraulic pressure and performance testing on certified test benches. Only parts that pass all tests receive the Teckon quality approval.",
+    description: "Hydraulic pressure and performance testing on certified test benches. Only parts that pass all tests receive the Teckon™ quality approval.",
   },
 ];
 
@@ -69,7 +69,7 @@ export default function QualityPage() {
             Precision, Performance, Perfection
           </h1>
           <p className="text-white/70 text-xl max-w-2xl">
-            Teckon is ISO 9001:2015 certified, maintaining the highest standards across every stage of production. All hydraulic parts undergo rigorous testing to ensure reliability and durability.
+            Teckon™ is ISO 9001:2015 certified, maintaining the highest standards across every stage of production. All hydraulic parts undergo rigorous testing to ensure reliability and durability.
           </p>
         </div>
       </section>
@@ -96,7 +96,7 @@ export default function QualityPage() {
             <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">Our Process</span>
             <h2 className="text-4xl font-black text-[#111111]">Manufacturing Process</h2>
             <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-              Every Teckon hydraulic part passes through a rigorous 6-stage manufacturing and quality process.
+              Every Teckon™ hydraulic part passes through a rigorous 6-stage manufacturing and quality process.
             </p>
           </div>
 
@@ -150,7 +150,7 @@ export default function QualityPage() {
           <h2 className="text-3xl font-black text-white mb-4">Request Our Quality Documentation</h2>
           <p className="text-white/70 mb-8">Get our ISO certificates and technical data sheets. Contact us today.</p>
           <Link href="/contact" className="inline-block bg-[#FFBE00] text-[#0B0F19] font-bold px-8 py-4 rounded-xl hover:bg-white transition-colors">
-            Contact Us →
+            Contact Us
           </Link>
         </div>
       </section>

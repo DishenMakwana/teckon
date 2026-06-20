@@ -15,11 +15,11 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: {
-    default: "Teckon Quality Spares | Premium Hydraulic Parts & Equipment",
-    template: "%s | Teckon Quality Spares",
+    default: "Teckon™ Quality Spares | Premium Hydraulic Parts & Equipment",
+    template: "%s | Teckon™ Quality Spares",
   },
   description:
-    "Shreeji Hydraulics (Teckon) — Premium hydraulic parts & spares for JCB, Terex, CAT, Tata, and all heavy machinery. ISO 9001:2015 certified. Based in Rajkot, Gujarat.",
+    "Shreeji Hydraulics (Teckon™) — Premium hydraulic parts & spares for JCB, Terex, CAT, Tata, and all heavy machinery. ISO 9001:2015 certified. Based in Rajkot, Gujarat.",
   keywords: [
     "hydraulic parts",
     "JCB spares",
@@ -27,11 +27,12 @@ export const metadata: Metadata = {
     "CAT hydraulics",
     "hydraulic spares India",
     "Teckon",
+    "Teckon™",
     "Shreeji Hydraulics",
     "Rajkot hydraulics",
   ],
   openGraph: {
-    siteName: "Teckon Quality Spares",
+    siteName: "Teckon™ Quality Spares",
     type: "website",
   },
 };
@@ -44,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={outfit.variable} data-scroll-behavior="smooth">
       <body className="font-sans bg-white text-gray-900 antialiased">
-        <TopInfoBar />
+        {/* <TopInfoBar /> */}
         <Navbar />
         <main className="min-h-screen overflow-x-hidden">{children}</main>
         <Footer />

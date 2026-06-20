@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = BLOG_POSTS.find((p) => p.slug === slug);
   if (!post) return { title: "Post Not Found" };
   return {
-    title: `${post.title} | Teckon Blog`,
+    title: `${post.title} | Teckon™ Blog`,
     description: post.excerpt,
   };
 }
@@ -76,7 +76,7 @@ export default async function BlogPostPage({ params }: Props) {
                 <h3 className="text-white font-bold mb-4">Need Hydraulic Parts?</h3>
                 <p className="text-white/70 text-sm mb-4">Get a quick quote for any hydraulic spare for your equipment.</p>
                 <Link href="/contact" className="block text-center bg-[#FFBE00] text-[#0B0F19] font-bold py-3 rounded-xl hover:bg-white transition-colors text-sm">
-                  Get a Quote →
+                  Get a Quote
                 </Link>
               </div>
               <div className="bg-gray-50 rounded-2xl p-6">

@@ -112,7 +112,7 @@ function ProductsContent() {
                       href={`/products/${product.slug}`}
                       className="w-full flex items-center justify-center gap-2 bg-teckon-blue text-white text-sm font-bold py-2.5 rounded-xl hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors"
                     >
-                      View Details →
+                      View Details
                     </Link>
                   </div>
                 </div>

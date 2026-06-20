@@ -13,7 +13,7 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div className="md:col-span-6 lg:col-span-4">
             <div className="flex items-center gap-2 mb-4">
-              <div className="bg-[#FFBE00] text-[#0B0F19] px-3 py-1.5 rounded-lg font-black text-xl">TECKON</div>
+              <div className="bg-[#FFBE00] text-[#0B0F19] px-3 py-1.5 rounded-lg font-black text-xl">TECKON™</div>
             </div>
             <p className="text-white/70 text-sm leading-relaxed mb-4">
               Premium Hydraulic Parts & Spares for Heavy Machinery. Trusted by industry leaders across India since 2000.
@@ -146,7 +146,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-white/50 text-xs">© {new Date().getFullYear()} Shreeji Hydraulics (Teckon Quality Spares). All rights reserved.</p>
+          <p className="text-white/50 text-xs">© {new Date().getFullYear()} Shreeji Hydraulics. TECKON™ is a registered trademark of Shreeji Hydraulics in India. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <Link href="/privacy-policy" className="text-white/50 text-xs hover:text-[#FFBE00] transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="text-white/50 text-xs hover:text-[#FFBE00] transition-colors">Terms & Conditions</Link>

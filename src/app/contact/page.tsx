@@ -51,7 +51,7 @@ export default function ContactPage() {
       {/* Contact Info Cards */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-12">
             {[
               {
                 icon: MapPin,
@@ -60,22 +60,28 @@ export default function ContactPage() {
                 href: "https://maps.app.goo.gl/uxAsDhUD7DvfASts8",
               },
               {
-                icon: Phone,
-                title: "Phone",
-                content: "+91-63518 79842",
-                href: "tel:+916351879842",
-              },
-              {
                 icon: Mail,
                 title: "Email",
                 content: "shreejihyd4008@gmail.com",
                 href: "mailto:shreejihyd4008@gmail.com",
               },
               {
+                icon: Phone,
+                title: "Call Sales",
+                content: "+91-63518 79842",
+                href: "tel:+916351879842",
+              },
+              {
                 icon: MessageCircle,
-                title: "WhatsApp",
-                content: "+91-9426915578",
+                title: "Alpesh Patel",
+                content: "+91-94269 15578",
                 href: "https://wa.me/919426915578?text=Hello%20Shreeji%20Hydraulics,%20I%20want%20to%20inquire%20about%20hydraulic%20spares",
+              },
+              {
+                icon: MessageCircle,
+                title: "J.C. Patel",
+                content: "+91-94262 02945",
+                href: "https://wa.me/919426202945?text=Hello%20Shreeji%20Hydraulics,%20I%20want%20to%20inquire%20about%20hydraulic%20spares",
               },
             ].map((card) => {
               const Icon = card.icon;
@@ -85,13 +91,15 @@ export default function ContactPage() {
                   href={card.href}
                   target={card.href.startsWith("http") ? "_blank" : undefined}
                   rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="group bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-teckon-blue hover:shadow-md transition-all"
+                  className="group bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-teckon-blue hover:shadow-md transition-all flex flex-col justify-between"
                 >
-                  <div className="w-12 h-12 bg-teckon-blue rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#FFBE00] transition-colors">
-                    <Icon size={20} className="text-white group-hover:text-[#0B0F19] transition-colors" />
+                  <div>
+                    <div className="w-12 h-12 bg-teckon-blue rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#FFBE00] transition-colors">
+                      <Icon size={20} className="text-white group-hover:text-[#0B0F19] transition-colors" />
+                    </div>
+                    <div className="font-bold text-[#111111] mb-1">{card.title}</div>
                   </div>
-                  <div className="font-bold text-[#111111] mb-1">{card.title}</div>
-                  <div className="text-gray-500 text-sm">{card.content}</div>
+                  <div className="text-gray-500 text-sm mt-2">{card.content}</div>
                 </a>
               );
             })}
@@ -196,54 +204,24 @@ export default function ContactPage() {
                   disabled={isSubmitting}
                   className="w-full bg-[#FF6B35] text-white font-bold py-4 rounded-xl text-lg hover:bg-[#e55a25] transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? "Sending..." : "Send Inquiry →"}
+                  {isSubmitting ? "Sending..." : "Send Inquiry"}
                 </button>
               </form>
             </div>
 
-            {/* Direct contacts + Map */}
-            <div>
-              {/* Direct CTA Strip */}
-              <div className="bg-[#111111] rounded-2xl p-6 mb-6">
-                <h3 className="text-white font-bold text-lg mb-4">Direct Contact</h3>
-                <div className="grid grid-cols-1 gap-3">
-                  <a href="https://wa.me/919426915578?text=Hello%20Shreeji%20Hydraulics,%20I%20want%20to%20inquire%20about%20hydraulic%20spares" target="_blank" rel="noopener noreferrer"
-                    className="flex flex-col sm:flex-row sm:items-center justify-between bg-[#25D366] text-white px-4 py-3 rounded-xl font-bold text-sm hover:bg-[#20b858] transition-colors gap-1">
-                    <span>💬 WhatsApp Chat</span>
-                    <span className="whitespace-nowrap">+91-9426915578</span>
-                  </a>
-                  <a href="tel:+916351879842" className="flex flex-col sm:flex-row sm:items-center justify-between bg-teckon-blue text-white px-4 py-3 rounded-xl font-bold text-sm hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors gap-1">
-                    <span>📞 Call Sales</span>
-                    <span className="whitespace-nowrap">+91-63518 79842</span>
-                  </a>
-                  <a href="tel:+919426915578" className="flex flex-col sm:flex-row sm:items-center justify-between bg-teckon-blue/80 text-white px-4 py-3 rounded-xl font-bold text-sm hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors gap-1">
-                    <span>📞 Alpesh Patel</span>
-                    <span className="whitespace-nowrap">+91-94269 15578</span>
-                  </a>
-                  <a href="tel:+919426202945" className="flex flex-col sm:flex-row sm:items-center justify-between bg-teckon-blue/60 text-white px-4 py-3 rounded-xl font-bold text-sm hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors gap-1">
-                    <span>📞 J.C. Patel</span>
-                    <span className="whitespace-nowrap">+91-94262 02945</span>
-                  </a>
-                  <a href="mailto:shreejihyd4008@gmail.com" className="flex flex-col sm:flex-row sm:items-center justify-between bg-[#FF6B35] text-white px-4 py-3 rounded-xl font-bold text-sm hover:bg-[#e55a25] transition-colors gap-1">
-                    <span>✉️ Email Us</span>
-                    <span className="text-xs break-all sm:text-right">shreejihyd4008@gmail.com</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* Google Maps Embed */}
-              <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.442907409264!2d70.79357007503632!3d22.27978987969395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959cb00052e5469%3A0xd14f057e5cdfa24e!2sSHREEJI%20HYDRAULICS%20(TECKON)!5e0!3m2!1sen!2sin!4v1718800000000!5m2!1sen!2sin"
-                  width="100%"
-                  height="350"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="eager"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Teckon Shreeji Hydraulics Location — Gondal Road, Rajkot, Gujarat"
-                />
-              </div>
+            {/* Google Maps Embed */}
+            <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm min-h-[400px] h-full">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.442907409264!2d70.79357007503632!3d22.27978987969395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959cb00052e5469%3A0xd14f057e5cdfa24e!2sSHREEJI%20HYDRAULICS%20(TECKON)!5e0!3m2!1sen!2sin!4v1718800000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="eager"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Teckon™ Shreeji Hydraulics Location — Gondal Road, Rajkot, Gujarat"
+                className="w-full h-full min-h-[400px]"
+              />
             </div>
           </div>
         </div>

@@ -44,14 +44,14 @@ export default function AboutSection() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">About Teckon</span>
+            <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">About Teckon™</span>
             <h2 className="text-4xl font-black text-white mb-2">
               India&apos;s Trusted
               <span className="block text-[#FFBE00]">Hydraulic Parts Leader</span>
             </h2>
             <div className="w-12 h-1.5 bg-[#FFBE00] rounded-full mb-6" />
             <p className="text-slate-300 leading-relaxed mb-4">
-              Teckon is a leading manufacturer and distributor of hydraulic parts and spares, established in 2000 under the parent company <strong>Shreeji Hydraulics</strong>. We specialize in high-quality hydraulic components for JCB, Terex, Caterpillar, L770, Tata JD, and other heavy machinery.
+              Teckon™ is a leading brand of hydraulic parts and spares, manufactured and distributed by <strong>Shreeji Hydraulics</strong> since 2000. We specialize in high-quality hydraulic components for JCB, Terex, Caterpillar, L770, Tata JD, and other heavy machinery.
             </p>
             <p className="text-slate-300 leading-relaxed mb-6">
               We combine advanced engineering with stringent quality control to deliver world-class hydraulic parts for industrial applications across India. Our ISO 9001:2015 certification reflects our unwavering commitment to quality.
@@ -75,7 +75,7 @@ export default function AboutSection() {
               href="/about"
               className="inline-flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] font-black px-6 py-3 rounded-xl hover:bg-white hover:text-[#0B0F19] transition-colors shadow-lg"
             >
-              Read More About Us →
+              Read More About Us
             </Link>
           </motion.div>
         </div>

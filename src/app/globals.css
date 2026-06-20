@@ -36,12 +36,24 @@ body {
 }
 
 /* Swiper overrides */
-.swiper-pagination-bullet-active {
+.swiper-pagination-bullet {
+  width: 24px !important;
+  height: 6px !important;
+  border-radius: 3px !important;
   background: #FFBE00 !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease !important;
+  margin: 0 4px !important;
 }
-.swiper-button-next,
-.swiper-button-prev {
-  color: #FFBE00 !important;
+
+.swiper-pagination-bullet-active {
+  background: #0B0F19 !important;
+  opacity: 1 !important;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 16px !important;
 }
 
 /* Animations */

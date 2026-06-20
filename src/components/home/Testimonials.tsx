@@ -4,9 +4,8 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Star } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const testimonials = [
@@ -83,17 +82,16 @@ export default function Testimonials() {
           transition={{ duration: 0.7, delay: 0.2 }}
         >
           <Swiper
-            modules={[Autoplay, Navigation, Pagination]}
+            modules={[Autoplay, Pagination]}
             spaceBetween={24}
             slidesPerView={1}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
-            navigation
             pagination={{ clickable: true }}
             breakpoints={{
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
-            className="pb-16 testimonial-swiper"
+            className="testimonial-swiper"
           >
             {testimonials.map((t, i) => {
               const initials = t.name
@@ -103,7 +101,7 @@ export default function Testimonials() {
               const gradient = gradients[i % gradients.length];
 
               return (
-                <SwiperSlide key={t.name} className="h-auto">
+                <SwiperSlide key={t.name} className="h-auto pb-12">
                   <div className="group bg-slate-50 rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100 hover:bg-white hover:border-gray-200 hover:shadow-xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full min-h-[280px]">
                     {/* Card Accent Top Line */}
                     <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#FFBE00] to-[#FF6B35] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />

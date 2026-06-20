@@ -3,8 +3,8 @@ import Image from "next/image";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Teckon Quality Spares",
-  description: "Privacy policy for Teckon Quality Spares (Shreeji Hydraulics) — how we collect, use, and protect your data.",
+  title: "Privacy Policy | Teckon™ Quality Spares",
+  description: "Privacy policy for Teckon™ Quality Spares (Shreeji Hydraulics) — how we collect, use, and protect your data.",
 };
 
 const sections = [
@@ -56,7 +56,7 @@ export default function PrivacyPolicyPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 md:p-12">
             <p className="text-gray-600 mb-8 leading-relaxed text-lg">
-              Teckon Quality Spares (Shreeji Hydraulics) is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information when you use our website or services.
+              Teckon™ Quality Spares (Shreeji Hydraulics) is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information when you use our website or services.
             </p>
             <div className="flex flex-col gap-8">
               {sections.map((s) => (

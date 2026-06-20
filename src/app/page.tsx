@@ -15,7 +15,7 @@ import BlogSection from "@/components/home/BlogSection";
 export default function HomePage() {
   return (
     <>
-      <section className="relative min-h-[calc(100dvh-144px)] sm:min-h-[calc(100dvh-104px)] md:min-h-[calc(100vh-104px)] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[calc(100dvh-64px)] md:min-h-[calc(100vh-64px)] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -62,7 +62,7 @@ export default function HomePage() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-white/80 text-xs sm:text-sm md:text-base max-w-2xl mx-auto mb-6 md:mb-8"
           >
-            Teckon has been a trusted leader in Hydraulic Parts &amp; Equipment since 2000, delivering
+            Teckon™ has been a trusted leader in Hydraulic Parts &amp; Equipment since 2000, delivering
             precision-engineered hydraulic spares across India. Specialists in
             JCB, Terex, CAT, Tata JD, L770, Breakers, Tippers &amp; Excavator parts.
           </motion.p>

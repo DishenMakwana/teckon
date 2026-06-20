@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = PRODUCTS.find((p) => p.slug === slug);
   if (!product) return { title: "Product Not Found" };
   return {
-    title: `${product.name} | Teckon Quality Spares`,
+    title: `${product.name} | Teckon™ Quality Spares`,
     description: product.description,
   };
 }

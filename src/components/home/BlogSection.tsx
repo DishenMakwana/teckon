@@ -106,7 +106,7 @@ export default function BlogSection() {
             href="/blog"
             className="inline-flex items-center gap-2 border-2 border-[#1E293B] text-[#1E293B] font-bold px-8 py-3 rounded-xl hover:bg-[#1E293B] hover:text-white transition-colors"
           >
-            Explore All Articles & Guides →
+            Explore All Articles & Guides
           </Link>
         </motion.div>
       </div>
