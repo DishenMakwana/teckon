@@ -48,18 +48,18 @@ export default function Footer() {
                   alt="ISO 9001:2015 Certified Logo"
                   fill
                   sizes="128px"
-                  className="object-contain p-2"
+                  className="object-contain p-2 transition-transform duration-300 hover:scale-105"
                   loading="eager"
                 />
               </div>
               {/* Make in India Badge */}
-              <div className="bg-white rounded-xl p-2 flex items-center justify-center h-32 w-[204px] shadow-md shrink-0 relative">
+              <div className="bg-white rounded-xl shadow-md shrink-0 relative overflow-hidden h-32 w-[204px] flex items-center justify-center">
                 <Image
                   src="/images/make-in-india.png"
                   alt="Make in India Logo"
                   fill
                   sizes="204px"
-                  className="object-contain p-2"
+                  className="object-contain scale-[1.35] transition-transform duration-300 hover:scale-[1.5]"
                   loading="eager"
                 />
               </div>
