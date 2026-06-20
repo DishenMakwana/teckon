@@ -5,10 +5,12 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
+import { sendInquiryAction } from "@/app/actions/contact";
 
 interface FormData {
   fullName: string;
   email: string;
+  countryCode: string;
   phone: string;
   city: string;
   country: string;
@@ -18,20 +20,60 @@ interface FormData {
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors, isSubmitting },
-  } = useForm<FormData>();
+  } = useForm<FormData>({
+    defaultValues: {
+      fullName: "",
+      email: "",
+      countryCode: "+91",
+      phone: "",
+      city: "",
+      country: "India",
+      subject: "",
+      message: "",
+    }
+  });
 
   const onSubmit = async (data: FormData) => {
-    console.log("Form submitted:", data);
-    // Simulate processing
-    await new Promise((r) => setTimeout(r, 1000));
-    setSubmitted(true);
-    reset();
-    setTimeout(() => setSubmitted(false), 5000);
+    setSubmitted(false);
+    setSubmitError(null);
+    try {
+      // Combine country code and 10-digit phone number for email delivery
+      const combinedData = {
+        ...data,
+        phone: `${data.countryCode} ${data.phone}`,
+      };
+      const result = await sendInquiryAction(combinedData);
+      if (result.success) {
+        setSubmitted(true);
+        reset({
+          fullName: "",
+          email: "",
+          countryCode: "+91",
+          phone: "",
+          city: "",
+          country: "India",
+          subject: "",
+          message: "",
+        });
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        // Map technical/backend errors to user-friendly messages
+        if (result.error === "CONFIGURATION_ERROR" || result.error === "DELIVERY_ERROR" || result.error === "SYSTEM_ERROR") {
+          setSubmitError("We couldn't process your inquiry at this time due to a temporary system error. Please try again later or contact us directly at shreejihyd4008@gmail.com / +91-63518 79842.");
+        } else {
+          setSubmitError(result.error || "Failed to send inquiry. Please try again.");
+        }
+      }
+    } catch (err: any) {
+      setSubmitError("An unexpected network error occurred. Please try again later or contact us directly.");
+    }
   };
 
   return (
@@ -116,12 +158,18 @@ export default function ContactPage() {
                 </div>
               )}
 
+              {submitError && (
+                <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-6 text-red-700 font-semibold">
+                  ❌ {submitError}
+                </div>
+              )}
+
               <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1">Full Name *</label>
                     <input
-                      {...register("fullName", { required: "Name is required" })}
+                      {...register("fullName", { required: "Please enter your full name" })}
                       className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all"
                       placeholder="Your full name"
                     />
@@ -130,7 +178,13 @@ export default function ContactPage() {
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1">Email Address *</label>
                     <input
-                      {...register("email", { required: "Email is required", pattern: { value: /^\S+@\S+$/i, message: "Invalid email" } })}
+                      {...register("email", { 
+                        required: "Please enter your email address", 
+                        pattern: { 
+                          value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i, 
+                          message: "Please enter a valid email address (e.g. name@domain.com)" 
+                        } 
+                      })}
                       type="email"
                       className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all"
                       placeholder="your@email.com"
@@ -142,12 +196,53 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1">Phone Number *</label>
-                    <input
-                      {...register("phone", { required: "Phone is required" })}
-                      type="tel"
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all"
-                      placeholder="+91 XXXXX XXXXX"
-                    />
+                    <div className="flex gap-2">
+                      <select
+                        {...register("countryCode", {
+                          onChange: (e) => {
+                            const code = e.target.value;
+                            const countryMap: Record<string, string> = {
+                              "+91": "India",
+                              "+86": "China",
+                              "+971": "United Arab Emirates",
+                              "+966": "Saudi Arabia",
+                              "+44": "United Kingdom",
+                              "+1": "United States",
+                              "+977": "Nepal",
+                              "+880": "Bangladesh",
+                            };
+                            setValue("country", countryMap[code] || "");
+                          }
+                        })}
+                        className="w-24 shrink-0 border border-gray-200 rounded-xl px-2 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all bg-white font-medium"
+                      >
+                        <option value="+91">🇮🇳 +91</option>
+                        <option value="+86">🇨🇳 +86</option>
+                        <option value="+971">🇦🇪 +971</option>
+                        <option value="+966">🇸🇦 +966</option>
+                        <option value="+44">🇬🇧 +44</option>
+                        <option value="+1">🇺🇸 +1</option>
+                        <option value="+977">🇳🇵 +977</option>
+                        <option value="+880">🇧🇩 +880</option>
+                      </select>
+                      <input
+                        {...register("phone", { 
+                          required: "Please enter your 10-digit phone number",
+                          pattern: {
+                            value: /^[0-9]{10}$/,
+                            message: "Phone number must be exactly 10 digits"
+                          }
+                        })}
+                        type="tel"
+                        maxLength={10}
+                        onInput={(e) => {
+                          // Allow only numerical values, slice to 10 digits
+                          e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, "").slice(0, 10);
+                        }}
+                        className="flex-1 min-w-0 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all"
+                        placeholder="Enter 10-digit number"
+                      />
+                    </div>
                     {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
                   </div>
                   <div>
@@ -190,13 +285,14 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">Message</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">Message *</label>
                   <textarea
-                    {...register("message")}
+                    {...register("message", { required: "Please describe your inquiry or parts requirement" })}
                     rows={5}
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all resize-none"
                     placeholder="Describe the hydraulic parts you need, your equipment model, and any specific requirements..."
                   />
+                  {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
                 </div>
 
                 <button
