@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useEffect, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import SafeImage from "@/components/ui/SafeImage";
 import Link from "next/link";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { PRODUCTS } from "@/lib/data";
+import { motion, AnimatePresence } from "framer-motion";
 
 const categories = [
   { id: "all", label: "All Products" },
@@ -20,6 +21,7 @@ const categories = [
 ];
 
 function ProductsContent() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const categoryQuery = searchParams.get("category");
   const [active, setActive] = useState("all");
@@ -31,6 +33,17 @@ function ProductsContent() {
       setActive("all");
     }
   }, [categoryQuery]);
+
+  const handleCategoryChange = (categoryId: string) => {
+    setActive(categoryId);
+    const params = new URLSearchParams(searchParams.toString());
+    if (categoryId === "all") {
+      params.delete("category");
+    } else {
+      params.set("category", categoryId);
+    }
+    router.push(`/products?${params.toString()}`, { scroll: false });
+  };
 
   const filtered = active === "all" ? PRODUCTS : PRODUCTS.filter((p) => p.category === active);
 
@@ -52,72 +65,86 @@ function ProductsContent() {
         </div>
       </section>
 
-      {/* Filter */}
-      <section className="bg-white border-b border-gray-200 sticky top-16 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 overflow-x-auto">
-          <div className="flex gap-2 min-w-max">
+      {/* Product Catalog Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Category Tabs */}
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-12">
             {categories.map((cat) => (
               <button
                 key={cat.id}
-                onClick={() => setActive(cat.id)}
-                className={`px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap transition-colors ${
+                onClick={() => handleCategoryChange(cat.id)}
+                className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 relative cursor-pointer ${
                   active === cat.id
-                    ? "bg-teckon-blue text-white"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                    ? "bg-[#FFBE00] text-[#0B0F19] shadow-md shadow-amber-500/10"
+                    : "bg-white text-gray-600 border border-gray-200 hover:border-[#FFBE00] hover:text-[#0B0F19]"
                 }`}
               >
-                {cat.label}
+                {active === cat.id && (
+                  <motion.span
+                    layoutId="activeProductCategoryBg"
+                    className="absolute inset-0 bg-[#FFBE00] rounded-full z-0"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10">{cat.label}</span>
               </button>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Product Grid */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {filtered.length === 0 ? (
             <div className="text-center py-20 text-gray-400">
               <div className="text-5xl mb-4">🔩</div>
               <p className="font-semibold">No products found in this category.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filtered.map((product, index) => (
-                <div
-                  key={product.slug}
-                  className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
-                >
-                  <div className="relative h-52 bg-gray-100 overflow-hidden">
-                    <SafeImage
-                      src={product.image}
-                      alt={product.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="eager"
-                    />
-                    <span className="absolute top-3 left-3 bg-teckon-blue text-white text-xs font-bold px-2.5 py-1 rounded-full">
-                      {product.categoryLabel}
-                    </span>
-                  </div>
-                  <div className="p-5">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-xs text-gray-400 font-mono">{product.model}</span>
-                      <span className="text-xs text-gray-400 font-mono">{product.ref}</span>
+            <motion.div
+              layout
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              <AnimatePresence mode="popLayout">
+                {filtered.map((product, index) => (
+                  <motion.div
+                    key={product.slug}
+                    layout
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, y: 10 }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                  >
+                    <div className="relative h-52 bg-gray-100 overflow-hidden">
+                      <SafeImage
+                        src={product.image}
+                        alt={product.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="eager"
+                      />
+                      <span className="absolute top-3 left-3 bg-teckon-blue text-white text-xs font-bold px-2.5 py-1 rounded-full">
+                        {product.categoryLabel}
+                      </span>
                     </div>
-                    <h3 className="font-bold text-[#111111] text-lg mb-2">{product.name}</h3>
-                    <p className="text-gray-500 text-sm mb-4 line-clamp-2">{product.description}</p>
-                    <Link
-                      href={`/products/${product.slug}`}
-                      className="w-full flex items-center justify-center gap-2 bg-teckon-blue text-white text-sm font-bold py-2.5 rounded-xl hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors"
-                    >
-                      View Details
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
+                    <div className="p-5">
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-xs text-gray-400 font-mono">{product.model}</span>
+                        <span className="text-xs text-gray-400 font-mono">{product.ref}</span>
+                      </div>
+                      <h3 className="font-bold text-[#111111] text-lg mb-2">{product.name}</h3>
+                      <p className="text-gray-500 text-sm mb-4 line-clamp-2">{product.description}</p>
+                      <Link
+                        href={`/products/${product.slug}`}
+                        className="w-full flex items-center justify-center gap-2 bg-teckon-blue text-white text-sm font-bold py-2.5 rounded-xl hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors"
+                      >
+                        View Details
+                      </Link>
+                    </div>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </motion.div>
           )}
 
           {/* Inquiry CTA */}
