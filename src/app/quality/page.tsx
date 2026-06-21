@@ -149,7 +149,7 @@ export default function QualityPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black text-white mb-4">Request Our Quality Documentation</h2>
           <p className="text-white/70 mb-8">Get our ISO certificates and technical data sheets. Contact us today.</p>
-          <Link href="/contact" className="inline-block bg-[#FFBE00] text-[#0B0F19] font-bold px-8 py-4 rounded-xl hover:bg-white transition-colors">
+          <Link href="/contact" className="inline-block bg-[#FFBE00] text-[#0B0F19] font-bold px-8 py-4 rounded-xl hover:bg-[#d99e00] transition-colors">
             Contact Us
           </Link>
         </div>

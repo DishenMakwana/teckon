@@ -152,7 +152,7 @@ function ProductsContent() {
             <h3 className="text-2xl font-black text-white mb-2">Can&apos;t find what you need?</h3>
             <p className="text-white/70 mb-6">Our team stocks over 5000 hydraulic SKUs. Contact us for custom parts sourcing.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="bg-[#FFBE00] text-[#0B0F19] font-bold px-6 py-3 rounded-xl hover:bg-white transition-colors">
+              <Link href="/contact" className="bg-[#FFBE00] text-[#0B0F19] font-bold px-6 py-3 rounded-xl hover:bg-[#d99e00] transition-colors">
                 Request a Custom Part
               </Link>
               <a href="https://wa.me/919426915578?text=Hello%20Shreeji%20Hydraulics,%20I%20want%20to%20inquire%20about%20hydraulic%20spares" target="_blank" rel="noopener noreferrer" className="bg-[#128C7E] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#0f766a] transition-colors">

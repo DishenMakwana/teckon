@@ -66,7 +66,7 @@ export default function CareersPage() {
             </p>
             <a
               href="mailto:shreejihyd4008@gmail.com?subject=Resume%20Submission%20—%20Teckon%E2%84%A2%20Quality%20Spares"
-              className="inline-flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] font-bold px-8 py-4 rounded-xl hover:bg-white hover:text-teckon-blue transition-colors text-base shadow-md"
+              className="inline-flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] font-bold px-8 py-4 rounded-xl hover:bg-[#d99e00] transition-colors text-base shadow-md"
             >
               📧 Send Your Resume
             </a>

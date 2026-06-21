@@ -73,7 +73,7 @@ export default function AboutSection() {
 
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] font-black px-6 py-3 rounded-xl hover:bg-white hover:text-[#0B0F19] transition-colors shadow-lg"
+              className="inline-flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] font-black px-6 py-3 rounded-xl hover:bg-[#d99e00] transition-colors shadow-lg"
             >
               Read More About Us
             </Link>

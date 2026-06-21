@@ -13,7 +13,7 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div className="md:col-span-6 lg:col-span-4">
             <div className="flex items-center gap-2 mb-4">
-              <Link href="/" className="bg-[#FFBE00] text-[#0B0F19] px-3 py-1.5 rounded-lg font-black text-xl hover:bg-white hover:text-teckon-dark-blue transition-colors">
+              <Link href="/" className="bg-[#FFBE00] text-[#0B0F19] px-3 py-1.5 rounded-lg font-black text-xl hover:bg-[#1E293B] hover:text-white transition-colors">
                 TECKON™
               </Link>
             </div>

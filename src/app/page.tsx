@@ -76,7 +76,7 @@ export default function HomePage() {
           >
             <Link
               href="/products"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#FFBE00] text-[#0B0F19] font-black px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg hover:bg-white transition-colors shadow-xl"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#FFBE00] text-[#0B0F19] font-black px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg hover:bg-[#d99e00] transition-colors shadow-xl"
             >
               🔩 Explore Products
             </Link>

@@ -75,7 +75,7 @@ export default async function BlogPostPage({ params }: Props) {
               <div className="bg-teckon-blue rounded-2xl p-6 mb-6">
                 <h3 className="text-white font-bold mb-4">Need Hydraulic Parts?</h3>
                 <p className="text-white/70 text-sm mb-4">Get a quick quote for any hydraulic spare for your equipment.</p>
-                <Link href="/contact" className="block text-center bg-[#FFBE00] text-[#0B0F19] font-bold py-3 rounded-xl hover:bg-white transition-colors text-sm">
+                <Link href="/contact" className="block text-center bg-[#FFBE00] text-[#0B0F19] font-bold py-3 rounded-xl hover:bg-[#d99e00] transition-colors text-sm">
                   Get a Quote
                 </Link>
               </div>

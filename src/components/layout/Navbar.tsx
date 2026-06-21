@@ -55,7 +55,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="bg-[#1E293B] text-white px-3 py-1.5 rounded-lg font-black text-lg tracking-wide group-hover:bg-[#FFBE00] group-hover:text-[#0B0F19] transition-colors">
+            <div className="bg-[#FFBE00] text-[#0B0F19] px-3 py-1.5 rounded-lg font-black text-lg tracking-wide group-hover:bg-[#1E293B] group-hover:text-white transition-colors">
               TECKON™
             </div>
             <div className="hidden sm:block">
@@ -134,7 +134,7 @@ export default function Navbar() {
             */}
             <Link
               href="/contact"
-              className="hidden lg:flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] font-bold px-4 py-2 rounded-lg text-sm hover:bg-[#FF6B35] hover:text-white transition-colors"
+              className="hidden lg:flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] font-bold px-4 py-2 rounded-lg text-sm hover:bg-[#d99e00] transition-colors"
             >
               Get Quote
             </Link>
