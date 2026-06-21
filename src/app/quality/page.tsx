@@ -61,7 +61,7 @@ export default function QualityPage() {
       {/* Hero */}
       <section className="bg-teckon-dark-blue py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <Image src="/images/quality-manufacturing.png" alt="Heavy machinery parts manufacturing facility showcasing rigorous quality control testing" fill sizes="100vw" className="object-cover" priority />
+          <Image src="/images/quality-manufacturing.webp" alt="Heavy machinery parts manufacturing facility showcasing rigorous quality control testing" fill sizes="100vw" className="object-cover" priority />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <BreadcrumbBar items={[{ label: "Quality" }]} />
@@ -78,7 +78,7 @@ export default function QualityPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative h-80 rounded-2xl overflow-hidden shadow-2xl">
-            <Image src="/images/quality-manufacturing.png" alt="Teckon quality control laboratory" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" loading="eager" />
+            <Image src="/images/quality-manufacturing.webp" alt="Teckon quality control laboratory" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" loading="eager" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F19]/70 to-transparent flex items-center">
               <div className="p-8">
                 <div className="text-[#FFBE00] font-bold text-sm uppercase tracking-widest mb-2">ISO 9001:2015</div>
@@ -93,9 +93,9 @@ export default function QualityPage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">Our Process</span>
+            <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">Our Process</span>
             <h2 className="text-4xl font-black text-[#111111]">Manufacturing Process</h2>
-            <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
+            <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
               Every Teckon™ hydraulic part passes through a rigorous 6-stage manufacturing and quality process.
             </p>
           </div>
@@ -129,7 +129,7 @@ export default function QualityPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">Credentials</span>
+            <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">Credentials</span>
             <h2 className="text-4xl font-black text-[#111111]">Certifications & Accreditations</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -137,7 +137,7 @@ export default function QualityPage() {
               <div key={cert.title} className="text-center bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:border-teckon-blue hover:shadow-md transition-all">
                 <div className="text-5xl mb-4">{cert.icon}</div>
                 <h3 className="font-black text-teckon-blue mb-2">{cert.title}</h3>
-                <p className="text-gray-500 text-sm">{cert.desc}</p>
+                <p className="text-gray-600 text-sm">{cert.desc}</p>
               </div>
             ))}
           </div>

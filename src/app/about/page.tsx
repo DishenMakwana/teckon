@@ -41,7 +41,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="bg-teckon-dark-blue py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <Image src="/images/about-factory.png" alt="Teckon manufacturing factory floor showcasing precision CNC machinery" fill sizes="100vw" className="object-cover" priority />
+          <Image src="/images/about-factory.webp" alt="Teckon manufacturing factory floor showcasing precision CNC machinery" fill sizes="100vw" className="object-cover" priority />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <BreadcrumbBar items={[{ label: "About Us" }]} />
@@ -56,7 +56,7 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">Our Foundation</span>
+            <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">Our Foundation</span>
             <h2 className="text-4xl font-black text-[#111111]">Innovation Pillars</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -64,7 +64,7 @@ export default function AboutPage() {
               <div key={p.title} className="text-center p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-md transition-shadow">
                 <div className="text-5xl mb-4">{p.icon}</div>
                 <h3 className="text-xl font-bold text-teckon-blue mb-3">{p.title}</h3>
-                <p className="text-gray-500 leading-relaxed">{p.description}</p>
+                <p className="text-gray-600 leading-relaxed">{p.description}</p>
               </div>
             ))}
           </div>
@@ -75,14 +75,14 @@ export default function AboutPage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">Leadership</span>
+            <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">Leadership</span>
             <h2 className="text-4xl font-black text-[#111111]">Meet Our Founders</h2>
           </div>
 
           {/* Founder 1 */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
-              <Image src="/images/founder-jc-neutral.png" alt="Mr. J.C. Patel — Co-Founder & Director" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-top" priority />
+              <Image src="/images/founder-jc-neutral.webp" alt="Mr. J.C. Patel — Co-Founder & Director" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-top" priority />
             </div>
             <div>
               <div className="inline-flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] text-xs font-bold px-3 py-1.5 rounded-full mb-4">
@@ -104,7 +104,7 @@ export default function AboutPage() {
           {/* Founder 2 */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-1 lg:order-2 relative h-96 rounded-2xl overflow-hidden shadow-xl">
-              <Image src="/images/founder-alpesh-white.png" alt="Mr. Alpesh Patel — Co-Founder & Director" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-top" priority />
+              <Image src="/images/founder-alpesh-white.webp" alt="Mr. Alpesh Patel — Co-Founder & Director" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-top" priority />
             </div>
             <div className="order-2 lg:order-1">
               <div className="inline-flex items-center gap-2 bg-teckon-blue text-white text-xs font-bold px-3 py-1.5 rounded-full mb-4">

@@ -33,7 +33,7 @@ export default async function ProductDetailPage({ params }: Props) {
     <>
       <section className="bg-teckon-dark-blue py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <Image src="/images/products-hero.png" alt="Warehouse shelves organized with heavy machinery hydraulic spare parts" fill sizes="100vw" className="object-cover" priority />
+          <Image src="/images/products-hero.webp" alt="Warehouse shelves organized with heavy machinery hydraulic spare parts" fill sizes="100vw" className="object-cover" priority />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <BreadcrumbBar
@@ -104,7 +104,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   href={`https://wa.me/919426915578?text=Hello%20Teckon,%20I%20need%20a%20quote%20for%20${encodeURIComponent(product.name)}%20(${product.model})`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold py-4 rounded-xl hover:bg-[#20b858] transition-colors text-lg"
+                  className="flex-1 flex items-center justify-center gap-2 bg-[#128C7E] text-white font-bold py-4 rounded-xl hover:bg-[#0f766a] transition-colors text-lg"
                 >
                   💬 WhatsApp
                 </a>

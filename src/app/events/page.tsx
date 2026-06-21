@@ -16,7 +16,7 @@ export default function EventsPage() {
       <section className="bg-teckon-dark-blue py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <Image
-            src="/images/events-tradeshow.png"
+            src="/images/events-tradeshow.webp"
             alt="Industrial heavy machinery trade show showcasing hydraulic components"
             fill
             sizes="100vw"
@@ -38,7 +38,7 @@ export default function EventsPage() {
 
       {/* Events Banner Image */}
       {/* <section className="relative h-64 overflow-hidden">
-        <Image src="/images/events-tradeshow.png" alt="Trade show exhibition" fill className="object-cover" />
+        <Image src="/images/events-tradeshow.webp" alt="Trade show exhibition" fill className="object-cover" />
         <div className="absolute inset-0 bg-[#0B0F19]/60 flex items-center justify-center">
           <p className="text-white text-xl font-semibold">Building partnerships at industry events across India</p>
         </div>
@@ -48,7 +48,7 @@ export default function EventsPage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">
+            <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">
               Presence
             </span>
             <h2 className="text-4xl font-black text-[#111111]">

@@ -21,7 +21,7 @@ export default function CareersPage() {
       {/* Hero */}
       <section className="bg-teckon-dark-blue py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <Image src="/images/careers-hero.png" alt="Teckon professional engineering and manufacturing team working together" fill sizes="100vw" className="object-cover" priority />
+          <Image src="/images/careers-hero.webp" alt="Teckon professional engineering and manufacturing team working together" fill sizes="100vw" className="object-cover" priority />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <BreadcrumbBar items={[{ label: "Careers" }]} />
@@ -36,7 +36,7 @@ export default function CareersPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">Life at Teckon™</span>
+            <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">Life at Teckon™</span>
             <h2 className="text-4xl font-black text-[#111111]">Our Culture</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -44,7 +44,7 @@ export default function CareersPage() {
               <div key={v.title} className="text-center bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-md transition-shadow">
                 <div className="text-5xl mb-4">{v.icon}</div>
                 <h3 className="text-xl font-bold text-teckon-blue mb-3">{v.title}</h3>
-                <p className="text-gray-500">{v.desc}</p>
+                <p className="text-gray-600">{v.desc}</p>
               </div>
             ))}
           </div>
@@ -54,7 +54,7 @@ export default function CareersPage() {
       {/* Career Opportunities */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">Opportunities</span>
+          <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">Opportunities</span>
           <h2 className="text-4xl font-black text-[#111111] mb-6">Start Your Journey With Us</h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-8">
             We are always on the lookout for talented, driven, and passionate individuals who want to grow their careers in the hydraulic engineering and manufacturing industry. If you want to be a part of our dynamic team in India, please share your details and send your resume directly to our HR department.

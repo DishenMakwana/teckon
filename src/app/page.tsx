@@ -19,11 +19,12 @@ export default function HomePage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero-banner.png"
+            src="/images/hero-banner.webp"
             alt="Heavy machinery at construction site"
             fill
             sizes="100vw"
             priority
+            fetchPriority="high"
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F19]/80 via-[#1E293B]/70 to-[#0B0F19]/80" />
@@ -83,7 +84,7 @@ export default function HomePage() {
               href="https://wa.me/919426915578?text=Hello%20Shreeji%20Hydraulics,%20I%20want%20to%20inquire%20about%20hydraulic%20spares"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg hover:bg-[#20b858] transition-colors shadow-xl"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#128C7E] text-white font-bold px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg hover:bg-[#0f766a] transition-colors shadow-xl"
             >
               💬 WhatsApp Inquiry
             </a>

@@ -40,9 +40,9 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">Our Advantages</span>
+          <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">Our Advantages</span>
           <h2 className="text-4xl font-black text-[#111111] mb-4">Why Choose Teckon?</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto">
             With 25+ years in the hydraulic parts industry, Teckon stands apart through quality, reliability, and technical expertise.
           </p>
         </motion.div>
@@ -62,7 +62,7 @@ export default function WhyChooseUs() {
                   <Icon size={22} className="text-teckon-blue group-hover:text-white transition-colors" />
                 </div>
                 <h3 className="font-bold text-[#111111] mb-2">{usp.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{usp.description}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">{usp.description}</p>
               </motion.div>
             );
           })}

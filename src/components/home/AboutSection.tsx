@@ -22,7 +22,7 @@ export default function AboutSection() {
           >
             <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/about-factory.png"
+                src="/images/about-factory.webp"
                 alt="Teckon manufacturing facility"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

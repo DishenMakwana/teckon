@@ -44,7 +44,7 @@ export default function Footer() {
               {/* ISO 9001 Badge */}
               <div className="bg-white rounded-xl p-2 flex items-center justify-center h-32 w-32 shadow-md shrink-0 relative">
                 <Image
-                  src="/images/iso-certified.png"
+                  src="/images/iso-certified.webp"
                   alt="ISO 9001:2015 Certified Logo"
                   fill
                   sizes="128px"
@@ -55,7 +55,7 @@ export default function Footer() {
               {/* Make in India Badge */}
               <div className="bg-white rounded-xl shadow-md shrink-0 relative overflow-hidden h-32 w-[204px] flex items-center justify-center">
                 <Image
-                  src="/images/make-in-india.png"
+                  src="/images/make-in-india.webp"
                   alt="Make in India Logo"
                   fill
                   sizes="204px"

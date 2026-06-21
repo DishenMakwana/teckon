@@ -10,7 +10,7 @@ export default function QuickAccessRail() {
         href="https://wa.me/919426915578?text=Hello%20Shreeji%20Hydraulics,%20I%20want%20to%20inquire%20about%20hydraulic%20spares"
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex items-center bg-[#25D366] text-white px-3 py-3 rounded-l-xl shadow-lg hover:px-6 transition-all duration-300"
+        className="group flex items-center bg-[#128C7E] text-white px-3 py-3 rounded-l-xl shadow-lg hover:px-6 transition-all duration-300"
         aria-label="WhatsApp Chat"
       >
         <MessageCircle size={20} />

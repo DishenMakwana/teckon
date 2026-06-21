@@ -19,7 +19,7 @@ export default function MobileStickyBar() {
           href="https://wa.me/919426915578?text=Hello%20Shreeji%20Hydraulics,%20I%20want%20to%20inquire%20about%20hydraulic%20spares"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center py-3 gap-1 bg-[#25D366] text-white hover:bg-[#20b858] transition-colors group"
+          className="flex flex-col items-center justify-center py-3 gap-1 bg-[#128C7E] text-white hover:bg-[#0f766a] transition-colors group"
           aria-label="WhatsApp"
         >
           <MessageCircle size={20} className="group-hover:scale-110 transition-transform" />

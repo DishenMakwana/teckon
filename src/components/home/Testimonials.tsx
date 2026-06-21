@@ -69,9 +69,9 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">Client Feedback</span>
+          <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">Client Feedback</span>
           <h2 className="text-4xl font-black text-[#111111] mb-4">What Our Clients Say</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto">
             Read stories from contractors and fleet operators across India who trust Teckon for their heavy machinery hydraulic spares.
           </p>
         </motion.div>
@@ -114,8 +114,8 @@ export default function Testimonials() {
                           {initials}
                         </div>
                         <div>
-                          <h4 className="font-extrabold text-[#0B0F19] text-base leading-snug group-hover:text-[#FF6B35] transition-colors">{t.name}</h4>
-                          <span className="text-gray-500 text-xs font-semibold block mt-0.5">{t.company}</span>
+                          <h3 className="font-extrabold text-[#0B0F19] text-base leading-snug group-hover:text-[#FF6B35] transition-colors">{t.name}</h3>
+                          <span className="text-gray-600 text-xs font-semibold block mt-0.5">{t.company}</span>
                         </div>
                       </div>
 

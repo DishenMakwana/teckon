@@ -79,7 +79,13 @@ export default function GlobalPresence() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="bg-white/5 rounded-2xl p-4"
           >
-            <IndiaMap />
+            {inView ? (
+              <IndiaMap />
+            ) : (
+              <div className="h-[400px] flex items-center justify-center">
+                <div className="text-white/40 text-sm">Loading map...</div>
+              </div>
+            )}
             <div className="flex items-center gap-3 mt-4 justify-center">
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 rounded-sm bg-[#FFBE00]" />

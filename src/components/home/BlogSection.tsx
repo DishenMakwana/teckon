@@ -23,11 +23,11 @@ export default function BlogSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">
+          <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">
             Technical Insights
           </span>
           <h2 className="text-4xl font-black text-[#111111] mb-4">Latest Spares & Maintenance Articles</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto">
             Stay updated with our technical guides on hydraulic pumps, seal kits, and excavator maintenance to maximize machine uptime.
           </p>
         </motion.div>
@@ -60,7 +60,7 @@ export default function BlogSection() {
               {/* Text Body */}
               <div className="p-6 flex flex-col justify-between flex-grow">
                 <div>
-                  <div className="flex items-center gap-2 text-gray-400 text-xs mb-3">
+                  <div className="flex items-center gap-2 text-gray-600 text-xs mb-3">
                     <span>
                       {new Date(post.date).toLocaleDateString("en-IN", {
                         day: "numeric",
@@ -76,7 +76,7 @@ export default function BlogSection() {
                     {post.title}
                   </h3>
                   
-                  <p className="text-gray-500 text-sm mb-4 line-clamp-3 leading-relaxed">
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3 leading-relaxed">
                     {post.excerpt}
                   </p>
                 </div>

@@ -210,7 +210,7 @@ export default function Navbar() {
                   href="https://wa.me/919426915578?text=Hello%20Shreeji%20Hydraulics,%20I%20want%20to%20inquire%20about%20hydraulic%20spares"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-xl font-semibold text-sm"
+                  className="flex items-center justify-center gap-2 bg-[#128C7E] text-white py-3 rounded-xl font-semibold text-sm"
                 >
                   💬 WhatsApp Inquiry
                 </a>
