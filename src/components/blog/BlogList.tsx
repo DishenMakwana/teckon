@@ -152,28 +152,31 @@ function BlogListContent({ posts }: BlogListProps) {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 10, scale: 0.95 }}
                 transition={{ duration: 0.15 }}
-                className="absolute right-0 mt-2 w-64 bg-white border border-gray-100 rounded-2xl shadow-xl z-50 py-2 origin-top-right overflow-hidden"
+                className="absolute right-0 mt-2 w-64 bg-white/95 backdrop-blur-lg border border-gray-100/80 rounded-2xl shadow-2xl z-50 p-1.5 origin-top-right"
               >
                 {categories.map((cat) => {
                   const isSelected = activeCategory === cat;
+                  const isAll = cat === "All";
                   return (
-                    <button
-                      key={cat}
-                      onClick={() => {
-                        handleCategoryChange(cat);
-                        setIsOpen(false);
-                      }}
-                      className={`w-full flex items-center justify-between px-4 py-3 text-left text-sm font-bold transition-colors duration-200 cursor-pointer ${
-                        isSelected
-                          ? "bg-[#FFBE00]/10 text-[#0B0F19]"
-                          : "text-gray-600 hover:bg-gray-50 hover:text-[#0B0F19]"
-                      }`}
-                    >
-                      <span>{cat}</span>
-                      {isSelected && (
-                        <span className="w-2 h-2 rounded-full bg-[#FFBE00]" />
+                    <div key={cat}>
+                      <button
+                        onClick={() => {
+                          const newCategory = activeCategory === cat ? "All" : cat;
+                          handleCategoryChange(newCategory);
+                          setIsOpen(false);
+                        }}
+                        className={`w-full flex items-center justify-between px-3 py-2.5 text-left text-sm font-bold rounded-xl transition-all duration-200 cursor-pointer ${
+                          isSelected
+                            ? "bg-[#FFBE00]/15 text-[#0B0F19]"
+                            : "text-gray-600 hover:bg-gray-50 hover:text-[#0B0F19]"
+                        }`}
+                      >
+                        <span>{cat}</span>
+                      </button>
+                      {isAll && (
+                        <div className="h-px bg-gray-100/80 my-1 mx-2" />
                       )}
-                    </button>
+                    </div>
                   );
                 })}
               </motion.div>

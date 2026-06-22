@@ -27,6 +27,8 @@ This file serves as the agent's short-term memory of recent tasks, issues resolv
 - **Action:** Removed index-based layout delays from `ProductsClient.tsx` and `BlogList.tsx`. Replaced staggering transitions with directional, organic spring slide-up and fade transitions (`type: "spring", stiffness: 380, damping: 35, mass: 0.8`) to ensure smooth, professional layout changes during filtering.
 - **Task:** Optimize card heights and restore full-width buttons.
 - **Action:** Decreased card image heights from `h-52` (208px) to `h-40` (160px) and reduced padding to `p-4` in `ProductsClient.tsx` and `BlogList.tsx`. Restored card buttons to clean, full-width solid design without arrows across the Product Catalog, Blog list, homepage blog cards, and homepage category carousel.
+- **Task:** Redesign category filter dropdown to premium floating popover style.
+- **Action:** Re-engineered the dropdown filter container in `ProductsClient.tsx` and `BlogList.tsx` to use glassmorphic styling (`bg-white/95 backdrop-blur-lg border border-gray-100/80 shadow-2xl p-1.5`). Refactored list items to be rounded floating buttons with background highlights (`bg-[#FFBE00]/15`) when selected, removed right-side checkmarks per user request, and added a visual divider under "All Products" / "All" filters.
 ### Previous Milestones
 1. **SEO Optimization & Keyword Audit:** Updated configurations, keywords, and tags.
 2. **Inquiry Form Container Update:** Wrapped the inquiry form in a styled card component for visual layout improvement.
