@@ -189,7 +189,7 @@ export async function sendInquiryAction(data: ContactFormData) {
             <div class="header">
               <div class="brand-title">TECKON</div>
               <div class="brand-subtitle">Shreeji Hydraulics</div>
-              <div class="header-title">✉️ New Website Inquiry</div>
+              <div class="header-title">✉️ New Inquiry from Teckon Website</div>
             </div>
             
             <div class="content">
