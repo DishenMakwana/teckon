@@ -149,7 +149,7 @@ export default function ContactClient() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Form */}
-            <div>
+            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300">
               <h2 className="text-2xl font-black text-[#111111] mb-6">Send an Inquiry</h2>
 
               {submitted && (
