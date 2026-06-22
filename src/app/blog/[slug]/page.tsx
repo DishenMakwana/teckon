@@ -17,6 +17,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${post.title} | Teckon™ Blog`,
     description: post.excerpt,
+    keywords: [
+      post.title,
+      `${post.title} guide`,
+      "Teckon blog",
+      "hydraulic maintenance tips",
+      "JCB maintenance guides",
+      "heavy equipment advice",
+    ],
   };
 }
 

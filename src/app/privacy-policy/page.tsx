@@ -5,12 +5,18 @@ import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 export const metadata: Metadata = {
   title: "Privacy Policy | Teckon™ Quality Spares",
   description: "Privacy policy for Teckon™ Quality Spares (Shreeji Hydraulics) — how we collect, use, and protect your data.",
+  keywords: [
+    "Teckon privacy policy",
+    "Shreeji Hydraulics terms privacy",
+    "cookie policy heavy machinery parts site",
+    "user data protection hydraulics website",
+  ],
 };
 
 const sections = [
   {
     title: "1. Data Collection",
-    content: "We collect personal information such as your name, email address, phone number, and company details when you submit an inquiry form, contact us via email, or interact with our website. We only collect information that is necessary to process your inquiries and provide our services.",
+    content: "We collect information about you in two primary ways: (a) Personally Identifiable Information: This is information you voluntarily provide to us when expressing interest in our products or services, such as your name, email address, phone number, city, country, company name, and details specified in contact forms or WhatsApp inquiries. (b) Derivative/Usage Data: Our servers automatically collect certain technical details when you visit the website, including your IP address, browser type, operating system, page response times, access durations, and referral pages. This is used for internal analytics to optimize performance.",
   },
   {
     title: "2. Data Usage",
@@ -26,16 +32,12 @@ const sections = [
   },
   {
     title: "5. Data Sharing",
-    content: "We do not share your personal information with third parties except: (a) with your explicit consent, (b) to comply with legal obligations, or (c) with trusted service providers who assist in our operations under strict confidentiality agreements.",
+    content: "We do not sell or rent your personal information to third parties. We may disclose your data in certain limited situations: (a) to comply with legal processes or regulations, (b) to protect our company rights or property, or (c) with trusted third-party service providers who assist in our operations (such as Resend for email delivery, hosting providers, or client support) under strict confidentiality agreements and only to perform tasks on our behalf.",
   },
   {
     title: "6. Your Rights",
-    content: "You have the right to: access the personal data we hold about you, request correction of inaccurate data, request deletion of your data, withdraw consent at any time, and lodge a complaint with the relevant data protection authority. To exercise these rights, contact us at shreejihyd4008@gmail.com.",
-  },
-  {
-    title: "7. Contact for Privacy",
-    content: "For any privacy-related questions or requests, please contact us at: Email: shreejihyd4008@gmail.com | Phone: +91-63518 79842 | Address: 36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat 360004.",
-  },
+    content: "You have the right to: access the personal data we hold about you, request correction of inaccurate data, request deletion of your data, withdraw consent at any time, and lodge a complaint with the relevant data protection authority."
+  }
 ];
 
 export default function PrivacyPolicyPage() {

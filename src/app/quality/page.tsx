@@ -7,6 +7,15 @@ export const metadata: Metadata = {
   title: "Quality & Manufacturing | Teckon™ Quality Spares",
   description:
     "ISO 9001:2015 certified hydraulic parts manufacturing. Learn about Teckon™'s precision manufacturing process, quality control, and certifications.",
+  keywords: [
+    "ISO 9001:2015 certified",
+    "hydraulic parts quality control",
+    "CNC machining Rajkot",
+    "VMC manufacturing Gujarat",
+    "precision hydraulic engineering",
+    "hydraulic testing standards",
+    "Teckon quality assurance",
+  ],
 };
 
 const steps = [

@@ -7,6 +7,14 @@ export const metadata: Metadata = {
   title: "Careers | Teckon™ Quality Spares",
   description:
     "Join the Teckon™ team. We're looking for talented individuals passionate about hydraulic engineering and manufacturing excellence.",
+  keywords: [
+    "work at Shreeji Hydraulics",
+    "careers in hydraulics",
+    "CNC operator jobs Rajkot",
+    "VMC programmer openings",
+    "hydraulic engineer vacancies Gujarat",
+    "manufacturing factory jobs Rajkot",
+  ],
 };
 
 const cultureValues = [

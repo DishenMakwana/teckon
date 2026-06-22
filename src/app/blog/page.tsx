@@ -8,6 +8,14 @@ export const metadata: Metadata = {
   title: "Blog & News | Teckon™ Quality Spares",
   description:
     "Technical guides, industry news, and company updates from Teckon™ — India's hydraulic parts specialists.",
+  keywords: [
+    "JCB spares maintenance",
+    "excavator parts guides",
+    "hydraulic troubleshooting tips",
+    "heavy machinery blogs",
+    "construction equipment spares news",
+    "hydraulic pump rebuild guide",
+  ],
 };
 
 export default function BlogPage() {

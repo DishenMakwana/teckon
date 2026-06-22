@@ -17,6 +17,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${product.name} | Teckon™ Quality Spares`,
     description: product.description,
+    keywords: [
+      product.name,
+      `${product.name} replacement`,
+      `${product.name} spares`,
+      product.model,
+      product.ref,
+      product.categoryLabel,
+      "heavy machinery hydraulic parts",
+      "aftermarket OEM replacement spares",
+    ],
   };
 }
 

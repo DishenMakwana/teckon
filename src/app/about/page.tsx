@@ -7,6 +7,15 @@ export const metadata: Metadata = {
   title: "About Us — Teckon™ Quality Spares | Shreeji Hydraulics",
   description:
     "Learn about Teckon™ (Shreeji Hydraulics), established in 2000 in Rajkot, Gujarat. Meet our founders Mr. Alpesh Patel and Mr. J.C. Patel and discover our vision and values.",
+  keywords: [
+    "About Teckon",
+    "Shreeji Hydraulics history",
+    "Mr. Alpesh Patel",
+    "Mr. J.C. Patel",
+    "hydraulic parts manufacturing history",
+    "Rajkot spares manufacturer",
+    "Teckon values and team",
+  ],
 };
 
 const pillars = [

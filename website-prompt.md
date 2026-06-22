@@ -16,7 +16,7 @@ Replace every value in this table before copying the prompt:
 | `/logo.png` | *(URL or `/logo.png`)* | Teckon Quality Spares Logo |
 | `Teckon Quality Spares Logo` | *(alt text for logo)* | Teckon Quality Spares Logo |
 | `Hydraulic Parts & Equipment` | *(your industry)* | Hydraulic Parts & Equipment |
-| `Hydraulic Parts, Spares & Components for JCB, Terex, CAT, Tata Heavy Equipment` | *(what you sell)* | Hydraulic Parts, Spares & Components |
+| `Hydraulic Parts, Spares & Components for JCB, Hitachi, Terex, CAT, Tata Heavy Equipment` | *(what you sell)* | Hydraulic Parts, Spares & Components |
 | `2000` | *(founding year)* | 2000 |
 | `Pan-India & International Markets` | *(export reach)* | Pan-India & International Markets |
 | `ISO 9001:2015, Make in India` | *(quality badges)* | ISO 9001:2015, Make in India |
@@ -27,15 +27,15 @@ Replace every value in this table before copying the prompt:
 | `https://facebook.com/shreejihydraulics` | *(Facebook page URL)* | <https://facebook.com/shreejihydraulics> |
 | `https://linkedin.com/company/shreeji-hydraulics` | *(LinkedIn URL)* | <https://linkedin.com/company/shreeji-hydraulics> |
 | `https://instagram.com/shreejihydraulics` | *(Instagram URL)* | <https://instagram.com/shreejihydraulics> |
-| `#1A3A7A` | *(hex color)* | #1A3A7A (Teckon Blue) |
-| `#002D5C` | *(hex color)* | #002D5C (Dark Blue) |
+| `#1E293B` | *(hex color)* | #1E293B (Teckon Blue) |
+| `#0B0F19` | *(hex color)* | #0B0F19 (Dark Blue) |
 | `#FF6B35` | *(hex color)* | #FF6B35 (Teckon Orange) |
-| `#FFCC00` | *(hex color)* | #FFCC00 (JCB Yellow Accent) |
-| `#111111` | *(hex color)* | #111111 (JCB Black / Industrial Contrast) |
-| `Mr. Alpesh Patel` | *(founder full name)* | Mr. Alpesh Patel |
-| `Managing Director` | *(founder title)* | Managing Director |
-| `Mr. J.C. Patel` | *(second founder full name)* | Mr. J.C. Patel |
-| `Co-Founder` | *(second founder title)* | Co-Founder |
+| `#FFBE00` | *(hex color)* | #FFBE00 (JCB Yellow Accent) |
+| `#0B0F19` | *(hex color)* | #0B0F19 (JCB Black / Industrial Contrast) |
+| `Mr. J.C. Patel` | *(founder full name)* | Mr. J.C. Patel |
+| `Co-Founder & Director` | *(founder title)* | Co-Founder & Director |
+| `Mr. Alpesh Patel` | *(second founder full name)* | Mr. Alpesh Patel |
+| `Co-Founder & Director` | *(second founder title)* | Co-Founder & Director |
 
 ---
 
@@ -48,9 +48,9 @@ Use the supplied visiting card as a visual and content reference. Extract and us
 - **Primary contacts:** J.C. Patel and Alpesh Patel
 - **Mobile numbers:** +91-94262 02945, +91-94269 15578, +91-63518 79842
 - **Email:** <shreejihyd4008@gmail.com>
-- **Address:** 36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat
-- **Deals in:** JCB, L770, Terex, Tata JD, CAT 424, Breakers, Tipper, Excavator Earthmoving, and all types of hydraulic parts
-- **Visual direction:** Industrial heavy-machinery look with JCB-inspired yellow and black accents, Teckon blue branding, bold machinery imagery, and strong CTA buttons.
+- **Address:** 36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat 360004
+- **Deals in:** JCB, L770, Terex, Tata JD, CAT 424, Hitachi, Breakers, Tipper, Excavator Earthmoving, and all types of hydraulic parts
+- **Visual direction:** Industrial heavy-machinery look with JCB-inspired yellow and black accents, Teckon dark blue/slate branding, bold machinery imagery, and strong CTA buttons with standardized hover darkening effects.
 
 ---
 
@@ -64,31 +64,32 @@ Build me a professional **B2C corporate website in Next.js** for **Shreeji Hydra
 
 ### 🎨 Brand & Design System
 
-- **Logo:** Use "Teckon Quality Spares" as the logo. Display it in the top navigation bar.
+- **Logo:** Use "Teckon™" as the logo. Display it in the top navigation bar and footer.
 - **Tagline:** "Premium Hydraulic Parts & Spares for Heavy Machinery"
-- **Primary Color:** `#1A3A7A` (Teckon Blue)
-- **Secondary Color:** `#002D5C` (Dark Blue)
+- **Primary Color:** `#1E293B` (Teckon Blue)
+- **Secondary Color:** `#0B0F19` (Dark Blue)
 - **Accent / Highlight Color:** `#FF6B35` (Teckon Orange)
-- **JCB-Inspired Accent:** `#FFCC00` (machinery yellow)
-- **Industrial Contrast:** `#111111` (machinery black)
-- **Color Direction:** Use a balanced JCB-inspired yellow/black/white industrial scheme with Teckon blue as the brand anchor. Avoid a flat single-color look; combine yellow CTAs, black text/headers, blue trust sections, and white/gray content areas for a premium heavy-machinery feel.
-- **Typography:** Use `Inter` or `Outfit` from Google Fonts — headings bold/heavy weight, body text regular weight.
+- **JCB-Inspired Accent:** `#FFBE00` (machinery yellow)
+- **Industrial Contrast:** `#0B0F19` (machinery black)
+- **Color Direction:** Use a balanced JCB-inspired yellow/black/white industrial scheme with Teckon blue/slate as the brand anchor. Avoid a flat single-color look; combine yellow CTAs, black text/headers, blue trust sections, and white/gray content areas for a premium heavy-machinery feel. All yellow buttons should have a standardized hover darkening transition.
+- **Typography:** Use `Outfit` or `Inter` from Google Fonts — headings bold/heavy weight, body text regular weight.
 - **Design Style:** Premium industrial B2C — dark header, clean white sections alternating with light gray, bold hero imagery, subtle shadows and micro-animations.
 - **Responsive:** Fully mobile-first responsive layout across desktop, laptop, tablet, and mobile.
-- **Animations:** Use high-quality Framer Motion animations on every page, not only the homepage. Include scroll reveal, staggered cards, animated counters, smooth page transitions, carousel motion, hover lift, button micro-interactions, and mobile drawer transitions. Animations must feel polished and fast, not distracting.
+- **Animations:** Use high-quality Framer Motion animations on every page. Include scroll reveal, staggered cards, animated counters, smooth page transitions, carousel motion, hover lift, button micro-interactions, and mobile drawer transitions. Animations must feel polished and fast, not distracting.
 
 ---
 
 ### 🧱 Tech Stack
 
-- **Framework:** Next.js 16+ (App Router). Create the website in Next.js, using reusable components, route-level metadata, and clean file structure.
-- **Styling:** Tailwind CSS v3
-- **Icons:** Lucide React or Heroicons
-- **Animations:** Framer Motion for subtle entrance animations
-- **Carousel:** Embla Carousel or Swiper.js for product sliders
-- **Forms:** React Hook Form with basic validation
-- **Maps:** Embed a Google Maps iframe for the contact page
-- **India Reach Map:** Use an open-source React map library such as `react-simple-maps` with a reliable open India states GeoJSON/TopoJSON dataset to render an India map on the homepage and highlight selected states accurately.
+- **Framework:** Next.js 16+ (App Router). Create the website in Next.js, using reusable components, route-level metadata (such as dynamic sitemaps and robots.txt), and clean file structure.
+- **Styling:** Tailwind CSS v4 (configured via `@import` and `@theme` in globals.css)
+- **Icons:** Lucide React
+- **Animations:** Framer Motion for subtle entrance and scroll-reveal animations
+- **Carousel:** Swiper.js for product and testimonial sliders
+- **Forms:** React Hook Form with validation, country-code selection dropdown, and numeric input sanitization
+- **Maps:** Embed a Google Maps iframe for the contact page (displayed side-by-side with the inquiry form)
+- **India Reach Map:** Use `@svg-maps/india` package with custom SVG path rendering to build an interactive, responsive India map on the homepage and highlight selected states (Gujarat, Rajasthan, Maharashtra, Madhya Pradesh) accurately, accompanied by an interactive detail panel.
+- **Email Integration:** Send inquiries using Resend API via Next.js Server Actions with clean, responsive HTML email templates, reply CTAs, and a WhatsApp reply link generator.
 
 ---
 
@@ -100,10 +101,12 @@ Build the following pages:
 / → Homepage
 /about → About Us
 /products → Products Catalog
+/products/[slug] → Product Details Page
 /quality → Quality & Manufacturing
 /events → Events & Exhibitions
 /careers → Careers
 /blog → Blog / News
+/blog/[slug] → Blog Post Detail Page
 /contact → Contact Us
 /privacy-policy → Privacy Policy
 /terms → Terms & Conditions
@@ -121,26 +124,25 @@ Build the following pages:
 
 - Left side: 📧 <shreejihyd4008@gmail.com> | 📞 +91-63518 79842
 - Right side: Social icons linking to Facebook, WhatsApp (wa.me/919426915578), LinkedIn, Instagram
-- Background: `#002D5C`, text white, small font size
+- Background: `#0B0F19`, text white, small font size
 
 #### Main Navigation
 
-- Logo on the left: "Teckon Quality Spares"
+- Logo on the left: "Teckon™"
 - Nav links: Home | About Us | Products (dropdown) | Quality | Events | Careers | Blog | Contact
-- Products dropdown shows product categories (e.g., JCB Spares, Terex Parts, CAT Components, General Hydraulics)
-- Search icon button on the right
+- Products dropdown shows product categories (JCB Spares, Terex Parts, CAT Components, Breakers & Tippers, L770 / Tata JD, Excavator Parts, General Hydraulics)
 - Sticky on scroll with a subtle box-shadow when scrolled
 - Mobile: Hamburger menu with slide-out drawer
 
 #### Footer
 
-- **Column 1:** Company name "Teckon", tagline "Premium Hydraulic Parts & Spares", social icons
-- **Column 2:** Quick Links (all main pages)
-- **Column 3:** Products links (JCB Spares, Terex Parts, CAT Components, Breakers & Tippers)
-- **Column 4:** Contact info — address "36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat", phone "+91-63518 79842", email "<shreejihyd4008@gmail.com>"
+- **Column 1:** Brand logo "TECKON™", tagline "Premium Hydraulic Parts & Spares", social icons.
+- **Column 2:** Quick Links (all main pages: Home, About Us, Products, Quality, Events, Careers, Blog, Contact Us)
+- **Column 3:** Product Range links (JCB Hydraulic Spares, Terex Parts, CAT 424 Components, Breakers & Tippers, L770 / Tata JD Spares, Excavator Parts, General Hydraulics) which link directly to `/products?category=<category_id>`
+- **Column 4:** Contact info — address "36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat 360004", phone "+91-63518 79842" and "+91-94269 15578 (Alpesh)", email "<shreejihyd4008@gmail.com>"
 - **Bottom bar:** Copyright Shreeji Hydraulics | Privacy Policy | Terms & Conditions
-- **Badges row:** Display text badges for "ISO 9001:2015 Certified", "Make in India"
-- Background: `#002D5C`, white text
+- **Badges row:** Display two white-card badges: ISO 9001:2015 Certified logo (WebP, hover scale-105) and Make in India lion logo (WebP, zoomed in at scale-1.35, hover scale-1.5).
+- Background: `#0B0F19`, white text
 
 #### Quick Access Buttons (visible on every page)
 
@@ -164,27 +166,27 @@ Build these sections in order:
 
 #### 1.1 Hero Banner
 
-- Full-viewport-height hero section
-- Background: dark overlay on an industrial/machinery image with JCB-style yellow heavy equipment (use a placeholder gradient if no image)
+- Clean layout to fit viewport cleanly. No scroll indicator.
+- Background: dark overlay on an industrial/machinery image with JCB-style yellow heavy equipment (`/images/hero-banner.webp`)
 - **H1:** "Premium Hydraulic Parts & Spares for Heavy Machinery"
 - **Subtext:** "Teckon has been a trusted leader in Hydraulic Parts & Equipment since 2000, delivering precision-engineered hydraulic spares across India and international markets."
 - Three CTA buttons: "Explore Products" (links to /products) | "WhatsApp Inquiry" (links to WhatsApp) | "Call Now" (tel link)
-- Subtle animated gradient or particle background
+- Subtle animated gradient background
 
 #### 1.2 Stats / Counter Strip
 
 - Horizontal strip with 4 animated counters:
   - `25+` Years of Experience
-  - `100+` Countries Served
+  - `10+` States Served
   - `5000+` Products in Stock
   - `99%` Client Satisfaction
-- Background: `#1A3A7A`, white text, large bold numbers
+- Background: `#1E293B` (Teckon Blue), white text, large bold numbers
 
 #### 1.3 Our Top Products (Carousel)
 
 - Section title: "Our Top Products"
-- Swiper/carousel of 3–5 product category cards
-- Each card: product image (placeholder), category name, short description, "View Products" button
+- Swiper/carousel of 3–5 product category cards using Swiper.js
+- Each card: product WebP image, category name, short description, "View Products" button
 - Smooth auto-play carousel with manual navigation dots/arrows
 - Product categories:
   - JCB Hydraulic Spares
@@ -197,49 +199,49 @@ Build these sections in order:
 
 #### 1.4 About Company
 
-- Two-column layout: left = image (company/factory photo placeholder), right = text
+- Two-column layout: left = image (company/factory photo WebP), right = text
 - **Heading:** "About Teckon"
 - **Text:** "Teckon is a leading manufacturer and distributor of hydraulic parts and spares, established in 2000. We specialize in high-quality hydraulic components for JCB, Terex, Caterpillar, and other heavy machinery. We combine advanced engineering with stringent quality control to deliver world-class hydraulic parts for industrial applications across India and internationally."
 - "Read More" button linking to /about
-- Decorative accent line or color block on heading
+- Decorative accent line on heading
 
 #### 1.5 Why Choose Us
 
 - Section title: "Why Choose Teckon?"
 - Grid of 4 USP cards with icons:
   - 🏭 **Advanced Manufacturing** — State-of-the-art production facilities with precision machinery
-  - 🌍 **Global Reach** — Serving clients across India and 100+ international markets
+  - 🌍 **Global Reach** — Serving clients across India and international markets
   - ✅ **Quality Assured** — ISO 9001:2015 certified with rigorous quality control
   - 🔧 **Specialized Solutions** — Custom hydraulic parts for JCB, Terex, CAT, and more
-- Cards: white background, icon in `#1A3A7A`, hover lift animation
+- Cards: white background, icon in `#1E293B`, hover lift animation
 
 #### 1.6 Our Partners / Clients
 
 - Section title: "Our Trusted Partners"
 - Horizontal scrolling logo strip (grayscale logos on hover → color)
-- 8–10 placeholder partner logo boxes (gray rectangles with "Partner Logo" text if no real logos)
+- 8–10 partner logo boxes
 - Auto-scroll marquee animation
 
 #### 1.7 Global Presence
 
 - Section title: "Our Global Presence"
 - Left: descriptive text about Teckon's India reach and supply network
-- Right: interactive/responsive India map built with an open-source library such as `react-simple-maps`
-- Use a reliable India states GeoJSON/TopoJSON dataset and highlight these states properly:
-  - Gujarat
-  - Rajasthan
-  - Maharashtra
-  - Madhya Pradesh
-- Highlighted states should use Teckon/JCB-inspired colors such as `#FFCC00` or `#FF6B35`, while other states remain muted gray.
-- Add hover tooltips or labels showing the state name.
-- Include a small legend: "Current Strong Reach" with the highlighted color.
+- Right: interactive/responsive India map built with `@svg-maps/india` package
+- Highlight these states properly:
+  - Gujarat (HQ, Primary Supply Hub: Rajkot - `#FFBE00`)
+  - Rajasthan (Key Distribution Partner: Jaipur & Jodhpur - `#FF9D3D`)
+  - Maharashtra (Distribution Hub: Pune & Mumbai - `#FF6B35`)
+  - Madhya Pradesh (Central Network Node: Indore & Bhopal - `#E84393`)
+- Highlighted states should use their distinct color schemes, while other states remain semi-transparent white/gray.
+- Add hover/click state triggers and display an interactive State Info panel showing name, city, role, and details when hovered or selected.
+- Include a small interactive legend listing the states, enabling users to click to select/toggle.
 - Stat chips: "Strong Reach Across 4 States", "Trusted Hydraulic Spares Network", "Serving Gujarat, Rajasthan, Maharashtra & Madhya Pradesh"
 
-#### 1.8 Testimonials (Optional Enhancement)
+#### 1.8 Testimonials
 
-- 3 testimonial cards in a carousel
-- Quote, client name, company, star rating
-- Placeholder data if real testimonials unavailable
+- Testimonial cards in a Swiper.js carousel with autoplay and pagination dot controls.
+- Quote, client name, company, star rating, and initials-based avatar with colored gradient backgrounds.
+- Use 6 real reviews representing key clients (e.g. from Jaipur, Pune, Indore, Udaipur, Nashik) testifying to the quality and durability of JCB, Terex, CAT, and Hitachi spares.
 
 ---
 
@@ -249,7 +251,7 @@ Sections in order:
 
 #### 2.1 Hero Banner
 
-- Background image with dark overlay
+- Background image WebP with dark overlay
 - **H1:** "About Teckon"
 - Breadcrumb: Home > About Us
 
@@ -263,24 +265,24 @@ Sections in order:
 
 #### 2.3 Meet the Founder / Leadership
 
-- Two-column layout for each founder:
-  - Left = portrait placeholder image, right = text
-  - **Name:** Mr. Alpesh Patel
-  - **Title:** Managing Director
-  - **Contact:** +91-94269 15578
-  - Bio paragraph: Founder and driving force behind Teckon's growth, Mr. Alpesh Patel has over 25 years of experience in hydraulic parts distribution and manufacturing. Under his leadership, Teckon has become a trusted supplier for major equipment brands globally.
-  
+- Two-column layout for each founder, ordered with J.C. Patel first and Alpesh Patel second:
+  - Left/right alternating layout for portrait image and text.
   - **Name:** Mr. J.C. Patel
   - **Title:** Co-Founder & Director
-  - **Contact:** +91-94262 02945
-  - Bio paragraph: As co-founder, Mr. J.C. Patel brings extensive expertise in hydraulic engineering and supply chain management. His vision has helped establish Teckon's reputation for quality and reliability.
+  - **Contact:** +91-94262 02945 (click-to-call)
+  - Bio paragraph: As Co-Founder, Mr. J.C. Patel brings extensive expertise in hydraulic engineering and supply chain management. His technical knowledge and industry relationships have been instrumental in establishing Teckon™'s reputation for quality and reliability. With decades of experience in the hydraulic parts industry, Mr. J.C. Patel continues to guide product development and quality assurance, ensuring every Teckon™ part meets the highest standards of performance.
+  
+  - **Name:** Mr. Alpesh Patel
+  - **Title:** Co-Founder & Director
+  - **Contact:** +91-94269 15578 (click-to-call)
+  - Bio paragraph: Co-Founder and driving force behind Teckon™'s growth, Mr. Alpesh Patel has over 25 years of experience in hydraulic parts distribution and manufacturing. With a deep understanding of the construction equipment industry, he has built Teckon™ into a trusted name for hydraulic spares across India. Under his leadership, Teckon™ has expanded from a local distributor in Rajkot to a company with nationwide reach, earning ISO 9001:2015 certification and the trust of major equipment operators.
 
 #### 2.4 Vision & Mission
 
 - Two cards side by side:
-  - 🎯 **Vision:** "To be the global leader in hydraulic parts and spares manufacturing, delivering innovation and precision to every client worldwide."
+  - 🎯 **Vision:** "To be the leading manufacturer of hydraulic parts and spares in India, delivering innovation and precision to every client nationwide."
   - 🚀 **Mission:** "To manufacture and distribute world-class hydraulic parts through cutting-edge technology, continuous improvement, and an unwavering commitment to quality and customer satisfaction."
-- Cards with `#1A3A7A` left border accent
+- Cards with `#1E293B` left border accent
 
 #### 2.5 Core Values
 
@@ -303,27 +305,27 @@ Sections in order:
 
 #### 3.2 Filter Bar
 
-- Dropdown or tab-based filter by category
-- Categories: JCB Spares | L770 Parts | Terex Parts | Tata JD Parts | CAT 424 Components | Breakers & Tippers | Excavator Earthmoving | General Hydraulics | All Products
-- Filter updates the product grid dynamically (client-side filtering)
+- Tab-based filter by category
+- Categories: JCB Spares | L770 / Tata JD | Terex Parts | CAT Components | Breakers & Tippers | Excavator Parts | General Hydraulics | All Products
+- Filter selection must sync with the URL parameter `?category=<category>` (e.g. `?category=jcb`), dynamically reading URL parameters on page load using `useSearchParams()` wrapped inside a Next.js `Suspense` boundary.
 
 #### 3.3 Product Grid
 
 - Responsive 3-column grid (2 on tablet, 1 on mobile)
 - Each product card contains:
-  - Product image placeholder (gray with product icon)
-  - Model Code (e.g., `PROD-001`)
-  - Reference number (e.g., `REF-XXXXX`)
+  - Product image loading WebP asset (`/images/product-jcb.webp` or `/images/product-excavator.webp`) using a custom `SafeImage` or Next.js `Image` component. LCP images should load eagerly (`loading="eager"` or `priority`).
+  - Model Code (e.g., `TQS-JCB-001`)
+  - Reference number (e.g., `REF-20/925345`)
   - Short description
   - "View Details" button
-- Hover: card lifts with shadow, button changes color
+- Hover: card lifts with shadow, button changes color (standardized hover darkening effect)
 
 #### 3.4 Product Detail Page `/products/[slug]`
 
 - Title: product name
-- Image gallery (2–3 placeholder images)
+- Image gallery (2–3 WebP images)
 - Specs table: dimensions, pressure rating, flow rate, applications
-- Inquiry CTA button: "Request a Quote" (links to /contact with pre-filled subject)
+- Inquiry CTA buttons: "Request a Quote" (links to `/contact` with pre-filled subject) and "WhatsApp" (direct link)
 
 ---
 
@@ -366,12 +368,10 @@ Sections in order:
   - Event name (e.g., "Bauma Munich 2025")
   - Location with flag emoji
   - Short description
-  - Photo placeholder
-- Use placeholder events until real ones are provided:
-  - Trade Show A — 2025 — International
-  - Trade Show B — 2024 — Domestic
-  - Trade Show C — 2023 — Domestic
-  - Trade Show D — 2022 — Domestic
+  - Photo placeholder WebP
+- Use real or detailed events:
+  - Excon Bengaluru — 2023 — Domestic
+  - Bauma Conexpo India — Noida 2024 — Domestic
 
 ---
 
@@ -384,8 +384,8 @@ Sections in order:
 
 #### 6.2 Open Positions
 
-- Notice: "We're always looking for talented individuals. Check back for openings or send your resume to `shreejihyd4008@gmail.com`"
-- Email CTA button
+- Notice: "We are always on the lookout for talented, driven, and passionate individuals who want to grow their careers in the hydraulic engineering and manufacturing industry. If you want to be a part of our dynamic team in India, please share your details and send your resume directly to our HR department."
+- Email CTA button linking to `mailto:shreejihyd4008@gmail.com?subject=Resume%20Submission%20—%20Teckon%E2%84%A2%20Quality%20Spares`
 
 ---
 
@@ -394,8 +394,12 @@ Sections in order:
 #### 7.1 Blog Grid
 
 - 3-column card grid
-- Each card: Featured image placeholder, date, category tag, article title, excerpt, "Read More" link
-- Placeholder 3 articles related to Hydraulic Parts & Equipment and company updates
+- Each card: Featured image, date, category tag, article title, excerpt, "Read More" link
+- Real detailed blog articles related to JCB and Hitachi auto parts with animations and clean UI. Examples:
+  - "The Complete Guide to Hydraulic System Maintenance"
+  - "Hitachi Excavator Hydraulics: EX200 & Zaxis Troubleshooting"
+  - "JCB 3CX Hydraulics: Gear Pumps vs Piston Pumps Guide"
+  - "JCB vs CAT Hydraulic Systems: What You Need to Know"
 
 #### 7.2 Individual Blog Post `/blog/[slug]`
 
@@ -408,55 +412,49 @@ Sections in order:
 
 #### 8.1 Contact Details
 
-- Three-column info cards:
+- Five-column responsive info cards at the top:
   - 📍 **Address:** 36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat 360004
-  - 📞 **Phone:** +91-63518 79842 (click-to-call link)
   - 📧 **Email:** <shreejihyd4008@gmail.com> (mailto link)
-  - 💬 **WhatsApp:** +91-9426915578 (WhatsApp link)
+  - 📞 **Call Sales:** +91-63518 79842 (click-to-call link)
+  - 💬 **Alpesh Patel:** +91-94269 15578 (WhatsApp click-to-chat link)
+  - 💬 **J.C. Patel:** +91-94262 02945 (WhatsApp click-to-chat link)
 
-#### 8.2 Inquiry Form
+#### 8.2 Layout
 
-Form fields:
+- Side-by-side layout: Inquiry Form on the left, Google Maps Embed on the right.
 
+#### 8.3 Inquiry Form
+
+Form fields validated with React Hook Form:
 - Full Name (required)
-- Email Address (required, validated)
-- Phone Number (required)
+- Email Address (required, validated with pattern matching)
+- Phone Number (required, exactly 10 digits, auto-sanitized to remove non-numeric input, with a country-code selection dropdown)
 - City
-- Country
-- Product / Subject (dropdown: JCB Spares, Terex Parts, CAT Components, Breakers & Tippers, General Hydraulics, Other)
+- Country (auto-updates when a country code is selected, e.g. +91 is India, +86 is China, etc.)
+- Product / Subject (dropdown: JCB Hydraulic Spares, Terex Parts, CAT Components, Breakers & Tippers, L770 / Tata JD Spares, Excavator Parts, General Hydraulics, Other)
 - Message (textarea)
 - Submit Button: "Send Inquiry" in `#FF6B35`
 
-On submit: show success toast notification and send inquiry to <shreejihyd4008@gmail.com>
-
-#### 8.3 Direct Contact CTA Strip
-
-- Add a high-visibility CTA strip above the map with:
-  - WhatsApp Chat: `https://wa.me/919426915578?text=Hello%20Shreeji%20Hydraulics,%20I%20want%20to%20inquire%20about%20hydraulic%20spares`
-  - Call Sales: `tel:+916351879842`
-  - Call Alpesh Patel: `tel:+919426915578`
-  - Call J.C. Patel: `tel:+919426202945`
-  - Email: `mailto:shreejihyd4008@gmail.com`
-- Buttons should be large, touch-friendly, and styled with JCB yellow / industrial black accents.
+On submit: Calls a Next.js Server Action (`sendInquiryAction`) to deliver the email securely using the **Resend API**. Show success/error toast or alert notification on submit. If the API key is not configured, fallback gracefully by printing to the server console.
 
 #### 8.4 Google Maps Embed
 
-- Embed Google Maps iframe for "36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat"
-- Full-width, 400px height
+- Embed Google Maps iframe for "Teckon™ Shreeji Hydraulics Location — Gondal Road, Rajkot, Gujarat"
+- Displayed in a card matching the form height.
 
 ---
 
 ### 📄 Page 9 — Privacy Policy `/privacy-policy`
 
 - Standard privacy policy page with dark heading and white card content
-- Sections: Data Collection, Data Usage, Cookies, User Rights, Contact for Privacy
+- Sections: Data Collection (distinguishing Personally Identifiable Information and Derivative/Usage Data), Data Usage, Cookies, Data Sharing (documenting trusted third-party service providers like Resend for email delivery), User Rights
 
 ---
 
 ### 📄 Page 10 — Terms & Conditions `/terms`
 
 - Standard T&C page
-- Sections: Acceptance, IP Rights, Prohibited Use, Limitation of Liability, Governing Law (India)
+- Sections: Acceptance, Intellectual Property Rights, Use of OEM Part Numbers and Trademarks (aftermarket parts disclaimer specifying 'For Reference Only', 'No Affiliation', 'Aftermarket Products' and 'Ownership of Trademarks'), Product Information, Prohibited Use, Limitation of Liability, Warranty, Governing Law (India)
 
 ---
 
@@ -464,7 +462,7 @@ On submit: show success toast notification and send inquiry to <shreejihyd4008@g
 
 - **Page transitions:** Smooth fade-in between route changes
 - **Section animations:** Every page should include purposeful animation: hero text reveal, staggered cards, timeline reveal, animated counters, carousel movement, form field focus transitions, and footer/social hover states using Framer Motion.
-- **Hover states:** All cards, buttons, and nav links have hover feedback
+- **Hover states:** All cards, buttons, and nav links have hover feedback (standardized hover darkening transitions for yellow buttons).
 - **Loading states:** Skeleton loaders for product grid
 - **WhatsApp floating button:** Fixed bottom-right WhatsApp chat button linking to `wa.me/919426915578`
 - **Call floating button:** Fixed direct call button linking to `tel:+916351879842`
@@ -494,7 +492,7 @@ On submit: show success toast notification and send inquiry to <shreejihyd4008@g
 - Use semantic HTML: `<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`, `<article>`
 - Single `<h1>` per page, proper heading hierarchy
 - Image `alt` attributes on all images
-- `robots.txt` and `sitemap.xml` generated for google crawler.
+- Dynamic `robots.ts` and `sitemap.ts` generated for google crawler.
 
 ---
 
@@ -502,24 +500,24 @@ On submit: show success toast notification and send inquiry to <shreejihyd4008@g
 
 If logo or images are not yet available, use:
 
-- **Logo:** Use text "Teckon Quality Spares" in `#1A3A7A` color with professional font
-- **Product images:** Gray box with a gear/pump SVG icon centered
-- **Team/founder photo:** Gray avatar circle
-- **Hero background:** CSS gradient from `#111111` to `#002D5C` with `#FFCC00` accent bands if no real machinery photo is available
-- **Partner logos:** Gray rounded boxes with "Partner" text
+- **Logo:** Use text "Teckon™" in `#1E293B` color with professional font
+- **Product images:** WebP fallback images or gear/pump SVG icon centered
+- **Team/founder photo:** WebP portrait photos of the founders
+- **Hero background:** WebP banner `/images/hero-banner.webp` or CSS gradient from `#0B0F19` to `#1E293B` with `#FFBE00` accent bands
+- **Partner logos:** Grayscale WebP logos (hover transition to full-color)
 
 ---
 
 ### Before generating, verify
 
-- All company details are filled in: Shreeji Hydraulics (Teckon)
+- All company details are filled in: Shreeji Hydraulics (Teckon™)
 - Contact email: <shreejihyd4008@gmail.com>
 - Contact phone: +91-63518 79842
 - WhatsApp: +91-9426915578
-- Address: 36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat
-- Visiting card details are reflected: J.C. Patel, Alpesh Patel, Teckon Quality Spares, JCB/L770/Terex/Tata JD/CAT 424/Breakers/Tipper/Excavator product references
+- Address: 36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat 360004
+- Visiting card details are reflected: J.C. Patel, Alpesh Patel, Teckon™ Quality Spares, JCB/L770/Terex/Tata JD/CAT 424/Hitachi/Breakers/Tipper/Excavator product references
 - Website is built in Next.js 16+ App Router
-- JCB-inspired yellow/black color scheme is used tastefully with Teckon blue branding
+- JCB-inspired yellow/black color scheme is used tastefully with Teckon™ blue/slate branding
 - Every page has scroll, hover, and transition animations
 - Every page includes direct WhatsApp, call, and quick inquiry access
 - No raw placeholder text remains in the final output
@@ -533,17 +531,18 @@ If logo or images are not yet available, use:
 
 - Site must be 100% functional with placeholder content (no broken links)
 - All animations must work on scroll and hover
-- Contact form must validate inputs, show success state, and send inquiry to <shreejihyd4008@gmail.com>
+- Contact form must validate inputs, show success/error alerts, and send inquiry via Resend Server Action (Secure email delivery)
 - Mobile hamburger menu must animate smoothly
-- Homepage must include a responsive India map using an open-source map library, with Gujarat, Rajasthan, Maharashtra, and Madhya Pradesh highlighted accurately
-- WhatsApp button links to +91-9426915578
+- Homepage must include a responsive India map using the `@svg-maps/india` package, with Gujarat, Rajasthan, Maharashtra, and Madhya Pradesh highlighted accurately with distinct colors, hover/click details panel, and legend list
+- WhatsApp buttons link to appropriate phone numbers (+91-94269 15578 / +91-94262 02945)
 - Direct call buttons link to +91-63518 79842, +91-94269 15578, and +91-94262 02945 where appropriate
 - Quick inquiry buttons are available on every page
 - All contact numbers and email are clickable and functional
 - Home, About Us, Products, Quality, Events, Careers, Blog, Contact, Privacy Policy, Terms, product details, and blog details must open on their own URLs, not as same-page anchor sections
+- Product catalog filters sync selection with URL parameters (`?category=<category>`), handling dynamic router/view transition states correctly with Next.js router and Suspense
 
 ---
 
-> **NOTE FOR AI BUILDER:** All actual company values have been filled in. The website should be 100% functional and visually complete with these real details about Shreeji Hydraulics (Teckon). All details are now specific and production-ready — no raw `[BRACKET]` text should remain visible in the final output.
+> **NOTE FOR AI BUILDER:** All actual company values have been filled in. The website should be 100% functional and visually complete with these real details about Shreeji Hydraulics (Teckon™). All details are now specific and production-ready — no raw `[BRACKET]` text should remain visible in the final output.
 
 ---

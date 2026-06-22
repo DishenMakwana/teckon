@@ -5,6 +5,12 @@ import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 export const metadata: Metadata = {
   title: "Terms & Conditions | Teckon™ Quality Spares",
   description: "Terms and conditions for using Teckon™ Quality Spares (Shreeji Hydraulics) website and services.",
+  keywords: [
+    "Teckon terms of service",
+    "Shreeji Hydraulics terms & conditions",
+    "OEM reference disclaimer",
+    "replacement parts catalog rules",
+  ],
 };
 
 const sections = [
@@ -17,29 +23,29 @@ const sections = [
     content: "All content on this website, including text, images, logos, product descriptions, and technical data, is the property of Shreeji Hydraulics (Teckon™ Quality Spares) and is protected under Indian copyright laws. You may not reproduce, distribute, or use any content without our prior written permission.",
   },
   {
-    title: "3. Product Information",
+    title: "3. Use of OEM Part Numbers and Trademarks",
+    content: "Our website lists products that are aftermarket replacements for parts sold by Original Equipment Manufacturers (OEMs). To help our customers identify the correct replacement part for their machinery, we use OEM names, part numbers, and descriptions. Please be aware of the following: (a) For Reference Only: All manufacturer names, part numbers, symbols, and descriptions are used for reference purposes only. (b) No Affiliation: It is not implied that any part listed is the product of these manufacturers. We are an independent manufacturer of aftermarket parts. (c) Aftermarket Products: The products sold on this Site are aftermarket replacement parts and are not original OEM parts, unless explicitly stated otherwise. (d) Ownership of Trademarks: All brand names, logos, and trademarks mentioned on this site are the property of their respective owners and are used here only for identification purposes.",
+  },
+  {
+    title: "4. Product Information",
     content: "We strive to ensure all product information, specifications, and pricing on this website are accurate. However, Teckon™ reserves the right to modify products, specifications, or prices without notice. Product images are for illustration purposes only. Actual products may vary. All sales are subject to our standard commercial terms.",
   },
   {
-    title: "4. Prohibited Use",
+    title: "5. Prohibited Use",
     content: "You agree not to: (a) use this website for any unlawful purpose, (b) attempt to gain unauthorized access to any part of the website, (c) transmit any malicious code or interfere with the website's functionality, (d) use automated tools to scrape or harvest data from our website, or (e) misrepresent your identity or affiliation.",
   },
   {
-    title: "5. Limitation of Liability",
+    title: "6. Limitation of Liability",
     content: "To the maximum extent permitted by law, Teckon™ Quality Spares shall not be liable for any indirect, incidental, special, or consequential damages arising from the use of our website or products. Our liability shall not exceed the value of products purchased in the transaction giving rise to the claim.",
   },
   {
-    title: "6. Warranty",
+    title: "7. Warranty",
     content: "All Teckon™ hydraulic parts come with a limited warranty as specified at the time of purchase. Warranty covers manufacturing defects under normal operating conditions. Damage caused by improper installation, misuse, or unauthorized modifications is not covered. Warranty claims must be made within the warranty period with proof of purchase.",
   },
   {
-    title: "7. Governing Law",
+    title: "8. Governing Law",
     content: "These Terms and Conditions shall be governed by and construed in accordance with the laws of India. Any disputes arising from these terms or the use of our services shall be subject to the exclusive jurisdiction of the courts in Rajkot, Gujarat, India.",
-  },
-  {
-    title: "8. Contact",
-    content: "For any questions regarding these Terms and Conditions, please contact us at: Email: shreejihyd4008@gmail.com | Phone: +91-63518 79842 | Address: 36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat 360004.",
-  },
+  }
 ];
 
 export default function TermsPage() {
