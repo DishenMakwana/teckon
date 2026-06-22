@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { BLOG_POSTS } from "@/lib/data";
-import BlogList from "@/components/blog/BlogList";
+import dynamic from "next/dynamic";
+
+const BlogList = dynamic(() => import("@/components/blog/BlogList"), { ssr: true });
 
 export const metadata: Metadata = {
   title: "Blog & News | Teckon™ Quality Spares",

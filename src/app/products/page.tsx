@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import ProductsClient from "./ProductsClient";
+import dynamic from "next/dynamic";
+
+const ProductsClient = dynamic(() => import("./ProductsClient"), { ssr: true });
 
 export const metadata: Metadata = {
   title: "Genuine Hydraulic Spares Catalog | Teckon™ Quality Spares",

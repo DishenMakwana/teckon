@@ -4,13 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import StatsStrip from "@/components/home/StatsStrip";
-import ProductsCarousel from "@/components/home/ProductsCarousel";
-import AboutSection from "@/components/home/AboutSection";
-import WhyChooseUs from "@/components/home/WhyChooseUs";
-import PartnersMarquee from "@/components/home/PartnersMarquee";
-import GlobalPresence from "@/components/home/GlobalPresence";
-import Testimonials from "@/components/home/Testimonials";
-import BlogSection from "@/components/home/BlogSection";
+import dynamic from "next/dynamic";
+
+const ProductsCarousel = dynamic(() => import("@/components/home/ProductsCarousel"), { ssr: true });
+const AboutSection = dynamic(() => import("@/components/home/AboutSection"), { ssr: true });
+const WhyChooseUs = dynamic(() => import("@/components/home/WhyChooseUs"), { ssr: true });
+const PartnersMarquee = dynamic(() => import("@/components/home/PartnersMarquee"), { ssr: true });
+const GlobalPresence = dynamic(() => import("@/components/home/GlobalPresence"), { ssr: true });
+const Testimonials = dynamic(() => import("@/components/home/Testimonials"), { ssr: true });
+const BlogSection = dynamic(() => import("@/components/home/BlogSection"), { ssr: true });
 
 export default function HomePage() {
   return (
