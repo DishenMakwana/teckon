@@ -51,10 +51,10 @@ export default function AboutSection() {
             </h2>
             <div className="w-12 h-1.5 bg-[#FFBE00] rounded-full mb-6" />
             <p className="text-slate-300 leading-relaxed mb-4">
-              Teckon™ is a leading brand of hydraulic parts and spares, manufactured and distributed by <strong>Shreeji Hydraulics</strong> since 2000. We specialize in high-quality hydraulic components for JCB, Terex, Caterpillar, L770, Tata JD, and other heavy machinery.
+              Teckon™ is a premier brand of hydraulic parts and spares, manufactured and distributed by <strong>Shreeji Hydraulics</strong> since 2000. Operating out of our specialized manufacturing facility in Rajkot, Gujarat, we specialize in high-performance hydraulic cylinders, pump assemblies, seal kits, control valves, and high-tensile pins and bushes engineered specifically for JCB, Terex, Caterpillar, L770, Tata JD, and other heavy earthmoving machinery.
             </p>
             <p className="text-slate-300 leading-relaxed mb-6">
-              We combine advanced engineering with stringent quality control to deliver world-class hydraulic parts for industrial applications across India. Our ISO 9001:2015 certification reflects our unwavering commitment to quality.
+              We combine state-of-the-art CNC and VMC precision machining with stringent quality assurance protocols to deliver world-class hydraulic solutions. Every component undergoes strict testing under high-pressure conditions to ensure flawless operation on-site. Our ISO 9001:2015 certification reflects our unwavering commitment to engineering standards, durability, and customer satisfaction across India.
             </p>
 
             <div className="grid grid-cols-2 gap-4 mb-8">

@@ -71,7 +71,7 @@ export default function ContactClient() {
           setSubmitError(result.error || "Failed to send inquiry. Please try again.");
         }
       }
-    } catch (err: any) {
+    } catch {
       setSubmitError("An unexpected network error occurred. Please try again later or contact us directly.");
     }
   };
@@ -311,12 +311,11 @@ export default function ContactClient() {
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.442907409264!2d70.79357007503632!3d22.27978987969395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959cb00052e5469%3A0xd14f057e5cdfa24e!2sSHREEJI%20HYDRAULICS%20(TECKON)!5e0!3m2!1sen!2sin!4v1718800000000!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
-                style={{ border: 0 }}
                 allowFullScreen
                 loading="eager"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Teckon™ Shreeji Hydraulics Location — Gondal Road, Rajkot, Gujarat"
-                className="w-full h-full min-h-[400px]"
+                className="w-full h-full min-h-[400px] border-0"
               />
             </div>
           </div>

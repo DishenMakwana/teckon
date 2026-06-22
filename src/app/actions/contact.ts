@@ -261,7 +261,7 @@ export async function sendInquiryAction(data: ContactFormData) {
     }
 
     return { success: true, id: resData?.id };
-  } catch (err: any) {
+  } catch (err) {
     console.error("Server Action Exception:", err);
     return { success: false, error: "SYSTEM_ERROR" };
   }

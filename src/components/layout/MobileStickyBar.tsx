@@ -6,7 +6,7 @@ import { Phone, MessageCircle, Send } from "lucide-react";
 export default function MobileStickyBar() {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
-      <div className="grid grid-cols-3 bg-[#111111] border-t border-[#FFBE00]/30" style={{ paddingBottom: "env(safe-area-inset-bottom)" }}>
+      <div className="grid grid-cols-3 bg-[#111111] border-t border-[#FFBE00]/30 pb-safe">
         <a
           href="tel:+916351879842"
           className="flex flex-col items-center justify-center py-3 gap-1 text-white hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors group"

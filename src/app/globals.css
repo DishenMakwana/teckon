@@ -114,3 +114,8 @@ body {
   padding-right: 1.5rem !important;
 }
 
+/* Safe area padding for mobile sticky bars */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+

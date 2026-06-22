@@ -113,7 +113,7 @@ export default function QualityPage() {
             {/* Vertical line */}
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-teckon-blue/20 hidden md:block" />
             <div className="flex flex-col gap-8">
-              {steps.map((step, i) => (
+              {steps.map((step) => (
                 <div key={step.num} className="flex gap-6 items-start">
                   <div className="flex flex-col items-center gap-2 shrink-0">
                     <div className="w-16 h-16 rounded-2xl bg-teckon-blue text-white flex items-center justify-center text-2xl shadow-lg z-10">

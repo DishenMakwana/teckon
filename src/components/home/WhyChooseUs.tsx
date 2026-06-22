@@ -8,22 +8,22 @@ const usps = [
   {
     icon: Factory,
     title: "Advanced Manufacturing",
-    description: "State-of-the-art CNC, VMC, and specialized hydraulic machining facilities with precision engineering capabilities.",
+    description: "Our state-of-the-art facility in Rajkot integrates advanced CNC turning centers, vertical machining centers (VMC), and specialized hydraulic test rigs to produce parts with micron-level dimensional accuracy.",
   },
   {
     icon: Map,
     title: "Pan-India Reach",
-    description: "Serving clients across India with a robust supply network and reliable, on-time delivery of hydraulic spares.",
+    description: "We serve contractors, dealers, and fleet operators across India from our primary distribution hubs. Our optimized logistics network ensures reliable, on-time shipment of critical spares to minimize your machine downtime.",
   },
   {
     icon: BadgeCheck,
     title: "Quality Assured",
-    description: "ISO 9001:2015 certified with rigorous quality control at every production stage. No compromises on standards.",
+    description: "We are an ISO 9001:2015 certified manufacturer. Every single hydraulic seal, cylinder component, and pin undergoes strict quality control checks and stress tests at multiple production stages to ensure field reliability.",
   },
   {
     icon: Wrench,
     title: "Specialized Solutions",
-    description: "Expert technical support for custom hydraulic parts matching OEM specifications for JCB, Terex, CAT and more.",
+    description: "Our experienced engineering team provides custom hydraulic fabrication and technical consulting. We deliver bespoke parts built to exact OEM drawings and specifications for JCB, Terex, CAT, and Hitachi fleets.",
   },
 ];
 
@@ -61,7 +61,7 @@ export default function WhyChooseUs() {
                 <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-teckon-blue transition-colors">
                   <Icon size={22} className="text-teckon-blue group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="font-bold text-[#111111] mb-2">{usp.title}</h3>
+                <div className="font-bold text-[#111111] mb-2">{usp.title}</div>
                 <p className="text-gray-600 text-sm leading-relaxed">{usp.description}</p>
               </motion.div>
             );

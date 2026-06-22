@@ -63,9 +63,7 @@ export default function HomePage() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-white/80 text-xs sm:text-sm md:text-base max-w-2xl mx-auto mb-6 md:mb-8"
           >
-            Teckon™ has been a trusted leader in Hydraulic Parts &amp; Equipment since 2000, delivering
-            precision-engineered hydraulic spares across India. Specialists in
-            JCB, Terex, CAT, Tata JD, L770, Breakers, Tippers &amp; Excavator parts.
+            Teckon™ is a premium manufacturer of hydraulic parts &amp; spares for heavy machinery. Since 2000, we have been a trusted leader delivering precision-engineered hydraulic spares across India, specializing in JCB, Terex, CAT, Tata JD, L770, breakers, tippers, and excavator components.
           </motion.p>
 
           <motion.div
@@ -118,6 +116,40 @@ export default function HomePage() {
       <ProductsCarousel />
       <AboutSection />
       <WhyChooseUs />
+
+      {/* Industries & Machinery We Serve - SEO Text Section */}
+      <section className="py-20 bg-slate-50 border-t border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">Applications</span>
+            <h2 className="text-4xl font-black text-[#111111] mb-4">Industries &amp; Machinery We Serve</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Our premium hydraulic parts and spares are engineered to meet the demanding requirements of various heavy industries, ensuring maximum efficiency and minimal downtime.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+              <h3 className="text-[#FF6B35] font-bold text-xl mb-3">Construction &amp; Earthmoving</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                We supply high-performance hydraulic cylinders, pumps, and seal kits specifically built for backhoe loaders, excavators, and crawler tractors. Our components are widely used on JCB 3DX, CAT 424B, and Hitachi EX200 models to maintain high operating pressure and precise fluid control in rough terrains.
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+              <h3 className="text-[#FF6B35] font-bold text-xl mb-3">Mining &amp; Heavy Excavation</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Heavy machinery used in quarrying and mining operations requires hydraulic spares that can withstand extreme pressure, high temperatures, and abrasive dust. Teckon provides robust breaker spares, tipper cylinders, control valves, and heavy-duty pins and bushes designed for maximum wear resistance and longevity.
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+              <h3 className="text-[#FF6B35] font-bold text-xl mb-3">Infrastructure &amp; Roadworks</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Precision is key in road building and infrastructure development. Our premium line of valves, hydraulic hoses, and specialized fittings ensure smooth hydraulic flow and quick response rates for pavers, vibratory rollers, and loaders. We keep your projects moving without unexpected breakdown delays.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <PartnersMarquee />
       <GlobalPresence />
       <Testimonials />

@@ -5,7 +5,7 @@ import { Phone, MessageCircle, Send } from "lucide-react";
 
 export default function QuickAccessRail() {
   return (
-    <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-1">
+    <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-1">
       <a
         href="https://wa.me/919426915578?text=Hello%20Shreeji%20Hydraulics,%20I%20want%20to%20inquire%20about%20hydraulic%20spares"
         target="_blank"

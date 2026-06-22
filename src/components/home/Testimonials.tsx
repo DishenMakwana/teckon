@@ -114,7 +114,7 @@ export default function Testimonials() {
                           {initials}
                         </div>
                         <div>
-                          <h3 className="font-extrabold text-[#0B0F19] text-base leading-snug group-hover:text-[#FF6B35] transition-colors">{t.name}</h3>
+                          <div className="font-extrabold text-[#0B0F19] text-base leading-snug group-hover:text-[#FF6B35] transition-colors">{t.name}</div>
                           <span className="text-gray-600 text-xs font-semibold block mt-0.5">{t.company}</span>
                         </div>
                       </div>

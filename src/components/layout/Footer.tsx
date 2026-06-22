@@ -106,7 +106,7 @@ export default function Footer() {
                 { name: "General Hydraulics", href: "/products?category=general" },
               ].map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="group flex items-center gap-1.5 text-white/70 text-sm hover:text-[#FFBE00] transition-colors">
+                  <Link href={link.href} rel="nofollow" className="group flex items-center gap-1.5 text-white/70 text-sm hover:text-[#FFBE00] transition-colors">
                     <ChevronRight size={12} className="text-[#FFBE00]/40 group-hover:text-[#FFBE00] group-hover:translate-x-0.5 transition-all duration-200 shrink-0" />
                     <span className="group-hover:translate-x-1 transition-transform duration-200">
                       {link.name}

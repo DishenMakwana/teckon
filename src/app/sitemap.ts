@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { PRODUCTS, BLOG_POSTS } from "@/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://teckon.in";
+  const baseUrl = "https://teckon.vercel.app";
 
   // Core static pages
   const routes = [

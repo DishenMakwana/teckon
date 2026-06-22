@@ -46,6 +46,55 @@ const STATE_INFO: Record<string, StateInfo> = {
   },
 };
 
+const GLOW_CLASSES: Record<string, string> = {
+  gj: "hover:drop-shadow-[0_0_8px_rgba(255,190,0,0.53)] drop-shadow-[0_0_8px_rgba(255,190,0,0.53)]",
+  rj: "hover:drop-shadow-[0_0_8px_rgba(255,157,61,0.53)] drop-shadow-[0_0_8px_rgba(255,157,61,0.53)]",
+  mh: "hover:drop-shadow-[0_0_8px_rgba(255,107,53,0.53)] drop-shadow-[0_0_8px_rgba(255,107,53,0.53)]",
+  mp: "hover:drop-shadow-[0_0_8px_rgba(232,67,147,0.53)] drop-shadow-[0_0_8px_rgba(232,67,147,0.53)]",
+};
+
+const PANEL_STYLE_CLASSES: Record<string, string> = {
+  gj: "bg-gradient-to-br from-[#FFBE00]/10 to-[#FFBE00]/05 border-[#FFBE00]/30",
+  rj: "bg-gradient-to-br from-[#FF9D3D]/10 to-[#FF9D3D]/05 border-[#FF9D3D]/30",
+  mh: "bg-gradient-to-br from-[#FF6B35]/10 to-[#FF6B35]/05 border-[#FF6B35]/30",
+  mp: "bg-gradient-to-br from-[#E84393]/10 to-[#E84393]/05 border-[#E84393]/30",
+};
+
+const ICON_BG_CLASSES: Record<string, string> = {
+  gj: "bg-[#FFBE00]/15",
+  rj: "bg-[#FF9D3D]/15",
+  mh: "bg-[#FF6B35]/15",
+  mp: "bg-[#E84393]/15",
+};
+
+const TEXT_COLOR_CLASSES: Record<string, string> = {
+  gj: "text-[#FFBE00]",
+  rj: "text-[#FF9D3D]",
+  mh: "text-[#FF6B35]",
+  mp: "text-[#E84393]",
+};
+
+const BADGE_BG_CLASSES: Record<string, string> = {
+  gj: "bg-[#FFBE00] text-[#0B0F19]",
+  rj: "bg-[#FF9D3D] text-[#0B0F19]",
+  mh: "bg-[#FF6B35] text-[#0B0F19]",
+  mp: "bg-[#E84393] text-[#0B0F19]",
+};
+
+const LEGEND_ITEM_CLASSES: Record<string, string> = {
+  gj: "bg-[#FFBE00]/10 border-[#FFBE00]/40 shadow-[0_0_12px_rgba(255,190,0,0.2)]",
+  rj: "bg-[#FF9D3D]/10 border-[#FF9D3D]/40 shadow-[0_0_12px_rgba(255,157,61,0.2)]",
+  mh: "bg-[#FF6B35]/10 border-[#FF6B35]/40 shadow-[0_0_12px_rgba(255,107,53,0.2)]",
+  mp: "bg-[#E84393]/10 border-[#E84393]/40 shadow-[0_0_12px_rgba(232,67,147,0.2)]",
+};
+
+const DOT_BG_CLASSES: Record<string, string> = {
+  gj: "bg-[#FFBE00] shadow-[0_0_8px_rgba(255,190,0,0.53)]",
+  rj: "bg-[#FF9D3D] shadow-[0_0_8px_rgba(255,157,61,0.53)]",
+  mh: "bg-[#FF6B35] shadow-[0_0_8px_rgba(255,107,53,0.53)]",
+  mp: "bg-[#E84393] shadow-[0_0_8px_rgba(232,67,147,0.53)]",
+};
+
 /* ── Component ──────────────────────────────────────────────────────── */
 export default function IndiaMapChart() {
   const [hovered, setHovered] = useState<string | null>(null);
@@ -91,6 +140,8 @@ export default function IndiaMapChart() {
                 if (selected) opacity = 0.5;
               }
 
+              const glowClass = isOn && (isHovered || isSelected) ? GLOW_CLASSES[loc.id] : "";
+
               return (
                 <path
                   key={loc.id}
@@ -100,15 +151,7 @@ export default function IndiaMapChart() {
                   stroke={stroke}
                   strokeWidth={strokeW}
                   opacity={opacity}
-                  style={{
-                    transition:
-                      "fill 0.25s ease, stroke 0.25s ease, opacity 0.25s ease",
-                    cursor: isOn ? "pointer" : "default",
-                    filter:
-                      isOn && (isHovered || isSelected)
-                        ? `drop-shadow(0 0 8px ${info.color}88)`
-                        : "none",
-                  }}
+                  className={`transition-all duration-250 ease-in-out ${isOn ? "cursor-pointer" : "cursor-default"} ${glowClass}`}
                   onMouseEnter={() => isOn && setHovered(loc.id)}
                   onMouseLeave={() => setHovered(null)}
                   onClick={() =>
@@ -131,47 +174,36 @@ export default function IndiaMapChart() {
           xmlns="http://www.w3.org/2000/svg"
           className="absolute inset-0 w-full h-auto pointer-events-none"
         >
-          {Object.entries(STATE_INFO).map(([id, info]) => {
+          {Object.keys(STATE_INFO).map((id) => {
             const loc = indiaMap.locations.find(
               (l: { id: string }) => l.id === id
             );
             if (!loc || selected !== id) return null;
-            // Parse a rough center from the path bbox — simple approach
-            return null; // pulse handled via glow filter above
+            return null;
           })}
         </svg>
       </div>
 
       {/* Info Panel */}
       <AnimatePresence mode="wait">
-        {activeInfo ? (
+        {activeInfo && activeId ? (
           <motion.div
             key={activeId}
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 6, scale: 0.97 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            className="mt-4 rounded-2xl border px-5 py-4 flex items-center gap-4"
-            style={{
-              background: `linear-gradient(135deg, ${activeInfo.color}18, ${activeInfo.color}08)`,
-              borderColor: `${activeInfo.color}55`,
-            }}
+            className={`mt-4 rounded-2xl border px-5 py-4 flex items-center gap-4 ${PANEL_STYLE_CLASSES[activeId]}`}
           >
             {/* Icon badge */}
-            <div
-              className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-2xl"
-              style={{ background: `${activeInfo.color}22` }}
-            >
+            <div className={`shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-2xl ${ICON_BG_CLASSES[activeId]}`}>
               {activeInfo.icon}
             </div>
 
             {/* Text */}
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-0.5">
-                <span
-                  className="text-base font-bold"
-                  style={{ color: activeInfo.color }}
-                >
+                <span className={`text-base font-bold ${TEXT_COLOR_CLASSES[activeId]}`}>
                   {activeInfo.name}
                 </span>
                 <span className="text-white/40 text-xs">•</span>
@@ -182,13 +214,7 @@ export default function IndiaMapChart() {
 
             {/* Selected indicator */}
             {selected === activeId && (
-              <span
-                className="shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full"
-                style={{
-                  background: activeInfo.color,
-                  color: "#0B0F19",
-                }}
-              >
+              <span className={`shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full ${BADGE_BG_CLASSES[activeId]}`}>
                 ACTIVE
               </span>
             )}
@@ -216,20 +242,11 @@ export default function IndiaMapChart() {
               onClick={() =>
                 setSelected((prev) => (prev === id ? null : id))
               }
-              className="flex items-center gap-2 rounded-xl border px-3 py-2 cursor-pointer transition-all duration-200"
-              style={{
-                background: isActive ? `${info.color}20` : "rgba(255,255,255,0.04)",
-                borderColor: isActive ? `${info.color}66` : "rgba(255,255,255,0.1)",
-                boxShadow: isActive ? `0 0 12px ${info.color}33` : "none",
-              }}
+              className={`flex items-center gap-2 rounded-xl border px-3 py-2 cursor-pointer transition-all duration-200 ${
+                isActive ? LEGEND_ITEM_CLASSES[id] : "bg-white/5 border-white/10"
+              }`}
             >
-              <span
-                className="size-2.5 rounded-full shrink-0"
-                style={{
-                  background: info.color,
-                  boxShadow: `0 0 8px ${info.color}88`,
-                }}
-              />
+              <span className={`size-2.5 rounded-full shrink-0 ${DOT_BG_CLASSES[id]}`} />
               <span className="font-semibold text-xs truncate">{info.name}</span>
             </li>
           );

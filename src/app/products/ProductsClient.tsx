@@ -27,11 +27,11 @@ function ProductsContent() {
   const [active, setActive] = useState("all");
 
   useEffect(() => {
-    if (categoryQuery) {
-      setActive(categoryQuery);
-    } else {
-      setActive("all");
-    }
+    const target = categoryQuery || "all";
+    const handle = setTimeout(() => {
+      setActive((prev) => (prev !== target ? target : prev));
+    }, 0);
+    return () => clearTimeout(handle);
   }, [categoryQuery]);
 
   const handleCategoryChange = (categoryId: string) => {

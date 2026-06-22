@@ -84,7 +84,7 @@ export default function ProductsCarousel() {
             }}
             className=""
           >
-            {categories.map((cat, index) => (
+            {categories.map((cat) => (
               <SwiperSlide key={cat.name} className="pb-12">
                 <div className="group bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   <div className="relative h-52 overflow-hidden bg-gray-100">
@@ -103,13 +103,14 @@ export default function ProductsCarousel() {
                     )}
                   </div>
                   <div className="p-5">
-                    <h3 className="font-bold text-[#111111] text-lg mb-2">{cat.name}</h3>
+                    <div className="font-bold text-[#111111] text-lg mb-2">{cat.name}</div>
                     <p className="text-gray-600 text-sm mb-4 line-clamp-2">{cat.description}</p>
                     <Link
                       href={cat.href}
+                      rel="nofollow"
                       className="inline-flex items-center gap-2 bg-teckon-blue text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors"
                     >
-                      View Products
+                      View {cat.name}
                     </Link>
                   </div>
                 </div>

@@ -72,9 +72,9 @@ export default function BlogSection() {
                     <span>{post.author}</span>
                   </div>
                   
-                  <h3 className="font-extrabold text-[#0B0F19] text-base md:text-lg mb-3 leading-snug group-hover:text-[#FF6B35] transition-colors line-clamp-2">
+                  <div className="font-extrabold text-[#0B0F19] text-base md:text-lg mb-3 leading-snug group-hover:text-[#FF6B35] transition-colors line-clamp-2">
                     {post.title}
-                  </h3>
+                  </div>
                   
                   <p className="text-gray-600 text-sm mb-4 line-clamp-3 leading-relaxed">
                     {post.excerpt}
@@ -87,7 +87,7 @@ export default function BlogSection() {
                     href={`/blog/${post.slug}`}
                     className="inline-flex items-center gap-1.5 text-[#FF6B35] font-bold text-sm hover:gap-3 transition-all"
                   >
-                    Read Technical Guide <span className="text-xs">→</span>
+                    Read Technical Guide on {post.category} <span className="text-xs">→</span>
                   </Link>
                 </div>
               </div>

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Search } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const productCategories = [
@@ -40,7 +40,10 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    setMobileOpen(false);
+    const handle = setTimeout(() => {
+      setMobileOpen((open) => (open ? false : open));
+    }, 0);
+    return () => clearTimeout(handle);
   }, [pathname]);
 
   return (
@@ -100,6 +103,7 @@ export default function Navbar() {
                           <Link
                             key={item.name}
                             href={item.href}
+                            rel="nofollow"
                             className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#1E293B] hover:text-white transition-colors"
                           >
                             {item.name}
@@ -192,6 +196,7 @@ export default function Navbar() {
                           <Link
                             key={item.name}
                             href={item.href}
+                            rel="nofollow"
                             className="block px-4 py-2 rounded-lg text-xs text-gray-500 hover:text-[#1E293B] hover:bg-gray-50 transition-colors"
                           >
                             {item.name}
@@ -202,7 +207,7 @@ export default function Navbar() {
                   </div>
                 ))}
               </nav>
-              <div className="p-4 border-t border-gray-100 flex flex-col gap-3">
+              <div className="p-4 pb-24 border-t border-gray-100 flex flex-col gap-3">
                 <a href="tel:+916351879842" className="flex items-center justify-center gap-2 bg-[#1E293B] text-white py-3 rounded-xl font-semibold text-sm">
                   📞 Call +91-63518 79842
                 </a>

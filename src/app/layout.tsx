@@ -3,9 +3,10 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import TopInfoBar from "@/components/layout/TopInfoBar";
 import QuickAccessRail from "@/components/layout/QuickAccessRail";
+import MobileStickyBar from "@/components/layout/MobileStickyBar";
 import BackToTop from "@/components/ui/BackToTop";
+import Script from "next/script";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -13,16 +14,30 @@ const outfit = Outfit({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
   title: {
-    default: "Teckon™ Quality Spares | Premium Hydraulic Parts & Equipment",
+    default: "Teckon™ Quality Spares | Premium Hydraulic Parts",
     template: "%s | Teckon™ Quality Spares",
   },
   description:
-    "Shreeji Hydraulics (Teckon™) — Premium hydraulic parts & spares for JCB, Terex, CAT, Tata, and all heavy machinery. ISO 9001:2015 certified. Based in Rajkot, Gujarat.",
-  metadataBase: new URL("https://teckon.in"),
+    "Shreeji Hydraulics (Teckon™) offers premium hydraulic parts & spares for JCB, Terex, CAT, and heavy machinery. ISO 9001:2015 certified in Rajkot, Gujarat.",
+  metadataBase: new URL("https://teckon.vercel.app"),
   alternates: {
     canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   keywords: [
     "hydraulic parts",
@@ -55,18 +70,51 @@ export const metadata: Metadata = {
     "hydraulic parts manufacturer Gujarat",
   ],
   openGraph: {
-    title: "Teckon™ Quality Spares | Premium Hydraulic Parts & Equipment",
-    description: "Shreeji Hydraulics (Teckon™) — Premium hydraulic parts & spares for JCB, Terex, CAT, Tata, and all heavy machinery. ISO 9001:2015 certified. Based in Rajkot, Gujarat.",
-    url: "https://teckon.in",
+    title: "Teckon™ Quality Spares | Premium Hydraulic Parts",
+    description:
+      "Shreeji Hydraulics (Teckon™) offers premium hydraulic parts & spares for JCB, Terex, CAT, and heavy machinery. ISO 9001:2015 certified in Rajkot, Gujarat.",
+    url: "https://teckon.vercel.app",
     siteName: "Teckon™ Quality Spares",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Teckon™ Quality Spares | Premium Hydraulic Parts & Equipment",
-    description: "Shreeji Hydraulics (Teckon™) — Premium hydraulic spares for JCB, Terex, CAT, and all heavy machinery.",
+    title: "Teckon™ Quality Spares | Premium Hydraulic Parts",
+    description:
+      "Shreeji Hydraulics (Teckon™) offers premium hydraulic parts & spares for JCB, Terex, CAT, and heavy machinery.",
   },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Shreeji Hydraulics",
+  "alternateName": "Teckon™ Quality Spares",
+  "url": "https://teckon.vercel.app",
+  "logo": "https://teckon.vercel.app/apple-touch-icon.png",
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+91-63518-79842",
+      "contactType": "sales",
+      "areaServed": "IN",
+      "availableLanguage": ["en", "hi", "gu"],
+    },
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "36-C Bhaktinagar, Udhyognagar, Gondal Road",
+    "addressLocality": "Rajkot",
+    "addressRegion": "Gujarat",
+    "postalCode": "360004",
+    "addressCountry": "IN",
+  },
+  "sameAs": [
+    "https://facebook.com/shreejihydraulics",
+    "https://linkedin.com/company/shreeji-hydraulics",
+    "https://instagram.com/shreejihydraulics",
+  ],
 };
 
 export default function RootLayout({
@@ -76,14 +124,55 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={outfit.variable} data-scroll-behavior="smooth">
-      <body className="font-sans bg-white text-gray-900 antialiased">
+      <head>
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
+      <body className="font-sans bg-white text-gray-900 antialiased pb-16 md:pb-0">
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-E2K9Y2K7XG"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-E2K9Y2K7XG', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+
+        {/* Facebook Pixel */}
+        <Script id="facebook-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '123456789012345');
+            fbq('track', 'PageView');
+          `}
+        </Script>
+
         {/* <TopInfoBar /> */}
         <Navbar />
         <main className="min-h-screen overflow-x-hidden">{children}</main>
         <Footer />
         <QuickAccessRail />
+        <MobileStickyBar />
         <BackToTop />
       </body>
     </html>
   );
 }
+

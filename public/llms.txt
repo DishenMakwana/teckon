@@ -1,0 +1,16 @@
+# Teckon™ Quality Spares
+> Premium Hydraulic Parts & Spares for Heavy Machinery manufactured by Shreeji Hydraulics.
+
+## Core Information
+- **Manufacturer:** Shreeji Hydraulics (based in Rajkot, Gujarat, India). Established in 2000.
+- **Certifications:** ISO 9001:2015 Certified.
+- **Specializations:** High-quality aftermarket spares and components matching OEM specifications for JCB, Terex, Caterpillar (CAT), Hitachi, L770, Tata JD, and major earthmoving/construction equipment brands.
+- **Main Products:** Hydraulic cylinders, pump assemblies, seal kits, control valves, tipper systems, breakers, and high-tensile pins & bushes.
+
+## Site Structure & Key Pages
+- [Home Page](https://teckon.vercel.app/): Brand overview, core advantages, interactive supply map, top products, client testimonials, and latest blog posts.
+- [About Us](https://teckon.vercel.app/about): Company history, 25+ years industry experience, detailed manufacturing capabilities, VMC/CNC precision facilities, and founder profiles (Alpesh Patel, J.C. Patel).
+- [Products Catalog](https://teckon.vercel.app/products): Browse full inventory of hydraulic parts filterable by manufacturer categories (JCB, Terex, CAT, Excavators, Breakers & Tippers, etc.).
+- [Quality Systems](https://teckon.vercel.app/quality): ISO 9001:2015 certification details, material testing, precision machining tolerancing, and inspection procedures.
+- [Technical Blog](https://teckon.vercel.app/blog): Maintenance guides, diagnostic tips for hydraulic pumps, excavator seal kit installation tutorials, and parts selection guides.
+- [Contact & Inquiries](https://teckon.vercel.app/contact): Secure parts inquiry form, direct phone contacts, office address, and live Google Maps location.
