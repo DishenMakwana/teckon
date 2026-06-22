@@ -136,9 +136,9 @@ export default function ProductsCarousel() {
                     <Link
                       href={cat.href}
                       rel="nofollow"
-                      className="inline-flex items-center gap-2 bg-teckon-blue text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors"
+                      className="w-full flex items-center justify-center bg-teckon-blue text-white text-sm font-bold py-2.5 rounded-xl hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors cursor-pointer"
                     >
-                      View {cat.name}
+                      View Details
                     </Link>
                   </div>
                 </div>

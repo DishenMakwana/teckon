@@ -25,8 +25,8 @@ This file serves as the agent's short-term memory of recent tasks, issues resolv
 - **Action:** Updated `BlogList.tsx` to replicate the identical full-width search input (left-aligned) and icon-only dropdown filter (right-aligned) layout. Synced parameters to `/blog` URL search queries, resolved Next.js SSR build errors using a `<Suspense>` wrapper, and verified clean lint checks.
 - **Task:** Improve grid filtering layout animations.
 - **Action:** Removed index-based layout delays from `ProductsClient.tsx` and `BlogList.tsx`. Replaced staggering transitions with directional, organic spring slide-up and fade transitions (`type: "spring", stiffness: 380, damping: 35, mass: 0.8`) to ensure smooth, professional layout changes during filtering.
-- **Task:** Optimize card heights for grid visibility.
-- **Action:** Decreased card image heights from `h-52` (208px) to `h-40` (160px) and reduced padding to `p-4` in `ProductsClient.tsx` and `BlogList.tsx`. Redesigned the "View Details" button in `ProductsClient.tsx` using modern opensource design components (Shadcn UI style) featuring a dynamic hover-arrow translation.
+- **Task:** Optimize card heights and restore full-width buttons.
+- **Action:** Decreased card image heights from `h-52` (208px) to `h-40` (160px) and reduced padding to `p-4` in `ProductsClient.tsx` and `BlogList.tsx`. Restored card buttons to clean, full-width solid design without arrows across the Product Catalog, Blog list, homepage blog cards, and homepage category carousel.
 ### Previous Milestones
 1. **SEO Optimization & Keyword Audit:** Updated configurations, keywords, and tags.
 2. **Inquiry Form Container Update:** Wrapped the inquiry form in a styled card component for visual layout improvement.
