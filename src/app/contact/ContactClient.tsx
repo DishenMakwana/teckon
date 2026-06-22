@@ -214,7 +214,7 @@ export default function ContactClient() {
                             setValue("country", countryMap[code] || "");
                           }
                         })}
-                        className="w-24 shrink-0 border border-gray-200 rounded-xl px-2 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all bg-white font-medium"
+                        className="w-28 shrink-0 border border-gray-200 rounded-xl pl-3 pr-7 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all bg-white font-medium custom-select-sm"
                       >
                         <option value="+91">🇮🇳 +91</option>
                         <option value="+86">🇨🇳 +86</option>
@@ -269,7 +269,7 @@ export default function ContactClient() {
                     <label className="block text-sm font-semibold text-gray-700 mb-1">Product / Subject</label>
                     <select
                       {...register("subject")}
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all bg-white"
+                      className="w-full border border-gray-200 rounded-xl pl-4 pr-10 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all bg-white custom-select"
                     >
                       <option value="">Select product type</option>
                       <option>JCB Hydraulic Spares</option>

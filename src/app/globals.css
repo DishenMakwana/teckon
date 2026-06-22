@@ -90,3 +90,27 @@ body {
     padding: 3rem 0;
   }
 }
+
+/* Custom select styling to override native browser dropdown arrows */
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234B5563' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-position: right 16px center;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  padding-right: 2.5rem !important;
+}
+
+.custom-select-sm {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234B5563' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-position: right 8px center;
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  padding-right: 1.5rem !important;
+}
+
