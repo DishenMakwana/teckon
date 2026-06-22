@@ -7,6 +7,7 @@ import QuickAccessRail from "@/components/layout/QuickAccessRail";
 import MobileStickyBar from "@/components/layout/MobileStickyBar";
 import BackToTop from "@/components/ui/BackToTop";
 import Script from "next/script";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -172,6 +173,7 @@ export default function RootLayout({
         <QuickAccessRail />
         <MobileStickyBar />
         <BackToTop />
+        <SpeedInsights />
       </body>
     </html>
   );
