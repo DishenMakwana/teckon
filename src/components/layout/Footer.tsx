@@ -97,12 +97,14 @@ export default function Footer() {
             <h3 className="font-bold text-[#FFBE00] mb-4 uppercase tracking-wider text-xs">Product Range</h3>
             <ul className="flex flex-col gap-2">
               {[
-                { name: "JCB Hydraulic Spares", href: "/products?category=jcb" },
+                { name: "JCB Spares", href: "/products?category=jcb" },
+                { name: "Hitachi Parts", href: "/products?category=hitachi" },
                 { name: "Terex Parts", href: "/products?category=terex" },
-                { name: "CAT 424 Components", href: "/products?category=cat" },
+                { name: "CAT Components", href: "/products?category=cat" },
                 { name: "Breakers & Tippers", href: "/products?category=breakers" },
-                { name: "L770 / Tata JD Spares", href: "/products?category=l770" },
+                { name: "L770 / Tata JD", href: "/products?category=l770" },
                 { name: "Excavator Parts", href: "/products?category=excavator" },
+                { name: "Filters & Service", href: "/products?category=filters" },
                 { name: "General Hydraulics", href: "/products?category=general" },
               ].map((link) => (
                 <li key={link.name}>

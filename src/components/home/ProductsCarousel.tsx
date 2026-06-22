@@ -11,14 +11,21 @@ import "swiper/css/pagination";
 
 const categories = [
   {
-    name: "JCB Hydraulic Spares",
+    name: "JCB Spares",
     description: "Complete range of hydraulic pumps, cylinders, seals, valves and more for all JCB models including 3CX, 4CX and JS series.",
     image: "/images/product-jcb.webp",
     href: "/products?category=jcb",
     badge: "Most Popular",
   },
   {
-    name: "Terex Equipment Parts",
+    name: "Hitachi Parts",
+    description: "High-performance hydraulic pumps, swing motors, final drives, and cylinder seal kits for Hitachi Zaxis and EX excavators.",
+    image: "/images/product-excavator.webp",
+    href: "/products?category=hitachi",
+    badge: "New Stock",
+  },
+  {
+    name: "Terex Parts",
     description: "Precision-engineered hydraulic components for Terex backhoe loaders, rough terrain forklifts, and material handlers.",
     image: "/images/product-excavator.webp",
     href: "/products?category=terex",
@@ -39,11 +46,32 @@ const categories = [
     badge: null,
   },
   {
-    name: "Excavator & Earthmoving",
-    description: "Track rollers, boom cylinders, bucket cylinders and hydraulic pumps for excavators and earthmoving equipment.",
+    name: "L770 / Tata JD",
+    description: "Specialized hydraulic spares and accessories for L770, Tata JD backhoes, and agricultural loaders.",
+    image: "/images/product-jcb.webp",
+    href: "/products?category=l770",
+    badge: null,
+  },
+  {
+    name: "Excavator Parts",
+    description: "Heavy-duty track rollers, boom cylinders, bucket cylinders and replacement hydraulic parts for all major excavators.",
     image: "/images/product-excavator.webp",
     href: "/products?category=excavator",
-    badge: "New Stock",
+    badge: null,
+  },
+  {
+    name: "Filters & Service",
+    description: "High-efficiency universal spin-on hydraulic filters, engine oil filters, fuel filters, and service parts.",
+    image: "/images/product-jcb.webp",
+    href: "/products?category=filters",
+    badge: null,
+  },
+  {
+    name: "General Hydraulics",
+    description: "Universal gear pumps, piston pumps, control valves, accumulators, and standard hydraulic fittings.",
+    image: "/images/product-excavator.webp",
+    href: "/products?category=general",
+    badge: null,
   },
 ];
 

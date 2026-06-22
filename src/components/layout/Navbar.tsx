@@ -7,12 +7,14 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const productCategories = [
-  { name: "JCB Hydraulic Spares", href: "/products?category=jcb" },
-  { name: "Terex Equipment Parts", href: "/products?category=terex" },
+  { name: "JCB Spares", href: "/products?category=jcb" },
+  { name: "Hitachi Parts", href: "/products?category=hitachi" },
+  { name: "Terex Parts", href: "/products?category=terex" },
   { name: "CAT Components", href: "/products?category=cat" },
   { name: "Breakers & Tippers", href: "/products?category=breakers" },
+  { name: "L770 / Tata JD", href: "/products?category=l770" },
   { name: "Excavator Parts", href: "/products?category=excavator" },
-  { name: "L770 / Tata JD Spares", href: "/products?category=l770" },
+  { name: "Filters & Service", href: "/products?category=filters" },
   { name: "General Hydraulics", href: "/products?category=general" },
 ];
 
