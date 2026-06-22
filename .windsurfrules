@@ -1,20 +1,3 @@
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
-
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
-
-# Agent Context & Memory Guidelines
-
-To conserve context window tokens and avoid reading the entire codebase:
-- **ALWAYS** check and align with files under the `.agents/` directory before proposing or writing code:
-  - [.agents/architecture.md](file://./.agents/architecture.md): Overview of the system layout.
-  - [.agents/decisions.md](file://./.agents/decisions.md): Architecture Decision Records (ADRs) and choices.
-  - [.agents/patterns.md](file://./.agents/patterns.md): Coding guidelines and styling conventions.
-  - [.agents/memory.md](file://./.agents/memory.md): Current task state and session history.
-- **NEVER** rewrite or search the whole codebase if these files provide the necessary details.
-- **UPDATE** [.agents/memory.md](file://./.agents/memory.md) at the end of each session or after significant changes to maintain accurate progress history.
-
 <!-- code-review-graph MCP tools -->
 ## MCP Tools: code-review-graph
 
