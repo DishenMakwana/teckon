@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, Suspense } from "react";
+import { useDebouncedCallback } from "use-debounce";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -47,22 +48,18 @@ function BlogListContent({ posts }: BlogListProps) {
   }
 
   // Debounced URL updates for searchVal
-  useEffect(() => {
-    const delayDebounceFn = setTimeout(() => {
-      const currentSearch = searchParams.get("search") || "";
-      if (searchVal !== currentSearch) {
-        const params = new URLSearchParams(searchParams.toString());
-        if (searchVal) {
-          params.set("search", searchVal);
-        } else {
-          params.delete("search");
-        }
-        router.push(`/blog?${params.toString()}`, { scroll: false });
+  const handleSearch = useDebouncedCallback((term: string) => {
+    const currentSearch = searchParams.get("search") || "";
+    if (term !== currentSearch) {
+      const params = new URLSearchParams(searchParams.toString());
+      if (term) {
+        params.set("search", term);
+      } else {
+        params.delete("search");
       }
-    }, 300);
-
-    return () => clearTimeout(delayDebounceFn);
-  }, [searchVal, searchParams, router]);
+      router.push(`/blog?${params.toString()}`, { scroll: false });
+    }
+  }, 300);
 
   // Click outside to close dropdown
   useEffect(() => {
@@ -117,12 +114,19 @@ function BlogListContent({ posts }: BlogListProps) {
             type="text"
             placeholder="Search blogs by title, excerpt..."
             value={searchVal}
-            onChange={(e) => setSearchVal(e.target.value)}
+            onChange={(e) => {
+              const val = e.target.value;
+              setSearchVal(val);
+              handleSearch(val);
+            }}
             className="w-full pl-11 pr-10 py-3.5 bg-white border border-gray-200 rounded-2xl shadow-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFBE00] focus:border-[#FFBE00] transition-all duration-300 font-medium"
           />
           {searchVal && (
             <button
-              onClick={() => setSearchVal("")}
+              onClick={() => {
+                setSearchVal("");
+                handleSearch("");
+              }}
               className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
             >
               <X className="h-5 w-5" />
