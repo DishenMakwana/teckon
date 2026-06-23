@@ -272,12 +272,14 @@ export default function ContactClient() {
                       className="w-full border border-gray-200 rounded-xl pl-4 pr-10 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all bg-white custom-select"
                     >
                       <option value="">Select product type</option>
-                      <option>JCB Hydraulic Spares</option>
+                      <option>JCB Spares</option>
+                      <option>Hitachi Parts</option>
                       <option>Terex Parts</option>
                       <option>CAT Components</option>
                       <option>Breakers & Tippers</option>
-                      <option>L770 / Tata JD Spares</option>
+                      <option>L770 / Tata JD</option>
                       <option>Excavator Parts</option>
+                      <option>Filters & Services</option>
                       <option>General Hydraulics</option>
                       <option>Other</option>
                     </select>

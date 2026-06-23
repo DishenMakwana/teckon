@@ -102,6 +102,50 @@ function ProductsContent() {
     return matchesCategory && matchesSearch;
   });
 
+  const [visibleCount, setVisibleCount] = useState(12);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const loadMoreRef = useRef<HTMLDivElement>(null);
+
+  // Reset pagination when category or search changes
+  useEffect(() => {
+    setVisibleCount(12);
+    setLoadingMore(false);
+  }, [active, searchVal]);
+
+  // Load more on scroll intersection
+  useEffect(() => {
+    if (visibleCount >= filtered.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const first = entries[0];
+        if (first.isIntersecting && !loadingMore) {
+          setLoadingMore(true);
+          // Simulate database fetch delay
+          setTimeout(() => {
+            setVisibleCount((prev) => Math.min(prev + 12, filtered.length));
+            setLoadingMore(false);
+          }, 100);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (loadMoreRef.current) {
+      observer.observe(loadMoreRef.current);
+    }
+    observerRef.current = observer;
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [visibleCount, filtered.length, loadingMore]);
+
+  const visibleProducts = filtered.slice(0, visibleCount);
+
   return (
     <>
       {/* Header */}
@@ -212,7 +256,7 @@ function ProductsContent() {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               <AnimatePresence mode="popLayout">
-                {filtered.map((product) => (
+                {visibleProducts.map((product) => (
                   <motion.div
                     key={product.slug}
                     layout
@@ -227,36 +271,48 @@ function ProductsContent() {
                     }}
                     className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col h-full"
                   >
-                    <div className="relative h-40 bg-gray-100 overflow-hidden">
-                      <SafeImage
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="eager"
-                      />
-                      <span className="absolute top-3 left-3 bg-teckon-blue text-white text-xs font-bold px-2.5 py-1 rounded-full">
-                        {product.categoryLabel}
-                      </span>
-                    </div>
-                    <div className="p-4 flex flex-col flex-1">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-xs text-gray-400 font-mono">{product.model}</span>
-                        <span className="text-xs text-gray-400 font-mono">{product.ref}</span>
+                    <Link href={`/products/${product.slug}`} className="flex flex-col flex-1 w-full">
+                      <div className="relative h-40 bg-[#bebcbd] border-b border-gray-200/50 overflow-hidden">
+                        <SafeImage
+                          src={product.image}
+                          alt={product.name}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-contain p-3 group-hover:scale-105 transition-transform duration-500"
+                          loading="eager"
+                        />
+                        <span className="absolute bottom-3 right-3 bg-teckon-blue text-white text-xs font-bold px-2.5 py-1 rounded-full">
+                          {product.categoryLabel}
+                        </span>
                       </div>
-                      <h3 className="font-bold text-[#111111] text-lg mb-2">{product.name}</h3>
-                      <p className="text-gray-500 text-sm mb-4 line-clamp-2">{product.description}</p>
-                      <Link
-                        href={`/products/${product.slug}`}
-                        className="w-full flex items-center justify-center bg-teckon-blue text-white text-sm font-bold py-2.5 rounded-xl hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors cursor-pointer mt-auto"
-                      >
-                        View Details
-                      </Link>
-                    </div>
+                      <div className="p-4 flex flex-col flex-1">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-xs text-gray-400 font-mono">{product.model}</span>
+                          <span className="text-xs text-gray-400 font-mono">{product.ref}</span>
+                        </div>
+                        <h3 className="font-bold text-[#111111] text-lg mb-2 min-h-[56px] line-clamp-2">{product.name}</h3>
+                        <p className="text-gray-500 text-sm mb-4 min-h-[40px] line-clamp-2">{product.description}</p>
+                        <div className="w-full flex items-center justify-center bg-teckon-blue text-white text-sm font-bold py-2.5 rounded-xl group-hover:bg-[#FFBE00] group-hover:text-[#0B0F19] transition-colors mt-auto">
+                          View Details
+                        </div>
+                      </div>
+                    </Link>
                   </motion.div>
                 ))}
               </AnimatePresence>
+            </div>
+          )}
+
+          {/* Simulated Database Fetching Loader */}
+          {visibleCount < filtered.length && (
+            <div ref={loadMoreRef} className="mt-16 mb-4 flex flex-col items-center justify-center py-6 w-full">
+              {loadingMore ? (
+                <div className="flex items-center justify-center">
+                  <div className="animate-spin rounded-full h-8 w-8 border-4 border-t-transparent border-[#FFBE00]" />
+                </div>
+              ) : (
+                <div className="h-10 w-full" />
+              )}
             </div>
           )}
 

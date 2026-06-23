@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { Activity, ShieldAlert, Cpu, Wrench } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface Preset {
   id: string;
@@ -171,11 +172,13 @@ export default function DiagnosticsBench() {
   }, [values]);
 
   // SVG Gauge calculations
-  // Angle goes from -120 to +120 deg. Total range: 240 deg.
+  // Angle goes from -97.125 to +97.125 deg. Total range: 194.25 deg.
   const gaugeRotation = useMemo(() => {
     const ratio = Math.min(Math.max(values.pressure / 400, 0), 1);
-    return -120 + ratio * 240;
+    return -97 + ratio * 194;
   }, [values.pressure]);
+
+
 
   return (
     <section className="py-20 bg-[#0B0F19] relative overflow-hidden">
@@ -231,7 +234,7 @@ export default function DiagnosticsBench() {
               </div>
 
               {/* Preset selector grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 mb-8">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-8">
                 {PRESETS.map((p) => (
                   <button
                     key={p.id}
@@ -424,11 +427,11 @@ export default function DiagnosticsBench() {
               </div>
 
               {/* Visual SVG Gauge */}
-              <div className="flex justify-center items-center py-2 relative">
+              <div className="flex flex-col items-center pt-2 pb-8 relative">
                 <svg width="220" height="150" viewBox="0 0 220 150" className="drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
                   {/* Outer circle track */}
                   <path
-                    d="M 30,120 A 80,80 0 1,1 190,120"
+                    d="M 30.6,119.8 A 80,80 0 1,1 189.4,119.8"
                     fill="none"
                     stroke="rgba(255,255,255,0.05)"
                     strokeWidth="12"
@@ -436,7 +439,7 @@ export default function DiagnosticsBench() {
                   />
                   {/* Normal pressure zone arc (0 - 200 bar) */}
                   <path
-                    d="M 30,120 A 80,80 0 0,1 110,30"
+                    d="M 30.6,119.8 A 80,80 0 0,1 110,30"
                     fill="none"
                     stroke="url(#normal-grad)"
                     strokeWidth="12"
@@ -444,7 +447,7 @@ export default function DiagnosticsBench() {
                   />
                   {/* Heavy zone arc (200 - 300 bar) */}
                   <path
-                    d="M 110,30 A 80,80 0 0,1 170,66"
+                    d="M 110,30 A 80,80 0 0,1 170,57"
                     fill="none"
                     stroke="#FFBE00"
                     strokeWidth="12"
@@ -452,7 +455,7 @@ export default function DiagnosticsBench() {
                   />
                   {/* Warning zone arc (300 - 400 bar) */}
                   <path
-                    d="M 170,66 A 80,80 0 0,1 190,120"
+                    d="M 170,57 A 80,80 0 0,1 189.4,119.8"
                     fill="none"
                     stroke="#EF4444"
                     strokeWidth="12"
@@ -460,32 +463,37 @@ export default function DiagnosticsBench() {
                   />
 
                   {/* Ticks & Text */}
-                  <text x="25" y="140" fill="rgba(255,255,255,0.4)" fontSize="10" fontFamily="monospace" textAnchor="middle">0</text>
+                  <text x="20" y="115" fill="rgba(255,255,255,0.4)" fontSize="10" fontFamily="monospace" textAnchor="middle">0</text>
                   <text x="110" y="20" fill="rgba(255,255,255,0.4)" fontSize="10" fontFamily="monospace" textAnchor="middle">200</text>
-                  <text x="195" y="140" fill="rgba(255,255,255,0.4)" fontSize="10" fontFamily="monospace" textAnchor="middle">400</text>
-                  <text x="110" y="85" fill="white" fontSize="28" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+                  <text x="200" y="115" fill="rgba(255,255,255,0.4)" fontSize="10" fontFamily="monospace" textAnchor="middle">400</text>
+                  <text x="110" y="78" fill="white" fontSize="28" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
                     {values.pressure}
                   </text>
-                  <text x="110" y="100" fill="rgba(255,255,255,0.5)" fontSize="9" fontFamily="monospace" textAnchor="middle" letterSpacing="2">
+                  <text x="110" y="92" fill="rgba(255,255,255,0.5)" fontSize="9" fontFamily="monospace" textAnchor="middle" letterSpacing="2">
                     BAR PRESSURE
                   </text>
 
                   {/* Needle */}
                   <g transform={`translate(110, 110)`}>
-                    <line
-                      x1="0"
-                      y1="0"
-                      x2="0"
-                      y2="-78"
-                      stroke="#FFBE00"
-                      strokeWidth="3.5"
-                      strokeLinecap="round"
-                      style={{
-                        transform: `rotate(${gaugeRotation}deg)`,
-                        transformOrigin: "center center",
-                        transition: "transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.1)"
-                      }}
-                    />
+                    <motion.g
+                      animate={{ rotate: gaugeRotation }}
+                      style={{ transformOrigin: "0px 0px" }}
+                      transition={{ type: "spring", stiffness: 80, damping: 15, mass: 0.8 }}
+                    >
+                      {/* Invisible circle to force bounding box center to (0, 0) */}
+                      <circle cx="0" cy="0" r="80" fill="none" opacity="0" pointerEvents="none" />
+                      {/* Actual needle line */}
+                      <line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-78"
+                        stroke="#FFBE00"
+                        strokeWidth="3.5"
+                        strokeLinecap="round"
+                      />
+                    </motion.g>
+                    {/* Pivot center cap */}
                     <circle cx="0" cy="0" r="10" fill="#0B0F19" stroke="#FFBE00" strokeWidth="3" />
                   </g>
 
@@ -499,7 +507,7 @@ export default function DiagnosticsBench() {
                 </svg>
 
                 {/* Digital LCD Sub-Display */}
-                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-black/60 border border-white/5 rounded px-3 py-1 font-mono text-[10px] text-emerald-400 font-bold shadow-inner">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-black/60 border border-white/5 rounded px-3 py-1 font-mono text-[10px] text-emerald-400 font-bold shadow-inner">
                   FORCE: {stats.pushForceTons} TON (PUSH)
                 </div>
               </div>
