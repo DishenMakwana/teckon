@@ -114,7 +114,7 @@ export default function ProductsCarousel() {
           >
             {categories.map((cat) => (
               <SwiperSlide key={cat.name} className="pb-12">
-                <div className="group bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="group bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
                   <div className="relative h-52 overflow-hidden bg-gray-100">
                     <SafeImage
                       src={cat.image}
@@ -130,13 +130,13 @@ export default function ProductsCarousel() {
                       </span>
                     )}
                   </div>
-                  <div className="p-5">
+                  <div className="p-5 flex flex-col flex-1">
                     <div className="font-bold text-[#111111] text-lg mb-2">{cat.name}</div>
                     <p className="text-gray-600 text-sm mb-4 line-clamp-2">{cat.description}</p>
                     <Link
                       href={cat.href}
                       rel="nofollow"
-                      className="w-full flex items-center justify-center bg-teckon-blue text-white text-sm font-bold py-2.5 rounded-xl hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors cursor-pointer"
+                      className="w-full flex items-center justify-center bg-teckon-blue text-white text-sm font-bold py-2.5 rounded-xl hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors cursor-pointer mt-auto"
                     >
                       View Details
                     </Link>

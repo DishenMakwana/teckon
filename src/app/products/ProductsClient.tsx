@@ -210,7 +210,7 @@ function ProductsContent() {
               <p className="text-sm text-gray-400 mt-1">Try clearing your search query or selecting a different category.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               <AnimatePresence mode="popLayout">
                 {filtered.map((product) => (
                   <motion.div
@@ -225,7 +225,7 @@ function ProductsContent() {
                       damping: 35,
                       mass: 0.8
                     }}
-                    className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                    className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col h-full"
                   >
                     <div className="relative h-40 bg-gray-100 overflow-hidden">
                       <SafeImage
@@ -240,7 +240,7 @@ function ProductsContent() {
                         {product.categoryLabel}
                       </span>
                     </div>
-                    <div className="p-4">
+                    <div className="p-4 flex flex-col flex-1">
                       <div className="flex items-center justify-between mb-1">
                         <span className="text-xs text-gray-400 font-mono">{product.model}</span>
                         <span className="text-xs text-gray-400 font-mono">{product.ref}</span>
@@ -249,7 +249,7 @@ function ProductsContent() {
                       <p className="text-gray-500 text-sm mb-4 line-clamp-2">{product.description}</p>
                       <Link
                         href={`/products/${product.slug}`}
-                        className="w-full flex items-center justify-center bg-teckon-blue text-white text-sm font-bold py-2.5 rounded-xl hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors cursor-pointer"
+                        className="w-full flex items-center justify-center bg-teckon-blue text-white text-sm font-bold py-2.5 rounded-xl hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors cursor-pointer mt-auto"
                       >
                         View Details
                       </Link>

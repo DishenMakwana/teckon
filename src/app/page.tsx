@@ -1,14 +1,17 @@
 "use client";
 
+import { Suspense } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+
 import StatsStrip from "@/components/home/StatsStrip";
-import dynamic from "next/dynamic";
 
 const ProductsCarousel = dynamic(() => import("@/components/home/ProductsCarousel"), { ssr: true });
 const AboutSection = dynamic(() => import("@/components/home/AboutSection"), { ssr: true });
 const WhyChooseUs = dynamic(() => import("@/components/home/WhyChooseUs"), { ssr: true });
+const DiagnosticsBench = dynamic(() => import("@/components/home/DiagnosticsBench"), { ssr: false });
 const PartnersMarquee = dynamic(() => import("@/components/home/PartnersMarquee"), { ssr: true });
 const GlobalPresence = dynamic(() => import("@/components/home/GlobalPresence"), { ssr: true });
 const Testimonials = dynamic(() => import("@/components/home/Testimonials"), { ssr: true });
@@ -118,6 +121,13 @@ export default function HomePage() {
       <ProductsCarousel />
       <AboutSection />
       <WhyChooseUs />
+      <Suspense fallback={
+        <div className="h-96 bg-teckon-dark-blue flex items-center justify-center">
+          <div className="text-teckon-yellow font-mono animate-pulse">Initializing Diagnostics Bench...</div>
+        </div>
+      }>
+        <DiagnosticsBench />
+      </Suspense>
 
       {/* Industries & Machinery We Serve - SEO Text Section */}
       <section className="py-20 bg-slate-50 border-t border-b border-gray-100">
