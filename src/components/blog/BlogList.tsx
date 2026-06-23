@@ -201,13 +201,14 @@ function BlogListContent({ posts }: BlogListProps) {
                 initial={{ opacity: 0, y: 15, scale: 0.96 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -15, scale: 0.96 }}
+                whileHover={{ y: -6 }}
                 transition={{
                   type: "spring",
                   stiffness: 380,
                   damping: 35,
                   mass: 0.8
                 }}
-                className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full"
+                className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl flex flex-col h-full transition-shadow duration-300"
               >
                 <div className="relative h-40 overflow-hidden bg-gray-100 shrink-0">
                   <SafeImage

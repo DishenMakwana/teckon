@@ -263,13 +263,14 @@ function ProductsContent() {
                     initial={{ opacity: 0, y: 15, scale: 0.96 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -15, scale: 0.96 }}
+                    whileHover={{ y: -4 }}
                     transition={{
                       type: "spring",
                       stiffness: 380,
                       damping: 35,
                       mass: 0.8
                     }}
-                    className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col h-full"
+                    className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl overflow-hidden flex flex-col h-full transition-shadow duration-300"
                   >
                     <Link href={`/products/${product.slug}`} className="flex flex-col flex-1 w-full">
                       <div className="relative h-40 bg-[#bebcbd] border-b border-gray-200/50 overflow-hidden">
