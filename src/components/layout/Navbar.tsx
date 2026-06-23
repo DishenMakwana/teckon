@@ -3,19 +3,32 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { 
+  Menu, 
+  X, 
+  ChevronDown, 
+  Boxes, 
+  Cpu, 
+  Wrench, 
+  Settings, 
+  Hammer, 
+  Zap, 
+  Activity, 
+  Droplet, 
+  Layers 
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const productCategories = [
-  { name: "JCB Spares", href: "/products?category=jcb" },
-  { name: "Hitachi Parts", href: "/products?category=hitachi" },
-  { name: "Terex Parts", href: "/products?category=terex" },
-  { name: "CAT Components", href: "/products?category=cat" },
-  { name: "Breakers & Tippers", href: "/products?category=breakers" },
-  { name: "L770 / Tata JD", href: "/products?category=l770" },
-  { name: "Excavator Parts", href: "/products?category=excavator" },
-  { name: "Filters & Service", href: "/products?category=filters" },
-  { name: "General Hydraulics", href: "/products?category=general" },
+  { name: "JCB Spares", href: "/products?category=jcb", desc: "Hydraulic valves, pumps & seal kits", icon: Boxes },
+  { name: "Hitachi Parts", href: "/products?category=hitachi", desc: "Heavy excavator pumps & components", icon: Cpu },
+  { name: "Terex Parts", href: "/products?category=terex", desc: "Dumper & loader replacement spares", icon: Wrench },
+  { name: "CAT Components", href: "/products?category=cat", desc: "Precision parts for Caterpillar systems", icon: Settings },
+  { name: "Breakers & Tippers", href: "/products?category=breakers", desc: "Hammer spares & tipper cylinders", icon: Hammer },
+  { name: "L770 / Tata JD", href: "/products?category=l770", desc: "Compatible loader spares & seal kits", icon: Zap },
+  { name: "Excavator Parts", href: "/products?category=excavator", desc: "Hydraulic cylinders & control valves", icon: Activity },
+  { name: "Filters & Service", href: "/products?category=filters", desc: "High-grade hydraulic filter elements", icon: Droplet },
+  { name: "General Hydraulics", href: "/products?category=general", desc: "Hose fittings, adaptors & custom spares", icon: Layers },
 ];
 
 const navLinks = [
@@ -87,30 +100,82 @@ export default function Navbar() {
                   <AnimatePresence>
                     {dropdownOpen && (
                       <motion.div
-                        initial={{ opacity: 0, y: -10 }}
+                        initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.15 }}
-                        className="absolute top-full left-0 w-56 bg-white shadow-xl border border-gray-100 rounded-xl overflow-hidden py-2 mt-1"
+                        exit={{ opacity: 0, y: 15 }}
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        className="absolute top-full left-1/2 -translate-x-[35%] w-[720px] bg-white/95 backdrop-blur-xl shadow-2xl border border-slate-100 rounded-3xl overflow-hidden mt-3 p-6 z-50 grid grid-cols-12 gap-6"
                       >
-                        <div className="border-b border-gray-100 mb-2 pb-2">
-                          <Link
-                            href="/products"
-                            className="block px-4 py-2.5 text-sm font-semibold text-[#FF6B35] hover:bg-orange-50 transition-colors"
-                          >
-                            View All Products →
-                          </Link>
+                        {/* Categories List */}
+                        <div className="col-span-8">
+                          <div className="flex justify-between items-center mb-4 pb-2 border-b border-slate-100">
+                            <span className="text-[10px] font-mono text-slate-400 font-bold uppercase tracking-wider">
+                              Category Catalog
+                            </span>
+                            <Link
+                              href="/products"
+                              className="text-xs font-bold text-[#FF6B35] hover:text-[#e05621] transition-colors flex items-center gap-1 group/all"
+                            >
+                              View All Products 
+                              <span className="group-hover:translate-x-0.5 transition-transform">→</span>
+                            </Link>
+                          </div>
+                          
+                          <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+                            {link.dropdown.map((item) => (
+                              <Link
+                                key={item.name}
+                                href={item.href}
+                                rel="nofollow"
+                                className="flex gap-3.5 p-2 rounded-2xl hover:bg-slate-50 transition-all duration-200 group/item"
+                              >
+                                <div className="w-10 h-10 rounded-xl bg-slate-50 text-slate-600 flex items-center justify-center group-hover/item:bg-[#FFBE00]/10 group-hover/item:text-[#FFBE00] transition-colors shrink-0">
+                                  <item.icon size={18} />
+                                </div>
+                                <div>
+                                  <div className="text-sm font-bold text-[#1E293B] group-hover/item:text-[#FF6B35] transition-colors">
+                                    {item.name}
+                                  </div>
+                                  <div className="text-[11px] text-gray-500 font-medium leading-normal mt-0.5">
+                                    {item.desc}
+                                  </div>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
                         </div>
-                        {link.dropdown.map((item) => (
-                          <Link
-                            key={item.name}
-                            href={item.href}
-                            rel="nofollow"
-                            className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#1E293B] hover:text-white transition-colors"
-                          >
-                            {item.name}
-                          </Link>
-                        ))}
+
+                        {/* Interactive Calculator Sidebar Callout */}
+                        <div className="col-span-4 flex flex-col">
+                          <div className="bg-[#0B0F19] rounded-2xl p-5 relative overflow-hidden flex flex-col justify-between h-full border border-white/5 shadow-inner">
+                            {/* Grid bg overlay */}
+                            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:12px_12px] pointer-events-none" />
+                            {/* Glow accent */}
+                            <div className="absolute -right-8 -bottom-8 w-24 h-24 bg-[#FFBE00]/10 rounded-full blur-xl pointer-events-none" />
+                            
+                            <div className="relative z-10">
+                              <span className="text-[9px] font-mono text-[#FFBE00] uppercase tracking-wider font-extrabold bg-[#FFBE00]/10 px-2.5 py-1 rounded-md">
+                                Interactive Tool
+                              </span>
+                              <h4 className="text-white font-black text-base mt-4 leading-tight">
+                                Telemetry &amp; Force Bench
+                              </h4>
+                              <p className="text-slate-400 text-[11px] mt-2.5 leading-relaxed font-medium">
+                                Simulate bore, rod, and stroke dimensions to calculate operating forces in real-time.
+                              </p>
+                            </div>
+
+                            <div className="relative z-10 mt-6 pt-4 border-t border-white/5">
+                              <Link
+                                href="/#diagnostics"
+                                className="inline-flex items-center gap-1.5 text-xs text-[#FFBE00] hover:text-[#d99e00] font-bold group/btn"
+                              >
+                                Launch Calculator 
+                                <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -199,9 +264,10 @@ export default function Navbar() {
                             key={item.name}
                             href={item.href}
                             rel="nofollow"
-                            className="block px-4 py-2 rounded-lg text-xs text-gray-500 hover:text-[#1E293B] hover:bg-gray-50 transition-colors"
+                            className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs text-gray-500 hover:text-[#1E293B] hover:bg-gray-50 transition-colors"
                           >
-                            {item.name}
+                            <item.icon size={13} className="text-gray-400 shrink-0" />
+                            <span>{item.name}</span>
                           </Link>
                         ))}
                       </div>

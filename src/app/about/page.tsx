@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Phone } from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 
 export const metadata: Metadata = {
@@ -44,6 +45,28 @@ const values = [
   { icon: "🏆", title: "Teamwork", desc: "Stronger together as a team" },
 ];
 
+const founders = [
+  {
+    name: "Mr. J.C. Patel",
+    role: "Co-Founder & Director",
+    image: "/images/founder-jc-neutral.webp",
+    alt: "Mr. J.C. Patel, Co-Founder and Director at Shreeji Hydraulics",
+    focus: "Engineering judgement",
+    note: "Guides technical review, product reliability, and the inspection habits that keep Teckon parts consistent.",
+    phone: "+91 94262 02945",
+  },
+  {
+    name: "Mr. Alpesh Patel",
+    role: "Co-Founder & Director",
+    image: "/images/founder-alpesh-white.webp",
+    alt: "Mr. Alpesh Patel, Co-Founder and Director at Shreeji Hydraulics",
+    focus: "Market execution",
+    note: "Leads customer relationships, sourcing discipline, and the day-to-day growth of the Teckon network.",
+    phone: "+91 94269 15578",
+
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
@@ -81,55 +104,63 @@ export default function AboutPage() {
       </section>
 
       {/* Founders */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">Leadership</span>
-            <h2 className="text-4xl font-black text-[#111111]">Meet Our Founders</h2>
-          </div>
-
-          {/* Founder 1 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-            <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
-              <Image src="/images/founder-jc-neutral.webp" alt="Mr. J.C. Patel — Co-Founder & Director" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-top" priority />
-            </div>
+     <section className="bg-slate-50 py-18 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
             <div>
-              <div className="inline-flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] text-xs font-bold px-3 py-1.5 rounded-full mb-4">
-                Co-Founder & Director
-              </div>
-              <h3 className="text-3xl font-black text-teckon-blue mb-2">Mr. J.C. Patel</h3>
-              <a href="tel:+919426202945" className="text-[#FF6B35] font-semibold mb-4 block hover:underline">
-                📞 +91-94262 02945
-              </a>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                As Co-Founder, Mr. J.C. Patel brings extensive expertise in hydraulic engineering and supply chain management. His technical knowledge and industry relationships have been instrumental in establishing Teckon™&apos;s reputation for quality and reliability.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                With decades of experience in the hydraulic parts industry, Mr. J.C. Patel continues to guide product development and quality assurance, ensuring every Teckon™ part meets the highest standards of performance.
-              </p>
+              <span className="text-sm font-black uppercase tracking-[0.22em] text-[#C2410C]">Leadership</span>
+              <h2 className="mt-3 text-4xl font-black text-[#111111] sm:text-5xl">Founders close to work.</h2>
             </div>
+            <p className="max-w-xl text-sm leading-7 text-slate-600">
+              Teckon stays personal at decision level. Technical calls, customer commitments, and supplier choices remain visible to leadership.
+            </p>
           </div>
 
-          {/* Founder 2 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-1 lg:order-2 relative h-96 rounded-2xl overflow-hidden shadow-xl">
-              <Image src="/images/founder-alpesh-white.webp" alt="Mr. Alpesh Patel — Co-Founder & Director" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-top" priority />
-            </div>
-            <div className="order-2 lg:order-1">
-              <div className="inline-flex items-center gap-2 bg-teckon-blue text-white text-xs font-bold px-3 py-1.5 rounded-full mb-4">
-                Co-Founder & Director
-              </div>
-              <h3 className="text-3xl font-black text-teckon-blue mb-2">Mr. Alpesh Patel</h3>
-              <a href="tel:+919426915578" className="text-[#FF6B35] font-semibold mb-4 block hover:underline">
-                📞 +91-94269 15578
-              </a>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                Co-Founder and driving force behind Teckon™&apos;s growth, Mr. Alpesh Patel has over 25 years of experience in hydraulic parts distribution and manufacturing. With a deep understanding of the construction equipment industry, he has built Teckon™ into a trusted name for hydraulic spares across India.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                Under his leadership, Teckon™ has expanded from a local distributor in Rajkot to a company with nationwide reach, earning ISO 9001:2015 certification and the trust of major equipment operators.
-              </p>
-            </div>
+          <div className="grid gap-6 lg:grid-cols-2">
+            {founders.map((founder) => (
+              <article
+                key={founder.name}
+                className="group overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white shadow-sm hover:shadow-[0_24px_48px_rgba(0,0,0,0.04)] hover:border-slate-300/60 transition-all duration-500"
+              >
+                <div className="grid min-h-[420px] sm:grid-cols-[0.9fr_1.1fr]">
+                  <div className="relative min-h-[320px] bg-slate-50 overflow-hidden">
+                    <Image
+                      src={founder.image}
+                      alt={founder.alt}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 25vw"
+                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  </div>
+                  <div className="flex flex-col justify-between p-7">
+                    <div>
+                      <div className="mb-5 inline-flex rounded-full bg-[#FFBE00]/20 px-3 py-1.5 text-xs font-black uppercase tracking-[0.18em] text-[#9A3412]">
+                        {founder.focus}
+                      </div>
+                      <h3 className="text-3xl font-black text-[#111111]">{founder.name}</h3>
+                      <p className="mt-1 text-sm font-bold text-slate-500">{founder.role}</p>
+                      <p className="mt-6 text-sm leading-7 text-slate-600">{founder.note}</p>
+                    </div>
+                    <div>
+                      <div className="mt-8 h-px bg-slate-100 w-full" />
+                      <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
+                        <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-400">
+                          Shreeji Hydraulics
+                        </p>
+                        <a
+                          href={`tel:${founder.phone.replace(/\s+/g, "")}`}
+                          className="group/btn inline-flex items-center gap-2.5 rounded-full bg-[#111111] hover:bg-[#FFBE00] px-4.5 py-2.5 text-xs font-black uppercase tracking-wider text-white hover:text-[#111111] transition-all duration-300 shadow-sm hover:shadow-[0_8px_20px_rgba(255,190,0,0.3)] hover:-translate-y-0.5 active:translate-y-0"
+                        >
+                          <Phone className="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:rotate-12" />
+                          <span>{founder.phone}</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
