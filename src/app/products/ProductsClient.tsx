@@ -242,7 +242,7 @@ function ProductsContent() {
                   setSearchVal(val);
                   handleSearch(val);
                 }}
-                className="w-full pl-11 pr-10 py-3 bg-gray-50 border border-gray-150 rounded-2xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFBE00] focus:border-[#FFBE00] focus:bg-white transition-all duration-300 font-bold text-sm"
+                className="w-full pl-11 pr-10 py-3 bg-gray-50 border border-gray-200 rounded-2xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFBE00] focus:border-[#FFBE00] focus:bg-white transition-all duration-300 font-bold text-sm"
               />
               {searchVal && (
                 <button
