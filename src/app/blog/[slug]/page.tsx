@@ -48,7 +48,7 @@ export default async function BlogPostPage({ params }: Props) {
       <ScrollProgressBar />
 
       {/* Hero Banner */}
-      <section className="bg-teckon-dark-blue py-20 relative overflow-hidden">
+      <section id="blog-hero" className="bg-teckon-dark-blue py-20 relative overflow-hidden">
         {/* Background Overlay */}
         <div className="absolute inset-0 opacity-15">
           <Image src={post.image} alt={post.title} fill sizes="100vw" className="object-cover" priority />
@@ -82,7 +82,7 @@ export default async function BlogPostPage({ params }: Props) {
       </section>
 
       {/* Content Area */}
-      <section className="py-16 bg-white relative">
+      <section id="blog-content" className="py-16 bg-white relative">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
             
@@ -185,7 +185,7 @@ export default async function BlogPostPage({ params }: Props) {
 
           {/* Related Articles Footer section */}
           {related.length > 0 && (
-            <div className="mt-20 border-t border-gray-100 pt-12">
+            <div id="related-articles" className="mt-20 border-t border-gray-100 pt-12">
               <h2 className="text-2xl font-black text-[#0B0F19] mb-8 tracking-tight">Related Articles</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {related.map((r) => (

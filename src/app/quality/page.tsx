@@ -68,7 +68,7 @@ export default function QualityPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-teckon-dark-blue py-20 relative overflow-hidden">
+      <section id="quality-hero" className="bg-teckon-dark-blue py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <Image src="/images/quality-manufacturing.webp" alt="Heavy machinery parts manufacturing facility showcasing rigorous quality control testing" fill sizes="100vw" className="object-cover" priority />
         </div>
@@ -84,7 +84,7 @@ export default function QualityPage() {
       </section>
 
       {/* Manufacturing Image */}
-      <section className="py-16 bg-white">
+      <section id="assurance" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative h-80 rounded-2xl overflow-hidden shadow-2xl">
             <Image src="/images/quality-manufacturing.webp" alt="Teckon quality control laboratory" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" loading="eager" />
@@ -99,7 +99,7 @@ export default function QualityPage() {
       </section>
 
       {/* Manufacturing Process */}
-      <section className="py-20 bg-gray-50">
+      <section id="process" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">Our Process</span>
@@ -135,7 +135,7 @@ export default function QualityPage() {
       </section>
 
       {/* Certifications */}
-      <section className="py-20 bg-white">
+      <section id="certifications" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">Credentials</span>
@@ -154,7 +154,7 @@ export default function QualityPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-teckon-blue py-16">
+      <section id="cta" className="bg-teckon-blue py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black text-white mb-4">Request Our Quality Documentation</h2>
           <p className="text-white/70 mb-8">Get our ISO certificates and technical data sheets. Contact us today.</p>

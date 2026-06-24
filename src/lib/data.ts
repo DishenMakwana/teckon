@@ -688,7 +688,7 @@ export const BLOG_POSTS = [
     date: "2025-03-15",
     author: "Teckon™ Technical Team",
     category: "Maintenance",
-    image: "/images/blog-hydraulics.webp",
+    image: "/images/blog/blog-maintenance.webp",
     content: `
 ## Introduction
 Hydraulic systems are the lifeblood of heavy machinery. Whether you're operating a JCB backhoe, a Terex rough terrain forklift, or a Caterpillar excavator, the health of your hydraulic system directly determines your machine's performance and longevity.
@@ -725,7 +725,7 @@ A disciplined maintenance schedule, combined with genuine quality spare parts fr
     date: "2025-03-01",
     author: "Alpesh Patel",
     category: "Hitachi Spares",
-    image: "/images/product-excavator.webp",
+    image: "/images/blog/blog-hitachi-pump.webp",
     content: `
 ## Introduction
 Hitachi excavators, especially the legendary EX200 and the modern Zaxis series, are renowned for their speed and heavy digging capabilities. The secret behind this efficiency lies in their high-pressure main hydraulic pumps. Keeping these pumps running smoothly requires technical expertise and high-quality replacement spares.
@@ -759,7 +759,7 @@ Preventative maintenance and early troubleshooting of Hitachi hydraulic pumps ca
     date: "2025-02-25",
     author: "Teckon™ Technical Team",
     category: "JCB Spares",
-    image: "/images/product-jcb.webp",
+    image: "/images/blog/blog-jcb-pumps.webp",
     content: `
 ## Introduction
 The JCB 3CX backhoe loader is the backbone of Indian construction. Over the years, JCB has utilized different hydraulic pump architectures to power the loader and backhoe cylinders. For maintenance crews and parts buyers, understanding the difference between Gear Pumps and Variable Displacement Piston Pumps is essential.
@@ -793,7 +793,7 @@ Identify your JCB's pump model code (e.g., 20/925345 or 20/925580) before orderi
     date: "2025-02-08",
     author: "Alpesh Patel",
     category: "Technical",
-    image: "/images/blog-hydraulics.webp",
+    image: "/images/blog/blog-jcb-cat.webp",
     content: `
 ## Overview
 JCB and Caterpillar are the two dominant brands in the Indian construction equipment market. While both use hydraulic systems extensively, their architectures differ significantly — affecting which spare parts are compatible and how maintenance should be performed.
@@ -821,7 +821,7 @@ Understanding your specific machine's hydraulic architecture helps you make bett
     date: "2025-02-14",
     author: "JC Patel",
     category: "Hitachi Spares",
-    image: "/images/product-excavator.webp",
+    image: "/images/blog/blog-hitachi-swing.webp",
     content: `
 ## Introduction
 Excavator swing motors and final drives work under immense stress. Slew movements and constant track travel wear down gears, bearings, and hydraulic motors. In Hitachi excavators (such as the Zaxis 200, 210, and 220), keeping the swing and travel devices in pristine condition is paramount to preventing catastrophic gear failures.
@@ -852,7 +852,7 @@ Keep the gear oils changed every 1000 hours, and visually inspect for seal leaks
     date: "2025-01-28",
     author: "Teckon™ Quality Team",
     category: "JCB Spares",
-    image: "/images/product-jcb.webp",
+    image: "/images/blog/blog-jcb-seals.webp",
     content: `
 ## Introduction
 External oil leaks on hydraulic cylinders are not only messy and expensive, but they also reduce operating pressure and allow contaminants to enter the hydraulic system. For JCB backhoes and loaders, cylinder seal kit maintenance is the most common routine repair. Here is how to do it right.
@@ -885,7 +885,7 @@ By replacing worn seal kits proactively, you prevent cylinder barrel scoring and
     date: "2025-01-20",
     author: "Teckon™ Team",
     category: "Company News",
-    image: "/images/about-factory.webp",
+    image: "/images/blog/blog-expansion.webp",
     content: `
 ## Exciting Expansion News
 We are proud to announce that Teckon™ Quality Spares has significantly expanded its distribution network across India, making it easier than ever for equipment operators and dealers to access genuine hydraulic spare parts quickly.
@@ -912,7 +912,7 @@ For inquiries about distribution partnerships or product availability in your re
     date: "2025-04-10",
     author: "Teckon™ Technical Team",
     category: "JCB Spares",
-    image: "/images/product-jcb.webp",
+    image: "/images/blog/blog-jcb-filters.webp",
     content: `
 ## Introduction
 Of all the spare parts on a JCB machine, filters are the cheapest to replace — yet the most expensive to ignore. A clogged or bypassed filter can contaminate an entire hydraulic system within hours, leading to pump failure, valve wear, and cylinder scoring that can cost lakhs to repair. Here is a detailed breakdown of every filter type used in JCB equipment.
@@ -963,7 +963,7 @@ Maintain your filter schedule strictly. Keep a maintenance logbook. A ₹500 fil
     date: "2025-04-22",
     author: "Alpesh Patel",
     category: "Ground Engaging Tools",
-    image: "/images/product-excavator.webp",
+    image: "/images/blog/blog-bucket-teeth.webp",
     content: `
 ## Introduction
 Bucket teeth — also called digging teeth or GET (Ground Engaging Tools) — are the hardened steel tips attached to the leading edge of an excavator or backhoe loader bucket. They are the part of the machine that actually contacts the ground, and they wear out faster than any other structural component. Choosing the right tooth type, material, and adapter system is critical for productivity and cost control.
@@ -1017,7 +1017,7 @@ At Teckon™, we stock standard, heavy-duty, and penetration bucket teeth for al
     date: "2025-05-05",
     author: "Teckon™ Technical Team",
     category: "Industry Update",
-    image: "/images/blog-hydraulics.webp",
+    image: "/images/blog/blog-stage-5.webp",
     content: `
 ## What is CEV Stage 5?
 Construction Equipment Vehicle (CEV) Stage 5 is India's latest off-road emission standard, aligned with Europe's Stage V regulations. It came into effect for new machines in January 2025, replacing the earlier CEV Stage IV standard. The new standard significantly reduces particulate matter (PM) and nitrogen oxide (NOx) emissions from diesel engines used in construction equipment.
@@ -1056,7 +1056,7 @@ CEV Stage 5 is a major shift in how construction equipment engines work. Underst
     date: "2025-05-18",
     author: "JC Patel",
     category: "Technical",
-    image: "/images/blog-hydraulics.webp",
+    image: "/images/blog/blog-oil-guide.webp",
     content: `
 ## Introduction
 Hydraulic oil is not just a lubricant — it is the power transmission medium, the heat transfer fluid, and the anti-corrosion agent in your machine's hydraulic system, all in one. Selecting the wrong oil grade or viscosity is one of the most common — and most expensive — mistakes made by equipment operators and workshop managers.
@@ -1104,7 +1104,7 @@ Always use the manufacturer-specified oil grade for your machine model and opera
     date: "2025-06-01",
     author: "Teckon™ Technical Team",
     category: "Technical",
-    image: "/images/product-excavator.webp",
+    image: "/images/blog/blog-backhoe-excavator.webp",
     content: `
 ## Overview
 Backhoe loaders (like the JCB 3DX) and tracked excavators (like the Hitachi ZX210 or JCB NXT 215 LC) are both digging machines — but they are fundamentally different in design, application, and the spare parts they require. Understanding the difference helps you plan maintenance budgets, stock the right spares, and reduce machine downtime.
@@ -1158,7 +1158,7 @@ Whether you operate backhoe loaders or tracked excavators, Teckon™ has you cov
     date: "2025-06-10",
     author: "Alpesh Patel",
     category: "Maintenance",
-    image: "/images/product-excavator.webp",
+    image: "/images/blog/blog-pins-bushes.webp",
     content: `
 ## Introduction
 In a heavy construction machine, hundreds of steel pins connect the boom, arm, bucket, cylinder eyes, and linkage components together. Each pin rotates inside a bronze or steel bush. Over time, this rotary motion under enormous loads causes the pin surface to wear, and the bush bore to enlarge. The result is "slop" or "play" in the joints — a dangerous and productivity-destroying condition.
@@ -1209,7 +1209,7 @@ Pins and bushes are inexpensive preventive maintenance items that protect the fa
     date: "2025-06-15",
     author: "Teckon™ Technical Team",
     category: "Ground Engaging Tools",
-    image: "/images/product-excavator.webp",
+    image: "/images/blog/blog-get-tools.webp",
     content: `
 ## Introduction
 Ground Engaging Tools (GET) is the collective term for all wear parts that directly contact the ground during excavation, loading, dozing, or grading operations. These include bucket teeth, cutting edges, side cutters, wear plates, rippers, and end bits. GET are the highest-wearing components on any earthmoving machine — and getting the right specification for your site conditions can dramatically reduce your cost-per-tonne and improve cycle times.
@@ -1275,7 +1275,7 @@ Ground Engaging Tools may be consumable, but they are strategic. The right GET s
     date: "2025-06-18",
     author: "Teckon™ Team",
     category: "Industry Insight",
-    image: "/images/about-factory.webp",
+    image: "/images/blog/blog-preowned-demand.webp",
     content: `
 ## India's Pre-Owned Equipment Landscape
 India's construction equipment market is unique globally — a significant proportion of machines operating on Indian job sites are second-hand units, often 7–15 years old. This creates an enormous and sustained demand for spare parts, rebuilding kits, and maintenance services that is largely separate from the new machine market.

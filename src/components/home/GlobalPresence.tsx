@@ -15,7 +15,7 @@ export default function GlobalPresence() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-20 bg-teckon-blue" ref={ref}>
+    <section id="presence" className="py-20 bg-teckon-blue" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

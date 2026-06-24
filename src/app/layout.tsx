@@ -1,5 +1,5 @@
-import { Outfit } from "next/font/google";
 import "./globals.css";
+import { Outfit } from "next/font/google";
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/teckon.ico",
     apple: "/apple-touch-icon.png",
   },
   keywords: [

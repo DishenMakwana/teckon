@@ -43,7 +43,7 @@ const sections = [
 export default function PrivacyPolicyPage() {
   return (
     <>
-      <section className="bg-teckon-dark-blue py-20 relative overflow-hidden">
+      <section id="privacy-hero" className="bg-teckon-dark-blue py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <Image src="/images/policy-hero.webp" alt="Engineering blueprint showing technical details of hydraulic cylinder parts assembly" fill sizes="100vw" className="object-cover" priority />
         </div>
@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
         </div>
       </section>
 
-      <section className="py-12 bg-gray-50">
+      <section id="privacy-content" className="py-12 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 md:p-12">
             <p className="text-gray-600 mb-8 leading-relaxed text-lg">

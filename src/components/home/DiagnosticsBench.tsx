@@ -1,6 +1,6 @@
 "use client";
 import { useState, useMemo, useEffect } from "react";
-import { Activity, ShieldAlert, Cpu, Wrench, Play, Square, Info } from "lucide-react";
+import { Activity, Cpu, Wrench, Play, Square } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface Preset {
@@ -199,11 +199,7 @@ export default function DiagnosticsBench() {
     setCustomRod(Math.min(val, customBore - 10));
   };
 
-  // WhatsApp link generator
-  const whatsappUrl = useMemo(() => {
-    const text = `Hello Shreeji Hydraulics,\n\nI used the Teckon Telemetry Calculator and would like to inquire about spares matching these specifications:\n\n- Configuration: ${values.name}\n- Bore Diameter: ${values.bore} mm\n- Rod Diameter: ${values.rod} mm\n- Stroke Length: ${values.stroke} mm\n- Operating Pressure: ${values.pressure} bar\n- Target Machine: ${values.machine}\n- Part Inquiry: ${values.partName} (${values.partRef})\n\nPlease share price and lead time.`;
-    return `https://wa.me/919426915578?text=${encodeURIComponent(text)}`;
-  }, [values]);
+
 
   // SVG Gauge calculations
   const gaugeRotation = useMemo(() => {
@@ -256,7 +252,7 @@ export default function DiagnosticsBench() {
   };
 
   return (
-    <section id="diagnostics" className="py-20 bg-[#0B0F19] relative overflow-hidden">
+    <section id="diagnostics" className="py-10 md:py-14 bg-[#0B0F19] relative overflow-hidden">
       {/* Dark Blueprint-style Grid Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,#0B0F19_95%)] pointer-events-none" />
@@ -280,25 +276,25 @@ export default function DiagnosticsBench() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center mb-16 relative">
-          <span className="text-[#FFBE00] font-mono text-sm uppercase tracking-widest mb-3 block flex items-center justify-center gap-2">
+        <div className="text-center mb-10 relative">
+          <span className="text-[#FFBE00] font-mono text-sm uppercase tracking-widest mb-2.5 block flex items-center justify-center gap-2">
             <Activity className="h-4 w-4 text-[#FFBE00] animate-pulse" />
             LIVE TELEMETRY LAB
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
             Hydraulic Diagnostics Bench
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
+          <p className="text-slate-400 max-w-2xl mx-auto text-xs sm:text-sm">
             Select a common heavy machine preset or manually adjust parameters to test cylinder forces, oil capacities, and stroke speeds in real time.
           </p>
           <div className="absolute top-1/2 left-4 right-4 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent -z-10" />
         </div>
 
         {/* Content Box */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           
           {/* Controls Box (Left Column) */}
-          <div className="lg:col-span-6 bg-slate-900/40 backdrop-blur-xl rounded-3xl border border-white/10 p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden shadow-2xl">
+          <div className="lg:col-span-6 bg-slate-900/40 backdrop-blur-xl rounded-3xl border border-white/10 p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden shadow-2xl">
             {/* Cyber Corner brackets */}
             <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#FFBE00]" />
             <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#FFBE00]" />
@@ -349,7 +345,7 @@ export default function DiagnosticsBench() {
               </div>
 
               {/* Sliders Container */}
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {/* Bore Diameter */}
                 <div>
                   <div className="flex justify-between items-center mb-2 font-mono text-xs">
@@ -513,11 +509,8 @@ export default function DiagnosticsBench() {
             </div>
           </div>
 
-          {/* Telemetry Display (Right Column) */}
-          <div className="lg:col-span-6 flex flex-col gap-6">
-            
-            {/* Control & Live Readouts Panel */}
-            <div className="bg-slate-900/90 rounded-3xl border border-white/10 p-6 flex-1 flex flex-col justify-between relative shadow-2xl overflow-hidden">
+          {/* Control & Live Readouts Panel */}
+          <div className="lg:col-span-6 bg-slate-900/90 rounded-3xl border border-white/10 p-5 sm:p-6 flex flex-col justify-between relative shadow-2xl overflow-hidden">
               {/* Scanline overlay for cyber effect */}
               <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.03),rgba(0,255,0,0.01),rgba(0,0,255,0.03))] bg-[size:100%_4px,3px_100%] pointer-events-none opacity-40" />
 
@@ -862,104 +855,65 @@ export default function DiagnosticsBench() {
               </div>
 
               {/* Monospace Statistics Grid */}
-              <div className="grid grid-cols-2 gap-4 mt-6 relative z-10">
+              <div className="grid grid-cols-2 gap-3 mt-4 relative z-10">
                 {/* Push Force Card */}
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between hover:bg-white/10 transition-colors duration-200">
-                  <div className="text-[9px] font-mono text-slate-400 uppercase tracking-wider mb-1">
+                <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col justify-between hover:bg-white/10 transition-colors duration-200">
+                  <div className="text-[8px] font-mono text-slate-400 uppercase tracking-wider mb-1">
                     Cylinder Push Force
                   </div>
-                  <div className="text-2xl font-black text-white font-mono leading-none flex items-baseline">
+                  <div className="text-xl font-black text-white font-mono leading-none flex items-baseline">
                     {stats.pushForceTons}
-                    <span className="text-xs text-[#FFBE00] font-bold ml-1">TONS</span>
+                    <span className="text-[10px] text-[#FFBE00] font-bold ml-1">TONS</span>
                   </div>
-                  <div className="text-[8px] font-mono text-slate-500 mt-2">
+                  <div className="text-[7px] font-mono text-slate-500 mt-1.5">
                     F = P × A1 (Extend)
                   </div>
                 </div>
 
                 {/* Pull Force Card */}
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between hover:bg-white/10 transition-colors duration-200">
-                  <div className="text-[9px] font-mono text-slate-400 uppercase tracking-wider mb-1">
+                <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col justify-between hover:bg-white/10 transition-colors duration-200">
+                  <div className="text-[8px] font-mono text-slate-400 uppercase tracking-wider mb-1">
                     Cylinder Pull Force
                   </div>
-                  <div className="text-2xl font-black text-white font-mono leading-none flex items-baseline">
+                  <div className="text-xl font-black text-white font-mono leading-none flex items-baseline">
                     {stats.pullForceTons}
-                    <span className="text-xs text-[#FFBE00] font-bold ml-1">TONS</span>
+                    <span className="text-[10px] text-[#FFBE00] font-bold ml-1">TONS</span>
                   </div>
-                  <div className="text-[8px] font-mono text-slate-500 mt-2">
+                  <div className="text-[7px] font-mono text-slate-500 mt-1.5">
                     F = P × A2 (Retract)
                   </div>
                 </div>
 
                 {/* Stroke Volume */}
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between hover:bg-white/10 transition-colors duration-200">
-                  <div className="text-[9px] font-mono text-slate-400 uppercase tracking-wider mb-1">
+                <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col justify-between hover:bg-white/10 transition-colors duration-200">
+                  <div className="text-[8px] font-mono text-slate-400 uppercase tracking-wider mb-1">
                     Oil Vol. Capacity
                   </div>
-                  <div className="text-2xl font-black text-white font-mono leading-none flex items-baseline">
+                  <div className="text-xl font-black text-white font-mono leading-none flex items-baseline">
                     {stats.volumeLiters}
-                    <span className="text-xs text-[#FFBE00] font-bold ml-1">LTR</span>
+                    <span className="text-[10px] text-[#FFBE00] font-bold ml-1">LTR</span>
                   </div>
-                  <div className="text-[8px] font-mono text-slate-500 mt-2">
+                  <div className="text-[7px] font-mono text-slate-500 mt-1.5">
                     V = A1 × S (Displacement)
                   </div>
                 </div>
 
                 {/* Extension Time */}
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between hover:bg-white/10 transition-colors duration-200">
-                  <div className="text-[9px] font-mono text-slate-400 uppercase tracking-wider mb-1">
+                <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col justify-between hover:bg-white/10 transition-colors duration-200">
+                  <div className="text-[8px] font-mono text-slate-400 uppercase tracking-wider mb-1">
                     Extend Cycle Time
                   </div>
-                  <div className="text-2xl font-black text-white font-mono leading-none flex items-baseline">
+                  <div className="text-xl font-black text-white font-mono leading-none flex items-baseline">
                     {stats.extendTimeSec}
-                    <span className="text-xs text-[#FFBE00] font-bold ml-1">SEC</span>
+                    <span className="text-[10px] text-[#FFBE00] font-bold ml-1">SEC</span>
                   </div>
-                  <div className="text-[8px] font-mono text-slate-500 mt-2">
+                  <div className="text-[7px] font-mono text-slate-500 mt-1.5">
                     t = V / Q (Extend speed)
                   </div>
                 </div>
               </div>
 
             </div>
-
-            {/* Recommendations Card */}
-            <div className="bg-[#FFBE00] rounded-3xl p-6 text-[#0B0F19] relative overflow-hidden shadow-2xl flex flex-col justify-between border border-[#FFBE00]/30">
-              {/* Decorative industrial zebra stripes */}
-              <div className="absolute top-0 right-0 w-36 h-36 bg-black/5 rotate-12 -translate-y-8 translate-x-8 pointer-events-none" />
-
-              <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <ShieldAlert className="h-5 w-5 text-[#0B0F19]" />
-                  <span className="font-extrabold text-sm uppercase tracking-wider font-mono">
-                    RECOMMENDED SPARES
-                  </span>
-                </div>
-
-                <div className="mb-4">
-                  <h4 className="font-black text-lg leading-snug">
-                    {values.partName}
-                  </h4>
-                  <div className="inline-block bg-[#0b0f19]/10 rounded px-2.5 py-0.5 mt-1 font-mono text-xs font-bold border border-[#0b0f19]/10">
-                    Ref No: {values.partRef}
-                  </div>
-                </div>
-
-                <p className="text-[#0B0F19]/80 text-xs leading-relaxed mb-6 font-medium">
-                  We supply custom induction hardened pins, chrome plated piston rods, honed cylinder tubes, and heavy-duty polyurethane seal kits engineered to withstand up to 400 bar pressure for this configuration.
-                </p>
-              </div>
-
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-[#0B0F19] text-white hover:bg-[#1E293B] font-black py-4 rounded-2xl text-sm transition-all duration-300 shadow-xl cursor-pointer hover:shadow-[0_0_15px_rgba(11,15,25,0.4)]"
-              >
-                Inquire about this Configuration
-              </a>
-            </div>
-
-          </div>
 
         </div>
 

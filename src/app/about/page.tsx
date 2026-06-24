@@ -71,7 +71,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-teckon-dark-blue py-20 relative overflow-hidden">
+      <section id="about-hero" className="bg-teckon-dark-blue py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <Image src="/images/about-factory.webp" alt="Teckon manufacturing factory floor showcasing precision CNC machinery" fill sizes="100vw" className="object-cover" priority />
         </div>
@@ -85,7 +85,7 @@ export default function AboutPage() {
       </section>
 
       {/* Innovation Pillars */}
-      <section className="py-20 bg-white">
+      <section id="pillars" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">Our Foundation</span>
@@ -104,7 +104,7 @@ export default function AboutPage() {
       </section>
 
       {/* Founders */}
-     <section className="bg-slate-50 py-18 sm:py-20">
+     <section id="leadership" className="bg-slate-50 py-18 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
             <div>
@@ -166,7 +166,7 @@ export default function AboutPage() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-20 bg-white">
+      <section id="vision-mission" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-black text-[#111111]">Vision & Mission</h2>
@@ -191,7 +191,7 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="py-20 bg-teckon-blue">
+      <section id="values" className="py-20 bg-teckon-blue">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-black text-white">Our Core Values</h2>
@@ -209,7 +209,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[#FFBE00]">
+      <section id="cta" className="py-16 bg-[#FFBE00]">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black text-[#0B0F19] mb-4">Ready to Partner with Teckon™?</h2>
           <p className="text-[#0B0F19]/70 mb-8">Contact our team today for a quick quote on hydraulic spares for your equipment.</p>

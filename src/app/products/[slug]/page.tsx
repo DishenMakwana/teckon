@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { PRODUCTS } from "@/lib/data";
 import ProductImageViewer from "./ProductImageViewer";
-import { ArrowRight, RotateCw, Shield, Layers, Award, Hammer, Wrench, MessageSquare } from "lucide-react";
+import { ArrowRight, RotateCw, Shield, Layers, Award, Wrench, MessageSquare } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -47,7 +47,7 @@ export default async function ProductDetailPage({ params }: Props) {
   return (
     <>
       {/* Premium Header */}
-      <section className="bg-teckon-dark-blue py-20 relative overflow-hidden">
+      <section id="product-hero" className="bg-teckon-dark-blue py-20 relative overflow-hidden">
         {/* Decorative Grid & Blur */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-40" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#FFBE00]/5 rounded-full filter blur-3xl pointer-events-none" />
@@ -71,7 +71,7 @@ export default async function ProductDetailPage({ params }: Props) {
       </section>
 
       {/* Main Details Body */}
-      <section className="py-16 bg-white relative">
+      <section id="details" className="py-16 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -233,7 +233,7 @@ export default async function ProductDetailPage({ params }: Props) {
 
           {/* Related Products Grid */}
           {relatedProducts.length > 0 && (
-            <div className="mt-20 border-t border-slate-100 pt-16">
+            <div id="related-products" className="mt-20 border-t border-slate-100 pt-16">
               <div className="flex items-center justify-between mb-8">
                 <h2 className="text-2xl font-black text-[#0B0F19] tracking-tight">Related Spares Catalog</h2>
                 <Link href="/products" className="text-[#FF6B35] hover:text-[#e55a25] text-sm font-bold flex items-center gap-1 group">

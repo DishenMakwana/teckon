@@ -81,68 +81,56 @@ const BADGE_BG_CLASSES: Record<string, string> = {
   mp: "bg-[#E84393] text-[#0B0F19]",
 };
 
-const LEGEND_ITEM_CLASSES: Record<string, string> = {
-  gj: "bg-[#FFBE00]/10 border-[#FFBE00]/40 shadow-[0_0_12px_rgba(255,190,0,0.2)]",
-  rj: "bg-[#FF9D3D]/10 border-[#FF9D3D]/40 shadow-[0_0_12px_rgba(255,157,61,0.2)]",
-  mh: "bg-[#FF6B35]/10 border-[#FF6B35]/40 shadow-[0_0_12px_rgba(255,107,53,0.2)]",
-  mp: "bg-[#E84393]/10 border-[#E84393]/40 shadow-[0_0_12px_rgba(232,67,147,0.2)]",
-};
-
-const DOT_BG_CLASSES: Record<string, string> = {
-  gj: "bg-[#FFBE00] shadow-[0_0_8px_rgba(255,190,0,0.53)]",
-  rj: "bg-[#FF9D3D] shadow-[0_0_8px_rgba(255,157,61,0.53)]",
-  mh: "bg-[#FF6B35] shadow-[0_0_8px_rgba(255,107,53,0.53)]",
-  mp: "bg-[#E84393] shadow-[0_0_8px_rgba(232,67,147,0.53)]",
-};
 
 /* ── Component ──────────────────────────────────────────────────────── */
 export default function IndiaMapChart() {
   const [hovered, setHovered] = useState<string | null>(null);
-  const [selected, setSelected] = useState<string | null>("gj"); // default
+  const [selected, setSelected] = useState<string | null>("gj");
 
   const activeId = selected ?? hovered;
   const activeInfo = activeId ? STATE_INFO[activeId] : null;
 
   return (
     <div className="w-full select-none">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch max-w-5xl mx-auto">
         {/* Left Column: Text & explorer tags inside a matching card container */}
-        <div className="flex flex-col items-center justify-center w-full">
-          <div className="w-full max-w-sm lg:max-w-md relative bg-white/5 rounded-3xl p-6 border border-white/10 shadow-2xl space-y-4 text-left">
-            {/* Top: Pan-India Supply Network */}
-            <div className="space-y-3">
-              <h3 className="text-xl lg:text-2xl font-black text-white">Pan-India Supply Network</h3>
-              <p className="text-white/70 leading-relaxed text-xs lg:text-sm">
-                Teckon&apos;s distribution network spans across India&apos;s major construction equipment markets. We maintain strong dealer relationships across Gujarat, Rajasthan, Maharashtra, and Madhya Pradesh — ensuring fast delivery of critical hydraulic spares.
-              </p>
-            </div>
+        <div className="w-full h-full relative bg-white/5 rounded-3xl p-6 border border-white/10 shadow-2xl flex flex-col justify-between text-left gap-6">
+            <div className="space-y-4">
+              {/* Top: Pan-India Supply Network */}
+              <div className="space-y-3">
+                <h3 className="text-xl lg:text-2xl font-black text-white">Pan-India Supply Network</h3>
+                <p className="text-white/70 leading-relaxed text-xs lg:text-sm">
+                  Teckon&apos;s distribution network spans across India&apos;s major construction equipment markets. We maintain strong dealer relationships across Gujarat, Rajasthan, Maharashtra, and Madhya Pradesh — ensuring fast delivery of critical hydraulic spares.
+                </p>
+              </div>
 
-            <div className="grid grid-cols-1 gap-2.5">
-              {[
-                { id: "gj", state: "Gujarat", note: "Headquartered in Rajkot — primary supply hub" },
-                { id: "rj", state: "Rajasthan", note: "Strong presence in Jaipur & Jodhpur" },
-                { id: "mh", state: "Maharashtra", note: "Distribution hub in Pune & Mumbai" },
-                { id: "mp", state: "Madhya Pradesh", note: "Network in Indore & Bhopal" },
-              ].map((item) => {
-                const isActive = selected === item.id;
-                return (
-                  <div
-                    key={item.id}
-                    onClick={() => setSelected((prev) => (prev === item.id ? null : item.id))}
-                    className={`flex items-start gap-3 rounded-xl p-2.5 border transition-all duration-200 cursor-pointer ${
-                      isActive
-                        ? "bg-[#FFBE00]/15 border-[#FFBE00]/40 shadow-[0_0_12px_rgba(255,190,0,0.15)]"
-                        : "bg-white/10 border-white/5 hover:bg-white/15"
-                    }`}
-                  >
-                    <div className={`w-2 h-2 rounded-full mt-1.5 shrink-0 ${isActive ? "bg-[#FFBE00] animate-pulse" : "bg-white/40"}`} />
-                    <div>
-                      <span className="text-white font-semibold text-sm">{item.state}</span>
-                      <span className="text-white/60 text-xs ml-2">— {item.note}</span>
+              <div className="grid grid-cols-1 gap-2.5">
+                {[
+                  { id: "gj", state: "Gujarat", note: "Headquartered in Rajkot — primary supply hub" },
+                  { id: "rj", state: "Rajasthan", note: "Strong presence in Jaipur & Jodhpur" },
+                  { id: "mh", state: "Maharashtra", note: "Distribution hub in Pune & Mumbai" },
+                  { id: "mp", state: "Madhya Pradesh", note: "Network in Indore & Bhopal" },
+                ].map((item) => {
+                  const isActive = selected === item.id;
+                  return (
+                    <div
+                      key={item.id}
+                      onClick={() => setSelected((prev) => (prev === item.id ? null : item.id))}
+                      className={`flex items-start gap-3 rounded-xl p-2.5 border transition-all duration-200 cursor-pointer ${
+                        isActive
+                          ? "bg-[#FFBE00]/15 border-[#FFBE00]/40 shadow-[0_0_12px_rgba(255,190,0,0.15)]"
+                          : "bg-white/10 border-white/5 hover:bg-white/15"
+                      }`}
+                    >
+                      <div className={`w-2 h-2 rounded-full mt-1.5 shrink-0 ${isActive ? "bg-[#FFBE00] animate-pulse" : "bg-white/40"}`} />
+                      <div>
+                        <span className="text-white font-semibold text-sm">{item.state}</span>
+                        <span className="text-white/60 text-xs ml-2">— {item.note}</span>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
 
             <div className="flex flex-wrap gap-1.5 pt-1">
@@ -157,73 +145,62 @@ export default function IndiaMapChart() {
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Right Column: SVG Map & Active Info Panel (Reduced size and centered) */}
-        <div className="flex flex-col items-center justify-center w-full lg:pl-4">
-          <div className="w-full max-w-sm lg:max-w-md relative bg-white/5 rounded-3xl p-6 border border-white/10 shadow-2xl space-y-4">
-            <svg
-              viewBox={indiaMap.viewBox}
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="States in India served by Teckon"
-              className="w-full h-auto"
-            >
-              {indiaMap.locations.map(
-                (loc: { id: string; name: string; path: string }) => {
-                  const isOn = HIGHLIGHT.has(loc.id);
-                  const isHovered = hovered === loc.id;
-                  const isSelected = selected === loc.id;
-                  const info = STATE_INFO[loc.id];
+        {/* Right Column: SVG Map & Active Info Panel */}
+        <div className="w-full h-full relative bg-white/5 rounded-3xl p-6 border border-white/10 shadow-2xl flex flex-col justify-between gap-4">
+            <div className="flex-1 flex items-center justify-center min-h-[280px]">
+              <svg
+                viewBox={indiaMap.viewBox}
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="States in India served by Teckon"
+                className="w-full h-auto max-h-[340px]"
+              >
+                {indiaMap.locations.map(
+                  (loc: { id: string; name: string; path: string }) => {
+                    const isHighlighted = HIGHLIGHT.has(loc.id);
+                    const isSelected = selected === loc.id;
+                    const isHovered = hovered === loc.id;
+                    const info = STATE_INFO[loc.id];
+                    
+                    const fill = isHighlighted
+                      ? (isSelected ? info.color : isHovered ? `${info.color}cc` : `${info.color}80`)
+                      : "rgba(255,255,255,0.06)";
+                    const stroke = isHighlighted ? info.color : "rgba(255,255,255,0.15)";
+                    const strokeW = isSelected ? 2 : 0.8;
+                    const glowClass = isHighlighted && (isSelected || isHovered) ? GLOW_CLASSES[loc.id] : "";
 
-                  let fill = "rgba(255,255,255,0.06)";
-                  let stroke = "rgba(255,255,255,0.25)";
-                  let strokeW = 0.6;
-                  let opacity = 1;
-
-                  if (isOn) {
-                    fill = isSelected
-                      ? info.color
-                      : isHovered
-                      ? `${info.color}cc`
-                      : `${info.color}80`;
-                    stroke = info.color;
-                    strokeW = isSelected ? 2 : 1.5;
-                    opacity = 1;
-                  } else {
-                    if (selected) opacity = 0.5;
+                    return (
+                      <path
+                        key={loc.id}
+                        d={loc.path}
+                        fill={fill}
+                        stroke={stroke}
+                        strokeWidth={strokeW}
+                        className={`transition-all duration-300 outline-none ${
+                          isHighlighted
+                            ? `cursor-pointer ${glowClass}`
+                            : "pointer-events-none"
+                        }`}
+                        onMouseEnter={() => isHighlighted && setHovered(loc.id)}
+                        onMouseLeave={() => setHovered(null)}
+                        onClick={() =>
+                          isHighlighted &&
+                          setSelected((prev) =>
+                            prev === loc.id ? null : loc.id
+                          )
+                        }
+                      >
+                        <title>{loc.name}</title>
+                      </path>
+                    );
                   }
-
-                  const glowClass = isOn && (isHovered || isSelected) ? GLOW_CLASSES[loc.id] : "";
-
-                  return (
-                    <path
-                      key={loc.id}
-                      id={`state-${loc.id}`}
-                      d={loc.path}
-                      fill={fill}
-                      stroke={stroke}
-                      strokeWidth={strokeW}
-                      opacity={opacity}
-                      className={`transition-all duration-250 ease-in-out ${isOn ? "cursor-pointer" : "cursor-default"} ${glowClass}`}
-                      onMouseEnter={() => isOn && setHovered(loc.id)}
-                      onMouseLeave={() => setHovered(null)}
-                      onClick={() =>
-                        isOn &&
-                        setSelected((prev) =>
-                          prev === loc.id ? null : loc.id
-                        )
-                      }
-                    >
-                      <title>{loc.name}</title>
-                    </path>
-                  );
-                }
-              )}
-            </svg>
+                )}
+              </svg>
+            </div>
 
             {/* Dynamic Active State Info Panel (under the map) */}
-            <div className="min-h-[76px] w-full mt-4">
+            <div className="min-h-[76px] w-full">
               <AnimatePresence mode="wait">
                 {activeInfo && activeId ? (
                   <motion.div
@@ -270,7 +247,7 @@ export default function IndiaMapChart() {
             </div>
 
             {/* Visual Legend Guide & Hint */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-4 pt-4 border-t border-white/10">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-white/10">
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-1.5">
                   <div className="w-3 h-3 rounded-sm bg-[#FFBE00]" />
@@ -286,7 +263,6 @@ export default function IndiaMapChart() {
               </p>
             </div>
           </div>
-        </div>
       </div>
     </div>
   );

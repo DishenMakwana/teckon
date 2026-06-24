@@ -22,6 +22,38 @@ interface BlogListProps {
   posts: BlogPost[];
 }
 
+// Variants for Dribbble-style card hover and filtering transitions
+const cardVariants = {
+  hidden: { opacity: 0, scale: 0.9, y: 20 },
+  visible: { 
+    opacity: 1, 
+    scale: 1, 
+    y: 0,
+    transition: {
+      type: "spring" as const,
+      stiffness: 260,
+      damping: 25
+    }
+  },
+  exit: { 
+    opacity: 0, 
+    scale: 0.9, 
+    y: 20,
+    transition: {
+      duration: 0.2
+    }
+  },
+  hover: { 
+    y: -6,
+    transition: {
+      type: "spring" as const,
+      stiffness: 380,
+      damping: 35,
+      mass: 0.8
+    }
+  }
+};
+
 function BlogListContent({ posts }: BlogListProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -293,16 +325,11 @@ function BlogListContent({ posts }: BlogListProps) {
                 <motion.article
                   key={post.slug}
                   layout
-                  initial={{ opacity: 0, y: 15, scale: 0.96 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -15, scale: 0.96 }}
-                  whileHover={{ y: -6 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 380,
-                    damping: 35,
-                    mass: 0.8
-                  }}
+                  variants={cardVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  whileHover="hover"
                   className="group bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-2xl flex flex-col h-full transition-shadow duration-300"
                 >
                   <Link href={`/blog/${post.slug}`} className="flex flex-col flex-grow h-full">

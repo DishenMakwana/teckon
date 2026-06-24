@@ -26,7 +26,25 @@ const categories = [
 
 // Variants for Dribbble-style card hover interactions
 const cardVariants = {
-  initial: { y: 0 },
+  hidden: { opacity: 0, scale: 0.9, y: 20 },
+  visible: { 
+    opacity: 1, 
+    scale: 1, 
+    y: 0,
+    transition: {
+      type: "spring" as const,
+      stiffness: 260,
+      damping: 25
+    }
+  },
+  exit: { 
+    opacity: 0, 
+    scale: 0.9, 
+    y: 20,
+    transition: {
+      duration: 0.2
+    }
+  },
   hover: { 
     y: -5,
     transition: {
@@ -120,6 +138,17 @@ function ProductsContent() {
 
   const [visibleCount, setVisibleCount] = useState(12);
   const [loadingMore, setLoadingMore] = useState(false);
+
+  const [prevActive, setPrevActive] = useState("all");
+  const [prevSearchVal, setPrevSearchVal] = useState("");
+
+  if (active !== prevActive || searchVal !== prevSearchVal) {
+    setPrevActive(active);
+    setPrevSearchVal(searchVal);
+    setVisibleCount(12);
+    setLoadingMore(false);
+  }
+
   const observerRef = useRef<IntersectionObserver | null>(null);
   const loadMoreRef = useRef<HTMLDivElement>(null);
 
@@ -139,12 +168,6 @@ function ProductsContent() {
     window.addEventListener("resize", checkScroll);
     return () => window.removeEventListener("resize", checkScroll);
   }, [filtered]);
-
-  // Reset pagination when category or search changes
-  useEffect(() => {
-    setVisibleCount(12);
-    setLoadingMore(false);
-  }, [active, searchVal]);
 
   // Load more on scroll intersection
   useEffect(() => {
@@ -182,7 +205,7 @@ function ProductsContent() {
   return (
     <>
       {/* Header */}
-      <section className="bg-teckon-dark-blue py-20 relative overflow-hidden">
+      <section id="catalog-hero" className="bg-teckon-dark-blue py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-15">
           <Image src="/images/products-hero.webp" alt="Warehouse shelves organized with heavy machinery hydraulic spare parts" fill sizes="100vw" className="object-cover" priority />
         </div>
@@ -199,7 +222,7 @@ function ProductsContent() {
       </section>
 
       {/* Product Catalog Section */}
-      <section className="py-16 bg-gray-50/50">
+      <section id="catalog" className="py-16 bg-gray-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Search & Dribbble Sliding Tag Filter Bar */}
@@ -316,7 +339,9 @@ function ProductsContent() {
                     key={product.slug}
                     layout
                     variants={cardVariants}
-                    initial="initial"
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
                     whileHover="hover"
                     className="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl overflow-hidden flex flex-col h-full transition-shadow duration-300"
                   >
