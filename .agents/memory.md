@@ -72,6 +72,8 @@ This file serves as the agent's short-term memory of recent tasks, issues resolv
 - **Action:** Re-engineered [IndiaMapChart.tsx](file:///Users/dishen/Downloads/test/src/components/home/IndiaMapChart.tsx) to remove the `max-w-sm lg:max-w-md` constraints on both column cards and remove the redundant nested flex column wrappers (`w-full h-full flex flex-col`). This allows cards to expand to fill the entire column width and stretches them to exactly equal heights via the grid container's `items-stretch` layout property. Verified successful build and linter checks with 0 errors.
 - **Task:** Bind id with each section in each page to enable anchor navigation (e.g. `/#diagnostics`).
 - **Action:** Added `id` attributes to all major section wrappers across all 10 pages and sub-routes in the codebase, enabling standard browser hash anchor scrolling. Verified clean linter and build logs.
+- **Task:** Fix Diagnostics Bench console accents overlapping/hiding on smaller viewports.
+- **Action:** Updated [DiagnosticsBench.tsx](file:///Users/dishen/Downloads/test/src/components/home/DiagnosticsBench.tsx) to change the breakpoint of the absolute corner telemetry labels from `lg:block` to `2xl:block`. This prevents them from rendering behind the cards on smaller screen sizes. Verified clean build.
 
 ## Previous Milestones
 1. **SEO Optimization & Keyword Audit:** Updated configurations, keywords, and tags.

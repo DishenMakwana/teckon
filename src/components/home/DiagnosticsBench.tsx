@@ -265,13 +265,13 @@ export default function DiagnosticsBench() {
         <br />
         TELEMETRY: ONLINE
       </div>
-      <div className="absolute bottom-8 right-10 text-white/10 font-mono text-[10px] tracking-wider hidden lg:block select-none border-r-2 border-[#FFBE00]/30 pr-3 text-right">
+      {/* <div className="absolute bottom-8 right-10 text-white/10 font-mono text-[10px] tracking-wider hidden 2xl:block select-none border-r-2 border-[#FFBE00]/30 pr-3 text-right">
         MANUFACTURING ROOT: RAJKOT
         <br />
         MOCK_LOAD_SIMULATOR: ACTIVE
         <br />
         DEV_REF: SP-CYL-992
-      </div>
+      </div> */}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
