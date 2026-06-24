@@ -76,9 +76,11 @@ function ProductsContent() {
   const searchParams = useSearchParams();
   const categoryQuery = searchParams.get("category");
   const searchQuery = searchParams.get("search");
+  const mostUsedQuery = searchParams.get("mostUsed");
 
   const [active, setActive] = useState("all");
   const [searchVal, setSearchVal] = useState("");
+  const [showMostUsed, setShowMostUsed] = useState(false);
 
   // Scroll indicator fade states
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -87,6 +89,7 @@ function ProductsContent() {
 
   const [prevCategoryQuery, setPrevCategoryQuery] = useState<string | null>(null);
   const [prevSearchQuery, setPrevSearchQuery] = useState<string | null>(null);
+  const [prevMostUsedQuery, setPrevMostUsedQuery] = useState<string | null>(null);
 
   if (categoryQuery !== prevCategoryQuery) {
     setActive(categoryQuery || "all");
@@ -96,6 +99,11 @@ function ProductsContent() {
   if (searchQuery !== prevSearchQuery) {
     setSearchVal(searchQuery || "");
     setPrevSearchQuery(searchQuery);
+  }
+
+  if (mostUsedQuery !== prevMostUsedQuery) {
+    setShowMostUsed(mostUsedQuery === "true");
+    setPrevMostUsedQuery(mostUsedQuery);
   }
 
   // Debounced URL updates for searchVal
@@ -123,6 +131,18 @@ function ProductsContent() {
     router.push(`/products?${params.toString()}`, { scroll: false });
   };
 
+  const handleMostUsedToggle = () => {
+    const nextMostUsed = !showMostUsed;
+    setShowMostUsed(nextMostUsed);
+    const params = new URLSearchParams(searchParams.toString());
+    if (nextMostUsed) {
+      params.set("mostUsed", "true");
+    } else {
+      params.delete("mostUsed");
+    }
+    router.push(`/products?${params.toString()}`, { scroll: false });
+  };
+
   const filtered = PRODUCTS.filter((product) => {
     const matchesCategory = active === "all" || product.category === active;
     
@@ -133,18 +153,50 @@ function ProductsContent() {
       product.description.toLowerCase().includes(searchVal.toLowerCase()) ||
       (product.categoryLabel && product.categoryLabel.toLowerCase().includes(searchVal.toLowerCase()));
 
-    return matchesCategory && matchesSearch;
+    const matchesMostUsed = !showMostUsed || (product as { mostUsed?: boolean }).mostUsed === true;
+
+    return matchesCategory && matchesSearch && matchesMostUsed;
   });
+
+  // Interleave products of different categories to avoid same-category clustering side-by-side
+  const getDisplayProducts = (list: typeof PRODUCTS) => {
+    if (active !== "all") return list;
+    const groups: { [key: string]: typeof PRODUCTS } = {};
+    list.forEach((p) => {
+      if (!groups[p.category]) {
+        groups[p.category] = [];
+      }
+      groups[p.category].push(p);
+    });
+    const categoriesList = Object.keys(groups);
+    const interleaved: typeof PRODUCTS = [];
+    let maxLen = 0;
+    categoriesList.forEach((cat) => {
+      maxLen = Math.max(maxLen, groups[cat].length);
+    });
+    for (let i = 0; i < maxLen; i++) {
+      categoriesList.forEach((cat) => {
+        if (i < groups[cat].length) {
+          interleaved.push(groups[cat][i]);
+        }
+      });
+    }
+    return interleaved;
+  };
+
+  const displayList = getDisplayProducts(filtered);
 
   const [visibleCount, setVisibleCount] = useState(12);
   const [loadingMore, setLoadingMore] = useState(false);
 
   const [prevActive, setPrevActive] = useState("all");
   const [prevSearchVal, setPrevSearchVal] = useState("");
+  const [prevShowMostUsed, setPrevShowMostUsed] = useState(false);
 
-  if (active !== prevActive || searchVal !== prevSearchVal) {
+  if (active !== prevActive || searchVal !== prevSearchVal || showMostUsed !== prevShowMostUsed) {
     setPrevActive(active);
     setPrevSearchVal(searchVal);
+    setPrevShowMostUsed(showMostUsed);
     setVisibleCount(12);
     setLoadingMore(false);
   }
@@ -167,11 +219,11 @@ function ProductsContent() {
     checkScroll();
     window.addEventListener("resize", checkScroll);
     return () => window.removeEventListener("resize", checkScroll);
-  }, [filtered]);
+  }, [displayList]);
 
   // Load more on scroll intersection
   useEffect(() => {
-    if (visibleCount >= filtered.length) return;
+    if (visibleCount >= displayList.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -180,7 +232,7 @@ function ProductsContent() {
           setLoadingMore(true);
           // Simulate database fetch delay
           setTimeout(() => {
-            setVisibleCount((prev) => Math.min(prev + 12, filtered.length));
+            setVisibleCount((prev) => Math.min(prev + 12, displayList.length));
             setLoadingMore(false);
           }, 100);
         }
@@ -198,9 +250,9 @@ function ProductsContent() {
         observerRef.current.disconnect();
       }
     };
-  }, [visibleCount, filtered.length, loadingMore]);
+  }, [visibleCount, displayList.length, loadingMore]);
 
-  const visibleProducts = filtered.slice(0, visibleCount);
+  const visibleProducts = displayList.slice(0, visibleCount);
 
   return (
     <>
@@ -228,33 +280,47 @@ function ProductsContent() {
           {/* Search & Dribbble Sliding Tag Filter Bar */}
           <div className="flex flex-col lg:flex-row gap-6 justify-between items-stretch lg:items-center mb-12 w-full bg-white p-4 rounded-3xl border border-gray-100 shadow-sm">
             
-            {/* Search Bar */}
-            <div className="relative w-full lg:max-w-xs shrink-0">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                <Search className="h-5 w-5 text-gray-400" />
-              </span>
-              <input
-                type="text"
-                placeholder="Search catalog..."
-                value={searchVal}
-                onChange={(e) => {
-                  const val = e.target.value;
-                  setSearchVal(val);
-                  handleSearch(val);
-                }}
-                className="w-full pl-11 pr-10 py-3 bg-gray-50 border border-gray-200 rounded-2xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFBE00] focus:border-[#FFBE00] focus:bg-white transition-all duration-300 font-bold text-sm"
-              />
-              {searchVal && (
-                <button
-                  onClick={() => {
-                    setSearchVal("");
-                    handleSearch("");
+            {/* Search Bar & Most Used Toggle */}
+            <div className="flex flex-col sm:flex-row gap-3 w-full lg:max-w-md shrink-0">
+              <div className="relative flex-grow">
+                <span className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                  <Search className="h-5 w-5 text-gray-400" />
+                </span>
+                <input
+                  type="text"
+                  placeholder="Search catalog..."
+                  value={searchVal}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    setSearchVal(val);
+                    handleSearch(val);
                   }}
-                  className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
-                >
-                  <X className="h-4.5 w-4.5" />
-                </button>
-              )}
+                  className="w-full pl-11 pr-10 py-3 bg-gray-50 border border-gray-200 rounded-2xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFBE00] focus:border-[#FFBE00] focus:bg-white transition-all duration-300 font-bold text-sm"
+                />
+                {searchVal && (
+                  <button
+                    onClick={() => {
+                      setSearchVal("");
+                      handleSearch("");
+                    }}
+                    className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
+                  >
+                    <X className="h-4.5 w-4.5" />
+                  </button>
+                )}
+              </div>
+              
+              {/* Customer Choice Toggle */}
+              <button
+                onClick={handleMostUsedToggle}
+                className={`flex items-center justify-center gap-1.5 px-4 py-3 rounded-2xl border text-xs font-black uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap select-none ${
+                  showMostUsed
+                    ? "bg-[#FFBE00]/15 text-[#9A3412] border-[#FFBE00] shadow-sm font-extrabold"
+                    : "bg-gray-50 border-gray-200 text-gray-500 hover:text-gray-800 hover:bg-gray-100/50"
+                }`}
+              >
+                <span>Customer Choice</span>
+              </button>
             </div>
 
             {/* Horizontal Scroll Pill Filters Wrapper with indicator animations */}
@@ -325,7 +391,7 @@ function ProductsContent() {
 
           </div>
 
-          {filtered.length === 0 ? (
+          {displayList.length === 0 ? (
             <div className="text-center py-20 text-gray-400 bg-white rounded-3xl border border-gray-100 shadow-sm">
               <div className="text-5xl mb-4">🔩</div>
               <p className="font-semibold text-lg text-gray-700">No products found matching your criteria.</p>
@@ -414,7 +480,7 @@ function ProductsContent() {
           )}
 
           {/* Simulated Database Fetching Loader */}
-          {visibleCount < filtered.length && (
+          {visibleCount < displayList.length && (
             <div ref={loadMoreRef} className="mt-16 mb-4 flex flex-col items-center justify-center py-6 w-full">
               {loadingMore ? (
                 <div className="flex items-center justify-center">

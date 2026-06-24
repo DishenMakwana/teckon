@@ -6,7 +6,8 @@ This document captures recurring patterns in this codebase. Agents and developer
 
 ## 1. Client vs. Server Components
 - **Rule:** By default, all pages and components in `src/app/` are React Server Components (RSC) to maximize performance and SEO.
-- **Pattern:** Use `'use client'` only on low-level components that require user interaction, state (e.g. `useState`, `useEffect`), or router hooks (e.g. `useRouter`, `useSearchParams`).
+- **Page Folder Structure Rule:** Page folders under `src/app/` must contain *only* Next.js routing and layout files (e.g. `page.tsx`, `layout.tsx`, `not-found.tsx`, `loading.tsx`, `error.tsx`). 
+- **Component File Location Rule:** All interactive, client, or custom components (e.g., `ProductsClient.tsx`, `TermsClient.tsx`, `PrivacyPolicyClient.tsx`) must be placed in a separate feature subfolder inside the `src/components/` directory (e.g. `src/components/products/`, `src/components/privacy-policy/`), never directly inside `src/app/`. Import them using the `@/components/` absolute path alias.
 - Keep Client Components as small and nested as possible to maximize server rendering.
 
 ---

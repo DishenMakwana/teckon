@@ -15,7 +15,8 @@ export const COMPANY = {
     jc: "+91-94262 02945",
     jcRaw: "+919426202945",
   },
-  whatsapp: "https://wa.me/919426915578?text=Hello%20Shreeji%20Hydraulics,%20I%20want%20to%20inquire%20about%20hydraulic%20spares",
+  whatsapp:
+    "https://wa.me/919426915578?text=Hello%20Shreeji%20Hydraulics,%20I%20want%20to%20inquire%20about%20hydraulic%20spares",
   address: {
     line1: "36-C Bhaktinagar, Udhyognagar,",
     line2: "Gondal Road, Rajkot-2, Gujarat 360004",
@@ -26,38 +27,46 @@ export const COMPANY = {
     linkedin: "https://linkedin.com/company/shreeji-hydraulics",
     instagram: "https://instagram.com/shreejihydraulics",
   },
-  certifications: ["ISO 9001:2015 Certified", "Make in India", "Est. Since 2000"],
+  certifications: [
+    "ISO 9001:2015 Certified",
+    "Make in India",
+    "Est. Since 2000",
+  ],
 };
 
 export const PRODUCTS = [
   {
     slug: "jcb-hydraulic-pump",
+    mostUsed: true,
     model: "TQS-JCB-001",
     ref: "REF-20/925345",
     category: "jcb",
     categoryLabel: "JCB Spares",
     name: "JCB Hydraulic Pump Assembly",
-    description: "Premium replacement hydraulic pump assembly for JCB 3CX, 4CX, and JS series. High-pressure rated with precision-machined components.",
+    description:
+      "Premium replacement hydraulic pump assembly for JCB 3CX, 4CX, and JS series. High-pressure rated with precision-machined components.",
     image: "/images/products/jcb-hydraulic-pump.webp",
     specs: {
       "Pressure Rating": "350 bar",
       "Flow Rate": "60–120 L/min",
       "Compatible Models": "JCB 3CX, 4CX, JS130, JS200",
-      "Material": "Cast iron housing, hardened steel internals",
-      "Warranty": "12 months",
+      Material: "Cast iron housing, hardened steel internals",
+      Warranty: "12 months",
     },
   },
   {
     slug: "jcb-seal-kit",
+    mostUsed: true,
     model: "TQS-JCB-002",
     ref: "REF-892/00413",
     category: "jcb",
     categoryLabel: "JCB Spares",
     name: "JCB Hydraulic Cylinder Seal Kit",
-    description: "Complete seal and O-ring kit for JCB boom cylinders. NBR/Polyurethane seals for extended service life in demanding conditions.",
+    description:
+      "Complete seal and O-ring kit for JCB boom cylinders. NBR/Polyurethane seals for extended service life in demanding conditions.",
     image: "/images/products/jcb-seal-kit.webp",
     specs: {
-      "Material": "NBR / Polyurethane",
+      Material: "NBR / Polyurethane",
       "Temperature Range": "-20°C to +120°C",
       "Compatible Models": "JCB 3CX, 3DX, JS130",
       "Kit Contents": "24 pieces — seals, O-rings, wiper rings",
@@ -70,14 +79,15 @@ export const PRODUCTS = [
     category: "jcb",
     categoryLabel: "JCB Spares",
     name: "JCB 3DX Main Control Valve",
-    description: "Precision-matched main directional control valve for JCB 3DX backhoe loaders. Controls boom, dipper, bucket and stabiliser circuits simultaneously.",
+    description:
+      "Precision-matched main directional control valve for JCB 3DX backhoe loaders. Controls boom, dipper, bucket and stabiliser circuits simultaneously.",
     image: "/images/products/jcb-3dx-control-valve.webp",
     specs: {
       "Valve Type": "6-spool directional control",
       "Pressure Rating": "250 bar",
       "Flow Rate": "120 L/min",
       "Compatible Models": "JCB 3DX, 3DX Super",
-      "Ports": "SAE flanged",
+      Ports: "SAE flanged",
     },
   },
   {
@@ -87,7 +97,8 @@ export const PRODUCTS = [
     category: "jcb",
     categoryLabel: "JCB Spares",
     name: "JCB 3DX Boom Lift Cylinder",
-    description: "OEM-equivalent boom lift cylinder for JCB 3DX and 3CX backhoe loaders. Chrome-hardened rod, precision honed bore for consistent performance.",
+    description:
+      "OEM-equivalent boom lift cylinder for JCB 3DX and 3CX backhoe loaders. Chrome-hardened rod, precision honed bore for consistent performance.",
     image: "/images/products/jcb-boom-cylinder.webp",
     specs: {
       "Bore Diameter": "115 mm",
@@ -104,7 +115,8 @@ export const PRODUCTS = [
     category: "jcb",
     categoryLabel: "JCB Spares",
     name: "JCB JS Series Dipper Arm Cylinder",
-    description: "High-strength dipper arm cylinder for JCB JS series tracked excavators. Built with thick-wall barrel and heavy-duty end cap design.",
+    description:
+      "High-strength dipper arm cylinder for JCB JS series tracked excavators. Built with thick-wall barrel and heavy-duty end cap design.",
     image: "/images/products/jcb-dipper-cylinder.webp",
     specs: {
       "Bore Diameter": "130 mm",
@@ -116,12 +128,14 @@ export const PRODUCTS = [
   },
   {
     slug: "jcb-pin-bush-kit",
+    mostUsed: true,
     model: "TQS-JCB-006",
     ref: "REF-JCB-PBK-3DX",
     category: "jcb",
     categoryLabel: "JCB Spares",
     name: "JCB 3DX Complete Pin & Bush Kit",
-    description: "Full machine pin and bronze bush kit for JCB 3DX backhoe loaders. Covers boom, dipper, bucket, tipping link and stabiliser pivot points.",
+    description:
+      "Full machine pin and bronze bush kit for JCB 3DX backhoe loaders. Covers boom, dipper, bucket, tipping link and stabiliser pivot points.",
     image: "/images/products/jcb-pin-bush-kit.webp",
     specs: {
       "Kit Contents": "32 pins + 32 bronze bushes",
@@ -138,7 +152,8 @@ export const PRODUCTS = [
     category: "jcb",
     categoryLabel: "JCB Spares",
     name: "JCB Dieselmax Engine Oil Filter",
-    description: "Premium engine oil filter for JCB Dieselmax engines. High-efficiency filter media traps metallic wear particles to protect engine internals.",
+    description:
+      "Premium engine oil filter for JCB Dieselmax engines. High-efficiency filter media traps metallic wear particles to protect engine internals.",
     image: "/images/products/jcb-engine-oil-filter.webp",
     specs: {
       "Filter Media": "High-efficiency synthetic fibre",
@@ -155,7 +170,8 @@ export const PRODUCTS = [
     category: "jcb",
     categoryLabel: "JCB Spares",
     name: "JCB Hydraulic Return Filter Element",
-    description: "High-capacity return line filter element for JCB hydraulic systems. Prevents system contamination from worn pump and valve particles.",
+    description:
+      "High-capacity return line filter element for JCB hydraulic systems. Prevents system contamination from worn pump and valve particles.",
     image: "/images/products/jcb-hydraulic-filter.webp",
     specs: {
       "Micron Rating": "10 micron (absolute)",
@@ -172,13 +188,14 @@ export const PRODUCTS = [
     category: "jcb",
     categoryLabel: "JCB Spares",
     name: "JCB Fuel Filter & Water Separator",
-    description: "Two-stage fuel filtration assembly for JCB Dieselmax engines. Primary water separator plus secondary fine filter for clean fuel delivery.",
+    description:
+      "Two-stage fuel filtration assembly for JCB Dieselmax engines. Primary water separator plus secondary fine filter for clean fuel delivery.",
     image: "/images/products/jcb-fuel-filter.webp",
     specs: {
       "Filtration Stage": "2-stage (water separator + fine filter)",
       "Micron Rating": "5 micron (fine filter)",
       "Water Separation": "98% efficiency",
-      "Thread": "M16 x 1.5",
+      Thread: "M16 x 1.5",
       "Compatible Models": "JCB 3DX, 4DX, JS130–JS220",
     },
   },
@@ -186,19 +203,22 @@ export const PRODUCTS = [
   // ── HITACHI ───────────────────────────────────────────────────
   {
     slug: "hitachi-main-pump",
+    mostUsed: true,
     model: "TQS-HIT-001",
     ref: "REF-HPV102FW",
     category: "hitachi",
     categoryLabel: "Hitachi Parts",
     name: "Hitachi HPV102 Main Hydraulic Pump Rebuild Kit",
-    description: "Variable displacement axial piston pump rebuild kit for Hitachi EX200 and EX220 excavators. Includes piston shoes, cylinder block, valve plate and retainer.",
+    description:
+      "Variable displacement axial piston pump rebuild kit for Hitachi EX200 and EX220 excavators. Includes piston shoes, cylinder block, valve plate and retainer.",
     image: "/images/products/hitachi-main-pump.webp",
     specs: {
       "Pump Type": "Variable displacement axial piston",
-      "Displacement": "102 cc/rev",
+      Displacement: "102 cc/rev",
       "Max Pressure": "343 bar",
       "Compatible Models": "Hitachi EX200-2, EX200-3, EX220",
-      "Kit Contents": "Piston shoes, cylinder block, valve plate, retainer, seals",
+      "Kit Contents":
+        "Piston shoes, cylinder block, valve plate, retainer, seals",
     },
   },
   {
@@ -208,10 +228,11 @@ export const PRODUCTS = [
     category: "hitachi",
     categoryLabel: "Hitachi Parts",
     name: "Hitachi Zaxis Swing Motor Assembly",
-    description: "Complete swing motor and planetary gearbox assembly for Hitachi Zaxis 200 and 210 excavators. Resolves swing drift and oil mixing faults.",
+    description:
+      "Complete swing motor and planetary gearbox assembly for Hitachi Zaxis 200 and 210 excavators. Resolves swing drift and oil mixing faults.",
     image: "/images/products/hitachi-swing-motor.webp",
     specs: {
-      "Type": "Axial piston motor + planetary gearbox",
+      Type: "Axial piston motor + planetary gearbox",
       "Torque Rating": "3,500 Nm",
       "Gear Ratio": "1:17",
       "Brake Type": "Spring-applied, hydraulic release",
@@ -220,12 +241,14 @@ export const PRODUCTS = [
   },
   {
     slug: "hitachi-final-drive",
+    mostUsed: true,
     model: "TQS-HIT-003",
     ref: "REF-HIT-FDV-EX200",
     category: "hitachi",
     categoryLabel: "Hitachi Parts",
     name: "Hitachi EX200 Final Drive Travel Motor",
-    description: "Complete travel motor and final drive assembly for Hitachi EX200 and Zaxis 200 excavators. Two-speed selection with automatic shift functionality.",
+    description:
+      "Complete travel motor and final drive assembly for Hitachi EX200 and Zaxis 200 excavators. Two-speed selection with automatic shift functionality.",
     image: "/images/products/hitachi-final-drive.webp",
     specs: {
       "Motor Type": "2-speed radial piston",
@@ -242,7 +265,8 @@ export const PRODUCTS = [
     category: "hitachi",
     categoryLabel: "Hitachi Parts",
     name: "Hitachi ZX200 Boom Cylinder Seal Kit",
-    description: "Premium seal kit for Hitachi Zaxis 200 boom cylinders. Polyurethane rod seals with NBR O-ring set for long service life in Indian site conditions.",
+    description:
+      "Premium seal kit for Hitachi Zaxis 200 boom cylinders. Polyurethane rod seals with NBR O-ring set for long service life in Indian site conditions.",
     image: "/images/products/hitachi-boom-cylinder-seal.webp",
     specs: {
       "Seal Material": "Polyurethane rod seal + NBR O-rings",
@@ -258,11 +282,12 @@ export const PRODUCTS = [
     category: "hitachi",
     categoryLabel: "Hitachi Parts",
     name: "Hitachi ZX200 Bottom Track Roller",
-    description: "Heavy-duty single flange bottom track roller for Hitachi Zaxis 200 series excavators. Sealed-for-life duo-cone floating seal design.",
+    description:
+      "Heavy-duty single flange bottom track roller for Hitachi Zaxis 200 series excavators. Sealed-for-life duo-cone floating seal design.",
     image: "/images/products/hitachi-track-roller.webp",
     specs: {
       "Flange Type": "Single flange",
-      "Material": "Forged alloy steel, induction hardened",
+      Material: "Forged alloy steel, induction hardened",
       "Seal Type": "Duo-cone floating seal",
       "Shaft Diameter": "60 mm",
       "Compatible Models": "Hitachi ZX200, ZX200-3, ZX210, EX200",
@@ -275,14 +300,15 @@ export const PRODUCTS = [
     category: "hitachi",
     categoryLabel: "Hitachi Parts",
     name: "Hitachi Duo-Cone Floating Seal Set",
-    description: "Genuine-spec duo-cone floating seal pair for Hitachi excavator undercarriage. Prevents mud and water ingress into track roller and final drive oil chambers.",
+    description:
+      "Genuine-spec duo-cone floating seal pair for Hitachi excavator undercarriage. Prevents mud and water ingress into track roller and final drive oil chambers.",
     image: "/images/products/hitachi-duo-cone-seal.webp",
     specs: {
       "Seal Type": "Duo-cone (metal face + rubber toric ring)",
       "Face OD": "120 mm / 145 mm / 165 mm (available)",
       "Rubber Ring": "Nitrile (NBR)",
-      "Application": "Track rollers, carrier rollers, idlers, final drives",
-      "Compatible": "Hitachi, Komatsu, CAT excavators",
+      Application: "Track rollers, carrier rollers, idlers, final drives",
+      Compatible: "Hitachi, Komatsu, CAT excavators",
     },
   },
 
@@ -294,7 +320,8 @@ export const PRODUCTS = [
     category: "terex",
     categoryLabel: "Terex Parts",
     name: "Terex Hydraulic Lift Cylinder",
-    description: "Heavy-duty hydraulic lift cylinder for Terex Backhoe loaders and rough terrain forklifts. Chrome-plated rod for corrosion resistance.",
+    description:
+      "Heavy-duty hydraulic lift cylinder for Terex Backhoe loaders and rough terrain forklifts. Chrome-plated rod for corrosion resistance.",
     image: "/images/products/terex-hydraulic-cylinder.webp",
     specs: {
       "Bore Diameter": "80–120 mm",
@@ -305,12 +332,14 @@ export const PRODUCTS = [
   },
   {
     slug: "terex-seal-kit",
+    mostUsed: true,
     model: "TQS-TRX-002",
     ref: "REF-TX-SK-TLB840",
     category: "terex",
     categoryLabel: "Terex Parts",
     name: "Terex TLB840 Full Cylinder Seal Kit Set",
-    description: "Complete seal kit set covering all cylinders on the Terex TLB840 backhoe loader — boom, dipper, bucket, loader and stabiliser kits bundled together.",
+    description:
+      "Complete seal kit set covering all cylinders on the Terex TLB840 backhoe loader — boom, dipper, bucket, loader and stabiliser kits bundled together.",
     image: "/images/products/terex-seal-kit.webp",
     specs: {
       "Kit Coverage": "All 6 cylinder positions",
@@ -326,11 +355,12 @@ export const PRODUCTS = [
     category: "terex",
     categoryLabel: "Terex Parts",
     name: "Terex Hydraulic Steering Unit",
-    description: "Orbital hydraulic steering unit (OSP/OLS type) for Terex wheeled backhoe loaders. Full-flow type with load-sensing port for responsive steering.",
+    description:
+      "Orbital hydraulic steering unit (OSP/OLS type) for Terex wheeled backhoe loaders. Full-flow type with load-sensing port for responsive steering.",
     image: "/images/products/terex-steering-unit.webp",
     specs: {
-      "Type": "Orbital (Gerotor) steering unit",
-      "Displacement": "100–250 cc/rev (available)",
+      Type: "Orbital (Gerotor) steering unit",
+      Displacement: "100–250 cc/rev (available)",
       "Max Pressure": "175 bar",
       "Compatible Models": "Terex TLB840, TLB890, Fermec 860",
     },
@@ -344,7 +374,8 @@ export const PRODUCTS = [
     category: "cat",
     categoryLabel: "CAT Components",
     name: "CAT 424 Control Valve Assembly",
-    description: "Precision-engineered directional control valve for Caterpillar 424B backhoe loaders. Full compatibility with OEM specifications.",
+    description:
+      "Precision-engineered directional control valve for Caterpillar 424B backhoe loaders. Full compatibility with OEM specifications.",
     image: "/images/products/cat-control-valve.webp",
     specs: {
       "Valve Type": "Directional Control, 4-spool",
@@ -360,7 +391,8 @@ export const PRODUCTS = [
     category: "cat",
     categoryLabel: "CAT Components",
     name: "CAT 428E Bucket Cylinder Assembly",
-    description: "Complete bucket cylinder for Caterpillar 428E backhoe loaders. Hard-chrome plated rod and precision machined bore for OEM-level performance.",
+    description:
+      "Complete bucket cylinder for Caterpillar 428E backhoe loaders. Hard-chrome plated rod and precision machined bore for OEM-level performance.",
     image: "/images/products/cat-bucket-cylinder.webp",
     specs: {
       "Bore Diameter": "105 mm",
@@ -372,12 +404,14 @@ export const PRODUCTS = [
   },
   {
     slug: "cat-hydraulic-pump",
+    mostUsed: true,
     model: "TQS-CAT-003",
     ref: "REF-CAT-2381490",
     category: "cat",
     categoryLabel: "CAT Components",
     name: "CAT 424B Main Hydraulic Gear Pump",
-    description: "Tandem gear pump assembly for Caterpillar 424B backhoe loader. Delivers consistent flow to loader and backhoe circuits simultaneously.",
+    description:
+      "Tandem gear pump assembly for Caterpillar 424B backhoe loader. Delivers consistent flow to loader and backhoe circuits simultaneously.",
     image: "/images/products/cat-hydraulic-pump.webp",
     specs: {
       "Pump Type": "Tandem gear pump",
@@ -394,10 +428,11 @@ export const PRODUCTS = [
     category: "cat",
     categoryLabel: "CAT Components",
     name: "CAT 428E Cylinder Seal Kit Bundle",
-    description: "Full cylinder seal kit bundle for CAT 428E covering boom, stick, bucket, loader and stabiliser positions. Polyurethane and NBR seals.",
+    description:
+      "Full cylinder seal kit bundle for CAT 428E covering boom, stick, bucket, loader and stabiliser positions. Polyurethane and NBR seals.",
     image: "/images/products/cat-seal-kit.webp",
     specs: {
-      "Coverage": "5 cylinder seal kits",
+      Coverage: "5 cylinder seal kits",
       "Total Seals": "80 pieces",
       "Seal Material": "Polyurethane + FKM O-rings",
       "Compatible Models": "CAT 428E, 432F",
@@ -407,18 +442,20 @@ export const PRODUCTS = [
   // ── BREAKERS & TIPPERS ────────────────────────────────────────
   {
     slug: "breaker-accumulator",
+    mostUsed: true,
     model: "TQS-BRK-001",
     ref: "REF-BRK-ACC-12",
     category: "breakers",
     categoryLabel: "Breakers & Tippers",
     name: "Hydraulic Breaker Accumulator",
-    description: "High-performance nitrogen-charged accumulator for hydraulic rock breakers. Reduces peak pressure spikes and extends breaker life.",
+    description:
+      "High-performance nitrogen-charged accumulator for hydraulic rock breakers. Reduces peak pressure spikes and extends breaker life.",
     image: "/images/products/breaker-accumulator.webp",
     specs: {
-      "Volume": "2–10 L",
+      Volume: "2–10 L",
       "Pre-charge Pressure": "50–90 bar",
       "Max Working Pressure": "180 bar",
-      "Compatible": "All major breaker brands",
+      Compatible: "All major breaker brands",
     },
   },
   {
@@ -428,13 +465,14 @@ export const PRODUCTS = [
     category: "breakers",
     categoryLabel: "Breakers & Tippers",
     name: "Hydraulic Breaker Front Head Seal Kit",
-    description: "Complete front head seal kit for medium-class hydraulic rock breakers. Prevents oil leakage around the chisel/tool bushing area.",
+    description:
+      "Complete front head seal kit for medium-class hydraulic rock breakers. Prevents oil leakage around the chisel/tool bushing area.",
     image: "/images/products/breaker-front-head-seal.webp",
     specs: {
       "Seal Material": "Polyurethane + NBR",
       "Kit Contents": "Rod seals, dust seals, O-rings, back-up rings",
-      "Compatible": "Furukawa, Atlas Copco, Soosan, MSB breakers",
-      "Application": "500–1000 kg class breakers",
+      Compatible: "Furukawa, Atlas Copco, Soosan, MSB breakers",
+      Application: "500–1000 kg class breakers",
     },
   },
   {
@@ -444,32 +482,35 @@ export const PRODUCTS = [
     category: "breakers",
     categoryLabel: "Breakers & Tippers",
     name: "Tipper Body Telescopic Hydraulic Cylinder",
-    description: "Multi-stage telescopic hydraulic cylinder for truck-mounted tipper bodies. Hot-dip galvanized outer sleeve for corrosion protection.",
+    description:
+      "Multi-stage telescopic hydraulic cylinder for truck-mounted tipper bodies. Hot-dip galvanized outer sleeve for corrosion protection.",
     image: "/images/products/tipper-cylinder-kit.webp",
     specs: {
-      "Type": "3-stage telescopic",
+      Type: "3-stage telescopic",
       "Closed Length": "1,200–1,600 mm",
       "Extended Length": "3,500–4,500 mm",
       "Working Pressure": "200 bar",
-      "Capacity": "8–20 tonne tipper bodies",
+      Capacity: "8–20 tonne tipper bodies",
     },
   },
 
   // ── L770 / TATA JD ────────────────────────────────────────────
   {
     slug: "l770-track-roller",
+    mostUsed: true,
     model: "TQS-L770-001",
     ref: "REF-L770-TR-09",
     category: "l770",
     categoryLabel: "L770 / Tata JD",
     name: "L770 Track Roller Assembly",
-    description: "Heavy-duty bottom track roller for L770 crawler loaders. Sealed for life with premium bearing steel construction.",
+    description:
+      "Heavy-duty bottom track roller for L770 crawler loaders. Sealed for life with premium bearing steel construction.",
     image: "/images/products/l770-track-roller.webp",
     specs: {
       "Flange Type": "Double flange",
-      "Material": "Forged alloy steel",
+      Material: "Forged alloy steel",
       "Seal Type": "Duo-cone floating seal",
-      "Compatible": "L770, Tata JD crawler loaders",
+      Compatible: "L770, Tata JD crawler loaders",
     },
   },
   {
@@ -479,13 +520,14 @@ export const PRODUCTS = [
     category: "l770",
     categoryLabel: "L770 / Tata JD",
     name: "L770 Front Idler Assembly",
-    description: "Cast steel front idler with yoke and recoil spring assembly for L770 and Tata JD crawler loaders. Controls track tension and absorbs ground shocks.",
+    description:
+      "Cast steel front idler with yoke and recoil spring assembly for L770 and Tata JD crawler loaders. Controls track tension and absorbs ground shocks.",
     image: "/images/products/l770-front-idler.webp",
     specs: {
-      "Material": "Cast alloy steel, machined OD",
+      Material: "Cast alloy steel, machined OD",
       "Seal Type": "Duo-cone floating seal",
       "Recoil Spring": "Coil spring with grease recoil cylinder",
-      "Compatible": "L770, Tata JD, Komatsu D31 class",
+      Compatible: "L770, Tata JD, Komatsu D31 class",
     },
   },
   {
@@ -495,31 +537,34 @@ export const PRODUCTS = [
     category: "l770",
     categoryLabel: "L770 / Tata JD",
     name: "L770 Drive Sprocket Segment Set",
-    description: "Bolt-on drive sprocket segment set for L770 crawler loaders. Manufactured from Boron alloy steel for maximum wear life.",
+    description:
+      "Bolt-on drive sprocket segment set for L770 crawler loaders. Manufactured from Boron alloy steel for maximum wear life.",
     image: "/images/products/l770-drive-sprocket.webp",
     specs: {
-      "Material": "Boron alloy steel, 48 HRC hardness",
+      Material: "Boron alloy steel, 48 HRC hardness",
       "Segments per Set": "8 segments",
       "Tooth Profile": "OEM matched",
-      "Compatible": "L770, Tata JD crawler loaders",
+      Compatible: "L770, Tata JD crawler loaders",
     },
   },
 
   // ── EXCAVATOR ────────────────────────────────────────────────
   {
     slug: "excavator-bucket-cylinder",
+    mostUsed: true,
     model: "TQS-EXC-001",
     ref: "REF-EXC-BCK-22",
     category: "excavator",
     categoryLabel: "Excavator Parts",
     name: "Excavator Bucket Cylinder",
-    description: "Complete bucket cylinder assembly for mid-size excavators (13–20 ton class). Hardened chrome rod with high-grade sealing system.",
+    description:
+      "Complete bucket cylinder assembly for mid-size excavators (13–20 ton class). Hardened chrome rod with high-grade sealing system.",
     image: "/images/products/excavator-bucket-cylinder.webp",
     specs: {
-      "Bore": "100 mm",
-      "Stroke": "850 mm",
+      Bore: "100 mm",
+      Stroke: "850 mm",
       "Max Pressure": "350 bar",
-      "Compatible": "Various 13–20 ton excavators",
+      Compatible: "Various 13–20 ton excavators",
     },
   },
   {
@@ -529,13 +574,14 @@ export const PRODUCTS = [
     category: "excavator",
     categoryLabel: "Excavator Parts",
     name: "20-Ton Class Excavator Swing Motor",
-    description: "Universal-fit swing motor assembly for 18–22 ton class excavators. Includes brake assembly and relief valves. Suits multiple brands.",
+    description:
+      "Universal-fit swing motor assembly for 18–22 ton class excavators. Includes brake assembly and relief valves. Suits multiple brands.",
     image: "/images/products/excavator-swing-motor.webp",
     specs: {
-      "Displacement": "60 cc/rev",
+      Displacement: "60 cc/rev",
       "Max Pressure": "280 bar",
       "Max Speed": "35 rpm",
-      "Brake": "Spring-applied, hydraulic release multi-disc",
+      Brake: "Spring-applied, hydraulic release multi-disc",
       "Applicable Class": "18–22 ton excavators",
     },
   },
@@ -546,11 +592,12 @@ export const PRODUCTS = [
     category: "excavator",
     categoryLabel: "Excavator Parts",
     name: "Excavator Two-Speed Travel Motor",
-    description: "Two-speed travel motor assembly for 20-ton class excavators. Automatic speed shift from high to low under load for climbing performance.",
+    description:
+      "Two-speed travel motor assembly for 20-ton class excavators. Automatic speed shift from high to low under load for climbing performance.",
     image: "/images/products/excavator-travel-motor.webp",
     specs: {
-      "Type": "2-speed axial piston",
-      "Displacement": "High: 80 cc | Low: 140 cc",
+      Type: "2-speed axial piston",
+      Displacement: "High: 80 cc | Low: 140 cc",
       "Max Pressure": "350 bar",
       "Parking Brake": "Spring-applied, hydraulic release",
       "Applicable Class": "18–23 ton excavators",
@@ -563,32 +610,35 @@ export const PRODUCTS = [
     category: "excavator",
     categoryLabel: "Excavator Parts",
     name: "Excavator Carrier (Top) Roller",
-    description: "Single-flange carrier roller for 20-ton class tracked excavators. Supports the return run of the track chain and prevents derailment.",
+    description:
+      "Single-flange carrier roller for 20-ton class tracked excavators. Supports the return run of the track chain and prevents derailment.",
     image: "/images/products/excavator-carrier-roller.webp",
     specs: {
       "Flange Type": "Single flange",
-      "Material": "Forged alloy steel, heat-treated",
+      Material: "Forged alloy steel, heat-treated",
       "Seal Type": "Duo-cone floating seal",
       "Applicable Class": "15–25 ton excavators",
-      "Brands": "Hitachi, Komatsu, CAT, JCB, Volvo",
+      Brands: "Hitachi, Komatsu, CAT, JCB, Volvo",
     },
   },
 
   // ── GENERAL HYDRAULICS ────────────────────────────────────────
   {
     slug: "hydraulic-hose-assembly",
+    mostUsed: true,
     model: "TQS-GEN-001",
     ref: "REF-GEN-HOSE-45",
     category: "general",
     categoryLabel: "General Hydraulics",
     name: "High-Pressure Hydraulic Hose Assembly",
-    description: "4-wire spiral hydraulic hose assemblies for high-pressure applications. Custom lengths and fittings available for all machine types.",
+    description:
+      "4-wire spiral hydraulic hose assemblies for high-pressure applications. Custom lengths and fittings available for all machine types.",
     image: "/images/products/hydraulic-hose-assembly.webp",
     specs: {
       "Working Pressure": "Up to 420 bar",
       "Temperature Range": "-40°C to +120°C",
       "Inner Diameter": "6–50 mm",
-      "Certification": "ISO 3862 / SAE J517",
+      Certification: "ISO 3862 / SAE J517",
     },
   },
   {
@@ -598,13 +648,14 @@ export const PRODUCTS = [
     category: "general",
     categoryLabel: "General Hydraulics",
     name: "BSP Hydraulic Fitting Assortment Kit",
-    description: "Comprehensive 120-piece BSP hydraulic fitting kit including male-female adaptors, elbows, tees, and reducers. Suits all construction equipment brands.",
+    description:
+      "Comprehensive 120-piece BSP hydraulic fitting kit including male-female adaptors, elbows, tees, and reducers. Suits all construction equipment brands.",
     image: "/images/products/hydraulic-fitting-set.webp",
     specs: {
       "Total Pieces": "120 fittings",
       "Thread Standard": "BSP (BSPP / BSPT)",
-      "Sizes": "1/4\" to 2\"",
-      "Material": "Carbon steel, zinc plated",
+      Sizes: '1/4" to 2"',
+      Material: "Carbon steel, zinc plated",
       "Pressure Rating": "Up to 500 bar",
     },
   },
@@ -615,14 +666,15 @@ export const PRODUCTS = [
     category: "general",
     categoryLabel: "General Hydraulics",
     name: "Hydraulic Bladder Accumulator",
-    description: "Nitrogen pre-charged bladder accumulator for energy storage, pulsation dampening and emergency power in hydraulic circuits.",
+    description:
+      "Nitrogen pre-charged bladder accumulator for energy storage, pulsation dampening and emergency power in hydraulic circuits.",
     image: "/images/products/hydraulic-bladder-accumulator.webp",
     specs: {
-      "Volume": "1–50 L (available)",
+      Volume: "1–50 L (available)",
       "Pre-charge Pressure": "25–200 bar",
       "Max Working Pressure": "350 bar",
       "Bladder Material": "NBR / FKM / EPDM",
-      "Shell": "Carbon steel or stainless steel",
+      Shell: "Carbon steel or stainless steel",
     },
   },
 
@@ -634,14 +686,15 @@ export const PRODUCTS = [
     category: "filters",
     categoryLabel: "Filters & Service",
     name: "Universal Hydraulic Spin-On Filter",
-    description: "High-efficiency spin-on hydraulic filter suitable for all major construction equipment. 10-micron absolute filtration for clean system operation.",
+    description:
+      "High-efficiency spin-on hydraulic filter suitable for all major construction equipment. 10-micron absolute filtration for clean system operation.",
     image: "/images/products/hydraulic-filter-spin-on.webp",
     specs: {
       "Micron Rating": "10 micron absolute",
       "Max Flow": "150 L/min",
       "Collapse Rating": "210 bar",
       "Bypass Valve": "3.5 bar",
-      "Thread": "3/4\"-16 UNF (also M20 variant available)",
+      Thread: '3/4"-16 UNF (also M20 variant available)',
     },
   },
   {
@@ -651,31 +704,34 @@ export const PRODUCTS = [
     category: "filters",
     categoryLabel: "Filters & Service",
     name: "Heavy Equipment Primary Air Filter",
-    description: "Primary outer air filter element for heavy construction equipment. Cellulose/synthetic blend media for superior dust retention in Indian site conditions.",
+    description:
+      "Primary outer air filter element for heavy construction equipment. Cellulose/synthetic blend media for superior dust retention in Indian site conditions.",
     image: "/images/products/engine-air-filter-primary.webp",
     specs: {
       "Filter Media": "Cellulose + synthetic blend",
       "Dust Holding Capacity": "High (extended service life)",
       "Inner Diameter": "150–200 mm (model specific)",
-      "Application": "Construction, mining, agriculture equipment",
-      "Compatible": "JCB, Hitachi, Komatsu, CAT, Volvo, Terex",
+      Application: "Construction, mining, agriculture equipment",
+      Compatible: "JCB, Hitachi, Komatsu, CAT, Volvo, Terex",
     },
   },
   {
     slug: "universal-fuel-filter",
+    mostUsed: true,
     model: "TQS-FLT-003",
     ref: "REF-FLT-FUEL-5M",
     category: "filters",
     categoryLabel: "Filters & Service",
     name: "Universal Diesel Fuel Filter",
-    description: "5-micron primary fuel filter for diesel construction equipment engines. Compatible thread sizes covering all major brands in the Indian market.",
+    description:
+      "5-micron primary fuel filter for diesel construction equipment engines. Compatible thread sizes covering all major brands in the Indian market.",
     image: "/images/products/universal-fuel-filter.webp",
     specs: {
       "Micron Rating": "5 micron (fine filtration)",
       "Max Flow": "300 L/hr",
-      "Thread": "M16 x 1.5 / 3/4\"-16 UNF",
+      Thread: 'M16 x 1.5 / 3/4"-16 UNF',
       "Water Separation": "Partial (pre-separator stage)",
-      "Compatible": "JCB Dieselmax, Cummins, Perkins, Yanmar engines",
+      Compatible: "JCB Dieselmax, Cummins, Perkins, Yanmar engines",
     },
   },
 ];
@@ -684,7 +740,8 @@ export const BLOG_POSTS = [
   {
     slug: "hydraulic-maintenance-guide",
     title: "The Complete Guide to Hydraulic System Maintenance",
-    excerpt: "Proper maintenance of hydraulic systems can extend equipment life by up to 40%. Learn the critical checkpoints every operator should know.",
+    excerpt:
+      "Proper maintenance of hydraulic systems can extend equipment life by up to 40%. Learn the critical checkpoints every operator should know.",
     date: "2025-03-15",
     author: "Teckon™ Technical Team",
     category: "Maintenance",
@@ -721,7 +778,8 @@ A disciplined maintenance schedule, combined with genuine quality spare parts fr
   {
     slug: "hitachi-excavator-hydraulic-pump-guide",
     title: "Hitachi Excavator Hydraulics: EX200 & Zaxis Troubleshooting",
-    excerpt: "Learn how to diagnose common hydraulic pump failures, maintain pressure levels, and choose the right spare parts for Hitachi EX200 and Zaxis excavators.",
+    excerpt:
+      "Learn how to diagnose common hydraulic pump failures, maintain pressure levels, and choose the right spare parts for Hitachi EX200 and Zaxis excavators.",
     date: "2025-03-01",
     author: "Alpesh Patel",
     category: "Hitachi Spares",
@@ -755,7 +813,8 @@ Preventative maintenance and early troubleshooting of Hitachi hydraulic pumps ca
   {
     slug: "jcb-gear-pumps-vs-piston-pumps",
     title: "JCB 3CX Hydraulics: Gear Pumps vs Piston Pumps Guide",
-    excerpt: "An in-depth technical comparison comparing gear pumps and piston pumps in JCB 3CX loaders, and how to identify which pump spares your machine needs.",
+    excerpt:
+      "An in-depth technical comparison comparing gear pumps and piston pumps in JCB 3CX loaders, and how to identify which pump spares your machine needs.",
     date: "2025-02-25",
     author: "Teckon™ Technical Team",
     category: "JCB Spares",
@@ -789,7 +848,8 @@ Identify your JCB's pump model code (e.g., 20/925345 or 20/925580) before orderi
   {
     slug: "jcb-vs-cat-hydraulics",
     title: "JCB vs CAT Hydraulic Systems: What You Need to Know",
-    excerpt: "A technical comparison of JCB and Caterpillar hydraulic architectures, and why using the right spares matters for each platform.",
+    excerpt:
+      "A technical comparison of JCB and Caterpillar hydraulic architectures, and why using the right spares matters for each platform.",
     date: "2025-02-08",
     author: "Alpesh Patel",
     category: "Technical",
@@ -817,7 +877,8 @@ Understanding your specific machine's hydraulic architecture helps you make bett
   {
     slug: "hitachi-swing-motor-maintenance",
     title: "Guide to Hitachi Swing Motor & Final Drive Maintenance",
-    excerpt: "How to prevent swing motor leaks, troubleshoot gear noise, and inspect track adjusters on Hitachi excavators to avoid costly downtime.",
+    excerpt:
+      "How to prevent swing motor leaks, troubleshoot gear noise, and inspect track adjusters on Hitachi excavators to avoid costly downtime.",
     date: "2025-02-14",
     author: "JC Patel",
     category: "Hitachi Spares",
@@ -848,7 +909,8 @@ Keep the gear oils changed every 1000 hours, and visually inspect for seal leaks
   {
     slug: "jcb-cylinder-seal-kits-guide",
     title: "JCB Cylinder Seal Kits: How to Prevent Hydraulic Leakage",
-    excerpt: "Understanding seal kit wear, choosing between polyurethane and NBR seals, and step-by-step instructions for replacing boom and bucket cylinder seals on JCB equipment.",
+    excerpt:
+      "Understanding seal kit wear, choosing between polyurethane and NBR seals, and step-by-step instructions for replacing boom and bucket cylinder seals on JCB equipment.",
     date: "2025-01-28",
     author: "Teckon™ Quality Team",
     category: "JCB Spares",
@@ -881,7 +943,8 @@ By replacing worn seal kits proactively, you prevent cylinder barrel scoring and
   {
     slug: "teckon-expansion-2025",
     title: "Teckon™ Expands Pan-India Distribution Network in 2025",
-    excerpt: "Shreeji Hydraulics strengthens its presence across Gujarat, Rajasthan, Maharashtra and Madhya Pradesh with new distribution partnerships.",
+    excerpt:
+      "Shreeji Hydraulics strengthens its presence across Gujarat, Rajasthan, Maharashtra and Madhya Pradesh with new distribution partnerships.",
     date: "2025-01-20",
     author: "Teckon™ Team",
     category: "Company News",
@@ -907,8 +970,10 @@ For inquiries about distribution partnerships or product availability in your re
   },
   {
     slug: "jcb-filters-complete-guide",
-    title: "Understanding JCB Filters: Engine, Hydraulic, Fuel & Air — A Complete Guide",
-    excerpt: "Filters are the most critical consumable parts on any JCB machine. Replacing them on time prevents 70% of all hydraulic and engine failures. Here's everything you need to know.",
+    title:
+      "Understanding JCB Filters: Engine, Hydraulic, Fuel & Air — A Complete Guide",
+    excerpt:
+      "Filters are the most critical consumable parts on any JCB machine. Replacing them on time prevents 70% of all hydraulic and engine failures. Here's everything you need to know.",
     date: "2025-04-10",
     author: "Teckon™ Technical Team",
     category: "JCB Spares",
@@ -959,7 +1024,8 @@ Maintain your filter schedule strictly. Keep a maintenance logbook. A ₹500 fil
   {
     slug: "how-to-choose-bucket-teeth-excavator",
     title: "How to Choose the Right Bucket Teeth for Your Excavator or Backhoe",
-    excerpt: "Bucket teeth are the highest-wear parts on any digging machine. Choosing the wrong type or wrong material can halve your productivity and double your replacement costs.",
+    excerpt:
+      "Bucket teeth are the highest-wear parts on any digging machine. Choosing the wrong type or wrong material can halve your productivity and double your replacement costs.",
     date: "2025-04-22",
     author: "Alpesh Patel",
     category: "Ground Engaging Tools",
@@ -1012,8 +1078,10 @@ At Teckon™, we stock standard, heavy-duty, and penetration bucket teeth for al
   },
   {
     slug: "cev-stage-5-machines-parts-guide",
-    title: "CEV Stage 5 Machines: What Changed and Which New Parts Are Different",
-    excerpt: "India's CEV Stage 5 emission regulations came into force in 2024. If you've recently bought a new JCB, Hitachi, or Komatsu machine, here's what changed under the hood — and which parts are now different.",
+    title:
+      "CEV Stage 5 Machines: What Changed and Which New Parts Are Different",
+    excerpt:
+      "India's CEV Stage 5 emission regulations came into force in 2024. If you've recently bought a new JCB, Hitachi, or Komatsu machine, here's what changed under the hood — and which parts are now different.",
     date: "2025-05-05",
     author: "Teckon™ Technical Team",
     category: "Industry Update",
@@ -1052,7 +1120,8 @@ CEV Stage 5 is a major shift in how construction equipment engines work. Underst
   {
     slug: "hydraulic-oil-selection-guide-jcb-hitachi-komatsu",
     title: "Hydraulic Oil Selection Guide for JCB, Hitachi & Komatsu Machines",
-    excerpt: "Using the wrong viscosity or wrong type of hydraulic oil can destroy a pump in hours. This cross-brand guide covers everything you need to know about selecting the right fluid for your machine.",
+    excerpt:
+      "Using the wrong viscosity or wrong type of hydraulic oil can destroy a pump in hours. This cross-brand guide covers everything you need to know about selecting the right fluid for your machine.",
     date: "2025-05-18",
     author: "JC Patel",
     category: "Technical",
@@ -1099,8 +1168,10 @@ Always use the manufacturer-specified oil grade for your machine model and opera
   },
   {
     slug: "backhoe-loader-vs-excavator-parts-guide",
-    title: "Backhoe Loader vs Excavator: Understanding the Differences & Spare Parts You'll Need",
-    excerpt: "Backhoe loaders and excavators are often confused — but their hydraulic systems, spare parts, and maintenance needs are very different. This guide helps contractors and fleet managers understand what to expect.",
+    title:
+      "Backhoe Loader vs Excavator: Understanding the Differences & Spare Parts You'll Need",
+    excerpt:
+      "Backhoe loaders and excavators are often confused — but their hydraulic systems, spare parts, and maintenance needs are very different. This guide helps contractors and fleet managers understand what to expect.",
     date: "2025-06-01",
     author: "Teckon™ Technical Team",
     category: "Technical",
@@ -1154,7 +1225,8 @@ Whether you operate backhoe loaders or tracked excavators, Teckon™ has you cov
   {
     slug: "pins-and-bushes-guide-construction-equipment",
     title: "Pins and Bushes: The Small Parts That Keep Heavy Machines Running",
-    excerpt: "Pins and bushes are the smallest — and most overlooked — structural components on any excavator or backhoe loader. Ignoring their wear leads to dangerous play in the boom and bucket, causing structural damage and safety risks.",
+    excerpt:
+      "Pins and bushes are the smallest — and most overlooked — structural components on any excavator or backhoe loader. Ignoring their wear leads to dangerous play in the boom and bucket, causing structural damage and safety risks.",
     date: "2025-06-10",
     author: "Alpesh Patel",
     category: "Maintenance",
@@ -1204,8 +1276,10 @@ Pins and bushes are inexpensive preventive maintenance items that protect the fa
   },
   {
     slug: "ground-engaging-tools-complete-guide",
-    title: "Ground Engaging Tools (GET) Explained: Rippers, Cutting Edges & Wear Plates",
-    excerpt: "Ground Engaging Tools are the parts of your machine that touch the earth. They wear fastest and impact productivity the most. Learn about every GET category, when to replace them, and how to choose the right specification.",
+    title:
+      "Ground Engaging Tools (GET) Explained: Rippers, Cutting Edges & Wear Plates",
+    excerpt:
+      "Ground Engaging Tools are the parts of your machine that touch the earth. They wear fastest and impact productivity the most. Learn about every GET category, when to replace them, and how to choose the right specification.",
     date: "2025-06-15",
     author: "Teckon™ Technical Team",
     category: "Ground Engaging Tools",
@@ -1270,8 +1344,10 @@ Ground Engaging Tools may be consumable, but they are strategic. The right GET s
   },
   {
     slug: "pre-owned-equipment-parts-demand-india",
-    title: "Pre-Owned Construction Equipment: How It Shapes India's Spare Parts Market",
-    excerpt: "India has one of the world's largest pre-owned construction equipment markets. Understanding this market helps fleet managers and parts buyers make smarter purchasing decisions.",
+    title:
+      "Pre-Owned Construction Equipment: How It Shapes India's Spare Parts Market",
+    excerpt:
+      "India has one of the world's largest pre-owned construction equipment markets. Understanding this market helps fleet managers and parts buyers make smarter purchasing decisions.",
     date: "2025-06-18",
     author: "Teckon™ Team",
     category: "Industry Insight",
@@ -1336,64 +1412,149 @@ export const PARTS_CATEGORIES = [
     slug: "filters",
     name: "Filters",
     icon: "🔵",
-    description: "Engine oil, hydraulic, fuel, and air filters for all major construction equipment brands.",
-    items: ["Engine Oil Filters", "Hydraulic Return Line Filters", "Fuel Filters", "Air Filters (Primary & Secondary)", "Transmission Filters"],
-    machines: ["JCB 3DX", "JCB 4DX", "JCB NXT 215 LC", "Hitachi ZX200", "CAT 424B"],
+    description:
+      "Engine oil, hydraulic, fuel, and air filters for all major construction equipment brands.",
+    items: [
+      "Engine Oil Filters",
+      "Hydraulic Return Line Filters",
+      "Fuel Filters",
+      "Air Filters (Primary & Secondary)",
+      "Transmission Filters",
+    ],
+    machines: [
+      "JCB 3DX",
+      "JCB 4DX",
+      "JCB NXT 215 LC",
+      "Hitachi ZX200",
+      "CAT 424B",
+    ],
   },
   {
     slug: "pins-and-bushes",
     name: "Pins & Bushes",
     icon: "⚙️",
-    description: "Precision-machined pivot pins and bronze bushes for boom, dipper, bucket and linkage connections.",
-    items: ["Dipper Arm Pins", "Bucket Pins", "Boom Cylinder Pins", "Tipping Link Pins", "Stabiliser Bottom Pins", "Bronze Bush Kits"],
+    description:
+      "Precision-machined pivot pins and bronze bushes for boom, dipper, bucket and linkage connections.",
+    items: [
+      "Dipper Arm Pins",
+      "Bucket Pins",
+      "Boom Cylinder Pins",
+      "Tipping Link Pins",
+      "Stabiliser Bottom Pins",
+      "Bronze Bush Kits",
+    ],
     machines: ["JCB 3DX", "JCB 3CX", "Hitachi EX200", "Terex TLB840"],
   },
   {
     slug: "ground-engaging-tools",
     name: "Ground Engaging Tools",
     icon: "⛏️",
-    description: "Bucket teeth, cutting edges, side cutters, rippers, and wear plates for earthmoving applications.",
-    items: ["Standard Bucket Teeth", "Rock/Heavy Duty Teeth", "Cutting Edges (400HB/500HB)", "Side Cutters", "Ripper Shanks & Tips", "Wear Plates"],
-    machines: ["All Excavators", "All Backhoe Loaders", "Dozers", "Motor Graders"],
+    description:
+      "Bucket teeth, cutting edges, side cutters, rippers, and wear plates for earthmoving applications.",
+    items: [
+      "Standard Bucket Teeth",
+      "Rock/Heavy Duty Teeth",
+      "Cutting Edges (400HB/500HB)",
+      "Side Cutters",
+      "Ripper Shanks & Tips",
+      "Wear Plates",
+    ],
+    machines: [
+      "All Excavators",
+      "All Backhoe Loaders",
+      "Dozers",
+      "Motor Graders",
+    ],
   },
   {
     slug: "powertrain-components",
     name: "Powertrain Components",
     icon: "🔧",
-    description: "Engine, gearbox, axle and drivetrain parts for wheeled and tracked construction equipment.",
-    items: ["Engine Overhaul Kits", "Gearbox Repair Kits", "Axle Components", "Drive Shafts", "Torque Converters", "Transmission Filters"],
+    description:
+      "Engine, gearbox, axle and drivetrain parts for wheeled and tracked construction equipment.",
+    items: [
+      "Engine Overhaul Kits",
+      "Gearbox Repair Kits",
+      "Axle Components",
+      "Drive Shafts",
+      "Torque Converters",
+      "Transmission Filters",
+    ],
     machines: ["JCB 4DX", "JCB 3DX", "CAT 424B", "L770 Crawler Loader"],
   },
   {
     slug: "electrical-lighting",
     name: "Electrical & Lighting",
     icon: "💡",
-    description: "Wiring harnesses, LED work lights, switches, relays, and instrument clusters.",
-    items: ["Wiring Harness Assemblies", "LED Work Lights", "Switches & Relays", "Instrument Clusters", "Alternators", "Starter Motors"],
+    description:
+      "Wiring harnesses, LED work lights, switches, relays, and instrument clusters.",
+    items: [
+      "Wiring Harness Assemblies",
+      "LED Work Lights",
+      "Switches & Relays",
+      "Instrument Clusters",
+      "Alternators",
+      "Starter Motors",
+    ],
     machines: ["JCB 3DX", "JCB JS130", "Hitachi ZX", "CAT 424B"],
   },
   {
     slug: "cab-body-parts",
     name: "Cab & Body Parts",
     icon: "🚧",
-    description: "Glass, door seals, mirrors, panels and structural cab components for operator safety and comfort.",
-    items: ["Windscreen Glass", "Door Seals & Rubber", "Side Mirrors", "Cab Door Hinges", "Operator Seat Assemblies", "ROPS/FOPS Panels"],
-    machines: ["JCB 3DX", "JCB JS series", "Hitachi ZX series", "Terex equipment"],
+    description:
+      "Glass, door seals, mirrors, panels and structural cab components for operator safety and comfort.",
+    items: [
+      "Windscreen Glass",
+      "Door Seals & Rubber",
+      "Side Mirrors",
+      "Cab Door Hinges",
+      "Operator Seat Assemblies",
+      "ROPS/FOPS Panels",
+    ],
+    machines: [
+      "JCB 3DX",
+      "JCB JS series",
+      "Hitachi ZX series",
+      "Terex equipment",
+    ],
   },
   {
     slug: "undercarriage",
     name: "Undercarriage Parts",
     icon: "🔩",
-    description: "Track rollers, carrier rollers, idlers, sprockets, track chains and duo-cone seals for tracked equipment.",
-    items: ["Bottom Track Rollers", "Carrier (Top) Rollers", "Front Idler Assemblies", "Drive Sprockets", "Track Chain Links", "Duo-Cone Floating Seals"],
-    machines: ["Hitachi ZX200", "Hitachi EX200", "JCB JS130", "JCB JS200", "L770 Crawler"],
+    description:
+      "Track rollers, carrier rollers, idlers, sprockets, track chains and duo-cone seals for tracked equipment.",
+    items: [
+      "Bottom Track Rollers",
+      "Carrier (Top) Rollers",
+      "Front Idler Assemblies",
+      "Drive Sprockets",
+      "Track Chain Links",
+      "Duo-Cone Floating Seals",
+    ],
+    machines: [
+      "Hitachi ZX200",
+      "Hitachi EX200",
+      "JCB JS130",
+      "JCB JS200",
+      "L770 Crawler",
+    ],
   },
   {
     slug: "service-fluids",
     name: "Service Fluids",
     icon: "🛢️",
-    description: "Hydraulic oils, engine oils, transmission fluids, and greases specified for major equipment brands.",
-    items: ["Hydraulic Oil ISO VG 46", "Hydraulic Oil ISO VG 68", "Engine Oil 15W-40", "Gear Oil 80W-90", "Multiplex Grease", "Anti-Wear Additives"],
+    description:
+      "Hydraulic oils, engine oils, transmission fluids, and greases specified for major equipment brands.",
+    items: [
+      "Hydraulic Oil ISO VG 46",
+      "Hydraulic Oil ISO VG 68",
+      "Engine Oil 15W-40",
+      "Gear Oil 80W-90",
+      "Multiplex Grease",
+      "Anti-Wear Additives",
+    ],
     machines: ["All Construction Equipment"],
   },
 ];
@@ -1403,7 +1564,8 @@ export const EVENTS = [
     year: "2024",
     name: "Excon South Asia 2024",
     location: "Bengaluru, India 🇮🇳",
-    description: "Visited South Asia's premier construction equipment exhibition to connect with excavator and backhoe loaders manufacturers.",
+    description:
+      "Visited South Asia's premier construction equipment exhibition to connect with excavator and backhoe loaders manufacturers.",
     type: "past",
     image: "/images/events/excon-south-asia-2024.png",
   },
@@ -1411,7 +1573,8 @@ export const EVENTS = [
     year: "2023",
     name: "Excon Bengaluru 2023",
     location: "Bengaluru, India 🇮🇳",
-    description: "Visited to study hydraulic system upgrades and build associations with construction machinery component suppliers.",
+    description:
+      "Visited to study hydraulic system upgrades and build associations with construction machinery component suppliers.",
     type: "past",
     image: "/images/events/excon-bengaluru-2023.png",
   },
@@ -1419,7 +1582,8 @@ export const EVENTS = [
     year: "2022",
     name: "bauma CONEXPO India 2022",
     location: "Greater Noida, India 🇮🇳",
-    description: "Visited the construction machinery expo to meet with raw material suppliers and machinery makers.",
+    description:
+      "Visited the construction machinery expo to meet with raw material suppliers and machinery makers.",
     type: "past",
     image: "/images/events/bauma-india-2022.png",
   },
@@ -1427,7 +1591,8 @@ export const EVENTS = [
     year: "2022",
     name: "Excon South Asia 2022",
     location: "Bengaluru, India 🇮🇳",
-    description: "Visited to evaluate new hydraulics parts designs and network with heavy equipment dealers.",
+    description:
+      "Visited to evaluate new hydraulics parts designs and network with heavy equipment dealers.",
     type: "past",
     image: "/images/events/excon-south-asia-2022.png",
   },
@@ -1435,7 +1600,8 @@ export const EVENTS = [
     year: "2019",
     name: "Excon Bengaluru 2019",
     location: "Bengaluru, India 🇮🇳",
-    description: "Visited to study gear pump technologies and strengthen relationships with heavy machinery spare parts distributors.",
+    description:
+      "Visited to study gear pump technologies and strengthen relationships with heavy machinery spare parts distributors.",
     type: "past",
     image: "/images/events/excon-bengaluru-2019.png",
   },
@@ -1443,7 +1609,8 @@ export const EVENTS = [
     year: "2018",
     name: "bauma CONEXPO India 2018",
     location: "Greater Noida, India 🇮🇳",
-    description: "Visited to engage with earthmoving and road construction machinery manufacturers.",
+    description:
+      "Visited to engage with earthmoving and road construction machinery manufacturers.",
     type: "past",
     image: "/images/events/bauma-india-2018.png",
   },
@@ -1451,7 +1618,8 @@ export const EVENTS = [
     year: "2017",
     name: "Excon Bengaluru 2017",
     location: "Bengaluru, India 🇮🇳",
-    description: "Visited to connect with hydraulic power generation specialists and parts vendors across India.",
+    description:
+      "Visited to connect with hydraulic power generation specialists and parts vendors across India.",
     type: "past",
     image: "/images/events/excon-bengaluru-2017.png",
   },
@@ -1459,7 +1627,8 @@ export const EVENTS = [
     year: "2015",
     name: "Excon Bengaluru 2015",
     location: "Bengaluru, India 🇮🇳",
-    description: "Visited to review fluid power transmission systems and forge partnerships in the aftermarket spare parts segment.",
+    description:
+      "Visited to review fluid power transmission systems and forge partnerships in the aftermarket spare parts segment.",
     type: "past",
     image: "/images/events/excon-bengaluru-2015.png",
   },
@@ -1467,7 +1636,8 @@ export const EVENTS = [
     year: "2014",
     name: "bauma CONEXPO India 2014",
     location: "Greater Noida, India 🇮🇳",
-    description: "Visited to examine emerging hydraulic technology developments in earthmoving machinery.",
+    description:
+      "Visited to examine emerging hydraulic technology developments in earthmoving machinery.",
     type: "past",
     image: "/images/events/bauma-india-2014.png",
   },

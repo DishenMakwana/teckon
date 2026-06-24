@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PrivacyPolicyClient from "./PrivacyPolicyClient";
+import PrivacyPolicyClient from "@/components/privacy-policy/PrivacyPolicyClient";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Teckon™ Quality Spares",

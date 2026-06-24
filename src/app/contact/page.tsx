@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 
-const ContactClient = dynamic(() => import("./ContactClient"), { ssr: true });
+const ContactClient = dynamic(() => import("@/components/contact/ContactClient"), { ssr: true });
 
 export const metadata: Metadata = {
   title: "Request a Quote & Contact Us | Teckon™ Quality Spares",

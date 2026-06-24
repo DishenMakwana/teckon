@@ -5,7 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { PRODUCTS } from "@/lib/data";
-import ProductImageViewer from "./ProductImageViewer";
+import ProductImageViewer from "@/components/products/ProductImageViewer";
 import { ArrowRight, RotateCw, Shield, Layers, Award, Wrench, MessageSquare } from "lucide-react";
 
 interface Props {
