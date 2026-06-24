@@ -151,7 +151,11 @@ function ProductsContent() {
       product.model.toLowerCase().includes(searchVal.toLowerCase()) ||
       product.ref.toLowerCase().includes(searchVal.toLowerCase()) ||
       product.description.toLowerCase().includes(searchVal.toLowerCase()) ||
-      (product.categoryLabel && product.categoryLabel.toLowerCase().includes(searchVal.toLowerCase()));
+      (product.categoryLabel && product.categoryLabel.toLowerCase().includes(searchVal.toLowerCase())) ||
+      (Array.isArray((product as { crossReferences?: string[] }).crossReferences) &&
+        (product as { crossReferences?: string[] }).crossReferences!.some((ref) =>
+          ref.toLowerCase().includes(searchVal.toLowerCase())
+        ));
 
     const matchesMostUsed = !showMostUsed || (product as { mostUsed?: boolean }).mostUsed === true;
 
@@ -415,6 +419,16 @@ function ProductsContent() {
                       
                       {/* Image container with hover specs fader */}
                       <div className="relative h-44 bg-[#bebcbd] border-b border-gray-100 overflow-hidden shrink-0">
+                        {/* Stock Badge overlay */}
+                        {(product as { stockStatus?: string }).stockStatus === "limited" && (
+                          <div className="absolute top-3 left-3 z-10 group-hover:opacity-0 transition-opacity duration-300">
+                            <span className="flex items-center gap-1 bg-white/90 backdrop-blur-md text-[#0B0F19] text-[8px] font-extrabold px-2 py-0.5 rounded-md tracking-wider border border-gray-100 select-none shadow-sm">
+                              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                              LIMITED
+                            </span>
+                          </div>
+                        )}
+
                         <SafeImage
                           src={product.image}
                           alt={product.name}

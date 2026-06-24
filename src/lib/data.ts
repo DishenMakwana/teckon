@@ -37,6 +37,9 @@ export const COMPANY = {
 export const PRODUCTS = [
   {
     slug: "jcb-hydraulic-pump",
+    weight: "8.2 kg",
+    material: "Cast iron housing, hardened alloy steel",
+    crossReferences: ["OEM-20-925345", "ALT-20-925345", "20925345"],
     mostUsed: true,
     model: "TQS-JCB-001",
     ref: "REF-20/925345",
@@ -56,6 +59,9 @@ export const PRODUCTS = [
   },
   {
     slug: "jcb-seal-kit",
+    weight: "0.25 kg",
+    material: "Nitrile Rubber (NBR) & Polyurethane",
+    crossReferences: ["OEM-892-00413", "ALT-892-00413", "89200413"],
     mostUsed: true,
     model: "TQS-JCB-002",
     ref: "REF-892/00413",
@@ -74,6 +80,10 @@ export const PRODUCTS = [
   },
   {
     slug: "jcb-3dx-control-valve",
+    weight: "11.8 kg",
+    material: "Cast iron body, precision-ground steel spools",
+    crossReferences: ["OEM-25-221318", "ALT-25-221318", "25221318"],
+    stockStatus: "limited",
     model: "TQS-JCB-003",
     ref: "REF-25/221318",
     category: "jcb",
@@ -92,6 +102,10 @@ export const PRODUCTS = [
   },
   {
     slug: "jcb-boom-cylinder",
+    weight: "32.0 kg",
+    material: "High-tensile carbon steel, chrome-plated rod",
+    crossReferences: ["OEM-811-50201", "ALT-811-50201", "81150201"],
+    stockStatus: "limited",
     model: "TQS-JCB-004",
     ref: "REF-811/50201",
     category: "jcb",
@@ -110,6 +124,10 @@ export const PRODUCTS = [
   },
   {
     slug: "jcb-dipper-cylinder",
+    weight: "24.5 kg",
+    material: "High-tensile carbon steel, chrome-plated rod",
+    crossReferences: ["OEM-811-50334", "ALT-811-50334", "81150334"],
+    stockStatus: "limited",
     model: "TQS-JCB-005",
     ref: "REF-811/50334",
     category: "jcb",
@@ -128,6 +146,9 @@ export const PRODUCTS = [
   },
   {
     slug: "jcb-pin-bush-kit",
+    weight: "6.5 kg",
+    material: "Manganese bronze (bushes), alloy steel (pins)",
+    crossReferences: ["OEM-JCB-PBK-3DX", "ALT-JCB-PBK-3DX", "JCBPBK3DX"],
     mostUsed: true,
     model: "TQS-JCB-006",
     ref: "REF-JCB-PBK-3DX",
@@ -147,6 +168,9 @@ export const PRODUCTS = [
   },
   {
     slug: "jcb-engine-oil-filter",
+    weight: "0.85 kg",
+    material: "Steel canister, synthetic micro-glass media",
+    crossReferences: ["OEM-02-100279", "ALT-02-100279", "02100279"],
     model: "TQS-JCB-007",
     ref: "REF-02/100279",
     category: "jcb",
@@ -165,6 +189,9 @@ export const PRODUCTS = [
   },
   {
     slug: "jcb-hydraulic-filter",
+    weight: "0.85 kg",
+    material: "Steel canister, synthetic micro-glass media",
+    crossReferences: ["OEM-32-925682", "ALT-32-925682", "32925682"],
     model: "TQS-JCB-008",
     ref: "REF-32/925682",
     category: "jcb",
@@ -183,6 +210,9 @@ export const PRODUCTS = [
   },
   {
     slug: "jcb-fuel-filter",
+    weight: "0.85 kg",
+    material: "Steel canister, synthetic micro-glass media",
+    crossReferences: ["OEM-32-925944", "ALT-32-925944", "32925944"],
     model: "TQS-JCB-009",
     ref: "REF-32/925944",
     category: "jcb",
@@ -203,6 +233,9 @@ export const PRODUCTS = [
   // ── HITACHI ───────────────────────────────────────────────────
   {
     slug: "hitachi-main-pump",
+    weight: "14.5 kg",
+    material: "Cast iron housing, hardened alloy steel",
+    crossReferences: ["OEM-HPV102FW", "ALT-HPV102FW"],
     mostUsed: true,
     model: "TQS-HIT-001",
     ref: "REF-HPV102FW",
@@ -223,6 +256,9 @@ export const PRODUCTS = [
   },
   {
     slug: "hitachi-swing-motor",
+    weight: "4.5 kg",
+    material: "Carbon steel",
+    crossReferences: ["OEM-HIT-SMT-ZX200", "ALT-HIT-SMT-ZX200", "HITSMTZX200"],
     model: "TQS-HIT-002",
     ref: "REF-HIT-SMT-ZX200",
     category: "hitachi",
@@ -241,6 +277,10 @@ export const PRODUCTS = [
   },
   {
     slug: "hitachi-final-drive",
+    weight: "4.5 kg",
+    material: "Carbon steel",
+    crossReferences: ["OEM-HIT-FDV-EX200", "ALT-HIT-FDV-EX200", "HITFDVEX200"],
+    stockStatus: "limited",
     mostUsed: true,
     model: "TQS-HIT-003",
     ref: "REF-HIT-FDV-EX200",
@@ -260,6 +300,9 @@ export const PRODUCTS = [
   },
   {
     slug: "hitachi-boom-cylinder-seal",
+    weight: "0.25 kg",
+    material: "Nitrile Rubber (NBR) & Polyurethane",
+    crossReferences: ["OEM-HIT-BCS-ZX200", "ALT-HIT-BCS-ZX200", "HITBCSZX200"],
     model: "TQS-HIT-004",
     ref: "REF-HIT-BCS-ZX200",
     category: "hitachi",
@@ -277,6 +320,9 @@ export const PRODUCTS = [
   },
   {
     slug: "hitachi-track-roller",
+    weight: "18.0 kg",
+    material: "Forged medium carbon alloy steel, induction hardened",
+    crossReferences: ["OEM-HIT-TRL-ZX200", "ALT-HIT-TRL-ZX200", "HITTRLZX200"],
     model: "TQS-HIT-005",
     ref: "REF-HIT-TRL-ZX200",
     category: "hitachi",
@@ -295,6 +341,10 @@ export const PRODUCTS = [
   },
   {
     slug: "hitachi-duo-cone-seal",
+    weight: "0.25 kg",
+    material: "Nitrile Rubber (NBR) & Polyurethane",
+    crossReferences: ["OEM-HIT-DCS-3401", "ALT-HIT-DCS-3401", "HITDCS3401"],
+    stockStatus: "limited",
     model: "TQS-HIT-006",
     ref: "REF-HIT-DCS-3401",
     category: "hitachi",
@@ -315,6 +365,10 @@ export const PRODUCTS = [
   // ── TEREX ────────────────────────────────────────────────────
   {
     slug: "terex-hydraulic-cylinder",
+    weight: "24.5 kg",
+    material: "High-tensile carbon steel, chrome-plated rod",
+    crossReferences: ["OEM-TX-CYL-007", "ALT-TX-CYL-007", "TXCYL007"],
+    stockStatus: "limited",
     model: "TQS-TRX-001",
     ref: "REF-TX-CYL-007",
     category: "terex",
@@ -332,6 +386,9 @@ export const PRODUCTS = [
   },
   {
     slug: "terex-seal-kit",
+    weight: "0.25 kg",
+    material: "Nitrile Rubber (NBR) & Polyurethane",
+    crossReferences: ["OEM-TX-SK-TLB840", "ALT-TX-SK-TLB840", "TXSKTLB840"],
     mostUsed: true,
     model: "TQS-TRX-002",
     ref: "REF-TX-SK-TLB840",
@@ -350,6 +407,10 @@ export const PRODUCTS = [
   },
   {
     slug: "terex-steering-unit",
+    weight: "4.5 kg",
+    material: "Carbon steel",
+    crossReferences: ["OEM-TX-STR-009", "ALT-TX-STR-009", "TXSTR009"],
+    stockStatus: "limited",
     model: "TQS-TRX-003",
     ref: "REF-TX-STR-009",
     category: "terex",
@@ -369,6 +430,9 @@ export const PRODUCTS = [
   // ── CAT ───────────────────────────────────────────────────────
   {
     slug: "cat-control-valve",
+    weight: "11.8 kg",
+    material: "Cast iron body, precision-ground steel spools",
+    crossReferences: ["OEM-CAT-1779426", "ALT-CAT-1779426", "CAT1779426"],
     model: "TQS-CAT-001",
     ref: "REF-CAT-1779426",
     category: "cat",
@@ -386,6 +450,9 @@ export const PRODUCTS = [
   },
   {
     slug: "cat-bucket-cylinder",
+    weight: "24.5 kg",
+    material: "High-tensile carbon steel, chrome-plated rod",
+    crossReferences: ["OEM-CAT-1371419", "ALT-CAT-1371419", "CAT1371419"],
     model: "TQS-CAT-002",
     ref: "REF-CAT-1371419",
     category: "cat",
@@ -404,6 +471,9 @@ export const PRODUCTS = [
   },
   {
     slug: "cat-hydraulic-pump",
+    weight: "8.2 kg",
+    material: "Cast iron housing, hardened alloy steel",
+    crossReferences: ["OEM-CAT-2381490", "ALT-CAT-2381490", "CAT2381490"],
     mostUsed: true,
     model: "TQS-CAT-003",
     ref: "REF-CAT-2381490",
@@ -423,6 +493,9 @@ export const PRODUCTS = [
   },
   {
     slug: "cat-seal-kit",
+    weight: "0.25 kg",
+    material: "Nitrile Rubber (NBR) & Polyurethane",
+    crossReferences: ["OEM-CAT-SK-428E", "ALT-CAT-SK-428E", "CATSK428E"],
     model: "TQS-CAT-004",
     ref: "REF-CAT-SK-428E",
     category: "cat",
@@ -442,6 +515,9 @@ export const PRODUCTS = [
   // ── BREAKERS & TIPPERS ────────────────────────────────────────
   {
     slug: "breaker-accumulator",
+    weight: "4.5 kg",
+    material: "Carbon steel",
+    crossReferences: ["OEM-BRK-ACC-12", "ALT-BRK-ACC-12", "BRKACC12"],
     mostUsed: true,
     model: "TQS-BRK-001",
     ref: "REF-BRK-ACC-12",
@@ -460,6 +536,9 @@ export const PRODUCTS = [
   },
   {
     slug: "breaker-front-head-seal",
+    weight: "0.25 kg",
+    material: "Nitrile Rubber (NBR) & Polyurethane",
+    crossReferences: ["OEM-BRK-FHS-45", "ALT-BRK-FHS-45", "BRKFHS45"],
     model: "TQS-BRK-002",
     ref: "REF-BRK-FHS-45",
     category: "breakers",
@@ -477,6 +556,9 @@ export const PRODUCTS = [
   },
   {
     slug: "tipper-cylinder-kit",
+    weight: "24.5 kg",
+    material: "High-tensile carbon steel, chrome-plated rod",
+    crossReferences: ["OEM-TIP-CYL-TRL", "ALT-TIP-CYL-TRL", "TIPCYLTRL"],
     model: "TQS-BRK-003",
     ref: "REF-TIP-CYL-TRL",
     category: "breakers",
@@ -497,6 +579,10 @@ export const PRODUCTS = [
   // ── L770 / TATA JD ────────────────────────────────────────────
   {
     slug: "l770-track-roller",
+    weight: "18.0 kg",
+    material: "Forged medium carbon alloy steel, induction hardened",
+    crossReferences: ["OEM-L770-TR-09", "ALT-L770-TR-09", "L770TR09"],
+    stockStatus: "limited",
     mostUsed: true,
     model: "TQS-L770-001",
     ref: "REF-L770-TR-09",
@@ -515,6 +601,9 @@ export const PRODUCTS = [
   },
   {
     slug: "l770-front-idler",
+    weight: "45.0 kg",
+    material: "Forged medium carbon alloy steel, induction hardened",
+    crossReferences: ["OEM-L770-IDL-02", "ALT-L770-IDL-02", "L770IDL02"],
     model: "TQS-L770-002",
     ref: "REF-L770-IDL-02",
     category: "l770",
@@ -532,6 +621,9 @@ export const PRODUCTS = [
   },
   {
     slug: "l770-drive-sprocket",
+    weight: "45.0 kg",
+    material: "Forged medium carbon alloy steel, induction hardened",
+    crossReferences: ["OEM-L770-SPR-07", "ALT-L770-SPR-07", "L770SPR07"],
     model: "TQS-L770-003",
     ref: "REF-L770-SPR-07",
     category: "l770",
@@ -551,6 +643,9 @@ export const PRODUCTS = [
   // ── EXCAVATOR ────────────────────────────────────────────────
   {
     slug: "excavator-bucket-cylinder",
+    weight: "24.5 kg",
+    material: "High-tensile carbon steel, chrome-plated rod",
+    crossReferences: ["OEM-EXC-BCK-22", "ALT-EXC-BCK-22", "EXCBCK22"],
     mostUsed: true,
     model: "TQS-EXC-001",
     ref: "REF-EXC-BCK-22",
@@ -569,6 +664,9 @@ export const PRODUCTS = [
   },
   {
     slug: "excavator-swing-motor",
+    weight: "4.5 kg",
+    material: "Carbon steel",
+    crossReferences: ["OEM-EXC-SMT-20T", "ALT-EXC-SMT-20T", "EXCSMT20T"],
     model: "TQS-EXC-002",
     ref: "REF-EXC-SMT-20T",
     category: "excavator",
@@ -587,6 +685,9 @@ export const PRODUCTS = [
   },
   {
     slug: "excavator-travel-motor",
+    weight: "4.5 kg",
+    material: "Carbon steel",
+    crossReferences: ["OEM-EXC-TRV-20T", "ALT-EXC-TRV-20T", "EXCTRV20T"],
     model: "TQS-EXC-003",
     ref: "REF-EXC-TRV-20T",
     category: "excavator",
@@ -605,6 +706,9 @@ export const PRODUCTS = [
   },
   {
     slug: "excavator-carrier-roller",
+    weight: "18.0 kg",
+    material: "Forged medium carbon alloy steel, induction hardened",
+    crossReferences: ["OEM-EXC-CRL-20T", "ALT-EXC-CRL-20T", "EXCCRL20T"],
     model: "TQS-EXC-004",
     ref: "REF-EXC-CRL-20T",
     category: "excavator",
@@ -625,6 +729,10 @@ export const PRODUCTS = [
   // ── GENERAL HYDRAULICS ────────────────────────────────────────
   {
     slug: "hydraulic-hose-assembly",
+    weight: "1.5 kg",
+    material: "Synthetic rubber tube, high-tensile steel wire braid",
+    crossReferences: ["OEM-GEN-HOSE-45", "ALT-GEN-HOSE-45", "GENHOSE45"],
+    stockStatus: "limited",
     mostUsed: true,
     model: "TQS-GEN-001",
     ref: "REF-GEN-HOSE-45",
@@ -643,6 +751,9 @@ export const PRODUCTS = [
   },
   {
     slug: "hydraulic-fitting-set",
+    weight: "0.12 kg",
+    material: "Carbon steel, zinc-trivalent plated",
+    crossReferences: ["OEM-GEN-FIT-BSP", "ALT-GEN-FIT-BSP", "GENFITBSP"],
     model: "TQS-GEN-002",
     ref: "REF-GEN-FIT-BSP",
     category: "general",
@@ -661,6 +772,9 @@ export const PRODUCTS = [
   },
   {
     slug: "hydraulic-bladder-accumulator",
+    weight: "4.5 kg",
+    material: "Carbon steel",
+    crossReferences: ["OEM-GEN-ACC-BLD", "ALT-GEN-ACC-BLD", "GENACCBLD"],
     model: "TQS-GEN-003",
     ref: "REF-GEN-ACC-BLD",
     category: "general",
@@ -681,6 +795,9 @@ export const PRODUCTS = [
   // ── FILTERS ───────────────────────────────────────────────────
   {
     slug: "hydraulic-filter-spin-on",
+    weight: "0.85 kg",
+    material: "Steel canister, synthetic micro-glass media",
+    crossReferences: ["OEM-FLT-HYD-10M", "ALT-FLT-HYD-10M", "FLTHYD10M"],
     model: "TQS-FLT-001",
     ref: "REF-FLT-HYD-10M",
     category: "filters",
@@ -699,6 +816,9 @@ export const PRODUCTS = [
   },
   {
     slug: "engine-air-filter-primary",
+    weight: "0.85 kg",
+    material: "Steel canister, synthetic micro-glass media",
+    crossReferences: ["OEM-FLT-AIR-PRM", "ALT-FLT-AIR-PRM", "FLTAIRPRM"],
     model: "TQS-FLT-002",
     ref: "REF-FLT-AIR-PRM",
     category: "filters",
@@ -717,6 +837,9 @@ export const PRODUCTS = [
   },
   {
     slug: "universal-fuel-filter",
+    weight: "0.85 kg",
+    material: "Steel canister, synthetic micro-glass media",
+    crossReferences: ["OEM-FLT-FUEL-5M", "ALT-FLT-FUEL-5M", "FLTFUEL5M"],
     mostUsed: true,
     model: "TQS-FLT-003",
     ref: "REF-FLT-FUEL-5M",

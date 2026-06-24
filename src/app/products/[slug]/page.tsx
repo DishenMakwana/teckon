@@ -6,7 +6,8 @@ import { notFound } from "next/navigation";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { PRODUCTS } from "@/lib/data";
 import ProductImageViewer from "@/components/products/ProductImageViewer";
-import { ArrowRight, RotateCw, Shield, Layers, Award, Wrench, MessageSquare } from "lucide-react";
+import ProductB2BPanel from "@/components/products/ProductB2BPanel";
+import { ArrowRight, RotateCw, Shield, Layers, Award, Wrench, Scale } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -43,6 +44,30 @@ export default async function ProductDetailPage({ params }: Props) {
 
   // Find other products in same category for Related Products
   const relatedProducts = PRODUCTS.filter((p) => p.category === product.category && p.slug !== product.slug).slice(0, 4);
+
+  // Combine specs dynamically to avoid duplicate cards and show everything in the bento grid
+  const displaySpecs: Record<string, string> = {};
+  
+  // 1. Copy all existing specs
+  Object.entries(product.specs).forEach(([key, val]) => {
+    if (val) {
+      displaySpecs[key] = val;
+    }
+  });
+
+  // 2. Add/override with Physical Weight
+  if (product.weight) {
+    displaySpecs["Physical Weight"] = product.weight;
+  }
+
+  // 3. Add/override with Base Material and remove generic Material
+  if (product.material) {
+    const keysToDelete = Object.keys(displaySpecs).filter(
+      (k) => k.toLowerCase() === "material" || k.toLowerCase() === "base material"
+    );
+    keysToDelete.forEach((k) => delete displaySpecs[k]);
+    displaySpecs["Base Material"] = product.material;
+  }
 
   return (
     <>
@@ -125,10 +150,11 @@ export default async function ProductDetailPage({ params }: Props) {
                 </h3>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                  {Object.entries(product.specs).map(([key, val]) => {
+                  {Object.entries(displaySpecs).map(([key, val]) => {
                     const isRotation = key.toLowerCase().includes("rotation");
                     const isDisplacement = key.toLowerCase().includes("displacement") || key.toLowerCase().includes("cc");
                     const isMaterial = key.toLowerCase().includes("material");
+                    const isWeight = key.toLowerCase().includes("weight");
 
                     if (isRotation) {
                       const isClockwise = val.toLowerCase().includes("clockwise") && !val.toLowerCase().includes("anti");
@@ -180,6 +206,20 @@ export default async function ProductDetailPage({ params }: Props) {
                       );
                     }
 
+                    if (isWeight) {
+                      return (
+                        <div key={key} className="col-span-1 bg-slate-50 border border-slate-100 rounded-2xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm hover:shadow-md transition-shadow">
+                          <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-lg mb-2">
+                            <Scale className="h-4.5 w-4.5 text-blue-500" />
+                          </div>
+                          <div>
+                            <div className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider mb-1">{key}</div>
+                            <div className="text-sm font-black text-slate-900 font-mono">{val}</div>
+                          </div>
+                        </div>
+                      );
+                    }
+
                     // General Specs card
                     return (
                       <div key={key} className="col-span-1 bg-slate-50 border border-slate-100 rounded-2xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm hover:shadow-md transition-shadow">
@@ -196,36 +236,8 @@ export default async function ProductDetailPage({ params }: Props) {
                 </div>
               </div>
 
-              {/* Inquiry Action Box */}
-              <div className="bg-[#0B0F19] rounded-3xl p-6 border border-white/5 shadow-xl relative overflow-hidden flex flex-col md:flex-row gap-6 items-center justify-between">
-                {/* Accent glow block */}
-                <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-[#FFBE00]/10 rounded-full filter blur-xl pointer-events-none" />
-                
-                <div className="text-center md:text-left">
-                  <h4 className="text-white font-black text-base mb-1 tracking-wide uppercase font-mono flex items-center justify-center md:justify-start gap-1.5">
-                    <MessageSquare className="h-4 w-4 text-[#FFBE00]" />
-                    Instant Sourcing Quote
-                  </h4>
-                  <p className="text-slate-400 text-xs">Request pricing and lead time directly from our factory floor.</p>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
-                  <Link
-                    href={`/contact?subject=${encodeURIComponent(`Quote Request: ${product.name}`)}`}
-                    className="flex items-center justify-center gap-2 bg-[#FF6B35] text-white hover:bg-[#e55a25] font-black px-6 py-3.5 rounded-2xl transition-all text-sm tracking-wide shadow-lg"
-                  >
-                    📋 Email Quote
-                  </Link>
-                  <a
-                    href={`https://wa.me/919426915578?text=Hello%20Teckon,%20I%20need%20a%20price%20quote%20for%20${encodeURIComponent(product.name)}%20(${product.model})`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 bg-[#128C7E] text-white hover:bg-[#0f766a] font-bold px-6 py-3.5 rounded-2xl transition-colors text-sm shadow-lg"
-                  >
-                    💬 WhatsApp Chat
-                  </a>
-                </div>
-              </div>
+              {/* B2B Specs & Interactive Panel */}
+              <ProductB2BPanel product={product} />
 
             </div>
 
