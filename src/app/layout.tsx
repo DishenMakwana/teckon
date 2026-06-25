@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import QuickAccessRail from "@/components/layout/QuickAccessRail";
 import MobileStickyBar from "@/components/layout/MobileStickyBar";
 import BackToTop from "@/components/ui/BackToTop";
+import Preloader from "@/components/layout/Preloader";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -134,6 +135,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans bg-white text-gray-900 antialiased pb-16 md:pb-0">
+        <Preloader />
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-E2K9Y2K7XG"
