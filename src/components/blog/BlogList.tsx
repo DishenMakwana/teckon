@@ -25,33 +25,33 @@ interface BlogListProps {
 // Variants for Dribbble-style card hover and filtering transitions
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.9, y: 20 },
-  visible: { 
-    opacity: 1, 
-    scale: 1, 
+  visible: {
+    opacity: 1,
+    scale: 1,
     y: 0,
     transition: {
       type: "spring" as const,
       stiffness: 260,
-      damping: 25
-    }
+      damping: 25,
+    },
   },
-  exit: { 
-    opacity: 0, 
-    scale: 0.9, 
+  exit: {
+    opacity: 0,
+    scale: 0.9,
     y: 20,
     transition: {
-      duration: 0.2
-    }
+      duration: 0.2,
+    },
   },
-  hover: { 
+  hover: {
     y: -6,
     transition: {
       type: "spring" as const,
       stiffness: 380,
       damping: 35,
-      mass: 0.8
-    }
-  }
+      mass: 0.8,
+    },
+  },
 };
 
 function BlogListContent({ posts }: BlogListProps) {
@@ -69,7 +69,9 @@ function BlogListContent({ posts }: BlogListProps) {
   const [showRightFade, setShowRightFade] = useState(false);
 
   // Sync category and search query using render-phase state updates
-  const [prevCategoryQuery, setPrevCategoryQuery] = useState<string | null>(null);
+  const [prevCategoryQuery, setPrevCategoryQuery] = useState<string | null>(
+    null
+  );
   const [prevSearchQuery, setPrevSearchQuery] = useState<string | null>(null);
 
   if (categoryQuery !== prevCategoryQuery) {
@@ -108,18 +110,23 @@ function BlogListContent({ posts }: BlogListProps) {
   };
 
   // Dynamically get unique categories
-  const categories = ["All", ...Array.from(new Set(posts.map((p) => p.category)))];
+  const categories = [
+    "All",
+    ...Array.from(new Set(posts.map((p) => p.category))),
+  ];
 
   // Filter posts based on active category AND searchVal
   const filteredPosts = posts.filter((post) => {
-    const matchesCategory = activeCategory === "All" || post.category === activeCategory;
-    
-    const matchesSearch = !searchVal ||
+    const matchesCategory =
+      activeCategory === "All" || post.category === activeCategory;
+
+    const matchesSearch =
+      !searchVal ||
       post.title.toLowerCase().includes(searchVal.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(searchVal.toLowerCase()) ||
       post.category.toLowerCase().includes(searchVal.toLowerCase()) ||
       post.author.toLowerCase().includes(searchVal.toLowerCase());
-      
+
     return matchesCategory && matchesSearch;
   });
 
@@ -141,7 +148,8 @@ function BlogListContent({ posts }: BlogListProps) {
   }, [filteredPosts]);
 
   // Featured Article layout determinations (only when viewing "All" and search is empty)
-  const showFeatured = activeCategory === "All" && !searchVal && filteredPosts.length > 0;
+  const showFeatured =
+    activeCategory === "All" && !searchVal && filteredPosts.length > 0;
   const featuredPost = showFeatured ? filteredPosts[0] : null;
   const gridPosts = showFeatured ? filteredPosts.slice(1) : filteredPosts;
 
@@ -149,7 +157,6 @@ function BlogListContent({ posts }: BlogListProps) {
     <div>
       {/* Search & Dribbble Sliding Tag Filter Bar */}
       <div className="flex flex-col lg:flex-row gap-6 justify-between items-stretch lg:items-center mb-12 w-full bg-white p-4 rounded-3xl border border-gray-100 shadow-sm">
-        
         {/* Search Bar */}
         <div className="relative w-full lg:max-w-xs shrink-0">
           <span className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
@@ -219,10 +226,16 @@ function BlogListContent({ posts }: BlogListProps) {
                       <motion.span
                         layoutId="activeBlogCategoryPill"
                         className="absolute inset-0 bg-[#FFBE00] rounded-xl z-0 shadow-sm"
-                        transition={{ type: "spring", stiffness: 350, damping: 28 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 350,
+                          damping: 28,
+                        }}
                       />
                     )}
-                    <span className="relative z-10">{cat === "All" ? "All Articles" : cat}</span>
+                    <span className="relative z-10">
+                      {cat === "All" ? "All Articles" : cat}
+                    </span>
                   </button>
                 );
               })}
@@ -244,18 +257,20 @@ function BlogListContent({ posts }: BlogListProps) {
             )}
           </AnimatePresence>
         </div>
-
       </div>
 
       {filteredPosts.length === 0 ? (
         <div className="text-center py-20 text-gray-400 bg-white rounded-3xl border border-gray-100 shadow-sm">
           <div className="text-5xl mb-4">📰</div>
-          <p className="font-semibold text-lg text-gray-700">No articles found matching your criteria.</p>
-          <p className="text-sm text-gray-400 mt-1">Try clearing your search query or selecting a different category.</p>
+          <p className="font-semibold text-lg text-gray-700">
+            No articles found matching your criteria.
+          </p>
+          <p className="text-sm text-gray-400 mt-1">
+            Try clearing your search query or selecting a different category.
+          </p>
         </div>
       ) : (
         <div className="w-full">
-          
           {/* Featured Article Hero Block (Only shown on default All view) */}
           {featuredPost && (
             <motion.article
@@ -282,7 +297,9 @@ function BlogListContent({ posts }: BlogListProps) {
               <div className="flex flex-col justify-between py-2 flex-grow">
                 <div className="space-y-4">
                   <div className="flex items-center gap-2 text-gray-400 text-xs font-mono">
-                    <span className="font-bold text-[#FF6B35] uppercase tracking-wider">{featuredPost.category}</span>
+                    <span className="font-bold text-[#FF6B35] uppercase tracking-wider">
+                      {featuredPost.category}
+                    </span>
                     <span>•</span>
                     <span>
                       {new Date(featuredPost.date).toLocaleDateString("en-IN", {
@@ -332,8 +349,10 @@ function BlogListContent({ posts }: BlogListProps) {
                   whileHover="hover"
                   className="group bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-2xl flex flex-col h-full transition-shadow duration-300"
                 >
-                  <Link href={`/blog/${post.slug}`} className="flex flex-col flex-grow h-full">
-                    
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="flex flex-col flex-grow h-full"
+                  >
                     <div className="relative h-44 overflow-hidden bg-gray-100 shrink-0">
                       <SafeImage
                         src={post.image}
@@ -346,7 +365,7 @@ function BlogListContent({ posts }: BlogListProps) {
                         {post.category}
                       </span>
                     </div>
-                    
+
                     <div className="p-5 flex flex-col justify-between flex-grow">
                       <div>
                         <div className="flex items-center gap-2 text-gray-400 text-xs mb-3 font-mono">
@@ -360,11 +379,11 @@ function BlogListContent({ posts }: BlogListProps) {
                           <span>•</span>
                           <span>{post.author}</span>
                         </div>
-                        
+
                         <h3 className="font-extrabold text-[#0B0F19] text-base lg:text-lg mb-3 leading-snug group-hover:text-[#FF6B35] transition-colors line-clamp-2">
                           {post.title}
                         </h3>
-                        
+
                         <p className="text-gray-500 text-xs lg:text-sm mb-4 line-clamp-3 leading-relaxed">
                           {post.excerpt}
                         </p>
@@ -376,13 +395,11 @@ function BlogListContent({ posts }: BlogListProps) {
                         </div>
                       </div>
                     </div>
-
                   </Link>
                 </motion.article>
               ))}
             </AnimatePresence>
           </div>
-
         </div>
       )}
     </div>
@@ -391,12 +408,16 @@ function BlogListContent({ posts }: BlogListProps) {
 
 export default function BlogList({ posts }: BlogListProps) {
   return (
-    <Suspense fallback={
-      <div className="py-20 text-center text-gray-500">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#FF6B35] mx-auto mb-4"></div>
-        <p className="font-semibold text-lg text-[#FF6B35]">Loading articles...</p>
-      </div>
-    }>
+    <Suspense
+      fallback={
+        <div className="py-20 text-center text-gray-500">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#FF6B35] mx-auto mb-4"></div>
+          <p className="font-semibold text-lg text-[#FF6B35]">
+            Loading articles...
+          </p>
+        </div>
+      }
+    >
       <BlogListContent posts={posts} />
     </Suspense>
   );

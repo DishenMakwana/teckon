@@ -37,7 +37,7 @@ export default function ContactClient() {
       country: "India",
       subject: "",
       message: "",
-    }
+    },
   });
 
   const onSubmit = async (data: FormData) => {
@@ -65,28 +65,52 @@ export default function ContactClient() {
         setTimeout(() => setSubmitted(false), 5000);
       } else {
         // Map technical/backend errors to user-friendly messages
-        if (result.error === "CONFIGURATION_ERROR" || result.error === "DELIVERY_ERROR" || result.error === "SYSTEM_ERROR") {
-          setSubmitError("We couldn't process your inquiry at this time due to a temporary system error. Please try again later or contact us directly at shreejihyd4008@gmail.com / +91-63518 79842.");
+        if (
+          result.error === "CONFIGURATION_ERROR" ||
+          result.error === "DELIVERY_ERROR" ||
+          result.error === "SYSTEM_ERROR"
+        ) {
+          setSubmitError(
+            "We couldn't process your inquiry at this time due to a temporary system error. Please try again later or contact us directly at shreejihyd4008@gmail.com / +91-63518 79842."
+          );
         } else {
-          setSubmitError(result.error || "Failed to send inquiry. Please try again.");
+          setSubmitError(
+            result.error || "Failed to send inquiry. Please try again."
+          );
         }
       }
     } catch {
-      setSubmitError("An unexpected network error occurred. Please try again later or contact us directly.");
+      setSubmitError(
+        "An unexpected network error occurred. Please try again later or contact us directly."
+      );
     }
   };
 
   return (
     <>
       {/* Hero */}
-      <section id="contact-hero" className="bg-teckon-dark-blue py-20 relative overflow-hidden">
+      <section
+        id="contact-hero"
+        className="bg-teckon-dark-blue py-20 relative overflow-hidden"
+      >
         <div className="absolute inset-0 opacity-10">
-          <Image src="/images/contact-hero.webp" alt="A clean modern office workspace with phone, notebook, and heavy machinery blueprint" fill sizes="100vw" className="object-cover" priority />
+          <Image
+            src="/images/contact-hero.webp"
+            alt="A clean modern office workspace with phone, notebook, and heavy machinery blueprint"
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
+          />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <BreadcrumbBar items={[{ label: "Contact Us" }]} />
-          <h1 className="text-4xl sm:text-5xl font-black text-white mt-6 mb-4">Contact Us</h1>
-          <p className="text-white/70 text-xl max-w-2xl">Get a quick quote or reach out to our technical team.</p>
+          <h1 className="text-4xl sm:text-5xl font-black text-white mt-6 mb-4">
+            Contact Us
+          </h1>
+          <p className="text-white/70 text-xl max-w-2xl">
+            Get a quick quote or reach out to our technical team.
+          </p>
         </div>
       </section>
 
@@ -98,7 +122,8 @@ export default function ContactClient() {
               {
                 icon: MapPin,
                 title: "Address",
-                content: "36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat 360004",
+                content:
+                  "36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat 360004",
                 href: "https://maps.app.goo.gl/uxAsDhUD7DvfASts8",
               },
               {
@@ -132,16 +157,27 @@ export default function ContactClient() {
                   key={card.title}
                   href={card.href}
                   target={card.href.startsWith("http") ? "_blank" : undefined}
-                  rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  rel={
+                    card.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
                   className="group bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-teckon-blue hover:shadow-md transition-all flex flex-col justify-between"
                 >
                   <div>
                     <div className="w-12 h-12 bg-teckon-blue rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#FFBE00] transition-colors">
-                      <Icon size={20} className="text-white group-hover:text-[#0B0F19] transition-colors" />
+                      <Icon
+                        size={20}
+                        className="text-white group-hover:text-[#0B0F19] transition-colors"
+                      />
                     </div>
-                    <div className="font-bold text-[#111111] mb-1">{card.title}</div>
+                    <div className="font-bold text-[#111111] mb-1">
+                      {card.title}
+                    </div>
                   </div>
-                  <div className="text-gray-500 text-sm mt-2">{card.content}</div>
+                  <div className="text-gray-500 text-sm mt-2">
+                    {card.content}
+                  </div>
                 </a>
               );
             })}
@@ -150,11 +186,14 @@ export default function ContactClient() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Form */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300">
-              <h2 className="text-2xl font-black text-[#111111] mb-6">Send an Inquiry</h2>
+              <h2 className="text-2xl font-black text-[#111111] mb-6">
+                Send an Inquiry
+              </h2>
 
               {submitted && (
                 <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-6 text-green-700 font-semibold">
-                  ✅ Thank you! Your inquiry has been submitted. We&apos;ll get back to you shortly.
+                  ✅ Thank you! Your inquiry has been submitted. We&apos;ll get
+                  back to you shortly.
                 </div>
               )}
 
@@ -164,38 +203,59 @@ export default function ContactClient() {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="flex flex-col gap-4"
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Full Name *</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">
+                      Full Name *
+                    </label>
                     <input
-                      {...register("fullName", { required: "Please enter your full name" })}
+                      {...register("fullName", {
+                        required: "Please enter your full name",
+                      })}
                       className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all"
                       placeholder="Your full name"
                     />
-                    {errors.fullName && <p className="text-red-500 text-xs mt-1">{errors.fullName.message}</p>}
+                    {errors.fullName && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.fullName.message}
+                      </p>
+                    )}
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Email Address *</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">
+                      Email Address *
+                    </label>
                     <input
-                      {...register("email", { 
-                        required: "Please enter your email address", 
-                        pattern: { 
-                          value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i, 
-                          message: "Please enter a valid email address (e.g. name@domain.com)" 
-                        } 
+                      {...register("email", {
+                        required: "Please enter your email address",
+                        pattern: {
+                          value:
+                            /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i,
+                          message:
+                            "Please enter a valid email address (e.g. name@domain.com)",
+                        },
                       })}
                       type="email"
                       className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all"
                       placeholder="your@email.com"
                     />
-                    {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+                    {errors.email && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.email.message}
+                      </p>
+                    )}
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Phone Number *</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">
+                      Phone Number *
+                    </label>
                     <div className="flex gap-2">
                       <select
                         {...register("countryCode", {
@@ -212,7 +272,7 @@ export default function ContactClient() {
                               "+880": "Bangladesh",
                             };
                             setValue("country", countryMap[code] || "");
-                          }
+                          },
                         })}
                         className="w-28 shrink-0 border border-gray-200 rounded-xl pl-3 pr-7 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all bg-white font-medium custom-select-sm"
                       >
@@ -226,27 +286,35 @@ export default function ContactClient() {
                         <option value="+880">🇧🇩 +880</option>
                       </select>
                       <input
-                        {...register("phone", { 
+                        {...register("phone", {
                           required: "Please enter your 10-digit phone number",
                           pattern: {
                             value: /^[0-9]{10}$/,
-                            message: "Phone number must be exactly 10 digits"
-                          }
+                            message: "Phone number must be exactly 10 digits",
+                          },
                         })}
                         type="tel"
                         maxLength={10}
                         onInput={(e) => {
                           // Allow only numerical values, slice to 10 digits
-                          e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, "").slice(0, 10);
+                          e.currentTarget.value = e.currentTarget.value
+                            .replace(/[^0-9]/g, "")
+                            .slice(0, 10);
                         }}
                         className="flex-1 min-w-0 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all"
                         placeholder="Enter 10-digit number"
                       />
                     </div>
-                    {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
+                    {errors.phone && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.phone.message}
+                      </p>
+                    )}
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">City</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">
+                      City
+                    </label>
                     <input
                       {...register("city")}
                       className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all"
@@ -257,7 +325,9 @@ export default function ContactClient() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Country</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">
+                      Country
+                    </label>
                     <input
                       {...register("country")}
                       className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all"
@@ -266,7 +336,9 @@ export default function ContactClient() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Product / Subject</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">
+                      Product / Subject
+                    </label>
                     <select
                       {...register("subject")}
                       className="w-full border border-gray-200 rounded-xl pl-4 pr-10 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all bg-white custom-select"
@@ -287,14 +359,23 @@ export default function ContactClient() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">Message *</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">
+                    Message *
+                  </label>
                   <textarea
-                    {...register("message", { required: "Please describe your inquiry or parts requirement" })}
+                    {...register("message", {
+                      required:
+                        "Please describe your inquiry or parts requirement",
+                    })}
                     rows={5}
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all resize-none"
                     placeholder="Describe the hydraulic parts you need, your equipment model, and any specific requirements..."
                   />
-                  {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
+                  {errors.message && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.message.message}
+                    </p>
+                  )}
                 </div>
 
                 <button

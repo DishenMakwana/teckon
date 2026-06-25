@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const LOGO_TEXT = "TECKON";
 const LETTERS = LOGO_TEXT.split("");
@@ -22,11 +22,10 @@ export default function Preloader() {
       setProgress(Math.round(eased * 100));
     };
 
-    const frame = setInterval(tick, 16);
-
-    const timer = setTimeout(() => {
+    const frame = window.setInterval(tick, 16);
+    const timer = window.setTimeout(() => {
       setProgress(100);
-      setTimeout(() => {
+      window.setTimeout(() => {
         setVisible(false);
         document.body.style.overflow = "";
       }, 350);
@@ -34,8 +33,8 @@ export default function Preloader() {
 
     return () => {
       document.body.style.overflow = "";
-      clearTimeout(timer);
-      clearInterval(frame);
+      window.clearTimeout(timer);
+      window.clearInterval(frame);
     };
   }, []);
 
@@ -44,53 +43,55 @@ export default function Preloader() {
       {visible && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{
-            opacity: 0,
-            scale: 1.04,
-            filter: "blur(10px)",
-          }}
+          exit={{ opacity: 0, scale: 1.03, filter: "blur(10px)" }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-0 z-[99999] flex flex-col items-center justify-center overflow-hidden pointer-events-auto"
+          className="fixed inset-0 z-[99999] flex items-center justify-center overflow-hidden bg-[#0B0F19]"
         >
-          {/* Rich gradient base */}
-          <div className="absolute inset-0 bg-[#0B0F19]" />
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,190,0,0.18),_transparent_34%),radial-gradient(circle_at_bottom_right,_rgba(30,64,175,0.18),_transparent_36%),linear-gradient(135deg,_#0B0F19_0%,_#111827_48%,_#1E293B_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(110deg,transparent_0%,rgba(255,190,0,0.06)_50%,transparent_100%)]" />
+            <div
+              className="absolute inset-0 opacity-35"
+              style={{
+                backgroundImage:
+                  "radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px)",
+                backgroundSize: "24px 24px",
+              }}
+            />
+          </div>
 
-          {/* Animated color orbs */}
           <motion.div
             animate={{
-              x: [0, 40, -20, 0],
-              y: [0, -30, 20, 0],
-              scale: [1, 1.15, 0.95, 1],
+              x: [0, 48, -24, 0],
+              y: [0, -40, 24, 0],
+              scale: [1, 1.1, 0.96, 1],
             }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-32 -left-32 w-[480px] h-[480px] rounded-full bg-[#FFBE00]/25 blur-[100px]"
+            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-[#FFBE00]/20 blur-[110px]"
           />
           <motion.div
             animate={{
-              x: [0, -50, 30, 0],
-              y: [0, 40, -25, 0],
-              scale: [1, 0.9, 1.1, 1],
+              x: [0, -54, 26, 0],
+              y: [0, 38, -24, 0],
+              scale: [1, 0.92, 1.08, 1],
             }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -bottom-24 -right-24 w-[520px] h-[520px] rounded-full bg-[#d97706]/20 blur-[110px]"
+            className="absolute -bottom-20 -right-16 h-[24rem] w-[24rem] rounded-full bg-[#1E293B]/35 blur-[120px]"
           />
           <motion.div
             animate={{
-              x: [0, 25, -35, 0],
-              y: [0, -20, 35, 0],
+              x: [0, 28, -34, 0],
+              y: [0, -28, 32, 0],
+              scale: [1, 1.03, 0.97, 1],
             }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#1e3a5f]/30 blur-[120px]"
+            transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute left-1/2 top-1/2 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FF6B35]/10 blur-[140px]"
           />
 
-          {/* Subtle grid overlay */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff04_1px,transparent_1px),linear-gradient(to_bottom,#ffffff04_1px,transparent_1px)] bg-[size:32px_32px]" />
-
-          {/* Expanding pulse rings */}
           {[0, 1, 2].map((i) => (
             <motion.div
               key={i}
-              initial={{ scale: 0.6, opacity: 0.5 }}
+              initial={{ scale: 0.65, opacity: 0.4 }}
               animate={{ scale: 2.2, opacity: 0 }}
               transition={{
                 duration: 2.4,
@@ -98,29 +99,33 @@ export default function Preloader() {
                 delay: i * 0.8,
                 ease: "easeOut",
               }}
-              className="absolute w-32 h-32 rounded-full border border-[#FFBE00]/30"
+              className="absolute h-28 w-28 rounded-full border border-white/20"
             />
           ))}
 
-          {/* Logo cluster */}
-          <div className="relative z-10 flex flex-col items-center gap-10">
-            <div className="flex items-center gap-4 select-none">
-              {/* Badge with clip reveal + shimmer */}
+          <div className="relative z-10 flex flex-col items-center px-6 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 18, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="relative overflow-hidden rounded-[30px] border border-white/10 bg-white/10 px-6 py-5 shadow-[0_20px_60px_rgba(0,0,0,0.28)] backdrop-blur-xl"
+            >
               <motion.div
-                initial={{ clipPath: "inset(0 100% 0 0)", opacity: 0 }}
-                animate={{ clipPath: "inset(0 0% 0 0)", opacity: 1 }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="relative overflow-hidden bg-[#FFBE00] text-[#0B0F19] px-5 py-2.5 rounded-xl font-black text-2xl tracking-wide shadow-lg shadow-[#FFBE00]/20"
-              >
-                <span className="relative z-10 flex">
-                  {LETTERS.map((letter, i) => (
+                initial={{ x: "-120%" }}
+                animate={{ x: "220%" }}
+                transition={{ delay: 0.75, duration: 0.9, ease: "easeInOut" }}
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+              />
+              <div className="relative flex items-center gap-2 sm:gap-3">
+                <div className="flex items-center rounded-2xl border border-[#FFBE00]/40 bg-[#FFBE00] px-4 py-2.5 text-2xl font-black tracking-[0.25em] text-[#0B0F19] shadow-[0_0_24px_rgba(255,190,0,0.16)] sm:text-3xl">
+                  {LETTERS.map((letter, index) => (
                     <motion.span
-                      key={i}
+                      key={index}
                       initial={{ y: 24, opacity: 0, rotateX: -90 }}
                       animate={{ y: 0, opacity: 1, rotateX: 0 }}
                       transition={{
                         duration: 0.45,
-                        delay: 0.15 + i * 0.07,
+                        delay: 0.15 + index * 0.07,
                         ease: [0.22, 1, 0.36, 1],
                       }}
                       className="inline-block"
@@ -132,80 +137,55 @@ export default function Preloader() {
                   <motion.span
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.65, type: "spring", stiffness: 400, damping: 15 }}
-                    className="inline-block text-sm align-super ml-0.5"
+                    transition={{
+                      delay: 0.7,
+                      type: "spring",
+                      stiffness: 450,
+                      damping: 18,
+                    }}
+                    className="ml-1 inline-block align-super text-sm"
                   >
                     ™
                   </motion.span>
-                </span>
-                {/* Shimmer sweep */}
+                </div>
+                <div className="hidden h-14 w-px bg-white/15 sm:block" />
                 <motion.div
-                  initial={{ x: "-120%" }}
-                  animate={{ x: "220%" }}
-                  transition={{ delay: 0.9, duration: 0.8, ease: "easeInOut" }}
-                  className="absolute inset-0 z-20 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12"
-                />
-              </motion.div>
-
-              {/* Tagline — staggered slide in */}
-              <motion.div
-                initial={{ opacity: 0, x: -16 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.75, duration: 0.5, ease: "easeOut" }}
-                className="text-left hidden sm:block"
-              >
-                <div className="text-white font-bold text-lg leading-tight">Quality Spares</div>
-                <div className="text-[#94a3b8] text-xs mt-0.5">Shreeji Hydraulics</div>
-              </motion.div>
-            </div>
-
-            {/* Orbital loader dots */}
-            <div className="relative w-14 h-14">
-              {[0, 1, 2].map((i) => (
-                <motion.div
-                  key={i}
-                  animate={{ rotate: 360 }}
-                  transition={{
-                    duration: 1.2 + i * 0.2,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="absolute inset-0"
-                  style={{ transformOrigin: "center center" }}
+                  initial={{ opacity: 0, x: -12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.8, duration: 0.5, ease: "easeOut" }}
+                  className="hidden text-left sm:block"
                 >
-                  <div
-                    className="absolute w-2.5 h-2.5 rounded-full bg-[#FFBE00] shadow-[0_0_12px_#FFBE00]"
-                    style={{
-                      top: "50%",
-                      left: "50%",
-                      transform: `rotate(${i * 120}deg) translateY(-22px) translateX(-50%)`,
-                    }}
-                  />
+                  <div className="text-sm font-semibold text-white">
+                    Quality Spares
+                  </div>
+                  <div className="text-xs uppercase tracking-[0.28em] text-slate-300">
+                    Shreeji Hydraulics
+                  </div>
                 </motion.div>
-              ))}
-              <motion.div
-                animate={{ scale: [1, 1.08, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-3 rounded-full border-2 border-[#FFBE00]/20"
-              />
-            </div>
+              </div>
+            </motion.div>
 
-            {/* Progress bar */}
-            <div className="w-48 h-1 rounded-full bg-white/10 overflow-hidden">
-              <motion.div
-                className="h-full rounded-full bg-gradient-to-r from-[#FFBE00] via-[#f59e0b] to-[#FFBE00]"
-                style={{ width: `${progress}%` }}
-                transition={{ duration: 0.1 }}
-              />
-            </div>
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="text-[#64748b] text-[10px] font-mono tracking-widest -mt-6"
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.55, duration: 0.45, ease: "easeOut" }}
+              className="mt-5 text-[11px] font-semibold uppercase tracking-[0.38em] text-slate-300"
             >
-              {progress}%
-            </motion.span>
+              Refreshing experience
+            </motion.div>
+
+            <div className="mt-8 flex w-56 flex-col items-center sm:w-64">
+              <div className="mb-3 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
+                <motion.div
+                  className="h-full rounded-full bg-gradient-to-r from-[#ffbe00] via-[#38bdf8] to-[#8b5cf6]"
+                  style={{ width: `${progress}%` }}
+                  transition={{ duration: 0.1 }}
+                />
+              </div>
+              <div className="text-[11px] font-mono uppercase tracking-[0.36em] text-slate-400">
+                {progress}%
+              </div>
+            </div>
           </div>
         </motion.div>
       )}

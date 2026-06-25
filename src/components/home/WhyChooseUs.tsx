@@ -8,22 +8,26 @@ const usps = [
   {
     icon: Factory,
     title: "Advanced Manufacturing",
-    description: "Our state-of-the-art facility in Rajkot integrates advanced CNC turning centers, vertical machining centers (VMC), and specialized hydraulic test rigs to produce parts with micron-level dimensional accuracy.",
+    description:
+      "Our state-of-the-art facility in Rajkot integrates advanced CNC turning centers, vertical machining centers (VMC), and specialized hydraulic test rigs to produce parts with micron-level dimensional accuracy.",
   },
   {
     icon: Map,
     title: "Pan-India Reach",
-    description: "We serve contractors, dealers, and fleet operators across India from our primary distribution hubs. Our optimized logistics network ensures reliable, on-time shipment of critical spares to minimize your machine downtime.",
+    description:
+      "We serve contractors, dealers, and fleet operators across India from our primary distribution hubs. Our optimized logistics network ensures reliable, on-time shipment of critical spares to minimize your machine downtime.",
   },
   {
     icon: BadgeCheck,
     title: "Quality Assured",
-    description: "We are an ISO 9001:2015 certified manufacturer. Every single hydraulic seal, cylinder component, and pin undergoes strict quality control checks and stress tests at multiple production stages to ensure field reliability.",
+    description:
+      "We are an ISO 9001:2015 certified manufacturer. Every single hydraulic seal, cylinder component, and pin undergoes strict quality control checks and stress tests at multiple production stages to ensure field reliability.",
   },
   {
     icon: Wrench,
     title: "Specialized Solutions",
-    description: "Our experienced engineering team provides custom hydraulic fabrication and technical consulting. We deliver bespoke parts built to exact OEM drawings and specifications for JCB, Terex, CAT, and Hitachi fleets.",
+    description:
+      "Our experienced engineering team provides custom hydraulic fabrication and technical consulting. We deliver bespoke parts built to exact OEM drawings and specifications for JCB, Terex, CAT, and Hitachi fleets.",
   },
 ];
 
@@ -40,10 +44,15 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">Our Advantages</span>
-          <h2 className="text-4xl font-black text-[#111111] mb-4">Why Choose Teckon?</h2>
+          <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">
+            Our Advantages
+          </span>
+          <h2 className="text-4xl font-black text-[#111111] mb-4">
+            Why Choose Teckon?
+          </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            With 25+ years in the hydraulic parts industry, Teckon stands apart through quality, reliability, and technical expertise.
+            With 25+ years in the hydraulic parts industry, Teckon stands apart
+            through quality, reliability, and technical expertise.
           </p>
         </motion.div>
 
@@ -59,10 +68,15 @@ export default function WhyChooseUs() {
                 className="group bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-teckon-blue transition-colors">
-                  <Icon size={22} className="text-teckon-blue group-hover:text-white transition-colors" />
+                  <Icon
+                    size={22}
+                    className="text-teckon-blue group-hover:text-white transition-colors"
+                  />
                 </div>
                 <div className="font-bold text-[#111111] mb-2">{usp.title}</div>
-                <p className="text-gray-600 text-sm leading-relaxed">{usp.description}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {usp.description}
+                </p>
               </motion.div>
             );
           })}

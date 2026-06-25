@@ -207,10 +207,14 @@ export async function sendInquiryAction(data: ContactFormData) {
                   <td class="info-label">Phone</td>
                   <td class="info-value">
                     <a href="tel:${data.phone}">${data.phone}</a>
-                    ${cleanPhoneForWhatsapp ? `
+                    ${
+                      cleanPhoneForWhatsapp
+                        ? `
                       <span style="color: #cbd5e1; margin: 0 8px;">|</span>
                       <a href="https://wa.me/${cleanPhoneForWhatsapp}" target="_blank" style="color: #25D366; font-size: 13px; text-decoration: none; font-weight: 600;">💬 WhatsApp</a>
-                    ` : ""}
+                    `
+                        : ""
+                    }
                   </td>
                 </tr>
                 <tr>
@@ -229,7 +233,7 @@ export async function sendInquiryAction(data: ContactFormData) {
               </div>
               
               <div style="text-align: center; margin-top: 32px;">
-                <a href="mailto:${data.email}?subject=RE: ${encodeURIComponent(data.subject || 'Website Inquiry')}" class="cta-btn">Reply to Customer</a>
+                <a href="mailto:${data.email}?subject=RE: ${encodeURIComponent(data.subject || "Website Inquiry")}" class="cta-btn">Reply to Customer</a>
               </div>
             </div>
             
@@ -244,7 +248,9 @@ export async function sendInquiryAction(data: ContactFormData) {
   `;
 
   try {
-    const fromEmail = process.env.RESEND_FROM_EMAIL || "Teckon Inquiries <onboarding@resend.dev>";
+    const fromEmail =
+      process.env.RESEND_FROM_EMAIL ||
+      "Teckon Inquiries <onboarding@resend.dev>";
     const toEmail = process.env.RESEND_TO_EMAIL || "dishenmakwana.dm@gmail.com";
 
     const { data: resData, error } = await resend.emails.send({

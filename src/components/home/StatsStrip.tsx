@@ -31,9 +31,12 @@ function Counter({ end, suffix, label, duration = 2000 }: CounterProps) {
   return (
     <div ref={ref} className="text-center">
       <div className="text-5xl font-black text-[#FFBE00] mb-1">
-        {count.toLocaleString()}{suffix}
+        {count.toLocaleString()}
+        {suffix}
       </div>
-      <div className="text-white/80 text-sm font-medium uppercase tracking-wider">{label}</div>
+      <div className="text-white/80 text-sm font-medium uppercase tracking-wider">
+        {label}
+      </div>
     </div>
   );
 }

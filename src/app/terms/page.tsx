@@ -3,7 +3,8 @@ import TermsClient from "@/components/terms/TermsClient";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions | Teckon™ Quality Spares",
-  description: "Terms and conditions for using Teckon™ Quality Spares (Shreeji Hydraulics) website and services.",
+  description:
+    "Terms and conditions for using Teckon™ Quality Spares (Shreeji Hydraulics) website and services.",
   keywords: [
     "Teckon terms of service",
     "Shreeji Hydraulics terms & conditions",
