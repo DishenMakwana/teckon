@@ -81,10 +81,10 @@ Build me a professional **B2C corporate website in Next.js** for **Shreeji Hydra
 
 ### 🧱 Tech Stack
 
-- **Framework:** Next.js 16+ (App Router). Create the website in Next.js, using reusable components, route-level metadata (such as dynamic sitemaps and robots.txt), and clean file structure.
+- **Framework:** Next.js 16+ (App Router). Create the website in Next.js, using reusable components, route-level metadata (such as dynamic sitemaps and robots.txt), and clean file structure. All client-interactive logic must be stored inside dedicated files in `src/components/` (e.g., `src/components/products/ProductsClient.tsx`, `src/components/blog/BlogList.tsx`, `src/components/contact/ContactClient.tsx`, `src/components/privacy-policy/PrivacyPolicyClient.tsx`, `src/components/terms/TermsClient.tsx`), keeping the `src/app/` folder strictly for routing and page-level metadata.
 - **Styling:** Tailwind CSS v4 (configured via `@import` and `@theme` in globals.css)
 - **Icons:** Lucide React
-- **Animations:** Framer Motion for subtle entrance and scroll-reveal animations
+- **Animations:** Framer Motion for entrance, scroll-reveal, layout transitions, and interactive component animations
 - **Carousel:** Swiper.js for product and testimonial sliders
 - **Forms:** React Hook Form with validation, country-code selection dropdown, and numeric input sanitization
 - **Maps:** Embed a Google Maps iframe for the contact page (displayed side-by-side with the inquiry form)
@@ -129,10 +129,12 @@ Build the following pages:
 #### Main Navigation
 
 - Logo on the left: "Teckon™"
-- Nav links: Home | About Us | Products (dropdown) | Quality | Events | Careers | Blog | Contact
-- Products dropdown shows product categories (JCB Spares, Terex Parts, CAT Components, Breakers & Tippers, L770 / Tata JD, Excavator Parts, General Hydraulics)
+- Nav links: Home | About Us | Products (Mega-Menu) | Quality | Events | Careers | Blog | Contact
+- **Mega-Menu Dropdown:** Hovering over "Products" opens a 720px wide dual-column mega-menu panel.
+  - Left Side: A 2-column grid of product categories (JCB Spares, Terex Parts, CAT Components, Breakers & Tippers, L770 / Tata JD, Excavator Parts, General Hydraulics) styled with detailed descriptive subtitles and corresponding Lucide icons (e.g. `Boxes`, `Cpu`, `Wrench`).
+  - Right Side: An interactive promo/callout banner highlighting the Diagnostics Bench tool and linking to the `#diagnostics` anchor.
 - Sticky on scroll with a subtle box-shadow when scrolled
-- Mobile: Hamburger menu with slide-out drawer
+- Mobile: Hamburger menu with slide-out drawer containing category list items with matching icons.
 
 #### Footer
 
@@ -215,33 +217,47 @@ Build these sections in order:
   - 🔧 **Specialized Solutions** — Custom hydraulic parts for JCB, Terex, CAT, and more
 - Cards: white background, icon in `#1E293B`, hover lift animation
 
-#### 1.6 Our Partners / Clients
+#### 1.6 Diagnostics Bench & Cylinder Simulator
+
+- Section ID: `diagnostics`
+- Section title: "Diagnostics Bench & Mechanical Telemetry"
+- Interactive mechanical SVG Cylinder Blueprint Simulator that dynamically resizes (bore height, rod thickness, stroke length) based on fader inputs, displaying dynamic dimension markers in millimeters.
+- A high-precision `requestAnimationFrame` loop to animate piston stroke movement, linking cycle time directly to physical speed calculations (slowing down for larger volumes and speeding up with higher pump flow rates).
+- Oil ingress/egress coloring (high-pressure orange-red vs. low-pressure blue-green) and port arrows indicating flow direction.
+- Manual inspection mode with an auto-cycle toggle and a position slider.
+- Custom faders with CSS gradients and glow effects, and a neon-accented SVG gauge showing mechanical force outputs.
+- Display telemetry data labels (e.g., piston speed, pressure, output force) absolute-positioned to avoid overlaps on smaller screens.
+
+#### 1.7 Our Partners / Clients
 
 - Section title: "Our Trusted Partners"
 - Horizontal scrolling logo strip (grayscale logos on hover → color)
 - 8–10 partner logo boxes
 - Auto-scroll marquee animation
 
-#### 1.7 Global Presence
+#### 1.8 Global Presence
 
 - Section title: "Our Global Presence"
-- Left: descriptive text about Teckon's India reach and supply network
-- Right: interactive/responsive India map built with `@svg-maps/india` package
-- Highlight these states properly:
+- Responsive two-column grid on desktop:
+  - Left Column: "Pan-India Supply Network" text, states list, smaller tags/chips fit cleanly in a single line.
+  - Right Column: Interactive SVG map of India in a glassmorphic container with no extra padding or column gap.
+- Interactive SVG map highlights these states:
   - Gujarat (HQ, Primary Supply Hub: Rajkot - `#FFBE00`)
   - Rajasthan (Key Distribution Partner: Jaipur & Jodhpur - `#FF9D3D`)
   - Maharashtra (Distribution Hub: Pune & Mumbai - `#FF6B35`)
   - Madhya Pradesh (Central Network Node: Indore & Bhopal - `#E84393`)
-- Highlighted states should use their distinct color schemes, while other states remain semi-transparent white/gray.
-- Add hover/click state triggers and display an interactive State Info panel showing name, city, role, and details when hovered or selected.
-- Include a small interactive legend listing the states, enabling users to click to select/toggle.
-- Stat chips: "Strong Reach Across 4 States", "Trusted Hydraulic Spares Network", "Serving Gujarat, Rajasthan, Maharashtra & Madhya Pradesh"
+- Dynamic active state details panel is relocated directly underneath the SVG map (removing the redundant legend selection card from the left column). Both column cards expand to equal height.
 
-#### 1.8 Testimonials
+#### 1.9 Testimonials
 
 - Testimonial cards in a Swiper.js carousel with autoplay and pagination dot controls.
 - Quote, client name, company, star rating, and initials-based avatar with colored gradient backgrounds.
 - Use 6 real reviews representing key clients (e.g. from Jaipur, Pune, Indore, Udaipur, Nashik) testifying to the quality and durability of JCB, Terex, CAT, and Hitachi spares.
+
+#### 1.10 Our Blog / News
+
+- Section title: "Latest Technical Insights"
+- Preview row of 3 recent blog cards (linking to `/blog/[slug]`), matching the full-width button styles, typography, and hover effects of the product cards.
 
 ---
 
@@ -303,29 +319,39 @@ Sections in order:
 - Title: "Hydraulic Parts & Spares — Product Catalog"
 - Breadcrumb: Home > Products
 
-#### 3.2 Filter Bar
+#### 3.2 Search & Filter Bar
 
-- Tab-based filter by category
-- Categories: JCB Spares | L770 / Tata JD | Terex Parts | CAT Components | Breakers & Tippers | Excavator Parts | General Hydraulics | All Products
-- Filter selection must sync with the URL parameter `?category=<category>` (e.g. `?category=jcb`), dynamically reading URL parameters on page load using `useSearchParams()` wrapped inside a Next.js `Suspense` boundary.
+- Custom filter/search control bar:
+  - Left Side: Full-width search input with a debounced update callback. Next to it, a "Customer Choice" (⭐) toggle filter that highlights popular parts (`mostUsed: true`).
+  - Right Side: Icon-only filter dropdown styled as a premium glassmorphic floating popover (`bg-white/95 backdrop-blur-lg border shadow-2xl p-1.5`) featuring a pulsing active status badge.
+- Selected filters and search terms sync in real-time with URL search queries (`?category=<category>&search=<term>&mostUsed=true`).
+- Categories: JCB Spares | L770 / Tata JD | Terex Parts | CAT Components | Breakers & Tippers | Excavator Parts | General Hydraulics | All Products.
+- The catalog uses a round-robin category interleaving algorithm to display a dynamic, diverse selection of parts.
 
-#### 3.3 Product Grid
+#### 3.3 Product Grid & Pagination
 
-- Responsive 3-column grid (2 on tablet, 1 on mobile)
+- Responsive 3-column grid (2 on tablet, 1 on mobile).
+- Load-on-scroll pagination: Limit initial load to 12 products. Use `IntersectionObserver` to trigger incremental loading with a simulated 100ms database fetching delay and a spinning circular loader.
 - Each product card contains:
-  - Product image loading WebP asset (`/images/product-jcb.webp` or `/images/product-excavator.webp`) using a custom `SafeImage` or Next.js `Image` component. LCP images should load eagerly (`loading="eager"` or `priority`).
+  - Product image loading WebP asset using a custom `SafeImage` or Next.js `Image` with standard studio-grey background (`bg-[#bebcbd]`) and `object-contain` to prevent bad cropping.
   - Model Code (e.g., `TQS-JCB-001`)
   - Reference number (e.g., `REF-20/925345`)
   - Short description
-  - "View Details" button
-- Hover: card lifts with shadow, button changes color (standardized hover darkening effect)
+  - Category badge positioned at the bottom-right (`bottom-3 right-3`).
+  - Entire card is wrapped in a link to prevent nested anchor errors.
+- Hover: spring-based entrance and exit animation transitions, card lift, and full-width hover effects.
 
 #### 3.4 Product Detail Page `/products/[slug]`
 
 - Title: product name
-- Image gallery (2–3 WebP images)
-- Specs table: dimensions, pressure rating, flow rate, applications
-- Inquiry CTA buttons: "Request a Quote" (links to `/contact` with pre-filled subject) and "WhatsApp" (direct link)
+- Image gallery with custom `ProductImageViewer` supporting lightbox animations, zoom levels, double-click shortcuts, and grab-to-pan dragging.
+- Specs Bento Grid: Custom bento cards showing weight, materials, dimensions, and pressure ratings. Includes an animated gear SVG rotating clockwise or anti-clockwise matching the product's actual rotation spec.
+- **B2B Integration Panel (`ProductB2BPanel`):**
+  - **Fitment Checker:** Input box where B2B buyers can enter their machinery model code to instantly verify compatibility.
+  - **Cutoff Timer:** Live countdown timer counting down to 5:00 PM (same-day shipping cutoff).
+  - **Delivery Estimator:** Real-time shipping duration estimation table.
+  - **CAD & Diagrams:** Direct download buttons for CAD models and hydraulic blueprints.
+  - **Wholesale RFQ Form:** Instant multi-item request for quotation.
 
 ---
 
@@ -391,10 +417,12 @@ Sections in order:
 
 ### 📄 Page 7 — Blog `/blog`
 
-#### 7.1 Blog Grid
+#### 7.1 Blog Grid with Debounced Search
 
-- 3-column card grid
-- Each card: Featured image, date, category tag, article title, excerpt, "Read More" link
+- Page header featuring full-width search inputs and category filters.
+- Debounced search queries and filter selections sync directly with URL parameters.
+- 3-column card grid displaying real, content-specific cropped 2:1 WebP images.
+- Cards: Featured image, date, category tag, article title, excerpt, full-width solid action button.
 - Real detailed blog articles related to JCB and Hitachi auto parts with animations and clean UI. Examples:
   - "The Complete Guide to Hydraulic System Maintenance"
   - "Hitachi Excavator Hydraulics: EX200 & Zaxis Troubleshooting"
@@ -403,8 +431,10 @@ Sections in order:
 
 #### 7.2 Individual Blog Post `/blog/[slug]`
 
-- Full article view with hero image, date, author, content
-- Related articles section at the bottom
+- Viewport-top floating reading progress bar indicating scroll height.
+- Sticky editorial sidebar layout displaying author biography, publication details, and quick sharing controls.
+- Full article view with hero image, date, author, content.
+- Related articles section at the bottom in a 4-column layout.
 
 ---
 
@@ -446,15 +476,20 @@ On submit: Calls a Next.js Server Action (`sendInquiryAction`) to deliver the em
 
 ### 📄 Page 9 — Privacy Policy `/privacy-policy`
 
-- Standard privacy policy page with dark heading and white card content
-- Sections: Data Collection (distinguishing Personally Identifiable Information and Derivative/Usage Data), Data Usage, Cookies, Data Sharing (documenting trusted third-party service providers like Resend for email delivery), User Rights
+- Premium glassmorphic layout featuring a sticky sidebar directory.
+- Sticky navigation links track document scroll height using an `IntersectionObserver`.
+- Includes a live document-wide keyword search filter highlighting matches in real-time.
+- Summary TL;DR panels providing bulleted takeaways at the start of each section.
+- Print utility and copy-link helpers.
+- Sections: Data Collection (distinguishing Personally Identifiable Information and Derivative/Usage Data), Data Usage, Cookies, Data Sharing (documenting trusted third-party service providers like Resend for email delivery), User Rights.
 
 ---
 
 ### 📄 Page 10 — Terms & Conditions `/terms`
 
-- Standard T&C page
-- Sections: Acceptance, Intellectual Property Rights, Use of OEM Part Numbers and Trademarks (aftermarket parts disclaimer specifying 'For Reference Only', 'No Affiliation', 'Aftermarket Products' and 'Ownership of Trademarks'), Product Information, Prohibited Use, Limitation of Liability, Warranty, Governing Law (India)
+- Premium glassmorphic layout matching the Privacy Policy's interactive navigation, real-time search, and TL;DR summary card structure.
+- Sections: Acceptance, Intellectual Property Rights, Use of OEM Part Numbers and Trademarks, Product Information, Prohibited Use, Limitation of Liability, Warranty, Governing Law (India).
+- **OEM Trademark Disclaimer:** A prominent legal disclaimer specifying that all manufacturer names, symbols, descriptions, and OEM part numbers are used strictly for reference purposes, clarifying that Teckon is an independent supplier of aftermarket parts with no OEM affiliation.
 
 ---
 
@@ -534,12 +569,14 @@ If logo or images are not yet available, use:
 - Contact form must validate inputs, show success/error alerts, and send inquiry via Resend Server Action (Secure email delivery)
 - Mobile hamburger menu must animate smoothly
 - Homepage must include a responsive India map using the `@svg-maps/india` package, with Gujarat, Rajasthan, Maharashtra, and Madhya Pradesh highlighted accurately with distinct colors, hover/click details panel, and legend list
+- Homepage must feature an interactive Diagnostics Bench telemetry cylinder simulator with fader control binds and dynamic metrics output.
 - WhatsApp buttons link to appropriate phone numbers (+91-94269 15578 / +91-94262 02945)
 - Direct call buttons link to +91-63518 79842, +91-94269 15578, and +91-94262 02945 where appropriate
 - Quick inquiry buttons are available on every page
 - All contact numbers and email are clickable and functional
 - Home, About Us, Products, Quality, Events, Careers, Blog, Contact, Privacy Policy, Terms, product details, and blog details must open on their own URLs, not as same-page anchor sections
 - Product catalog filters sync selection with URL parameters (`?category=<category>`), handling dynamic router/view transition states correctly with Next.js router and Suspense
+- Product details page contains the custom B2B fitment checker, countdown timer, delivery estimator, specs bento grid with rotating gear SVG, and zoom/pan image lightbox popup viewer.
 
 ---
 

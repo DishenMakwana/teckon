@@ -94,6 +94,12 @@ This file serves as the agent's short-term memory of recent tasks, issues resolv
 - **Task:** Consolidate redundant technical specifications cards and optimize detail page layout.
 - **Action:** Merged product `weight` and `material` properties dynamically into the top "TECHNICAL SPECIFICATIONS" bento grid on [page.tsx](file:///Users/dishen/Downloads/test/src/app/products/[slug]/page.tsx) and resolved duplicate properties. Added custom card rendering with the `Scale` icon from `lucide-react` for physical weights. Removed Card 2 (specifications summary table) from [ProductB2BPanel.tsx](file:///Users/dishen/Downloads/test/src/components/products/ProductB2BPanel.tsx) and converted layout container to a clean flex column stack to prevent layout imbalances. Verified clean linter execution and successful production build with zero errors.
 
+### Session: June 25, 2026
+- **Task:** Update README file and website-prompt.md with modern codebase features.
+- **Action:** Overwrote default `README.md` with fully-detailed project documentation, technology stack specifications, advanced features summary, and local setup guide. Modified `md/website-prompt.md` to document missing telemetry diagnostics bench, 720px mega-menu, products category interleaving, search & pagination, product details B2B panel (fitment checker, timer, estimators, gear SVG), blog scroll progress bar, sticky sidebars with TL;DR, and success criteria.
+- **Task:** Fix PDF print layouts and restore direct print method for Privacy Policy and Terms and Conditions pages.
+- **Action:** Restored direct `window.print()` triggers in [PrivacyPolicyClient.tsx](file:///Users/dishen/Downloads/test/src/components/privacy-policy/PrivacyPolicyClient.tsx) and [TermsClient.tsx](file:///Users/dishen/Downloads/test/src/components/terms/TermsClient.tsx) to avoid opening a blank window per user request. Overhauled print-specific media queries (`@media print`) in [globals.css](file:///Users/dishen/Downloads/test/src/app/globals.css) to hide layout shells, hero headers (`#privacy-hero`, `#terms-hero`), sidebar navigation menus, and floating actions. Ensured the main wrapper elements expand to full width and backgrounds/borders/paddings are stripped so that direct print output contains ONLY the policy text data points. Verified Next.js build compiles successfully.
+
 ## Previous Milestones
 1. **SEO Optimization & Keyword Audit:** Updated configurations, keywords, and tags.
 2. **Inquiry Form Container Update:** Wrapped the inquiry form in a styled card component for visual layout improvement.

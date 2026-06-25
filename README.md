@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Teckon — Premium Heavy Machinery Hydraulic Spares Portal
 
-## Getting Started
+Teckon™ (Shreeji Hydraulics, founded in 2000) is a premium, modern B2B/B2C manufacturing showcase portal for heavy machinery hydraulic parts and spares (specializing in JCB, Hitachi, CAT, Terex, Tata JD, and Case components).
 
-First, run the development server:
+Designed with a high-fidelity industrial visual identity (heavy-machinery JCB yellow, dark slate-blue branding) and packed with interactive telemetry tools, dynamic B2B panels, and optimized filtering systems.
 
+---
+
+## 🛠️ Technology Stack
+
+- **Framework:** [Next.js 16 (App Router)](https://nextjs.org/)
+- **Library:** [React 19](https://react.dev/)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Interactive Maps:** `@svg-maps/india` & `topojson-client` (SVG India Map Chart)
+- **Sliders/Carousel:** `swiper` (Autoplay category & review sliders)
+- **Forms & Validation:** `react-hook-form` & `react-phone-number-input`
+- **Email Delivery:** `resend` (API for RFQ submissions)
+
+---
+
+## 🌟 Advanced Features Implemented
+
+### 1. ⚙️ Interactive Diagnostics Bench & Cylinder Simulator
+- Interactive SVG Cylinder Blueprint Simulator responsive to user faders (adjusting Bore, Rod, and Stroke in real-time).
+- High-precision `requestAnimationFrame` animation loop rendering mechanical movement.
+- Visual telemetry details including oil flow indicator arrows (High-pressure orange/red vs. low-pressure blue/green).
+- Interactive presets, manual position slider, auto-cycle, and a high-fidelity neon-accented SVG gauge showing mechanical force metrics.
+
+### 2. 🗺️ Interactive Pan-India Supply Network
+- Custom SVG map of India highlighting primary nodes: Gujarat (HQ, Primary Supply Hub), Rajasthan, Maharashtra, and Madhya Pradesh.
+- Real-time details panel reflecting state-specific information (hubs, roles, distribution points) on hover/click.
+- Interactive legend toggle to highlight regions and custom responsive sizing.
+
+### 3. 🔩 Intelligent Products Catalog & B2B Fitment Checker
+- **Interleaved Listing:** Displays products using a round-robin category interleaving algorithm to showcase a diverse catalog.
+- **Search & Filters:** Debounced search, a custom floating glassmorphic category filter popover, and a "Customer Choice" (⭐) toggle filter.
+- **Infinite Pagination:** Load-on-scroll layout with a 100ms simulated database fetching latency and skeleton loaders.
+- **Image Lightbox:** Custom lightbox modal supporting click-to-zoom, panning/dragging, and viewport centering.
+- **Product B2B Panel (`/products/[slug]`):**
+  - **Fitment Checker:** Direct search to check machinery compatibility.
+  - **Cutoff Timer:** Live 5:00 PM shipping cutoff countdown timer.
+  - **Delivery Estimator:** Live ETA dates for major industrial regions.
+  - **Resource Downloads:** High-fidelity CAD drawing and technical diagram links.
+  - **Wholesale RFQ Form:** Instant multi-item request for quotation.
+
+### 4. 📰 Reading Progress & Blog Filters
+- Fully featured Blog listing page with search and category filters.
+- **Reading Progress Bar:** Floating scroll progress indicator on blog post detail pages.
+- Sticky editorial sidebar structure with author details and related posts carousel.
+
+### 5. 📑 Glassmorphic Sticky Legal Docs
+- Overhauled Privacy Policy and Terms and Conditions pages.
+- Glassmorphic sidebars tracking scroll height via `IntersectionObserver`.
+- Document-wide keyword search inputs highlighting matched sections in real-time.
+- Summary TL;DR panels providing bulleted takeaways for corporate users.
+
+### 6. 📞 B2B Quick Actions Rail
+- Desktop floating action rail and a sticky bottom mobile CTA bar with direct phone calls, WhatsApp chat pre-filled templates, and instant inquiry forms.
+- Dual-column 720px header Mega-Menu featuring Lucide icons and telemetry banner links.
+
+---
+
+## 💻 Local Setup & Installation
+
+Follow these steps to run the Teckon portal locally on your development machine:
+
+### 1. Prerequisites
+Ensure you have [Node.js](https://nodejs.org/) (v18.x or later) and `npm` (or `yarn`/`pnpm`/`bun`) installed.
+
+### 2. Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd teckon
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Install Dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Setup Environment Variables
+Create a `.env` file (or copy from `env.example`) in the root directory:
+```bash
+cp env.example .env
+```
+Open the `.env` file and insert your credentials:
+```env
+RESEND_API_KEY=re_your_api_key_here
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 5. Run Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser to explore the portal.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 6. Building for Production
+To create a optimized production build:
+```bash
+npm run build
+npm run start
+```
+To run the ESLint linter check:
+```bash
+npm run lint
+```
