@@ -15,7 +15,7 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <Link
                 href="/"
-                className="bg-[#FFBE00] text-[#0B0F19] px-3 py-1.5 rounded-lg font-black text-xl hover:bg-[#1E293B] hover:text-white transition-colors"
+                className="bg-[#FFBE00] text-[#0B0F19] px-3 py-1.5 rounded-lg font-black text-lg hover:bg-[#1E293B] hover:text-white transition-colors"
               >
                 TECKON™
               </Link>
