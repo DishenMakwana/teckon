@@ -132,6 +132,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
+        <meta name="google-site-verification" content="lduhRliGufYaEskEbkeVH7WDBqR-Ju0T5I_dIUx45NE" />
       </head>
       <body className="font-sans bg-white text-gray-900 antialiased pb-16 md:pb-0">
         {/* Google Analytics */}
