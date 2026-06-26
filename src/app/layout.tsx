@@ -134,22 +134,6 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans bg-white text-gray-900 antialiased pb-16 md:pb-0">
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-E2K9Y2K7XG"
-          strategy="lazyOnload"
-        />
-        <Script id="google-analytics" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-E2K9Y2K7XG', {
-              page_path: window.location.pathname,
-            });
-          `}
-        </Script>
-
         {/* Facebook Pixel */}
         <Script id="facebook-pixel" strategy="lazyOnload">
           {`
