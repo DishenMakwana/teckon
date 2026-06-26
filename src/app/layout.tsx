@@ -132,7 +132,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-        <meta name="google-site-verification" content="lduhRliGufYaEskEbkeVH7WDBqR-Ju0T5I_dIUx45NE" />
       </head>
       <body className="font-sans bg-white text-gray-900 antialiased pb-16 md:pb-0">
         {/* Google Analytics */}
@@ -164,6 +163,20 @@ export default function RootLayout({
             'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '123456789012345');
             fbq('track', 'PageView');
+          `}
+        </Script>
+
+        {/* Google Tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-4H3G6CLV4Q"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-4H3G6CLV4Q');
           `}
         </Script>
 
