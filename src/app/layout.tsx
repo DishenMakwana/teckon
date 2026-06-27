@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/teckon.ico",
-    apple: "/apple-touch-icon.png",
+    apple: "/teckon.png",
   },
   keywords: [
     "hydraulic parts",
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/apple-touch-icon.png",
+        url: "/teckon.png",
         width: 512,
         height: 512,
         alt: "Teckon Quality Spares Logo",
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
     title: "Teckon™ Quality Spares | Premium Hydraulic Parts",
     description:
       "Shreeji Hydraulics (Teckon™) offers premium hydraulic parts & spares for JCB, Terex, CAT, and heavy machinery.",
-    images: ["/apple-touch-icon.png"],
+    images: ["/teckon.png"],
   },
 };
 
@@ -104,7 +104,7 @@ const organizationSchema = {
   name: "Shreeji Hydraulics",
   alternateName: "Teckon™ Quality Spares",
   url: "https://teckon.vercel.app",
-  logo: "https://teckon.vercel.app/apple-touch-icon.png",
+  logo: "https://teckon.vercel.app/teckon.png",
   contactPoint: [
     {
       "@type": "ContactPoint",
