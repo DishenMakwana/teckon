@@ -80,12 +80,21 @@ export const metadata: Metadata = {
     siteName: "Teckon™ Quality Spares",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/apple-touch-icon.png",
+        width: 512,
+        height: 512,
+        alt: "Teckon Quality Spares Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Teckon™ Quality Spares | Premium Hydraulic Parts",
     description:
       "Shreeji Hydraulics (Teckon™) offers premium hydraulic parts & spares for JCB, Terex, CAT, and heavy machinery.",
+    images: ["/apple-touch-icon.png"],
   },
 };
 
