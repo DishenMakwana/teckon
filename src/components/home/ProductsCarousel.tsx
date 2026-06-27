@@ -11,58 +11,68 @@ import { PRODUCTS } from "@/lib/data";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const categoriesList = ["jcb", "hitachi", "terex", "cat", "breakers", "l770", "excavator", "filters", "general"];
+const categoriesList = [
+  "jcb",
+  "hitachi",
+  "terex",
+  "cat",
+  "breakers",
+  "l770",
+  "excavator",
+  "filters",
+  "general",
+];
 
 // Pre-select one product from each category for SSR stability
-const defaultProducts = categoriesList.map(cat => 
-  PRODUCTS.find(p => p.category === cat)
-).filter(Boolean) as typeof PRODUCTS;
+const defaultProducts = categoriesList
+  .map((cat) => PRODUCTS.find((p) => p.category === cat))
+  .filter(Boolean) as typeof PRODUCTS;
 
 // Variants for Dribbble-style card hover interactions
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.9, y: 20 },
-  visible: { 
-    opacity: 1, 
-    scale: 1, 
+  visible: {
+    opacity: 1,
+    scale: 1,
     y: 0,
     transition: {
       type: "spring" as const,
       stiffness: 260,
-      damping: 25
-    }
+      damping: 25,
+    },
   },
-  exit: { 
-    opacity: 0, 
-    scale: 0.9, 
+  exit: {
+    opacity: 0,
+    scale: 0.9,
     y: 20,
     transition: {
-      duration: 0.2
-    }
+      duration: 0.2,
+    },
   },
-  hover: { 
+  hover: {
     y: -5,
     transition: {
       type: "spring" as const,
       stiffness: 380,
       damping: 35,
-      mass: 0.8
-    }
-  }
+      mass: 0.8,
+    },
+  },
 };
 
 const buttonVariants = {
   initial: { height: 0, opacity: 0, marginTop: 0, y: 10 },
-  hover: { 
+  hover: {
     height: 44, // exact height in pixels
-    opacity: 1, 
-    marginTop: 12, 
+    opacity: 1,
+    marginTop: 12,
     y: 0,
     transition: {
       type: "spring" as const,
       stiffness: 300,
-      damping: 25
-    }
-  }
+      damping: 25,
+    },
+  },
 };
 
 export default function ProductsCarousel() {
@@ -74,9 +84,10 @@ export default function ProductsCarousel() {
     // Pick one random product from each category
     const selected: typeof PRODUCTS = [];
     for (const cat of categoriesList) {
-      const catProducts = PRODUCTS.filter(p => p.category === cat);
+      const catProducts = PRODUCTS.filter((p) => p.category === cat);
       if (catProducts.length > 0) {
-        const randomProduct = catProducts[Math.floor(Math.random() * catProducts.length)];
+        const randomProduct =
+          catProducts[Math.floor(Math.random() * catProducts.length)];
         selected.push(randomProduct);
       }
     }
@@ -95,10 +106,15 @@ export default function ProductsCarousel() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">Our Catalogue</span>
-          <h2 className="text-4xl font-black text-[#111111] mb-4">Our Top Products</h2>
+          <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">
+            Our Catalogue
+          </span>
+          <h2 className="text-4xl font-black text-[#111111] mb-4">
+            Our Top Products
+          </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Supplying precision-engineered hydraulic spares for India&apos;s leading construction equipment brands since 2000.
+            Supplying precision-engineered hydraulic spares for India&apos;s
+            leading construction equipment brands since 2000.
           </p>
         </motion.div>
 
@@ -120,7 +136,10 @@ export default function ProductsCarousel() {
             className=""
           >
             {products.map((product) => (
-              <SwiperSlide key={product.slug} className="pb-12 flex animate-fade-in">
+              <SwiperSlide
+                key={product.slug}
+                className="pb-12 flex animate-fade-in"
+              >
                 <motion.div
                   variants={cardVariants}
                   initial="hidden"
@@ -129,7 +148,10 @@ export default function ProductsCarousel() {
                   whileHover="hover"
                   className="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl overflow-hidden flex flex-col h-full w-full transition-shadow duration-300"
                 >
-                  <Link href={`/products/${product.slug}`} className="flex flex-col flex-1 w-full relative">
+                  <Link
+                    href={`/products/${product.slug}`}
+                    className="flex flex-col flex-1 w-full relative"
+                  >
                     <div className="relative h-44 bg-[#bebcbd] border-b border-gray-100 overflow-hidden shrink-0">
                       <SafeImage
                         src={product.image}
@@ -149,12 +171,21 @@ export default function ProductsCarousel() {
                           ⚙️ Technical Specs
                         </span>
                         <div className="space-y-2 text-xs text-white">
-                          {Object.entries(product.specs || {}).slice(0, 3).map(([key, val]) => (
-                            <div key={key} className="flex justify-between items-center text-[11px]">
-                              <span className="text-white/60 font-semibold truncate pr-2">{key.replace(" (CC)", "")}</span>
-                              <span className="font-bold text-white truncate max-w-[120px] bg-white/5 px-2 py-0.5 rounded border border-white/5">{val as string}</span>
-                            </div>
-                          ))}
+                          {Object.entries(product.specs || {})
+                            .slice(0, 3)
+                            .map(([key, val]) => (
+                              <div
+                                key={key}
+                                className="flex justify-between items-center text-[11px]"
+                              >
+                                <span className="text-white/60 font-semibold truncate pr-2">
+                                  {key.replace(" (CC)", "")}
+                                </span>
+                                <span className="font-bold text-white truncate max-w-[120px] bg-white/5 px-2 py-0.5 rounded border border-white/5">
+                                  {val as string}
+                                </span>
+                              </div>
+                            ))}
                         </div>
                         <div className="mt-4 text-[9px] text-[#FFBE00] font-mono text-right flex items-center justify-end gap-1 font-bold">
                           View details <span>→</span>
@@ -165,17 +196,21 @@ export default function ProductsCarousel() {
                     {/* Content block */}
                     <div className="p-5 flex flex-col flex-grow">
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-[10px] text-[#FF6B35] font-mono font-bold bg-[#FF6B35]/10 px-2 py-0.5 rounded-md">{product.model}</span>
-                        <span className="text-[10px] text-slate-400 font-mono font-medium">OEM Ref: {product.ref}</span>
+                        <span className="text-[10px] text-[#FF6B35] font-mono font-bold bg-[#FF6B35]/10 px-2 py-0.5 rounded-md">
+                          {product.model}
+                        </span>
+                        <span className="text-[10px] text-slate-400 font-mono font-medium">
+                          OEM Ref: {product.ref}
+                        </span>
                       </div>
-                      
+
                       <h3 className="font-extrabold text-[#0B0F19] text-base mb-2 min-h-[48px] line-clamp-2 leading-snug group-hover:text-[#FF6B35] transition-colors">
                         {product.name}
                       </h3>
                       <p className="text-gray-500 text-xs mb-2 min-h-[32px] line-clamp-2 leading-relaxed">
                         {product.description}
                       </p>
-                      
+
                       {/* Dribbble-style Hover Reveal Button */}
                       <motion.div
                         variants={buttonVariants}

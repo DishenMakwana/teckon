@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
-import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, MessageCircle, Clock } from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { sendInquiryAction } from "@/app/actions/contact";
 
@@ -18,9 +18,68 @@ interface FormData {
   message: string;
 }
 
+const DAYS_OF_WEEK = [
+  { name: "Sunday", hours: "9:30 am – 12:30 am", index: 0 },
+  { name: "Monday", hours: "9:30 am – 7:30 pm", index: 1 },
+  { name: "Tuesday", hours: "9:30 am – 7:30 pm", index: 2 },
+  { name: "Wednesday", hours: "9:30 am – 7:30 pm", index: 3 },
+  { name: "Thursday", hours: "9:00 am – 7:30 pm", index: 4 },
+  { name: "Friday", hours: "9:30 am – 7:30 pm", index: 5 },
+  { name: "Saturday", hours: "9:30 am – 7:30 pm", index: 6 },
+];
+
+const getISTTime = () => {
+  const now = new Date();
+  const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+  return new Date(utc + 5.5 * 3600000);
+};
+
+const checkIfOpen = (date: Date) => {
+  const day = date.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const currentMin = hours * 60 + minutes;
+
+  // Crossover handling: Monday morning 12:00 AM to 12:30 AM is Sunday's late shift
+  if (day === 1 && currentMin < 30) {
+    return true;
+  }
+
+  // Sunday
+  if (day === 0) {
+    return currentMin >= 570;
+  }
+
+  // Thursday
+  if (day === 4) {
+    return currentMin >= 540 && currentMin <= 1170;
+  }
+
+  // Monday, Tuesday, Wednesday, Friday, Saturday
+  return currentMin >= 570 && currentMin <= 1170;
+};
+
 export default function ContactClient() {
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [currentTime, setCurrentTime] = useState<Date | null>(null);
+
+  useEffect(() => {
+    const initTimer = setTimeout(() => {
+      setCurrentTime(getISTTime());
+    }, 0);
+    const timer = setInterval(() => {
+      setCurrentTime(getISTTime());
+    }, 30000);
+    return () => {
+      clearTimeout(initTimer);
+      clearInterval(timer);
+    };
+  }, []);
+
+  const currentDayIndex = currentTime ? currentTime.getDay() : -1;
+  const isOpen = currentTime ? checkIfOpen(currentTime) : false;
+
   const {
     register,
     handleSubmit,
@@ -37,7 +96,7 @@ export default function ContactClient() {
       country: "India",
       subject: "",
       message: "",
-    }
+    },
   });
 
   const onSubmit = async (data: FormData) => {
@@ -65,28 +124,52 @@ export default function ContactClient() {
         setTimeout(() => setSubmitted(false), 5000);
       } else {
         // Map technical/backend errors to user-friendly messages
-        if (result.error === "CONFIGURATION_ERROR" || result.error === "DELIVERY_ERROR" || result.error === "SYSTEM_ERROR") {
-          setSubmitError("We couldn't process your inquiry at this time due to a temporary system error. Please try again later or contact us directly at shreejihyd4008@gmail.com / +91-63518 79842.");
+        if (
+          result.error === "CONFIGURATION_ERROR" ||
+          result.error === "DELIVERY_ERROR" ||
+          result.error === "SYSTEM_ERROR"
+        ) {
+          setSubmitError(
+            "We couldn't process your inquiry at this time due to a temporary system error. Please try again later or contact us directly at shreejihyd4008@gmail.com / +91-63518 79842."
+          );
         } else {
-          setSubmitError(result.error || "Failed to send inquiry. Please try again.");
+          setSubmitError(
+            result.error || "Failed to send inquiry. Please try again."
+          );
         }
       }
     } catch {
-      setSubmitError("An unexpected network error occurred. Please try again later or contact us directly.");
+      setSubmitError(
+        "An unexpected network error occurred. Please try again later or contact us directly."
+      );
     }
   };
 
   return (
     <>
       {/* Hero */}
-      <section id="contact-hero" className="bg-teckon-dark-blue py-20 relative overflow-hidden">
+      <section
+        id="contact-hero"
+        className="bg-teckon-dark-blue py-20 relative overflow-hidden"
+      >
         <div className="absolute inset-0 opacity-10">
-          <Image src="/images/contact-hero.webp" alt="A clean modern office workspace with phone, notebook, and heavy machinery blueprint" fill sizes="100vw" className="object-cover" priority />
+          <Image
+            src="/images/contact-hero.webp"
+            alt="A clean modern office workspace with phone, notebook, and heavy machinery blueprint"
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
+          />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <BreadcrumbBar items={[{ label: "Contact Us" }]} />
-          <h1 className="text-4xl sm:text-5xl font-black text-white mt-6 mb-4">Contact Us</h1>
-          <p className="text-white/70 text-xl max-w-2xl">Get a quick quote or reach out to our technical team.</p>
+          <h1 className="text-4xl sm:text-5xl font-black text-white mt-6 mb-4">
+            Contact Us
+          </h1>
+          <p className="text-white/70 text-xl max-w-2xl">
+            Get a quick quote or reach out to our technical team.
+          </p>
         </div>
       </section>
 
@@ -98,7 +181,8 @@ export default function ContactClient() {
               {
                 icon: MapPin,
                 title: "Address",
-                content: "36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat 360004",
+                content:
+                  "36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat 360004",
                 href: "https://maps.app.goo.gl/uxAsDhUD7DvfASts8",
               },
               {
@@ -132,29 +216,43 @@ export default function ContactClient() {
                   key={card.title}
                   href={card.href}
                   target={card.href.startsWith("http") ? "_blank" : undefined}
-                  rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  rel={
+                    card.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
                   className="group bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-teckon-blue hover:shadow-md transition-all flex flex-col justify-between"
                 >
                   <div>
                     <div className="w-12 h-12 bg-teckon-blue rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#FFBE00] transition-colors">
-                      <Icon size={20} className="text-white group-hover:text-[#0B0F19] transition-colors" />
+                      <Icon
+                        size={20}
+                        className="text-white group-hover:text-[#0B0F19] transition-colors"
+                      />
                     </div>
-                    <div className="font-bold text-[#111111] mb-1">{card.title}</div>
+                    <div className="font-bold text-[#111111] mb-1">
+                      {card.title}
+                    </div>
                   </div>
-                  <div className="text-gray-500 text-sm mt-2">{card.content}</div>
+                  <div className="text-gray-500 text-sm mt-2">
+                    {card.content}
+                  </div>
                 </a>
               );
             })}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Form */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300">
-              <h2 className="text-2xl font-black text-[#111111] mb-6">Send an Inquiry</h2>
+              <h2 className="text-2xl font-black text-[#111111] mb-6">
+                Send an Inquiry
+              </h2>
 
               {submitted && (
                 <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-6 text-green-700 font-semibold">
-                  ✅ Thank you! Your inquiry has been submitted. We&apos;ll get back to you shortly.
+                  ✅ Thank you! Your inquiry has been submitted. We&apos;ll get
+                  back to you shortly.
                 </div>
               )}
 
@@ -164,38 +262,59 @@ export default function ContactClient() {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="flex flex-col gap-4"
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Full Name *</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">
+                      Full Name *
+                    </label>
                     <input
-                      {...register("fullName", { required: "Please enter your full name" })}
+                      {...register("fullName", {
+                        required: "Please enter your full name",
+                      })}
                       className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all"
                       placeholder="Your full name"
                     />
-                    {errors.fullName && <p className="text-red-500 text-xs mt-1">{errors.fullName.message}</p>}
+                    {errors.fullName && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.fullName.message}
+                      </p>
+                    )}
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Email Address *</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">
+                      Email Address *
+                    </label>
                     <input
-                      {...register("email", { 
-                        required: "Please enter your email address", 
-                        pattern: { 
-                          value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i, 
-                          message: "Please enter a valid email address (e.g. name@domain.com)" 
-                        } 
+                      {...register("email", {
+                        required: "Please enter your email address",
+                        pattern: {
+                          value:
+                            /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i,
+                          message:
+                            "Please enter a valid email address (e.g. name@domain.com)",
+                        },
                       })}
                       type="email"
                       className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all"
                       placeholder="your@email.com"
                     />
-                    {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+                    {errors.email && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.email.message}
+                      </p>
+                    )}
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Phone Number *</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">
+                      Phone Number *
+                    </label>
                     <div className="flex gap-2">
                       <select
                         {...register("countryCode", {
@@ -212,7 +331,7 @@ export default function ContactClient() {
                               "+880": "Bangladesh",
                             };
                             setValue("country", countryMap[code] || "");
-                          }
+                          },
                         })}
                         className="w-28 shrink-0 border border-gray-200 rounded-xl pl-3 pr-7 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all bg-white font-medium custom-select-sm"
                       >
@@ -226,27 +345,35 @@ export default function ContactClient() {
                         <option value="+880">🇧🇩 +880</option>
                       </select>
                       <input
-                        {...register("phone", { 
+                        {...register("phone", {
                           required: "Please enter your 10-digit phone number",
                           pattern: {
                             value: /^[0-9]{10}$/,
-                            message: "Phone number must be exactly 10 digits"
-                          }
+                            message: "Phone number must be exactly 10 digits",
+                          },
                         })}
                         type="tel"
                         maxLength={10}
                         onInput={(e) => {
                           // Allow only numerical values, slice to 10 digits
-                          e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, "").slice(0, 10);
+                          e.currentTarget.value = e.currentTarget.value
+                            .replace(/[^0-9]/g, "")
+                            .slice(0, 10);
                         }}
                         className="flex-1 min-w-0 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all"
                         placeholder="Enter 10-digit number"
                       />
                     </div>
-                    {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
+                    {errors.phone && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.phone.message}
+                      </p>
+                    )}
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">City</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">
+                      City
+                    </label>
                     <input
                       {...register("city")}
                       className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all"
@@ -257,7 +384,9 @@ export default function ContactClient() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Country</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">
+                      Country
+                    </label>
                     <input
                       {...register("country")}
                       className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all"
@@ -266,7 +395,9 @@ export default function ContactClient() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Product / Subject</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">
+                      Product / Subject
+                    </label>
                     <select
                       {...register("subject")}
                       className="w-full border border-gray-200 rounded-xl pl-4 pr-10 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all bg-white custom-select"
@@ -287,14 +418,23 @@ export default function ContactClient() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">Message *</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">
+                    Message *
+                  </label>
                   <textarea
-                    {...register("message", { required: "Please describe your inquiry or parts requirement" })}
+                    {...register("message", {
+                      required:
+                        "Please describe your inquiry or parts requirement",
+                    })}
                     rows={5}
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all resize-none"
                     placeholder="Describe the hydraulic parts you need, your equipment model, and any specific requirements..."
                   />
-                  {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
+                  {errors.message && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.message.message}
+                    </p>
+                  )}
                 </div>
 
                 <button
@@ -307,18 +447,99 @@ export default function ContactClient() {
               </form>
             </div>
 
-            {/* Google Maps Embed */}
-            <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm min-h-[400px] h-full">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.442907409264!2d70.79357007503632!3d22.27978987969395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959cb00052e5469%3A0xd14f057e5cdfa24e!2sSHREEJI%20HYDRAULICS%20(TECKON)!5e0!3m2!1sen!2sin!4v1718800000000!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                allowFullScreen
-                loading="eager"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Teckon™ Shreeji Hydraulics Location — Gondal Road, Rajkot, Gujarat"
-                className="w-full h-full min-h-[400px] border-0"
-              />
+            {/* Right Column: Map + Hours */}
+            <div className="flex flex-col gap-6">
+              {/* Google Maps Embed */}
+              <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm h-80">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.442907409264!2d70.79357007503632!3d22.27978987969395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959cb00052e5469%3A0xd14f057e5cdfa24e!2sSHREEJI%20HYDRAULICS%20(TECKON)!5e0!3m2!1sen!2sin!4v1718800000000!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  allowFullScreen
+                  loading="eager"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Teckon™ Shreeji Hydraulics Location — Gondal Road, Rajkot, Gujarat"
+                  className="w-full h-full border-0"
+                />
+              </div>
+
+              {/* Operating Hours Card */}
+              <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col gap-4">
+                <div className="flex items-center justify-between border-b border-gray-100 pb-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg bg-teckon-blue/10 flex items-center justify-center text-teckon-blue">
+                      <Clock size={18} />
+                    </div>
+                    <span className="font-bold text-gray-800">
+                      Business Hours
+                    </span>
+                  </div>
+
+                  {currentTime && (
+                    <div className="flex items-center gap-1.5">
+                      <span className="relative flex h-2 w-2">
+                        <span
+                          className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
+                            isOpen ? "bg-green-400" : "bg-red-400"
+                          }`}
+                        ></span>
+                        <span
+                          className={`relative inline-flex rounded-full h-2 w-2 ${
+                            isOpen ? "bg-green-500" : "bg-red-500"
+                          }`}
+                        ></span>
+                      </span>
+                      <span
+                        className={`text-xs font-bold uppercase tracking-wider ${
+                          isOpen ? "text-green-600" : "text-red-500"
+                        }`}
+                      >
+                        {isOpen ? "Open Now" : "Closed Now"}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="flex flex-col gap-1.5 text-sm">
+                  {DAYS_OF_WEEK.map((day) => {
+                    const isToday = currentDayIndex === day.index;
+                    return (
+                      <div
+                        key={day.name}
+                        className={`flex items-center justify-between px-3 py-2 rounded-xl transition-all ${
+                          isToday
+                            ? "bg-[#FFBE00]/10 border-l-4 border-[#FFBE00] font-semibold text-[#111111]"
+                            : "text-gray-500 hover:bg-gray-50"
+                        }`}
+                      >
+                        <span
+                          className={
+                            isToday ? "text-[#111111]" : "text-gray-600"
+                          }
+                        >
+                          {day.name}{" "}
+                          {isToday && (
+                            <span className="text-xs text-[#FFBE00] ml-1">
+                              (Today)
+                            </span>
+                          )}
+                        </span>
+                        <span
+                          className={
+                            isToday ? "text-[#111111]" : "text-gray-500"
+                          }
+                        >
+                          {day.hours}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="text-[10px] text-gray-400 text-center mt-1">
+                  All operating times are listed in India Standard Time (IST)
+                </div>
+              </div>
             </div>
           </div>
         </div>

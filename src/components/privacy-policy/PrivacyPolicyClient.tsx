@@ -2,7 +2,16 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { Search, Printer, Link as LinkIcon, Check, FileText, HelpCircle, Mail, MessageSquare } from "lucide-react";
+import {
+  Search,
+  Printer,
+  Link as LinkIcon,
+  Check,
+  FileText,
+  HelpCircle,
+  Mail,
+  MessageSquare,
+} from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 
 interface Section {
@@ -17,38 +26,44 @@ const SECTIONS: Section[] = [
     id: "collection",
     title: "1. Data Collection",
     tldr: "We collect your contact details when you inquire (via forms/WhatsApp) and automatic technical details (IP, browser) to optimize site performance.",
-    content: "We collect information about you in two primary ways: (a) Personally Identifiable Information: This is information you voluntarily provide to us when expressing interest in our products or services, such as your name, email address, phone number, city, country, company name, and details specified in contact forms or WhatsApp inquiries. (b) Derivative/Usage Data: Our servers automatically collect certain technical details when you visit the website, including your IP address, browser type, operating system, page response times, access durations, and referral pages. This is used for internal analytics to optimize performance."
+    content:
+      "We collect information about you in two primary ways: (a) Personally Identifiable Information: This is information you voluntarily provide to us when expressing interest in our products or services, such as your name, email address, phone number, city, country, company name, and details specified in contact forms or WhatsApp inquiries. (b) Derivative/Usage Data: Our servers automatically collect certain technical details when you visit the website, including your IP address, browser type, operating system, page response times, access durations, and referral pages. This is used for internal analytics to optimize performance.",
   },
   {
     id: "usage",
     title: "2. Data Usage",
     tldr: "We only use your info to answer quotes, support your machinery needs, and improve our services. We never sell or rent your data.",
-    content: "The information we collect is used solely to: (a) respond to your product inquiries and quotation requests, (b) provide customer support and after-sales service, (c) send relevant product updates and offers with your consent, and (d) improve our website and services. We do not sell or rent your personal data to third parties."
+    content:
+      "The information we collect is used solely to: (a) respond to your product inquiries and quotation requests, (b) provide customer support and after-sales service, (c) send relevant product updates and offers with your consent, and (d) improve our website and services. We do not sell or rent your personal data to third parties.",
   },
   {
     id: "cookies",
     title: "3. Cookies",
     tldr: "We use essential cookies to run the site, and basic analytics to understand usage. You can disable them in your browser settings.",
-    content: "Our website uses essential cookies to ensure proper functionality. We may use analytics cookies to understand how visitors use our site. You can control cookie settings through your browser preferences. Declining non-essential cookies will not affect your ability to use the website."
+    content:
+      "Our website uses essential cookies to ensure proper functionality. We may use analytics cookies to understand how visitors use our site. You can control cookie settings through your browser preferences. Declining non-essential cookies will not affect your ability to use the website.",
   },
   {
     id: "security",
     title: "4. Data Security",
     tldr: "We use industry-standard encryption and strict access controls to protect your data from unauthorized access.",
-    content: "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. Your data is stored securely and access is restricted to authorized personnel only."
+    content:
+      "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. Your data is stored securely and access is restricted to authorized personnel only.",
   },
   {
     id: "sharing",
     title: "5. Data Sharing",
     tldr: "We only share data if legally required, or with trusted service partners (like Resend for email) under strict confidentiality.",
-    content: "We do not sell or rent your personal information to third parties. We may disclose your data in certain limited situations: (a) to comply with legal processes or regulations, (b) to protect our company rights or property, or (c) with trusted third-party service providers who assist in our operations (such as Resend for email delivery, hosting providers, or client support) under strict confidentiality agreements and only to perform tasks on our behalf."
+    content:
+      "We do not sell or rent your personal information to third parties. We may disclose your data in certain limited situations: (a) to comply with legal processes or regulations, (b) to protect our company rights or property, or (c) with trusted third-party service providers who assist in our operations (such as Resend for email delivery, hosting providers, or client support) under strict confidentiality agreements and only to perform tasks on our behalf.",
   },
   {
     id: "rights",
     title: "6. Your Rights",
     tldr: "You can request to see, edit, or delete your personal data at any time by contacting our support team.",
-    content: "You have the right to: access the personal data we hold about you, request correction of inaccurate data, request deletion of your data, withdraw consent at any time, and lodge a complaint with the relevant data protection authority."
-  }
+    content:
+      "You have the right to: access the personal data we hold about you, request correction of inaccurate data, request deletion of your data, withdraw consent at any time, and lodge a complaint with the relevant data protection authority.",
+  },
 ];
 
 export default function PrivacyPolicyClient() {
@@ -115,7 +130,10 @@ export default function PrivacyPolicyClient() {
   return (
     <>
       {/* Header */}
-      <section id="privacy-hero" className="bg-teckon-dark-blue py-20 relative overflow-hidden print:hidden">
+      <section
+        id="privacy-hero"
+        className="bg-teckon-dark-blue py-20 relative overflow-hidden print:hidden"
+      >
         {/* Decorative Grid & Glow */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-40" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#FFBE00]/5 rounded-full filter blur-3xl pointer-events-none" />
@@ -130,10 +148,12 @@ export default function PrivacyPolicyClient() {
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F19] via-[#0B0F19]/90 to-transparent" />
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <BreadcrumbBar items={[{ label: "Privacy Policy" }]} />
-          <h1 className="text-4xl sm:text-5xl font-black text-white mt-6 mb-4">Privacy Policy</h1>
+          <h1 className="text-4xl sm:text-5xl font-black text-white mt-6 mb-4">
+            Privacy Policy
+          </h1>
           <p className="text-white/70 text-lg sm:text-xl max-w-2xl">
             Last updated: June 2026 • Standard transparency guidelines
           </p>
@@ -141,13 +161,14 @@ export default function PrivacyPolicyClient() {
       </section>
 
       {/* Main Content Area */}
-      <section id="privacy-content" className="py-16 bg-gray-50 print:bg-white print:py-0">
+      <section
+        id="privacy-content"
+        className="py-16 bg-gray-50 print:bg-white print:py-0"
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 print:px-0">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
             {/* Left Column: Interactive Navigation & Search (print:hidden) */}
             <aside className="lg:col-span-4 lg:sticky lg:top-24 space-y-6 print:hidden">
-              
               {/* Search Box */}
               <div className="bg-white rounded-2xl border border-gray-200 p-4 shadow-sm space-y-3">
                 <label className="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
@@ -180,7 +201,9 @@ export default function PrivacyPolicyClient() {
                 </span>
                 <nav className="flex flex-col gap-1.5">
                   {SECTIONS.map((s) => {
-                    const isSectionVisible = filteredSections.some((fs) => fs.id === s.id);
+                    const isSectionVisible = filteredSections.some(
+                      (fs) => fs.id === s.id
+                    );
                     if (!isSectionVisible) return null;
                     const isActive = activeSection === s.id;
                     return (
@@ -193,13 +216,20 @@ export default function PrivacyPolicyClient() {
                             : "text-slate-600 hover:text-slate-800 hover:bg-slate-50 border-l-3 border-transparent"
                         }`}
                       >
-                        <FileText size={13} className={isActive ? "text-[#FFBE00]" : "text-slate-400"} />
+                        <FileText
+                          size={13}
+                          className={
+                            isActive ? "text-[#FFBE00]" : "text-slate-400"
+                          }
+                        />
                         <span className="truncate">{s.title}</span>
                       </button>
                     );
                   })}
                   {filteredSections.length === 0 && (
-                    <p className="text-slate-400 text-xs text-center py-4 italic">No matching sections</p>
+                    <p className="text-slate-400 text-xs text-center py-4 italic">
+                      No matching sections
+                    </p>
                   )}
                 </nav>
               </div>
@@ -212,9 +242,12 @@ export default function PrivacyPolicyClient() {
                     <HelpCircle size={10} />
                     Utility Actions
                   </span>
-                  <h3 className="text-white font-black text-sm">Need a physical copy?</h3>
+                  <h3 className="text-white font-black text-sm">
+                    Need a physical copy?
+                  </h3>
                   <p className="text-slate-400 text-[11px] leading-relaxed">
-                    You can print this document directly or save it as a local PDF for your compliance reference.
+                    You can print this document directly or save it as a local
+                    PDF for your compliance reference.
                   </p>
                   <button
                     onClick={handlePrint}
@@ -225,18 +258,18 @@ export default function PrivacyPolicyClient() {
                   </button>
                 </div>
               </div>
-
             </aside>
 
             {/* Right Column: Main Content Card */}
             <main className="lg:col-span-8 space-y-6 print:lg:col-span-12">
-              
               <div className="bg-white rounded-3xl shadow-sm border border-gray-200 p-6 sm:p-8 md:p-10 print:border-none print:shadow-none print:p-0">
-                
                 {/* Introduction statement */}
                 <div className="prose prose-slate max-w-none border-b border-gray-100 pb-6 mb-8 print:pb-3 print:mb-5">
                   <p className="text-slate-700 leading-relaxed text-sm sm:text-base font-medium">
-                    Teckon™ Quality Spares (Shreeji Hydraulics) is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information when you use our website or services.
+                    Teckon™ Quality Spares (Shreeji Hydraulics) is committed to
+                    protecting your privacy. This policy explains how we
+                    collect, use, and safeguard your personal information when
+                    you use our website or services.
                   </p>
                 </div>
 
@@ -262,8 +295,13 @@ export default function PrivacyPolicyClient() {
                           >
                             {isCopied ? (
                               <>
-                                <Check size={11} className="text-emerald-600 animate-scale-in" />
-                                <span className="text-emerald-700 font-bold">Copied</span>
+                                <Check
+                                  size={11}
+                                  className="text-emerald-600 animate-scale-in"
+                                />
+                                <span className="text-emerald-700 font-bold">
+                                  Copied
+                                </span>
                               </>
                             ) : (
                               <>
@@ -296,10 +334,12 @@ export default function PrivacyPolicyClient() {
                       </article>
                     );
                   })}
-                  
+
                   {filteredSections.length === 0 && (
                     <div className="text-center py-16 bg-slate-50 rounded-2xl border border-dashed border-slate-200">
-                      <p className="text-slate-400 text-sm font-bold">No sections match your search terms.</p>
+                      <p className="text-slate-400 text-sm font-bold">
+                        No sections match your search terms.
+                      </p>
                       <button
                         onClick={() => setSearchQuery("")}
                         className="mt-3 text-xs font-black text-[#FF6B35] hover:underline uppercase"
@@ -309,7 +349,6 @@ export default function PrivacyPolicyClient() {
                     </div>
                   )}
                 </div>
-
               </div>
 
               {/* Sticky bottom floating support contact bar (print:hidden) */}
@@ -322,7 +361,9 @@ export default function PrivacyPolicyClient() {
                     <h4 className="text-white text-xs font-black uppercase tracking-wider">
                       Compliance Officer Support
                     </h4>
-                    <p className="text-slate-400 text-[11px]">Have questions regarding your data privacy rights?</p>
+                    <p className="text-slate-400 text-[11px]">
+                      Have questions regarding your data privacy rights?
+                    </p>
                   </div>
                 </div>
                 <div className="flex gap-2 w-full sm:w-auto shrink-0">
@@ -344,9 +385,7 @@ export default function PrivacyPolicyClient() {
                   </a>
                 </div>
               </div>
-
             </main>
-
           </div>
         </div>
       </section>

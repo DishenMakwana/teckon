@@ -10,7 +10,10 @@ interface ProductImageViewerProps {
   alt: string;
 }
 
-export default function ProductImageViewer({ src, alt }: ProductImageViewerProps) {
+export default function ProductImageViewer({
+  src,
+  alt,
+}: ProductImageViewerProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scale, setScale] = useState(1);
   const [dragKey, setDragKey] = useState(0); // Used to force reset drag position
@@ -18,7 +21,7 @@ export default function ProductImageViewer({ src, alt }: ProductImageViewerProps
   const closeViewer = () => {
     setIsOpen(false);
     setScale(1);
-    setDragKey(prev => prev + 1);
+    setDragKey((prev) => prev + 1);
   };
 
   // Handle escape key to close modal
@@ -39,14 +42,14 @@ export default function ProductImageViewer({ src, alt }: ProductImageViewerProps
   }, [isOpen]);
 
   const handleZoomIn = () => {
-    setScale(prev => Math.min(prev + 0.5, 4));
+    setScale((prev) => Math.min(prev + 0.5, 4));
   };
 
   const handleZoomOut = () => {
-    setScale(prev => {
+    setScale((prev) => {
       const next = Math.max(prev - 0.5, 1);
       if (next === 1) {
-        setDragKey(prevKey => prevKey + 1); // Reset position
+        setDragKey((prevKey) => prevKey + 1); // Reset position
       }
       return next;
     });
@@ -54,7 +57,7 @@ export default function ProductImageViewer({ src, alt }: ProductImageViewerProps
 
   const handleReset = () => {
     setScale(1);
-    setDragKey(prev => prev + 1);
+    setDragKey((prev) => prev + 1);
   };
 
   const handleDoubleClick = () => {
@@ -68,19 +71,19 @@ export default function ProductImageViewer({ src, alt }: ProductImageViewerProps
   return (
     <>
       {/* Main Trigger Image View */}
-      <div 
+      <div
         onClick={() => setIsOpen(true)}
         className="relative h-80 rounded-2xl overflow-hidden bg-[#bebcbd] border border-gray-200/50 shadow-md cursor-zoom-in group"
       >
-        <SafeImage 
-          src={src} 
-          alt={alt} 
-          fill 
-          sizes="(max-width: 1024px) 100vw, 50vw" 
-          className="object-contain p-4 group-hover:scale-[1.02] transition-transform duration-300" 
-          loading="eager" 
+        <SafeImage
+          src={src}
+          alt={alt}
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-contain p-4 group-hover:scale-[1.02] transition-transform duration-300"
+          loading="eager"
         />
-        
+
         {/* Overlay hover prompt */}
         <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <div className="bg-white/90 backdrop-blur-md px-4 py-2.5 rounded-full flex items-center gap-2 text-sm font-bold text-gray-900 shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
@@ -100,7 +103,10 @@ export default function ProductImageViewer({ src, alt }: ProductImageViewerProps
             className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950/95 backdrop-blur-md select-none"
           >
             {/* Background close click */}
-            <div className="absolute inset-0 cursor-zoom-out" onClick={closeViewer} />
+            <div
+              className="absolute inset-0 cursor-zoom-out"
+              onClick={closeViewer}
+            />
 
             {/* Header controls (Close Button) */}
             <div className="absolute top-6 right-6 z-50">
@@ -127,9 +133,15 @@ export default function ProductImageViewer({ src, alt }: ProductImageViewerProps
                 }}
                 animate={{ scale }}
                 onDoubleClick={handleDoubleClick}
-                title={scale > 1 ? "Double click to reset. Drag to pan." : "Double click to zoom."}
+                title={
+                  scale > 1
+                    ? "Double click to reset. Drag to pan."
+                    : "Double click to zoom."
+                }
                 className={`relative max-w-full max-h-[80vh] flex items-center justify-center ${
-                  scale > 1 ? "cursor-grab active:cursor-grabbing" : "cursor-zoom-in"
+                  scale > 1
+                    ? "cursor-grab active:cursor-grabbing"
+                    : "cursor-zoom-in"
                 }`}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}

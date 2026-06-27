@@ -4,7 +4,9 @@ import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { BLOG_POSTS } from "@/lib/data";
 import dynamic from "next/dynamic";
 
-const BlogList = dynamic(() => import("@/components/blog/BlogList"), { ssr: true });
+const BlogList = dynamic(() => import("@/components/blog/BlogList"), {
+  ssr: true,
+});
 
 export const metadata: Metadata = {
   title: "Blog & News | Teckon™ Quality Spares",
@@ -23,14 +25,30 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <>
-      <section id="blog-hero" className="bg-teckon-dark-blue py-20 relative overflow-hidden">
+      <section
+        id="blog-hero"
+        className="bg-teckon-dark-blue py-20 relative overflow-hidden"
+      >
         <div className="absolute inset-0 opacity-10">
-          <Image src="/images/blog-hydraulics.webp" alt="Hydraulic components, control valves, and precision parts display" fill sizes="100vw" className="object-cover" priority loading="eager" />
+          <Image
+            src="/images/blog-hydraulics.webp"
+            alt="Hydraulic components, control valves, and precision parts display"
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
+            loading="eager"
+          />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <BreadcrumbBar items={[{ label: "Blog" }]} />
-          <h1 className="text-4xl sm:text-5xl font-black text-white mt-6 mb-4">Blog & Industry News</h1>
-          <p className="text-white/70 text-xl max-w-2xl">Technical guides, maintenance tips, and updates from the Teckon™ team.</p>
+          <h1 className="text-4xl sm:text-5xl font-black text-white mt-6 mb-4">
+            Blog & Industry News
+          </h1>
+          <p className="text-white/70 text-xl max-w-2xl">
+            Technical guides, maintenance tips, and updates from the Teckon™
+            team.
+          </p>
         </div>
       </section>
 

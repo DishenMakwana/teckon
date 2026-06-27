@@ -2,7 +2,16 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { Search, Printer, Link as LinkIcon, Check, FileText, HelpCircle, Mail, MessageSquare } from "lucide-react";
+import {
+  Search,
+  Printer,
+  Link as LinkIcon,
+  Check,
+  FileText,
+  HelpCircle,
+  Mail,
+  MessageSquare,
+} from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 
 interface Section {
@@ -17,50 +26,58 @@ const SECTIONS: Section[] = [
     id: "acceptance",
     title: "1. Acceptance of Terms",
     tldr: "By using our website, you agree to these Terms. If you don't agree, please do not use the site.",
-    content: "By accessing and using the Teckon™ Quality Spares website (teckon.in), you accept and agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our website. These terms may be updated periodically, and continued use of the site constitutes acceptance of any changes."
+    content:
+      "By accessing and using the Teckon™ Quality Spares website (teckon.in), you accept and agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our website. These terms may be updated periodically, and continued use of the site constitutes acceptance of any changes.",
   },
   {
     id: "ip",
     title: "2. Intellectual Property Rights",
     tldr: "All site content (text, designs, logos, images) belongs to Shreeji Hydraulics. You cannot copy or distribute it without permission.",
-    content: "All content on this website, including text, images, logos, product descriptions, and technical data, is the property of Shreeji Hydraulics (Teckon™ Quality Spares) and is protected under Indian copyright laws. You may not reproduce, distribute, or use any content without our prior written permission."
+    content:
+      "All content on this website, including text, images, logos, product descriptions, and technical data, is the property of Shreeji Hydraulics (Teckon™ Quality Spares) and is protected under Indian copyright laws. You may not reproduce, distribute, or use any content without our prior written permission.",
   },
   {
     id: "oem-disclaimer",
     title: "3. Use of OEM Part Numbers and Trademarks",
     tldr: "Manufacturer names and part numbers are used for identification only. We sell high-quality aftermarket replacements and are not affiliated with the OEMs.",
-    content: "Our website lists products that are aftermarket replacements for parts sold by Original Equipment Manufacturers (OEMs). To help our customers identify the correct replacement part for their machinery, we use OEM names, part numbers, and descriptions. Please be aware of the following:\n\n(a) For Reference Only: All manufacturer names, part numbers, symbols, and descriptions are used for reference purposes only.\n\n(b) No Affiliation: It is not implied that any part listed is the product of these manufacturers. We are an independent manufacturer of aftermarket parts.\n\n(c) Aftermarket Products: The products sold on this Site are aftermarket replacement parts and are not original OEM parts, unless explicitly stated otherwise.\n\n(d) Ownership of Trademarks: All brand names, logos, and trademarks mentioned on this site are the property of their respective owners and are used here only for identification purposes."
+    content:
+      "Our website lists products that are aftermarket replacements for parts sold by Original Equipment Manufacturers (OEMs). To help our customers identify the correct replacement part for their machinery, we use OEM names, part numbers, and descriptions. Please be aware of the following:\n\n(a) For Reference Only: All manufacturer names, part numbers, symbols, and descriptions are used for reference purposes only.\n\n(b) No Affiliation: It is not implied that any part listed is the product of these manufacturers. We are an independent manufacturer of aftermarket parts.\n\n(c) Aftermarket Products: The products sold on this Site are aftermarket replacement parts and are not original OEM parts, unless explicitly stated otherwise.\n\n(d) Ownership of Trademarks: All brand names, logos, and trademarks mentioned on this site are the property of their respective owners and are used here only for identification purposes.",
   },
   {
     id: "product-info",
     title: "4. Product Information",
     tldr: "We aim for accuracy but reserve the right to change specifications or prices. Images are illustrative; actual parts may vary.",
-    content: "We strive to ensure all product information, specifications, and pricing on this website are accurate. However, Teckon™ reserves the right to modify products, specifications, or prices without notice. Product images are for illustration purposes only. Actual products may vary. All sales are subject to our standard commercial terms."
+    content:
+      "We strive to ensure all product information, specifications, and pricing on this website are accurate. However, Teckon™ reserves the right to modify products, specifications, or prices without notice. Product images are for illustration purposes only. Actual products may vary. All sales are subject to our standard commercial terms.",
   },
   {
     id: "prohibited",
     title: "5. Prohibited Use",
     tldr: "You must not use our site for illegal purposes, hacking, scraping, or sending malicious code.",
-    content: "You agree not to: (a) use this website for any unlawful purpose, (b) attempt to gain unauthorized access to any part of the website, (c) transmit any malicious code or interfere with the website's functionality, (d) use automated tools to scrape or harvest data from our website, or (e) misrepresent your identity or affiliation."
+    content:
+      "You agree not to: (a) use this website for any unlawful purpose, (b) attempt to gain unauthorized access to any part of the website, (c) transmit any malicious code or interfere with the website's functionality, (d) use automated tools to scrape or harvest data from our website, or (e) misrepresent your identity or affiliation.",
   },
   {
     id: "liability",
     title: "6. Limitation of Liability",
     tldr: "We are not liable for indirect damages. Our liability is strictly limited to the value of products purchased from us.",
-    content: "To the maximum extent permitted by law, Teckon™ Quality Spares shall not be liable for any indirect, incidental, special, or consequential damages arising from the use of our website or products. Our liability shall not exceed the value of products purchased in the transaction giving rise to the claim."
+    content:
+      "To the maximum extent permitted by law, Teckon™ Quality Spares shall not be liable for any indirect, incidental, special, or consequential damages arising from the use of our website or products. Our liability shall not exceed the value of products purchased in the transaction giving rise to the claim.",
   },
   {
     id: "warranty",
     title: "7. Warranty",
     tldr: "We offer a limited warranty on manufacturing defects. It does not cover improper installation or misuse.",
-    content: "All Teckon™ hydraulic parts come with a limited warranty as specified at the time of purchase. Warranty covers manufacturing defects under normal operating conditions. Damage caused by improper installation, misuse, or unauthorized modifications is not covered. Warranty claims must be made within the warranty period with proof of purchase."
+    content:
+      "All Teckon™ hydraulic parts come with a limited warranty as specified at the time of purchase. Warranty covers manufacturing defects under normal operating conditions. Damage caused by improper installation, misuse, or unauthorized modifications is not covered. Warranty claims must be made within the warranty period with proof of purchase.",
   },
   {
     id: "governing-law",
     title: "8. Governing Law",
     tldr: "These terms are governed by Indian law. Any legal disputes will be resolved exclusively in the courts of Rajkot, Gujarat.",
-    content: "These Terms and Conditions shall be governed by and construed in accordance with the laws of India. Any disputes arising from these terms or the use of our services shall be subject to the exclusive jurisdiction of the courts in Rajkot, Gujarat, India."
-  }
+    content:
+      "These Terms and Conditions shall be governed by and construed in accordance with the laws of India. Any disputes arising from these terms or the use of our services shall be subject to the exclusive jurisdiction of the courts in Rajkot, Gujarat, India.",
+  },
 ];
 
 export default function TermsClient() {
@@ -127,7 +144,10 @@ export default function TermsClient() {
   return (
     <>
       {/* Header */}
-      <section id="terms-hero" className="bg-teckon-dark-blue py-20 relative overflow-hidden print:hidden">
+      <section
+        id="terms-hero"
+        className="bg-teckon-dark-blue py-20 relative overflow-hidden print:hidden"
+      >
         {/* Decorative Grid & Glow */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-40" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#FFBE00]/5 rounded-full filter blur-3xl pointer-events-none" />
@@ -142,10 +162,12 @@ export default function TermsClient() {
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F19] via-[#0B0F19]/90 to-transparent" />
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <BreadcrumbBar items={[{ label: "Terms & Conditions" }]} />
-          <h1 className="text-4xl sm:text-5xl font-black text-white mt-6 mb-4">Terms & Conditions</h1>
+          <h1 className="text-4xl sm:text-5xl font-black text-white mt-6 mb-4">
+            Terms & Conditions
+          </h1>
           <p className="text-white/70 text-lg sm:text-xl max-w-2xl">
             Last updated: June 2026 • Governing trade guidelines
           </p>
@@ -153,13 +175,14 @@ export default function TermsClient() {
       </section>
 
       {/* Main Content Area */}
-      <section id="terms-content" className="py-16 bg-gray-50 print:bg-white print:py-0">
+      <section
+        id="terms-content"
+        className="py-16 bg-gray-50 print:bg-white print:py-0"
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 print:px-0">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
             {/* Left Column: Interactive Navigation & Search (print:hidden) */}
             <aside className="lg:col-span-4 lg:sticky lg:top-24 space-y-6 print:hidden">
-              
               {/* Search Box */}
               <div className="bg-white rounded-2xl border border-gray-200 p-4 shadow-sm space-y-3">
                 <label className="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
@@ -192,7 +215,9 @@ export default function TermsClient() {
                 </span>
                 <nav className="flex flex-col gap-1.5">
                   {SECTIONS.map((s) => {
-                    const isSectionVisible = filteredSections.some((fs) => fs.id === s.id);
+                    const isSectionVisible = filteredSections.some(
+                      (fs) => fs.id === s.id
+                    );
                     if (!isSectionVisible) return null;
                     const isActive = activeSection === s.id;
                     return (
@@ -205,13 +230,20 @@ export default function TermsClient() {
                             : "text-slate-600 hover:text-slate-800 hover:bg-slate-50 border-l-3 border-transparent"
                         }`}
                       >
-                        <FileText size={13} className={isActive ? "text-[#FFBE00]" : "text-slate-400"} />
+                        <FileText
+                          size={13}
+                          className={
+                            isActive ? "text-[#FFBE00]" : "text-slate-400"
+                          }
+                        />
                         <span className="truncate">{s.title}</span>
                       </button>
                     );
                   })}
                   {filteredSections.length === 0 && (
-                    <p className="text-slate-400 text-xs text-center py-4 italic">No matching sections</p>
+                    <p className="text-slate-400 text-xs text-center py-4 italic">
+                      No matching sections
+                    </p>
                   )}
                 </nav>
               </div>
@@ -224,9 +256,12 @@ export default function TermsClient() {
                     <HelpCircle size={10} />
                     Utility Actions
                   </span>
-                  <h3 className="text-white font-black text-sm">Need a physical copy?</h3>
+                  <h3 className="text-white font-black text-sm">
+                    Need a physical copy?
+                  </h3>
                   <p className="text-slate-400 text-[11px] leading-relaxed">
-                    You can print this document directly or save it as a local PDF for your compliance reference.
+                    You can print this document directly or save it as a local
+                    PDF for your compliance reference.
                   </p>
                   <button
                     onClick={handlePrint}
@@ -237,18 +272,18 @@ export default function TermsClient() {
                   </button>
                 </div>
               </div>
-
             </aside>
 
             {/* Right Column: Main Content Card */}
             <main className="lg:col-span-8 space-y-6 print:lg:col-span-12">
-              
               <div className="bg-white rounded-3xl shadow-sm border border-gray-200 p-6 sm:p-8 md:p-10 print:border-none print:shadow-none print:p-0">
-                
                 {/* Introduction statement */}
                 <div className="prose prose-slate max-w-none border-b border-gray-100 pb-6 mb-8 print:pb-3 print:mb-5">
                   <p className="text-slate-700 leading-relaxed text-sm sm:text-base font-medium">
-                    Please read these Terms and Conditions carefully before using the Teckon™ Quality Spares website or engaging our services. These terms constitute a legally binding agreement between you and Shreeji Hydraulics (Teckon™ Quality Spares).
+                    Please read these Terms and Conditions carefully before
+                    using the Teckon™ Quality Spares website or engaging our
+                    services. These terms constitute a legally binding agreement
+                    between you and Shreeji Hydraulics (Teckon™ Quality Spares).
                   </p>
                 </div>
 
@@ -274,8 +309,13 @@ export default function TermsClient() {
                           >
                             {isCopied ? (
                               <>
-                                <Check size={11} className="text-emerald-600 animate-scale-in" />
-                                <span className="text-emerald-700 font-bold">Copied</span>
+                                <Check
+                                  size={11}
+                                  className="text-emerald-600 animate-scale-in"
+                                />
+                                <span className="text-emerald-700 font-bold">
+                                  Copied
+                                </span>
                               </>
                             ) : (
                               <>
@@ -308,10 +348,12 @@ export default function TermsClient() {
                       </article>
                     );
                   })}
-                  
+
                   {filteredSections.length === 0 && (
                     <div className="text-center py-16 bg-slate-50 rounded-2xl border border-dashed border-slate-200">
-                      <p className="text-slate-400 text-sm font-bold">No sections match your search terms.</p>
+                      <p className="text-slate-400 text-sm font-bold">
+                        No sections match your search terms.
+                      </p>
                       <button
                         onClick={() => setSearchQuery("")}
                         className="mt-3 text-xs font-black text-[#FF6B35] hover:underline uppercase"
@@ -321,7 +363,6 @@ export default function TermsClient() {
                     </div>
                   )}
                 </div>
-
               </div>
 
               {/* Sticky bottom floating support contact bar (print:hidden) */}
@@ -334,7 +375,10 @@ export default function TermsClient() {
                     <h4 className="text-white text-xs font-black uppercase tracking-wider">
                       Teckon Trading Support
                     </h4>
-                    <p className="text-slate-400 text-[11px]">Have commercial questions or need wholesale contract review?</p>
+                    <p className="text-slate-400 text-[11px]">
+                      Have commercial questions or need wholesale contract
+                      review?
+                    </p>
                   </div>
                 </div>
                 <div className="flex gap-2 w-full sm:w-auto shrink-0">
@@ -356,9 +400,7 @@ export default function TermsClient() {
                   </a>
                 </div>
               </div>
-
             </main>
-
           </div>
         </div>
       </section>

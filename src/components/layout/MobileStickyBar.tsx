@@ -12,7 +12,10 @@ export default function MobileStickyBar() {
           className="flex flex-col items-center justify-center py-3 gap-1 text-white hover:bg-[#FFBE00] hover:text-[#0B0F19] transition-colors group"
           aria-label="Call us"
         >
-          <Phone size={20} className="group-hover:scale-110 transition-transform" />
+          <Phone
+            size={20}
+            className="group-hover:scale-110 transition-transform"
+          />
           <span className="text-xs font-semibold">Call</span>
         </a>
         <a
@@ -22,7 +25,10 @@ export default function MobileStickyBar() {
           className="flex flex-col items-center justify-center py-3 gap-1 bg-[#128C7E] text-white hover:bg-[#0f766a] transition-colors group"
           aria-label="WhatsApp"
         >
-          <MessageCircle size={20} className="group-hover:scale-110 transition-transform" />
+          <MessageCircle
+            size={20}
+            className="group-hover:scale-110 transition-transform"
+          />
           <span className="text-xs font-semibold">WhatsApp</span>
         </a>
         <Link
@@ -30,7 +36,10 @@ export default function MobileStickyBar() {
           className="flex flex-col items-center justify-center py-3 gap-1 bg-[#FF6B35] text-white hover:bg-[#e55a25] transition-colors group"
           aria-label="Quick Inquiry"
         >
-          <Send size={20} className="group-hover:scale-110 transition-transform" />
+          <Send
+            size={20}
+            className="group-hover:scale-110 transition-transform"
+          />
           <span className="text-xs font-semibold">Inquiry</span>
         </Link>
       </div>

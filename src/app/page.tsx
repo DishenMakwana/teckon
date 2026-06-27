@@ -8,19 +8,42 @@ import { motion } from "framer-motion";
 
 import StatsStrip from "@/components/home/StatsStrip";
 
-const ProductsCarousel = dynamic(() => import("@/components/home/ProductsCarousel"), { ssr: true });
-const AboutSection = dynamic(() => import("@/components/home/AboutSection"), { ssr: true });
-const WhyChooseUs = dynamic(() => import("@/components/home/WhyChooseUs"), { ssr: true });
-const DiagnosticsBench = dynamic(() => import("@/components/home/DiagnosticsBench"), { ssr: false });
-const PartnersMarquee = dynamic(() => import("@/components/home/PartnersMarquee"), { ssr: true });
-const GlobalPresence = dynamic(() => import("@/components/home/GlobalPresence"), { ssr: true });
-const Testimonials = dynamic(() => import("@/components/home/Testimonials"), { ssr: true });
-const BlogSection = dynamic(() => import("@/components/home/BlogSection"), { ssr: true });
+const ProductsCarousel = dynamic(
+  () => import("@/components/home/ProductsCarousel"),
+  { ssr: true }
+);
+const AboutSection = dynamic(() => import("@/components/home/AboutSection"), {
+  ssr: true,
+});
+const WhyChooseUs = dynamic(() => import("@/components/home/WhyChooseUs"), {
+  ssr: true,
+});
+const DiagnosticsBench = dynamic(
+  () => import("@/components/home/DiagnosticsBench"),
+  { ssr: false }
+);
+const PartnersMarquee = dynamic(
+  () => import("@/components/home/PartnersMarquee"),
+  { ssr: true }
+);
+const GlobalPresence = dynamic(
+  () => import("@/components/home/GlobalPresence"),
+  { ssr: true }
+);
+const Testimonials = dynamic(() => import("@/components/home/Testimonials"), {
+  ssr: true,
+});
+const BlogSection = dynamic(() => import("@/components/home/BlogSection"), {
+  ssr: true,
+});
 
 export default function HomePage() {
   return (
     <>
-      <section id="hero" className="relative min-h-[calc(100dvh-64px)] md:min-h-[calc(100vh-64px)] flex items-center justify-center overflow-hidden">
+      <section
+        id="hero"
+        className="relative min-h-[calc(100dvh-64px)] md:min-h-[calc(100vh-64px)] flex items-center justify-center overflow-hidden"
+      >
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -46,7 +69,8 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1.5 rounded-full mb-4 md:mb-6 animate-pulse"
           >
-            🏭 ISO 9001:2015 Certified | Precision Engineered | Pan-India Coverage
+            🏭 ISO 9001:2015 Certified | Precision Engineered | Pan-India
+            Coverage
           </motion.div>
 
           <motion.h1
@@ -68,7 +92,11 @@ export default function HomePage() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-white/80 text-xs sm:text-sm md:text-base max-w-2xl mx-auto mb-6 md:mb-8"
           >
-            Teckon™ is a premium manufacturer of hydraulic parts &amp; spares for heavy machinery. Since 2000, we have been a trusted leader delivering precision-engineered hydraulic spares across India, specializing in JCB, Terex, CAT, Tata JD, L770, breakers, tippers, and excavator components.
+            Teckon™ is a premium manufacturer of hydraulic parts &amp; spares
+            for heavy machinery. Since 2000, we have been a trusted leader
+            delivering precision-engineered hydraulic spares across India,
+            specializing in JCB, Terex, CAT, Tata JD, L770, breakers, tippers,
+            and excavator components.
           </motion.p>
 
           <motion.div
@@ -121,41 +149,72 @@ export default function HomePage() {
       <ProductsCarousel />
       <AboutSection />
       <WhyChooseUs />
-      <Suspense fallback={
-        <div className="h-96 bg-teckon-dark-blue flex items-center justify-center">
-          <div className="text-teckon-yellow font-mono animate-pulse">Initializing Diagnostics Bench...</div>
-        </div>
-      }>
+      <Suspense
+        fallback={
+          <div className="h-96 bg-teckon-dark-blue flex items-center justify-center">
+            <div className="text-teckon-yellow font-mono animate-pulse">
+              Initializing Diagnostics Bench...
+            </div>
+          </div>
+        }
+      >
         <DiagnosticsBench />
       </Suspense>
 
       {/* Industries & Machinery We Serve - SEO Text Section */}
-      <section id="industries" className="py-20 bg-slate-50 border-t border-b border-gray-100">
+      <section
+        id="industries"
+        className="py-20 bg-slate-50 border-t border-b border-gray-100"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">Applications</span>
-            <h2 className="text-4xl font-black text-[#111111] mb-4">Industries &amp; Machinery We Serve</h2>
+            <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">
+              Applications
+            </span>
+            <h2 className="text-4xl font-black text-[#111111] mb-4">
+              Industries &amp; Machinery We Serve
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Our premium hydraulic parts and spares are engineered to meet the demanding requirements of various heavy industries, ensuring maximum efficiency and minimal downtime.
+              Our premium hydraulic parts and spares are engineered to meet the
+              demanding requirements of various heavy industries, ensuring
+              maximum efficiency and minimal downtime.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-              <h3 className="text-[#FF6B35] font-bold text-xl mb-3">Construction &amp; Earthmoving</h3>
+              <h3 className="text-[#FF6B35] font-bold text-xl mb-3">
+                Construction &amp; Earthmoving
+              </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                We supply high-performance hydraulic cylinders, pumps, and seal kits specifically built for backhoe loaders, excavators, and crawler tractors. Our components are widely used on JCB 3DX, CAT 424B, and Hitachi EX200 models to maintain high operating pressure and precise fluid control in rough terrains.
+                We supply high-performance hydraulic cylinders, pumps, and seal
+                kits specifically built for backhoe loaders, excavators, and
+                crawler tractors. Our components are widely used on JCB 3DX, CAT
+                424B, and Hitachi EX200 models to maintain high operating
+                pressure and precise fluid control in rough terrains.
               </p>
             </div>
             <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-              <h3 className="text-[#FF6B35] font-bold text-xl mb-3">Mining &amp; Heavy Excavation</h3>
+              <h3 className="text-[#FF6B35] font-bold text-xl mb-3">
+                Mining &amp; Heavy Excavation
+              </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Heavy machinery used in quarrying and mining operations requires hydraulic spares that can withstand extreme pressure, high temperatures, and abrasive dust. Teckon provides robust breaker spares, tipper cylinders, control valves, and heavy-duty pins and bushes designed for maximum wear resistance and longevity.
+                Heavy machinery used in quarrying and mining operations requires
+                hydraulic spares that can withstand extreme pressure, high
+                temperatures, and abrasive dust. Teckon provides robust breaker
+                spares, tipper cylinders, control valves, and heavy-duty pins
+                and bushes designed for maximum wear resistance and longevity.
               </p>
             </div>
             <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-              <h3 className="text-[#FF6B35] font-bold text-xl mb-3">Infrastructure &amp; Roadworks</h3>
+              <h3 className="text-[#FF6B35] font-bold text-xl mb-3">
+                Infrastructure &amp; Roadworks
+              </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Precision is key in road building and infrastructure development. Our premium line of valves, hydraulic hoses, and specialized fittings ensure smooth hydraulic flow and quick response rates for pavers, vibratory rollers, and loaders. We keep your projects moving without unexpected breakdown delays.
+                Precision is key in road building and infrastructure
+                development. Our premium line of valves, hydraulic hoses, and
+                specialized fittings ensure smooth hydraulic flow and quick
+                response rates for pavers, vibratory rollers, and loaders. We
+                keep your projects moving without unexpected breakdown delays.
               </p>
             </div>
           </div>
@@ -174,7 +233,8 @@ export default function HomePage() {
             Need Hydraulic Spares for Your Equipment?
           </h2>
           <p className="text-[#0B0F19]/70 mb-8">
-            Contact our technical team for same-day quotes on JCB, Terex, CAT, and all other heavy machinery hydraulic parts.
+            Contact our technical team for same-day quotes on JCB, Terex, CAT,
+            and all other heavy machinery hydraulic parts.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link

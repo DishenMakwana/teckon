@@ -3,32 +3,77 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { 
-  Menu, 
-  X, 
-  ChevronDown, 
-  Boxes, 
-  Cpu, 
-  Wrench, 
-  Settings, 
-  Hammer, 
-  Zap, 
-  Activity, 
-  Droplet, 
-  Layers 
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Boxes,
+  Cpu,
+  Wrench,
+  Settings,
+  Hammer,
+  Zap,
+  Activity,
+  Droplet,
+  Layers,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const productCategories = [
-  { name: "JCB Spares", href: "/products?category=jcb", desc: "Hydraulic valves, pumps & seal kits", icon: Boxes },
-  { name: "Hitachi Parts", href: "/products?category=hitachi", desc: "Heavy excavator pumps & components", icon: Cpu },
-  { name: "Terex Parts", href: "/products?category=terex", desc: "Dumper & loader replacement spares", icon: Wrench },
-  { name: "CAT Components", href: "/products?category=cat", desc: "Precision parts for Caterpillar systems", icon: Settings },
-  { name: "Breakers & Tippers", href: "/products?category=breakers", desc: "Hammer spares & tipper cylinders", icon: Hammer },
-  { name: "L770 / Tata JD", href: "/products?category=l770", desc: "Compatible loader spares & seal kits", icon: Zap },
-  { name: "Excavator Parts", href: "/products?category=excavator", desc: "Hydraulic cylinders & control valves", icon: Activity },
-  { name: "Filters & Service", href: "/products?category=filters", desc: "High-grade hydraulic filter elements", icon: Droplet },
-  { name: "General Hydraulics", href: "/products?category=general", desc: "Hose fittings, adaptors & custom spares", icon: Layers },
+  {
+    name: "JCB Spares",
+    href: "/products?category=jcb",
+    desc: "Hydraulic valves, pumps & seal kits",
+    icon: Boxes,
+  },
+  {
+    name: "Hitachi Parts",
+    href: "/products?category=hitachi",
+    desc: "Heavy excavator pumps & components",
+    icon: Cpu,
+  },
+  {
+    name: "Terex Parts",
+    href: "/products?category=terex",
+    desc: "Dumper & loader replacement spares",
+    icon: Wrench,
+  },
+  {
+    name: "CAT Components",
+    href: "/products?category=cat",
+    desc: "Precision parts for Caterpillar systems",
+    icon: Settings,
+  },
+  {
+    name: "Breakers & Tippers",
+    href: "/products?category=breakers",
+    desc: "Hammer spares & tipper cylinders",
+    icon: Hammer,
+  },
+  {
+    name: "L770 / Tata JD",
+    href: "/products?category=l770",
+    desc: "Compatible loader spares & seal kits",
+    icon: Zap,
+  },
+  {
+    name: "Excavator Parts",
+    href: "/products?category=excavator",
+    desc: "Hydraulic cylinders & control valves",
+    icon: Activity,
+  },
+  {
+    name: "Filters & Service",
+    href: "/products?category=filters",
+    desc: "High-grade hydraulic filter elements",
+    icon: Droplet,
+  },
+  {
+    name: "General Hydraulics",
+    href: "/products?category=general",
+    desc: "Hose fittings, adaptors & custom spares",
+    icon: Layers,
+  },
 ];
 
 const navLinks = [
@@ -77,7 +122,9 @@ export default function Navbar() {
               TECKON™
             </div>
             <div className="hidden sm:block">
-              <div className="text-[#1E293B] font-bold text-sm leading-tight">Quality Spares</div>
+              <div className="text-[#1E293B] font-bold text-sm leading-tight">
+                Quality Spares
+              </div>
               <div className="text-gray-500 text-xs">Shreeji Hydraulics</div>
             </div>
           </Link>
@@ -86,7 +133,12 @@ export default function Navbar() {
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) =>
               link.dropdown ? (
-                <div key={link.name} className="relative" onMouseEnter={() => setDropdownOpen(true)} onMouseLeave={() => setDropdownOpen(false)}>
+                <div
+                  key={link.name}
+                  className="relative"
+                  onMouseEnter={() => setDropdownOpen(true)}
+                  onMouseLeave={() => setDropdownOpen(false)}
+                >
                   <button
                     className={`flex items-center gap-1 px-3 py-2 rounded-lg text-base font-bold transition-colors ${
                       pathname.startsWith("/products")
@@ -95,7 +147,10 @@ export default function Navbar() {
                     }`}
                   >
                     {link.name}
-                    <ChevronDown size={14} className={`transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown
+                      size={14}
+                      className={`transition-transform ${dropdownOpen ? "rotate-180" : ""}`}
+                    />
                   </button>
                   <AnimatePresence>
                     {dropdownOpen && (
@@ -103,7 +158,11 @@ export default function Navbar() {
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 15 }}
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 380,
+                          damping: 30,
+                        }}
                         className="absolute top-full left-1/2 -translate-x-[35%] w-[720px] bg-white/95 backdrop-blur-xl shadow-2xl border border-slate-100 rounded-3xl overflow-hidden mt-3 p-6 z-50 grid grid-cols-12 gap-6"
                       >
                         {/* Categories List */}
@@ -116,11 +175,13 @@ export default function Navbar() {
                               href="/products"
                               className="text-xs font-bold text-[#FF6B35] hover:text-[#e05621] transition-colors flex items-center gap-1 group/all"
                             >
-                              View All Products 
-                              <span className="group-hover:translate-x-0.5 transition-transform">→</span>
+                              View All Products
+                              <span className="group-hover:translate-x-0.5 transition-transform">
+                                →
+                              </span>
                             </Link>
                           </div>
-                          
+
                           <div className="grid grid-cols-2 gap-x-4 gap-y-3">
                             {link.dropdown.map((item) => (
                               <Link
@@ -152,7 +213,7 @@ export default function Navbar() {
                             <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:12px_12px] pointer-events-none" />
                             {/* Glow accent */}
                             <div className="absolute -right-8 -bottom-8 w-24 h-24 bg-[#FFBE00]/10 rounded-full blur-xl pointer-events-none" />
-                            
+
                             <div className="relative z-10">
                               <span className="text-[9px] font-mono text-[#FFBE00] uppercase tracking-wider font-extrabold bg-[#FFBE00]/10 px-2.5 py-1 rounded-md">
                                 Interactive Tool
@@ -161,7 +222,8 @@ export default function Navbar() {
                                 Telemetry &amp; Force Bench
                               </h4>
                               <p className="text-slate-400 text-[11px] mt-2.5 leading-relaxed font-medium">
-                                Simulate bore, rod, and stroke dimensions to calculate operating forces in real-time.
+                                Simulate bore, rod, and stroke dimensions to
+                                calculate operating forces in real-time.
                               </p>
                             </div>
 
@@ -170,8 +232,10 @@ export default function Navbar() {
                                 href="/#diagnostics"
                                 className="inline-flex items-center gap-1.5 text-xs text-[#FFBE00] hover:text-[#d99e00] font-bold group/btn"
                               >
-                                Launch Calculator 
-                                <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
+                                Launch Calculator
+                                <span className="group-hover/btn:translate-x-1 transition-transform">
+                                  →
+                                </span>
                               </Link>
                             </div>
                           </div>
@@ -239,8 +303,13 @@ export default function Navbar() {
               className="fixed right-0 top-0 h-full w-80 bg-white shadow-2xl z-50 lg:hidden overflow-y-auto"
             >
               <div className="p-4 border-b border-gray-100 flex items-center justify-between">
-                <div className="bg-[#FFBE00] text-[#0B0F19] px-3 py-1.5 rounded-lg font-black text-lg tracking-wide">TECKON™</div>
-                <button onClick={() => setMobileOpen(false)} className="p-2 hover:bg-gray-100 rounded-lg">
+                <div className="bg-[#FFBE00] text-[#0B0F19] px-3 py-1.5 rounded-lg font-black text-lg tracking-wide">
+                  TECKON™
+                </div>
+                <button
+                  onClick={() => setMobileOpen(false)}
+                  className="p-2 hover:bg-gray-100 rounded-lg"
+                >
                   <X size={20} />
                 </button>
               </div>
@@ -266,7 +335,10 @@ export default function Navbar() {
                             rel="nofollow"
                             className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs text-gray-500 hover:text-[#1E293B] hover:bg-gray-50 transition-colors"
                           >
-                            <item.icon size={13} className="text-gray-400 shrink-0" />
+                            <item.icon
+                              size={13}
+                              className="text-gray-400 shrink-0"
+                            />
                             <span>{item.name}</span>
                           </Link>
                         ))}
@@ -276,7 +348,10 @@ export default function Navbar() {
                 ))}
               </nav>
               <div className="p-4 pb-24 border-t border-gray-100 flex flex-col gap-3">
-                <a href="tel:+916351879842" className="flex items-center justify-center gap-2 bg-[#1E293B] text-white py-3 rounded-xl font-semibold text-sm">
+                <a
+                  href="tel:+916351879842"
+                  className="flex items-center justify-center gap-2 bg-[#1E293B] text-white py-3 rounded-xl font-semibold text-sm"
+                >
                   📞 Call +91-63518 79842
                 </a>
                 <a

@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import QuickAccessRail from "@/components/layout/QuickAccessRail";
 import MobileStickyBar from "@/components/layout/MobileStickyBar";
 import BackToTop from "@/components/ui/BackToTop";
+import Preloader from "@/components/layout/Preloader";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -91,28 +92,28 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Shreeji Hydraulics",
-  "alternateName": "Teckon™ Quality Spares",
-  "url": "https://teckon.vercel.app",
-  "logo": "https://teckon.vercel.app/apple-touch-icon.png",
-  "contactPoint": [
+  name: "Shreeji Hydraulics",
+  alternateName: "Teckon™ Quality Spares",
+  url: "https://teckon.vercel.app",
+  logo: "https://teckon.vercel.app/apple-touch-icon.png",
+  contactPoint: [
     {
       "@type": "ContactPoint",
-      "telephone": "+91-63518-79842",
-      "contactType": "sales",
-      "areaServed": "IN",
-      "availableLanguage": ["en", "hi", "gu"],
+      telephone: "+91-63518-79842",
+      contactType: "sales",
+      areaServed: "IN",
+      availableLanguage: ["en", "hi", "gu"],
     },
   ],
-  "address": {
+  address: {
     "@type": "PostalAddress",
-    "streetAddress": "36-C Bhaktinagar, Udhyognagar, Gondal Road",
-    "addressLocality": "Rajkot",
-    "addressRegion": "Gujarat",
-    "postalCode": "360004",
-    "addressCountry": "IN",
+    streetAddress: "36-C Bhaktinagar, Udhyognagar, Gondal Road",
+    addressLocality: "Rajkot",
+    addressRegion: "Gujarat",
+    postalCode: "360004",
+    addressCountry: "IN",
   },
-  "sameAs": [
+  sameAs: [
     "https://facebook.com/shreejihydraulics",
     "https://linkedin.com/company/shreeji-hydraulics",
     "https://instagram.com/shreejihydraulics",
@@ -130,10 +131,13 @@ export default function RootLayout({
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
         />
       </head>
       <body className="font-sans bg-white text-gray-900 antialiased pb-16 md:pb-0">
+        <Preloader />
         {/* Facebook Pixel */}
         <Script id="facebook-pixel" strategy="lazyOnload">
           {`
@@ -176,4 +180,3 @@ export default function RootLayout({
     </html>
   );
 }
-

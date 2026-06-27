@@ -88,7 +88,8 @@ export default function NotFound() {
           variants={itemVariants}
           className="text-slate-400 text-sm sm:text-base max-w-sm leading-relaxed mb-10 font-normal"
         >
-          The page you&apos;re looking for doesn&apos;t exist. It may have been moved or the URL might be incorrect.
+          The page you&apos;re looking for doesn&apos;t exist. It may have been
+          moved or the URL might be incorrect.
         </motion.p>
 
         {/* Minimal Actions Row */}
