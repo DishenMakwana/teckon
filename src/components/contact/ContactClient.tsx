@@ -470,7 +470,9 @@ export default function ContactClient() {
                     <div className="w-8 h-8 rounded-lg bg-teckon-blue/10 flex items-center justify-center text-teckon-blue">
                       <Clock size={18} />
                     </div>
-                    <span className="font-bold text-gray-800">Business Hours</span>
+                    <span className="font-bold text-gray-800">
+                      Business Hours
+                    </span>
                   </div>
 
                   {currentTime && (
@@ -498,8 +500,6 @@ export default function ContactClient() {
                   )}
                 </div>
 
-
-
                 <div className="flex flex-col gap-1.5 text-sm">
                   {DAYS_OF_WEEK.map((day) => {
                     const isToday = currentDayIndex === day.index;
@@ -512,13 +512,23 @@ export default function ContactClient() {
                             : "text-gray-500 hover:bg-gray-50"
                         }`}
                       >
-                        <span className={isToday ? "text-[#111111]" : "text-gray-600"}>
+                        <span
+                          className={
+                            isToday ? "text-[#111111]" : "text-gray-600"
+                          }
+                        >
                           {day.name}{" "}
                           {isToday && (
-                            <span className="text-xs text-[#FFBE00] ml-1">(Today)</span>
+                            <span className="text-xs text-[#FFBE00] ml-1">
+                              (Today)
+                            </span>
                           )}
                         </span>
-                        <span className={isToday ? "text-[#111111]" : "text-gray-500"}>
+                        <span
+                          className={
+                            isToday ? "text-[#111111]" : "text-gray-500"
+                          }
+                        >
                           {day.hours}
                         </span>
                       </div>

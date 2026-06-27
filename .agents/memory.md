@@ -107,6 +107,8 @@ This file serves as the agent's short-term memory of recent tasks, issues resolv
 ### Session: June 27, 2026
 - **Task:** Implement operating hours and Gujarat public holiday checking on the Contact Us page.
 - **Action:** Reorganized bottom layout of [ContactClient.tsx](file:///Users/dishen/Downloads/teckon/src/components/contact/ContactClient.tsx) to place the Form on the left and a stacked Map + Hours column on the right. Coded dynamic business hours checker based on India Standard Time (IST) supporting late Sunday night shifts and dynamic today highlight. Fixed a stretching layout bug by adding `items-start` to the grid container, ensuring form and map cards keep their natural balanced heights. Implemented and subsequently removed the Gujarat public holiday checker per user request to keep the hours card simple. Verified clean build compilation.
+- **Task:** Generate and center-crop wide aspect ratio hero banner images for all 7 main pages.
+- **Action:** Generated 7 highly-detailed 16:9 industrial landscape images using the Gemini generator. Wrote and ran a Python scratch script [crop_banners.py](file:///Users/dishen/.gemini/antigravity/brain/6e5ed7af-2a5f-456d-b103-0ff9c29dded4/scratch/crop_banners.py) using Pillow to center-crop the images to a wide 5:1 aspect ratio (`1376x275`), ensuring key horizontal focal points are preserved, and saved them as compressed WebP formats in `public/images/`. Verified Next.js build compilation.
 
 ## Previous Milestones
 1. **SEO Optimization & Keyword Audit:** Updated configurations, keywords, and tags.
