@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
-import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, MessageCircle, Clock } from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { sendInquiryAction } from "@/app/actions/contact";
 
@@ -18,9 +18,68 @@ interface FormData {
   message: string;
 }
 
+const DAYS_OF_WEEK = [
+  { name: "Sunday", hours: "9:30 am – 12:30 am", index: 0 },
+  { name: "Monday", hours: "9:30 am – 7:30 pm", index: 1 },
+  { name: "Tuesday", hours: "9:30 am – 7:30 pm", index: 2 },
+  { name: "Wednesday", hours: "9:30 am – 7:30 pm", index: 3 },
+  { name: "Thursday", hours: "9:00 am – 7:30 pm", index: 4 },
+  { name: "Friday", hours: "9:30 am – 7:30 pm", index: 5 },
+  { name: "Saturday", hours: "9:30 am – 7:30 pm", index: 6 },
+];
+
+const getISTTime = () => {
+  const now = new Date();
+  const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+  return new Date(utc + 5.5 * 3600000);
+};
+
+const checkIfOpen = (date: Date) => {
+  const day = date.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const currentMin = hours * 60 + minutes;
+
+  // Crossover handling: Monday morning 12:00 AM to 12:30 AM is Sunday's late shift
+  if (day === 1 && currentMin < 30) {
+    return true;
+  }
+
+  // Sunday
+  if (day === 0) {
+    return currentMin >= 570;
+  }
+
+  // Thursday
+  if (day === 4) {
+    return currentMin >= 540 && currentMin <= 1170;
+  }
+
+  // Monday, Tuesday, Wednesday, Friday, Saturday
+  return currentMin >= 570 && currentMin <= 1170;
+};
+
 export default function ContactClient() {
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [currentTime, setCurrentTime] = useState<Date | null>(null);
+
+  useEffect(() => {
+    const initTimer = setTimeout(() => {
+      setCurrentTime(getISTTime());
+    }, 0);
+    const timer = setInterval(() => {
+      setCurrentTime(getISTTime());
+    }, 30000);
+    return () => {
+      clearTimeout(initTimer);
+      clearInterval(timer);
+    };
+  }, []);
+
+  const currentDayIndex = currentTime ? currentTime.getDay() : -1;
+  const isOpen = currentTime ? checkIfOpen(currentTime) : false;
+
   const {
     register,
     handleSubmit,
@@ -183,7 +242,7 @@ export default function ContactClient() {
             })}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Form */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300">
               <h2 className="text-2xl font-black text-[#111111] mb-6">
@@ -388,18 +447,89 @@ export default function ContactClient() {
               </form>
             </div>
 
-            {/* Google Maps Embed */}
-            <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm min-h-[400px] h-full">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.442907409264!2d70.79357007503632!3d22.27978987969395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959cb00052e5469%3A0xd14f057e5cdfa24e!2sSHREEJI%20HYDRAULICS%20(TECKON)!5e0!3m2!1sen!2sin!4v1718800000000!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                allowFullScreen
-                loading="eager"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Teckon™ Shreeji Hydraulics Location — Gondal Road, Rajkot, Gujarat"
-                className="w-full h-full min-h-[400px] border-0"
-              />
+            {/* Right Column: Map + Hours */}
+            <div className="flex flex-col gap-6">
+              {/* Google Maps Embed */}
+              <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm h-80">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.442907409264!2d70.79357007503632!3d22.27978987969395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959cb00052e5469%3A0xd14f057e5cdfa24e!2sSHREEJI%20HYDRAULICS%20(TECKON)!5e0!3m2!1sen!2sin!4v1718800000000!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  allowFullScreen
+                  loading="eager"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Teckon™ Shreeji Hydraulics Location — Gondal Road, Rajkot, Gujarat"
+                  className="w-full h-full border-0"
+                />
+              </div>
+
+              {/* Operating Hours Card */}
+              <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col gap-4">
+                <div className="flex items-center justify-between border-b border-gray-100 pb-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg bg-teckon-blue/10 flex items-center justify-center text-teckon-blue">
+                      <Clock size={18} />
+                    </div>
+                    <span className="font-bold text-gray-800">Business Hours</span>
+                  </div>
+
+                  {currentTime && (
+                    <div className="flex items-center gap-1.5">
+                      <span className="relative flex h-2 w-2">
+                        <span
+                          className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
+                            isOpen ? "bg-green-400" : "bg-red-400"
+                          }`}
+                        ></span>
+                        <span
+                          className={`relative inline-flex rounded-full h-2 w-2 ${
+                            isOpen ? "bg-green-500" : "bg-red-500"
+                          }`}
+                        ></span>
+                      </span>
+                      <span
+                        className={`text-xs font-bold uppercase tracking-wider ${
+                          isOpen ? "text-green-600" : "text-red-500"
+                        }`}
+                      >
+                        {isOpen ? "Open Now" : "Closed Now"}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+
+
+                <div className="flex flex-col gap-1.5 text-sm">
+                  {DAYS_OF_WEEK.map((day) => {
+                    const isToday = currentDayIndex === day.index;
+                    return (
+                      <div
+                        key={day.name}
+                        className={`flex items-center justify-between px-3 py-2 rounded-xl transition-all ${
+                          isToday
+                            ? "bg-[#FFBE00]/10 border-l-4 border-[#FFBE00] font-semibold text-[#111111]"
+                            : "text-gray-500 hover:bg-gray-50"
+                        }`}
+                      >
+                        <span className={isToday ? "text-[#111111]" : "text-gray-600"}>
+                          {day.name}{" "}
+                          {isToday && (
+                            <span className="text-xs text-[#FFBE00] ml-1">(Today)</span>
+                          )}
+                        </span>
+                        <span className={isToday ? "text-[#111111]" : "text-gray-500"}>
+                          {day.hours}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="text-[10px] text-gray-400 text-center mt-1">
+                  All operating times are listed in India Standard Time (IST)
+                </div>
+              </div>
             </div>
           </div>
         </div>
