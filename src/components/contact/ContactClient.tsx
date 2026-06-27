@@ -79,7 +79,7 @@ export default function ContactClient() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-teckon-dark-blue py-20 relative overflow-hidden">
+      <section id="contact-hero" className="bg-teckon-dark-blue py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <Image src="/images/contact-hero.webp" alt="A clean modern office workspace with phone, notebook, and heavy machinery blueprint" fill sizes="100vw" className="object-cover" priority />
         </div>
@@ -91,7 +91,7 @@ export default function ContactClient() {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-12 bg-white">
+      <section id="contact-form" className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-12">
             {[

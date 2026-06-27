@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <>
-      <section className="bg-teckon-dark-blue py-20 relative overflow-hidden">
+      <section id="blog-hero" className="bg-teckon-dark-blue py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <Image src="/images/blog-hydraulics.webp" alt="Hydraulic components, control valves, and precision parts display" fill sizes="100vw" className="object-cover" priority loading="eager" />
         </div>
@@ -34,7 +34,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
+      <section id="blog-list" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <BlogList posts={BLOG_POSTS} />
         </div>

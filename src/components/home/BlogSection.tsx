@@ -14,7 +14,7 @@ export default function BlogSection() {
   const latestPosts = BLOG_POSTS.slice(0, 3);
 
   return (
-    <section className="py-20 bg-slate-50 overflow-hidden" ref={ref}>
+    <section id="latest-blog" className="py-20 bg-slate-50 overflow-hidden" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div

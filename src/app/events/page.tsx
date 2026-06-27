@@ -20,7 +20,7 @@ export default function EventsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-teckon-dark-blue py-20 relative overflow-hidden">
+      <section id="events-hero" className="bg-teckon-dark-blue py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <Image
             src="/images/events-tradeshow.webp"
@@ -52,7 +52,7 @@ export default function EventsPage() {
       </section> */}
 
       {/* Events Timeline */}
-      <section className="py-20 bg-gray-50">
+      <section id="timeline" className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">
@@ -124,7 +124,7 @@ export default function EventsPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#FFBE00] py-16">
+      <section id="cta" className="bg-[#FFBE00] py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black text-[#0B0F19] mb-4">
             Connect with Our Team

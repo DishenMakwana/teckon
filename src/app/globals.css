@@ -119,3 +119,75 @@ body {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
+/* Print styles to hide navigation, footers, rails, and sidebars */
+@media print {
+  header,
+  footer,
+  nav,
+  aside,
+  button,
+  #privacy-hero,
+  #terms-hero,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Hide fixed position components (QuickAccessRail, MobileStickyBar, BackToTop) */
+  .fixed,
+  [class*="fixed"] {
+    display: none !important;
+  }
+
+  /* Reset page colors and backgrounds for high contrast physical printing */
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
+  }
+
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: auto !important;
+  }
+
+  #privacy-content,
+  #terms-content {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Force grid containers to display as block flow */
+  .grid {
+    display: block !important;
+  }
+
+  /* Content card expansion */
+  .bg-white,
+  .bg-gray-50 {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  /* Section break flow management */
+  article {
+    page-break-inside: avoid;
+    margin-bottom: 2.5rem !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  article:last-of-type {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+    color: #0f172a !important;
+  }
+}

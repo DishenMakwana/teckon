@@ -20,7 +20,7 @@ const BlogSection = dynamic(() => import("@/components/home/BlogSection"), { ssr
 export default function HomePage() {
   return (
     <>
-      <section className="relative min-h-[calc(100dvh-64px)] md:min-h-[calc(100vh-64px)] flex items-center justify-center overflow-hidden">
+      <section id="hero" className="relative min-h-[calc(100dvh-64px)] md:min-h-[calc(100vh-64px)] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -130,7 +130,7 @@ export default function HomePage() {
       </Suspense>
 
       {/* Industries & Machinery We Serve - SEO Text Section */}
-      <section className="py-20 bg-slate-50 border-t border-b border-gray-100">
+      <section id="industries" className="py-20 bg-slate-50 border-t border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">Applications</span>
@@ -168,7 +168,7 @@ export default function HomePage() {
       <BlogSection />
 
       {/* CTA Banner */}
-      <section className="bg-[#FFBE00] py-16">
+      <section id="cta" className="bg-[#FFBE00] py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-black text-[#0B0F19] mb-4">
             Need Hydraulic Spares for Your Equipment?

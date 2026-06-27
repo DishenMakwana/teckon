@@ -15,6 +15,12 @@ export default function ProductImageViewer({ src, alt }: ProductImageViewerProps
   const [scale, setScale] = useState(1);
   const [dragKey, setDragKey] = useState(0); // Used to force reset drag position
 
+  const closeViewer = () => {
+    setIsOpen(false);
+    setScale(1);
+    setDragKey(prev => prev + 1);
+  };
+
   // Handle escape key to close modal
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -31,12 +37,6 @@ export default function ProductImageViewer({ src, alt }: ProductImageViewerProps
       document.body.style.overflow = "unset";
     };
   }, [isOpen]);
-
-  const closeViewer = () => {
-    setIsOpen(false);
-    setScale(1);
-    setDragKey(prev => prev + 1);
-  };
 
   const handleZoomIn = () => {
     setScale(prev => Math.min(prev + 0.5, 4));
