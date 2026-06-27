@@ -38,5 +38,9 @@
     "prettier": "^3.8.4",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "volta": {
+    "node": "24.17.0",
+    "npm": "11.17.0"
   }
 }
