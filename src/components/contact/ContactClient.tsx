@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
-import { MapPin, Phone, Mail, MessageCircle, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, MessageCircle, Clock, Info } from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { sendInquiryAction } from "@/app/actions/contact";
 
@@ -536,8 +536,17 @@ export default function ContactClient() {
                   })}
                 </div>
 
-                <div className="text-[10px] text-gray-400 text-center mt-1">
-                  All operating times are listed in India Standard Time (IST)
+                <div className="flex items-center gap-1.5 bg-gray-50 border border-gray-200/60 rounded-lg px-3 py-2">
+                  <Clock size={12} className="text-gray-400 shrink-0" />
+                  <span className="text-[10px] text-gray-500 leading-relaxed">
+                    All operating times are listed in India Standard Time (IST)
+                  </span>
+                </div>
+                <div className="flex items-start gap-1.5 bg-amber-50 border border-amber-200/60 rounded-lg px-3 py-2">
+                  <Info size={12} className="text-amber-500 mt-0.5 shrink-0" />
+                  <span className="text-[10px] text-amber-700/80 leading-relaxed">
+                    We may remain closed on Gujarat public holidays; please confirm availability in advance.
+                  </span>
                 </div>
               </div>
             </div>

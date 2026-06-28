@@ -254,7 +254,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
           <p className="text-white/40 text-[11px] leading-relaxed">
             <span className="font-bold text-white/50 block sm:inline mr-1">
-              For Reference Only:
+              Disclaimer:
             </span>
             All manufacturer names, OEM part numbers, symbols, and descriptions
             (such as JCB, Terex, CAT, Case, Tata JD, Carraro, Dana, etc.) are
