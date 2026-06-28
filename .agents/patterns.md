@@ -63,3 +63,69 @@ This document captures recurring patterns in this codebase. Agents and developer
     description: 'Optimize page meta description with keywords.',
   };
   ```
+
+---
+
+## 6. Prettier Formatting (MUST FOLLOW)
+
+**Config:** [`.prettierrc`](file:///Users/dishen/Downloads/teckon/.prettierrc)
+
+All code written to `src/**/*.{ts,tsx}` files **must** comply with these rules at write-time:
+
+| Rule             | Value   | What it means                                              |
+|------------------|---------|------------------------------------------------------------|
+| `semi`           | `true`  | Always end statements with a semicolon.                    |
+| `trailingComma`  | `"es5"` | Add trailing commas in objects, arrays, and function params where ES5 allows. |
+| `tabWidth`       | `2`     | Indent with **2 spaces**, never tabs.                      |
+| `printWidth`     | `80`    | Wrap lines at **80 characters**. Break JSX props, long strings, and ternaries before hitting this limit. |
+
+### Key implications of `printWidth: 80`
+- **JSX attributes:** If a JSX element has multiple props that exceed 80 chars on one line, break each prop onto its own line:
+  ```tsx
+  // ✅ Correct — each prop on its own line
+  <div
+    className="flex items-center gap-1.5 bg-amber-50 border border-amber-200/60 rounded-lg px-3 py-2"
+    onClick={handleClick}
+  >
+
+  // ❌ Wrong — exceeds 80 chars on one line
+  <div className="flex items-center gap-1.5 bg-amber-50 border border-amber-200/60 rounded-lg px-3 py-2" onClick={handleClick}>
+  ```
+- **String literals / template strings:** Break long strings before the 80-char mark.
+- **Ternary expressions:** Multi-line ternaries are preferred when the single-line form would exceed 80 chars.
+- **Import statements:** If a single import has many named exports, Prettier will wrap them across lines.
+
+---
+
+## 7. ESLint Rules
+
+**Config:** [`eslint.config.mjs`](file:///Users/dishen/Downloads/teckon/eslint.config.mjs) (flat config format)
+
+- Extends **`eslint-config-next/core-web-vitals`** and **`eslint-config-next/typescript`**.
+- All rules from Next.js recommended + TypeScript strict are enforced.
+- **Key rules to remember:**
+  - No unused variables or imports.
+  - React hooks rules (exhaustive deps, rules of hooks).
+  - No `<img>` — use `next/image` (`<Image>`).
+  - No `<a>` for internal links — use `next/link` (`<Link>`).
+  - Properly escape entities in JSX (use `&amp;` not `&`, `{" "}` for spaces).
+  - No `any` type unless absolutely necessary.
+
+---
+
+## 8. Husky Pre-Commit Pipeline
+
+**Hook:** [`.husky/pre-commit`](file:///Users/dishen/Downloads/teckon/.husky/pre-commit)
+
+Every `git commit` triggers this pipeline **before** the commit is accepted:
+
+```
+Step 1 → yarn run lint    (runs: eslint)
+Step 2 → yarn run format  (runs: prettier --write "src/**/*.{ts,tsx}")
+```
+
+### What this means for agents writing code:
+1. **Write ESLint-clean code on the first pass.** If `yarn run lint` fails, the commit is rejected.
+2. **Follow Prettier rules when writing code.** Although `yarn run format` auto-fixes formatting, writing pre-formatted code avoids unnecessary diffs and reformatting noise during commit.
+3. **Never skip or disable these hooks.** They are the project's quality gate.
+4. **Test before committing** — if unsure, run `yarn run lint` and `yarn run format` manually before `git commit` to catch issues early.

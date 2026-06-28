@@ -545,7 +545,8 @@ export default function ContactClient() {
                 <div className="flex items-start gap-1.5 bg-amber-50 border border-amber-200/60 rounded-lg px-3 py-2">
                   <Info size={12} className="text-amber-500 mt-0.5 shrink-0" />
                   <span className="text-[10px] text-amber-700/80 leading-relaxed">
-                    We may remain closed on Gujarat public holidays; please confirm availability in advance.
+                    We may remain closed on Gujarat public holidays; please
+                    confirm availability in advance.
                   </span>
                 </div>
               </div>

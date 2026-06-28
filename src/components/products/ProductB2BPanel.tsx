@@ -90,7 +90,8 @@ export default function ProductB2BPanel({ product }: ProductB2BPanelProps) {
           <div className="flex items-start gap-1.5 bg-amber-50 border border-amber-200/60 rounded-lg px-3 py-2 mt-1">
             <Info size={12} className="text-amber-500 mt-0.5 shrink-0" />
             <span className="text-[10px] text-amber-700/80 leading-relaxed">
-              Delivery timelines may be extended during Gujarat public holidays as transport and logistics services remain closed.
+              Delivery timelines may be extended during Gujarat public holidays
+              as transport and logistics services remain closed.
             </span>
           </div>
         </div>
