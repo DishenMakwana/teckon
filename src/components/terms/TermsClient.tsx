@@ -45,10 +45,10 @@ const SECTIONS: Section[] = [
   },
   {
     id: "showcase-platform",
-    title: "4. Showcase Platform & Future E-Commerce Transition",
-    tldr: "This website currently showcases products only. No online checkout or payments are active. Direct online sales are planned for the future.",
+    title: "4. Showcase Platform Only",
+    tldr: "This website is strictly an informational catalog. No online checkout or direct payments are processed on the site.",
     content:
-      "Please note the operational status of our website:\n\n(a) Showcase Only: This platform is currently an online catalog to showcase our range of products, specifications, and applications. Direct online purchases or payment processing are not active on the site.\n\n(b) Inquiries & Quotes: Price estimates, orders, and commercial transactions are processed offline. RFQ forms, emails, and WhatsApp contacts are used for lead inquiry purposes and do not constitute a binding sale contract until finalized offline by our sales desk.\n\n(c) E-Commerce Future: We plan to enable direct online checkout and payment gateway integrations in the future. Prior to doing so, we will publish updated terms covering payment processing, billing, returns, and cancellation policies.",
+      "Please note the operational status of our website:\n\n(a) Showcase Only: This platform is currently an online catalog to showcase our range of products, technical specifications, and compatibility details. Direct online purchases, shopping carts, or digital payment processing are not active on the site.\n\n(b) Inquiries & Quotes: Price estimates, orders, and all commercial transactions are processed entirely offline. Request for Quote (RFQ) forms, email contacts, and WhatsApp links are used solely for lead inquiries and do not constitute a binding sale contract until finalized and signed offline by our sales desk.",
   },
   {
     id: "product-info",
