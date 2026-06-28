@@ -64,6 +64,13 @@ const SECTIONS: Section[] = [
     content:
       "You have the right to: access the personal data we hold about you, request correction of inaccurate data, request deletion of your data, withdraw consent at any time, and lodge a complaint with the relevant data protection authority.",
   },
+  {
+    id: "future-ecommerce",
+    title: "7. Future E-Commerce Data Processing",
+    tldr: "If we start online checkout in the future, we will collect billing and shipping details, process payments via secure gateways, and update this policy.",
+    content:
+      "As part of our roadmap, we plan to transition this platform to support online e-commerce transactions. When direct purchasing is implemented:\n\n(a) Additional Collection: We will collect billing addresses, shipping addresses, and transaction histories.\n\n(b) Secure Payments: Payment processing will be handled by secure, PCI-DSS compliant third-party payment gateways. We will not store or process your credit/debit card numbers directly on our servers.\n\n(c) Policy Update: We will update this Privacy Policy prior to launching online checkout to detail our payment processors and transaction data practices.",
+  },
 ];
 
 export default function PrivacyPolicyClient() {
