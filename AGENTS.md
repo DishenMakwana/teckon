@@ -4,6 +4,30 @@
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
+## Project Brain — Execution Protocol
+
+**IMPORTANT: This project uses Project Brain v2. Read `project-brain/system/system.md` before acting on any prompt.**
+
+Every prompt follows the deterministic pipeline:
+
+```text
+Classify → Graph Retrieve → Load Context → Plan → Execute → Validate → Review → Score ≥ 90? → Sync → Respond
+```
+
+### Session Start
+
+1. Read `project-brain/cache/recent-context.md` (prior session context)
+2. Read `project-brain/memory/overview.md` (current project state)
+3. Check git branch + last commit
+
+### Key Protocol Files
+
+- Master pipeline: `project-brain/system/system.md`
+- Lifecycle rules: `project-brain/system/workflow.md`
+- Planning: `project-brain/system/planner.md`
+- Runtime components: `project-brain/runtime/`
+- Domain memory: `project-brain/memory/`
+
 # Agent Context & Memory Guidelines
 
 To conserve context window tokens and avoid reading the entire codebase:
