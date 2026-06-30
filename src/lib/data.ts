@@ -49,6 +49,7 @@ export const PRODUCTS = [
     description:
       "Premium replacement hydraulic pump assembly for JCB 3CX, 4CX, and JS series. High-pressure rated with precision-machined components.",
     image: "/images/products/jcb-hydraulic-pump.webp",
+    backgroundColor: "#EAE8E9",
     specs: {
       "Pressure Rating": "350 bar",
       "Flow Rate": "60–120 L/min",
@@ -71,6 +72,7 @@ export const PRODUCTS = [
     description:
       "Complete seal and O-ring kit for JCB boom cylinders. NBR/Polyurethane seals for extended service life in demanding conditions.",
     image: "/images/products/jcb-seal-kit.webp",
+    backgroundColor: "#E2E0E1",
     specs: {
       Material: "NBR / Polyurethane",
       "Temperature Range": "-20°C to +120°C",
@@ -92,6 +94,7 @@ export const PRODUCTS = [
     description:
       "Precision-matched main directional control valve for JCB 3DX backhoe loaders. Controls boom, dipper, bucket and stabiliser circuits simultaneously.",
     image: "/images/products/jcb-3dx-control-valve.webp",
+    backgroundColor: "#E5E2E3",
     specs: {
       "Valve Type": "6-spool directional control",
       "Pressure Rating": "250 bar",
@@ -114,6 +117,7 @@ export const PRODUCTS = [
     description:
       "OEM-equivalent boom lift cylinder for JCB 3DX and 3CX backhoe loaders. Chrome-hardened rod, precision honed bore for consistent performance.",
     image: "/images/products/jcb-boom-cylinder.webp",
+    backgroundColor: "#E7E5E6",
     specs: {
       "Bore Diameter": "115 mm",
       "Rod Diameter": "70 mm",
@@ -136,6 +140,7 @@ export const PRODUCTS = [
     description:
       "High-strength dipper arm cylinder for JCB JS series tracked excavators. Built with thick-wall barrel and heavy-duty end cap design.",
     image: "/images/products/jcb-dipper-cylinder.webp",
+    backgroundColor: "#E8E6E7",
     specs: {
       "Bore Diameter": "130 mm",
       "Rod Diameter": "80 mm",
@@ -158,6 +163,7 @@ export const PRODUCTS = [
     description:
       "Full machine pin and bronze bush kit for JCB 3DX backhoe loaders. Covers boom, dipper, bucket, tipping link and stabiliser pivot points.",
     image: "/images/products/jcb-pin-bush-kit.webp",
+    backgroundColor: "#E5E2E3",
     specs: {
       "Kit Contents": "32 pins + 32 bronze bushes",
       "Pin Material": "Alloy steel, case hardened",
@@ -179,6 +185,7 @@ export const PRODUCTS = [
     description:
       "Premium engine oil filter for JCB Dieselmax engines. High-efficiency filter media traps metallic wear particles to protect engine internals.",
     image: "/images/products/jcb-engine-oil-filter.webp",
+    backgroundColor: "#E8E7E7",
     specs: {
       "Filter Media": "High-efficiency synthetic fibre",
       "Micron Rating": "15 micron",
@@ -200,6 +207,7 @@ export const PRODUCTS = [
     description:
       "High-capacity return line filter element for JCB hydraulic systems. Prevents system contamination from worn pump and valve particles.",
     image: "/images/products/jcb-hydraulic-filter.webp",
+    backgroundColor: "#E9E7E8",
     specs: {
       "Micron Rating": "10 micron (absolute)",
       "Flow Rate": "up to 200 L/min",
@@ -221,6 +229,7 @@ export const PRODUCTS = [
     description:
       "Two-stage fuel filtration assembly for JCB Dieselmax engines. Primary water separator plus secondary fine filter for clean fuel delivery.",
     image: "/images/products/jcb-fuel-filter.webp",
+    backgroundColor: "#E8E6E7",
     specs: {
       "Filtration Stage": "2-stage (water separator + fine filter)",
       "Micron Rating": "5 micron (fine filter)",
@@ -245,6 +254,7 @@ export const PRODUCTS = [
     description:
       "Variable displacement axial piston pump rebuild kit for Hitachi EX200 and EX220 excavators. Includes piston shoes, cylinder block, valve plate and retainer.",
     image: "/images/products/hitachi-main-pump.webp",
+    backgroundColor: "#E8E6E7",
     specs: {
       "Pump Type": "Variable displacement axial piston",
       Displacement: "102 cc/rev",
@@ -267,6 +277,7 @@ export const PRODUCTS = [
     description:
       "Complete swing motor and planetary gearbox assembly for Hitachi Zaxis 200 and 210 excavators. Resolves swing drift and oil mixing faults.",
     image: "/images/products/hitachi-swing-motor.webp",
+    backgroundColor: "#E9E7E8",
     specs: {
       Type: "Axial piston motor + planetary gearbox",
       "Torque Rating": "3,500 Nm",
@@ -290,6 +301,7 @@ export const PRODUCTS = [
     description:
       "Complete travel motor and final drive assembly for Hitachi EX200 and Zaxis 200 excavators. Two-speed selection with automatic shift functionality.",
     image: "/images/products/hitachi-final-drive.webp",
+    backgroundColor: "#E9E7E8",
     specs: {
       "Motor Type": "2-speed radial piston",
       "Gear Stages": "3-stage planetary reduction",
@@ -311,6 +323,7 @@ export const PRODUCTS = [
     description:
       "Premium seal kit for Hitachi Zaxis 200 boom cylinders. Polyurethane rod seals with NBR O-ring set for long service life in Indian site conditions.",
     image: "/images/products/hitachi-boom-cylinder-seal.webp",
+    backgroundColor: "#E9E7E8",
     specs: {
       "Seal Material": "Polyurethane rod seal + NBR O-rings",
       "Temperature Range": "-30°C to +110°C",
@@ -331,6 +344,7 @@ export const PRODUCTS = [
     description:
       "Heavy-duty single flange bottom track roller for Hitachi Zaxis 200 series excavators. Sealed-for-life duo-cone floating seal design.",
     image: "/images/products/hitachi-track-roller.webp",
+    backgroundColor: "#EAE8E9",
     specs: {
       "Flange Type": "Single flange",
       Material: "Forged alloy steel, induction hardened",
@@ -353,6 +367,7 @@ export const PRODUCTS = [
     description:
       "Genuine-spec duo-cone floating seal pair for Hitachi excavator undercarriage. Prevents mud and water ingress into track roller and final drive oil chambers.",
     image: "/images/products/hitachi-duo-cone-seal.webp",
+    backgroundColor: "#EBE9EA",
     specs: {
       "Seal Type": "Duo-cone (metal face + rubber toric ring)",
       "Face OD": "120 mm / 145 mm / 165 mm (available)",
@@ -377,6 +392,7 @@ export const PRODUCTS = [
     description:
       "Heavy-duty hydraulic lift cylinder for Terex Backhoe loaders and rough terrain forklifts. Chrome-plated rod for corrosion resistance.",
     image: "/images/products/terex-hydraulic-cylinder.webp",
+    backgroundColor: "#EBE8E9",
     specs: {
       "Bore Diameter": "80–120 mm",
       "Stroke Length": "600–1200 mm",
@@ -398,6 +414,7 @@ export const PRODUCTS = [
     description:
       "Complete seal kit set covering all cylinders on the Terex TLB840 backhoe loader — boom, dipper, bucket, loader and stabiliser kits bundled together.",
     image: "/images/products/terex-seal-kit.webp",
+    backgroundColor: "#ECE9EA",
     specs: {
       "Kit Coverage": "All 6 cylinder positions",
       "Total Pieces": "96 seals across all kits",
@@ -419,6 +436,7 @@ export const PRODUCTS = [
     description:
       "Orbital hydraulic steering unit (OSP/OLS type) for Terex wheeled backhoe loaders. Full-flow type with load-sensing port for responsive steering.",
     image: "/images/products/terex-steering-unit.webp",
+    backgroundColor: "#EEEBEC",
     specs: {
       Type: "Orbital (Gerotor) steering unit",
       Displacement: "100–250 cc/rev (available)",
@@ -441,6 +459,7 @@ export const PRODUCTS = [
     description:
       "Precision-engineered directional control valve for Caterpillar 424B backhoe loaders. Full compatibility with OEM specifications.",
     image: "/images/products/cat-control-valve.webp",
+    backgroundColor: "#EBE9EA",
     specs: {
       "Valve Type": "Directional Control, 4-spool",
       "Pressure Rating": "300 bar",
@@ -461,6 +480,7 @@ export const PRODUCTS = [
     description:
       "Complete bucket cylinder for Caterpillar 428E backhoe loaders. Hard-chrome plated rod and precision machined bore for OEM-level performance.",
     image: "/images/products/cat-bucket-cylinder.webp",
+    backgroundColor: "#EEECEC",
     specs: {
       "Bore Diameter": "105 mm",
       "Rod Diameter": "65 mm",
@@ -483,6 +503,7 @@ export const PRODUCTS = [
     description:
       "Tandem gear pump assembly for Caterpillar 424B backhoe loader. Delivers consistent flow to loader and backhoe circuits simultaneously.",
     image: "/images/products/cat-hydraulic-pump.webp",
+    backgroundColor: "#ECEBEB",
     specs: {
       "Pump Type": "Tandem gear pump",
       "Front Section Flow": "75 L/min @ 2,200 rpm",
@@ -504,6 +525,7 @@ export const PRODUCTS = [
     description:
       "Full cylinder seal kit bundle for CAT 428E covering boom, stick, bucket, loader and stabiliser positions. Polyurethane and NBR seals.",
     image: "/images/products/cat-seal-kit.webp",
+    backgroundColor: "#ECEBEB",
     specs: {
       Coverage: "5 cylinder seal kits",
       "Total Seals": "80 pieces",
@@ -527,6 +549,7 @@ export const PRODUCTS = [
     description:
       "High-performance nitrogen-charged accumulator for hydraulic rock breakers. Reduces peak pressure spikes and extends breaker life.",
     image: "/images/products/breaker-accumulator.webp",
+    backgroundColor: "#EFEDEE",
     specs: {
       Volume: "2–10 L",
       "Pre-charge Pressure": "50–90 bar",
@@ -547,6 +570,7 @@ export const PRODUCTS = [
     description:
       "Complete front head seal kit for medium-class hydraulic rock breakers. Prevents oil leakage around the chisel/tool bushing area.",
     image: "/images/products/breaker-front-head-seal.webp",
+    backgroundColor: "#ECECEC",
     specs: {
       "Seal Material": "Polyurethane + NBR",
       "Kit Contents": "Rod seals, dust seals, O-rings, back-up rings",
@@ -567,6 +591,7 @@ export const PRODUCTS = [
     description:
       "Multi-stage telescopic hydraulic cylinder for truck-mounted tipper bodies. Hot-dip galvanized outer sleeve for corrosion protection.",
     image: "/images/products/tipper-cylinder-kit.webp",
+    backgroundColor: "#EEEEEE",
     specs: {
       Type: "3-stage telescopic",
       "Closed Length": "1,200–1,600 mm",
@@ -592,6 +617,7 @@ export const PRODUCTS = [
     description:
       "Heavy-duty bottom track roller for L770 crawler loaders. Sealed for life with premium bearing steel construction.",
     image: "/images/products/l770-track-roller.webp",
+    backgroundColor: "#ECECED",
     specs: {
       "Flange Type": "Double flange",
       Material: "Forged alloy steel",
@@ -612,6 +638,7 @@ export const PRODUCTS = [
     description:
       "Cast steel front idler with yoke and recoil spring assembly for L770 and Tata JD crawler loaders. Controls track tension and absorbs ground shocks.",
     image: "/images/products/l770-front-idler.webp",
+    backgroundColor: "#ECECEC",
     specs: {
       Material: "Cast alloy steel, machined OD",
       "Seal Type": "Duo-cone floating seal",
@@ -632,6 +659,7 @@ export const PRODUCTS = [
     description:
       "Bolt-on drive sprocket segment set for L770 crawler loaders. Manufactured from Boron alloy steel for maximum wear life.",
     image: "/images/products/l770-drive-sprocket.webp",
+    backgroundColor: "#ECECEE",
     specs: {
       Material: "Boron alloy steel, 48 HRC hardness",
       "Segments per Set": "8 segments",
@@ -655,6 +683,7 @@ export const PRODUCTS = [
     description:
       "Complete bucket cylinder assembly for mid-size excavators (13–20 ton class). Hardened chrome rod with high-grade sealing system.",
     image: "/images/products/excavator-bucket-cylinder.webp",
+    backgroundColor: "#EEEDF0",
     specs: {
       Bore: "100 mm",
       Stroke: "850 mm",
@@ -675,6 +704,7 @@ export const PRODUCTS = [
     description:
       "Universal-fit swing motor assembly for 18–22 ton class excavators. Includes brake assembly and relief valves. Suits multiple brands.",
     image: "/images/products/excavator-swing-motor.webp",
+    backgroundColor: "#EEEDEF",
     specs: {
       Displacement: "60 cc/rev",
       "Max Pressure": "280 bar",
@@ -696,6 +726,7 @@ export const PRODUCTS = [
     description:
       "Two-speed travel motor assembly for 20-ton class excavators. Automatic speed shift from high to low under load for climbing performance.",
     image: "/images/products/excavator-travel-motor.webp",
+    backgroundColor: "#EFEEF0",
     specs: {
       Type: "2-speed axial piston",
       Displacement: "High: 80 cc | Low: 140 cc",
@@ -717,6 +748,7 @@ export const PRODUCTS = [
     description:
       "Single-flange carrier roller for 20-ton class tracked excavators. Supports the return run of the track chain and prevents derailment.",
     image: "/images/products/excavator-carrier-roller.webp",
+    backgroundColor: "#EFEEF0",
     specs: {
       "Flange Type": "Single flange",
       Material: "Forged alloy steel, heat-treated",
@@ -742,6 +774,7 @@ export const PRODUCTS = [
     description:
       "4-wire spiral hydraulic hose assemblies for high-pressure applications. Custom lengths and fittings available for all machine types.",
     image: "/images/products/hydraulic-hose-assembly.webp",
+    backgroundColor: "#EFEFF1",
     specs: {
       "Working Pressure": "Up to 420 bar",
       "Temperature Range": "-40°C to +120°C",
@@ -762,6 +795,7 @@ export const PRODUCTS = [
     description:
       "Comprehensive 120-piece BSP hydraulic fitting kit including male-female adaptors, elbows, tees, and reducers. Suits all construction equipment brands.",
     image: "/images/products/hydraulic-fitting-set.webp",
+    backgroundColor: "#EDECEF",
     specs: {
       "Total Pieces": "120 fittings",
       "Thread Standard": "BSP (BSPP / BSPT)",
@@ -783,6 +817,7 @@ export const PRODUCTS = [
     description:
       "Nitrogen pre-charged bladder accumulator for energy storage, pulsation dampening and emergency power in hydraulic circuits.",
     image: "/images/products/hydraulic-bladder-accumulator.webp",
+    backgroundColor: "#F1F1F2",
     specs: {
       Volume: "1–50 L (available)",
       "Pre-charge Pressure": "25–200 bar",
@@ -806,6 +841,7 @@ export const PRODUCTS = [
     description:
       "High-efficiency spin-on hydraulic filter suitable for all major construction equipment. 10-micron absolute filtration for clean system operation.",
     image: "/images/products/hydraulic-filter-spin-on.webp",
+    backgroundColor: "#EFEEF0",
     specs: {
       "Micron Rating": "10 micron absolute",
       "Max Flow": "150 L/min",
@@ -827,6 +863,7 @@ export const PRODUCTS = [
     description:
       "Primary outer air filter element for heavy construction equipment. Cellulose/synthetic blend media for superior dust retention in Indian site conditions.",
     image: "/images/products/engine-air-filter-primary.webp",
+    backgroundColor: "#EFEFF0",
     specs: {
       "Filter Media": "Cellulose + synthetic blend",
       "Dust Holding Capacity": "High (extended service life)",
@@ -849,6 +886,7 @@ export const PRODUCTS = [
     description:
       "5-micron primary fuel filter for diesel construction equipment engines. Compatible thread sizes covering all major brands in the Indian market.",
     image: "/images/products/universal-fuel-filter.webp",
+    backgroundColor: "#F0F0F1",
     specs: {
       "Micron Rating": "5 micron (fine filtration)",
       "Max Flow": "300 L/hr",

@@ -92,8 +92,8 @@ export default async function ProductDetailPage({ params }: Props) {
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#FFBE00]/5 rounded-full filter blur-3xl pointer-events-none" />
         <div className="absolute inset-0 opacity-15">
           <Image
-            src="/images/products-hero.webp"
-            alt="Warehouse shelves organized with heavy machinery hydraulic spare parts"
+            src="/images/product-details-hero.webp"
+            alt="Close-up of premium hydraulic cylinders and precision machinery components"
             fill
             sizes="100vw"
             className="object-cover"
@@ -126,12 +126,21 @@ export default async function ProductDetailPage({ params }: Props) {
             <div className="lg:col-span-5 space-y-6">
               {/* Product Main Zoom Viewer */}
               <div className="relative rounded-3xl overflow-hidden shadow-lg border border-gray-100">
-                <ProductImageViewer src={product.image} alt={product.name} />
+                <ProductImageViewer
+                  src={product.image}
+                  alt={product.name}
+                  backgroundColor={product.backgroundColor}
+                />
               </div>
 
               {/* Technical Blueprint Thumbnail Box */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="relative h-32 rounded-2xl overflow-hidden bg-[#bebcbd] border border-gray-200/50 shadow-sm flex items-center justify-center p-3 select-none">
+                <div
+                  className="relative h-32 rounded-2xl overflow-hidden border border-gray-200/50 shadow-sm flex items-center justify-center p-3 select-none"
+                  style={{
+                    backgroundColor: product.backgroundColor || "#F2F3F4",
+                  }}
+                >
                   <SafeImage
                     src={product.image}
                     alt={`${product.name} detail view`}
@@ -347,7 +356,12 @@ export default async function ProductDetailPage({ params }: Props) {
                     href={`/products/${p.slug}`}
                     className="group bg-gray-50/50 rounded-2xl p-4 border border-gray-100 hover:shadow-lg hover:bg-white transition-all duration-300 flex flex-col h-full"
                   >
-                    <div className="relative h-32 rounded-xl overflow-hidden mb-4 bg-[#bebcbd] border border-gray-200/50 shrink-0">
+                    <div
+                      className="relative h-32 rounded-xl overflow-hidden mb-4 border border-gray-200/50 shrink-0"
+                      style={{
+                        backgroundColor: p.backgroundColor || "#F2F3F4",
+                      }}
+                    >
                       <SafeImage
                         src={p.image}
                         alt={p.name}
