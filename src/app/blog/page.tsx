@@ -53,11 +53,13 @@ export default function BlogPage() {
 
       <section id="blog-list" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Suspense fallback={
-            <div className="h-96 flex items-center justify-center">
-              <div className="w-8 h-8 border-4 border-[#FFBE00] border-t-transparent rounded-full animate-spin" />
-            </div>
-          }>
+          <Suspense
+            fallback={
+              <div className="h-96 flex items-center justify-center">
+                <div className="w-8 h-8 border-4 border-[#FFBE00] border-t-transparent rounded-full animate-spin" />
+              </div>
+            }
+          >
             <BlogList posts={BLOG_POSTS} />
           </Suspense>
         </div>

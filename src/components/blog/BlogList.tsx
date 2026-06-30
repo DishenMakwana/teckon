@@ -18,7 +18,6 @@ import SafeImage from "@/components/ui/SafeImage";
 import { formatDate } from "@/lib/utils";
 import { Search, X, ChevronRight, ChevronLeft } from "lucide-react";
 
-
 interface BlogListProps {
   posts: BlogPost[];
 }
@@ -304,9 +303,7 @@ function BlogListContent({ posts }: BlogListProps) {
                       {featuredPost.category}
                     </span>
                     <span>•</span>
-                    <span>
-                      {formatDate(featuredPost.date)}
-                    </span>
+                    <span>{formatDate(featuredPost.date)}</span>
                     <span>•</span>
                     <span>By {featuredPost.author}</span>
                   </div>
@@ -370,9 +367,7 @@ function BlogListContent({ posts }: BlogListProps) {
                     <div className="p-5 flex flex-col justify-between flex-grow">
                       <div>
                         <div className="flex items-center gap-2 text-gray-400 text-xs mb-3 font-mono">
-                          <span>
-                            {formatDate(post.date)}
-                          </span>
+                          <span>{formatDate(post.date)}</span>
                           <span>•</span>
                           <span>{post.author}</span>
                         </div>

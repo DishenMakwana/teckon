@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MessageCircle, Mail, Phone, MapPin, ChevronRight } from "lucide-react";

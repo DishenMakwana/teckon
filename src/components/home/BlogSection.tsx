@@ -69,9 +69,7 @@ export default function BlogSection() {
               <div className="p-6 flex flex-col justify-between flex-grow">
                 <div>
                   <div className="flex items-center gap-2 text-gray-600 text-xs mb-3">
-                    <span>
-                      {formatDate(post.date)}
-                    </span>
+                    <span>{formatDate(post.date)}</span>
                     <span>•</span>
                     <span>{post.author}</span>
                   </div>
