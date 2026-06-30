@@ -152,7 +152,12 @@ export default function ProductsCarousel() {
                     href={`/products/${product.slug}`}
                     className="flex flex-col flex-1 w-full relative"
                   >
-                    <div className="relative h-44 border-b border-gray-100 overflow-hidden shrink-0" style={{ backgroundColor: product.backgroundColor || "#F2F3F4" }}>
+                    <div
+                      className="relative h-44 border-b border-gray-100 overflow-hidden shrink-0"
+                      style={{
+                        backgroundColor: product.backgroundColor || "#F2F3F4",
+                      }}
+                    >
                       <SafeImage
                         src={product.image}
                         alt={product.name}
