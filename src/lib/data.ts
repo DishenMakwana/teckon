@@ -72,7 +72,7 @@ export const PRODUCTS = [
     description:
       "Complete seal and O-ring kit for JCB boom cylinders. NBR/Polyurethane seals for extended service life in demanding conditions.",
     image: "/images/products/jcb-seal-kit.webp",
-    backgroundColor: "#D8D8D8",
+    backgroundColor: "#E2E0E1",
     specs: {
       Material: "NBR / Polyurethane",
       "Temperature Range": "-20°C to +120°C",

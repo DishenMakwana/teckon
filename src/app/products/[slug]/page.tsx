@@ -92,8 +92,8 @@ export default async function ProductDetailPage({ params }: Props) {
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#FFBE00]/5 rounded-full filter blur-3xl pointer-events-none" />
         <div className="absolute inset-0 opacity-15">
           <Image
-            src="/images/products-hero.webp"
-            alt="Warehouse shelves organized with heavy machinery hydraulic spare parts"
+            src="/images/product-details-hero.webp"
+            alt="Close-up of premium hydraulic cylinders and precision machinery components"
             fill
             sizes="100vw"
             className="object-cover"
