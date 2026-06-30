@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -93,6 +93,8 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const pathname = usePathname();
 
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
@@ -102,9 +104,28 @@ export default function Navbar() {
   useEffect(() => {
     const handle = setTimeout(() => {
       setMobileOpen((open) => (open ? false : open));
+      setDropdownOpen(false);
     }, 0);
     return () => clearTimeout(handle);
   }, [pathname]);
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setDropdownOpen(false);
+      }
+    };
+
+    if (dropdownOpen) {
+      document.addEventListener("click", handleOutsideClick);
+    }
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, [dropdownOpen]);
 
   return (
     <header
@@ -135,6 +156,7 @@ export default function Navbar() {
               link.dropdown ? (
                 <div
                   key={link.name}
+                  ref={dropdownRef}
                   className="relative"
                   onMouseEnter={() => setDropdownOpen(true)}
                   onMouseLeave={() => setDropdownOpen(false)}
@@ -173,6 +195,7 @@ export default function Navbar() {
                             </span>
                             <Link
                               href="/products"
+                              onClick={() => setDropdownOpen(false)}
                               className="text-xs font-bold text-[#FF6B35] hover:text-[#e05621] transition-colors flex items-center gap-1 group/all"
                             >
                               View All Products
@@ -188,6 +211,7 @@ export default function Navbar() {
                                 key={item.name}
                                 href={item.href}
                                 rel="nofollow"
+                                onClick={() => setDropdownOpen(false)}
                                 className="flex gap-3.5 p-2 rounded-2xl hover:bg-slate-50 transition-all duration-200 group/item"
                               >
                                 <div className="w-10 h-10 rounded-xl bg-slate-50 text-slate-600 flex items-center justify-center group-hover/item:bg-[#FFBE00]/10 group-hover/item:text-[#FFBE00] transition-colors shrink-0">
@@ -230,6 +254,7 @@ export default function Navbar() {
                             <div className="relative z-10 mt-6 pt-4 border-t border-white/5">
                               <Link
                                 href="/#diagnostics"
+                                onClick={() => setDropdownOpen(false)}
                                 className="inline-flex items-center gap-1.5 text-xs text-[#FFBE00] hover:text-[#d99e00] font-bold group/btn"
                               >
                                 Launch Calculator

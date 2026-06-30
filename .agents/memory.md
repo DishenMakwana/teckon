@@ -129,6 +129,14 @@ This file serves as the agent's short-term memory of recent tasks, issues resolv
   - Hit the Gemini/Imagen image generator API rate limit. Documented pending 21 product images to be processed after the 5-hour quota reset.
   - Verified build and lint checks pass successfully.
 
+### Session: June 30, 2026
+- **Task:** Fix header Products dropdown menu closing behavior.
+- **Action:**
+  - Integrated click-outside detection in `Navbar.tsx` using a document-level event listener and React `useRef` pointing to the dropdown container.
+  - Linked the dropdown state to `pathname` updates inside `useEffect` to ensure the menu collapses on route transitions.
+  - Bound inline `onClick={() => setDropdownOpen(false)}` triggers to all navigation links inside the desktop mega-dropdown panel (View All Products, Category Links, and Launch Calculator).
+  - Verified Next.js production build and ESLint pass with 0 warnings or errors.
+
 ## Previous Milestones
 1. **SEO Optimization & Keyword Audit:** Updated configurations, keywords, and tags.
 2. **Inquiry Form Container Update:** Wrapped the inquiry form in a styled card component for visual layout improvement.
