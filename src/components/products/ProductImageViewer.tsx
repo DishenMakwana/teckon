@@ -8,11 +8,13 @@ import SafeImage from "@/components/ui/SafeImage";
 interface ProductImageViewerProps {
   src: string;
   alt: string;
+  backgroundColor?: string;
 }
 
 export default function ProductImageViewer({
   src,
   alt,
+  backgroundColor = "#F2F3F4",
 }: ProductImageViewerProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scale, setScale] = useState(1);
@@ -73,7 +75,8 @@ export default function ProductImageViewer({
       {/* Main Trigger Image View */}
       <div
         onClick={() => setIsOpen(true)}
-        className="relative h-80 rounded-2xl overflow-hidden bg-[#bebcbd] border border-gray-200/50 shadow-md cursor-zoom-in group"
+        className="relative h-80 rounded-2xl overflow-hidden border border-gray-200/50 shadow-md cursor-zoom-in group"
+        style={{ backgroundColor }}
       >
         <SafeImage
           src={src}

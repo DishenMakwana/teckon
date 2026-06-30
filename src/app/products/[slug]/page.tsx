@@ -126,12 +126,12 @@ export default async function ProductDetailPage({ params }: Props) {
             <div className="lg:col-span-5 space-y-6">
               {/* Product Main Zoom Viewer */}
               <div className="relative rounded-3xl overflow-hidden shadow-lg border border-gray-100">
-                <ProductImageViewer src={product.image} alt={product.name} />
+                <ProductImageViewer src={product.image} alt={product.name} backgroundColor={product.backgroundColor} />
               </div>
 
               {/* Technical Blueprint Thumbnail Box */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="relative h-32 rounded-2xl overflow-hidden bg-[#bebcbd] border border-gray-200/50 shadow-sm flex items-center justify-center p-3 select-none">
+                <div className="relative h-32 rounded-2xl overflow-hidden border border-gray-200/50 shadow-sm flex items-center justify-center p-3 select-none" style={{ backgroundColor: product.backgroundColor || "#F2F3F4" }}>
                   <SafeImage
                     src={product.image}
                     alt={`${product.name} detail view`}
@@ -347,7 +347,7 @@ export default async function ProductDetailPage({ params }: Props) {
                     href={`/products/${p.slug}`}
                     className="group bg-gray-50/50 rounded-2xl p-4 border border-gray-100 hover:shadow-lg hover:bg-white transition-all duration-300 flex flex-col h-full"
                   >
-                    <div className="relative h-32 rounded-xl overflow-hidden mb-4 bg-[#bebcbd] border border-gray-200/50 shrink-0">
+                    <div className="relative h-32 rounded-xl overflow-hidden mb-4 border border-gray-200/50 shrink-0" style={{ backgroundColor: p.backgroundColor || "#F2F3F4" }}>
                       <SafeImage
                         src={p.image}
                         alt={p.name}

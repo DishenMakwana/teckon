@@ -452,7 +452,7 @@ function ProductsContent() {
                       className="flex flex-col flex-1 w-full relative"
                     >
                       {/* Image container with hover specs fader */}
-                      <div className="relative h-44 bg-[#bebcbd] border-b border-gray-100 overflow-hidden shrink-0">
+                      <div className="relative h-44 border-b border-gray-100 overflow-hidden shrink-0" style={{ backgroundColor: product.backgroundColor || "#F2F3F4" }}>
                         {/* Stock Badge overlay */}
                         {(product as { stockStatus?: string }).stockStatus ===
                           "limited" && (
