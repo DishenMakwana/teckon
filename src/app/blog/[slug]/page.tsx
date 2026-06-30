@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ViewTransition } from "react";
 import SafeImage from "@/components/ui/SafeImage";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { BLOG_POSTS } from "@/lib/data";
+import { formatDate } from "@/lib/utils";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import {
   Calendar,
@@ -37,6 +39,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+export const unstable_instant = false;
+
 export async function generateStaticParams() {
   return BLOG_POSTS.map((p) => ({ slug: p.slug }));
 }
@@ -50,7 +54,7 @@ export default async function BlogPostPage({ params }: Props) {
   const related = BLOG_POSTS.filter((p) => p.slug !== slug).slice(0, 2);
 
   return (
-    <>
+    <ViewTransition name={`blog-detail-${slug}`}>
       {/* Dynamic Scroll Reading Progress bar */}
       <ScrollProgressBar />
 
@@ -61,14 +65,16 @@ export default async function BlogPostPage({ params }: Props) {
       >
         {/* Background Overlay */}
         <div className="absolute inset-0 opacity-15">
-          <Image
-            src={post.image}
-            alt={post.title}
-            fill
-            sizes="100vw"
-            className="object-cover"
-            priority
-          />
+          <ViewTransition name={`blog-image-${post.slug}`}>
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority
+            />
+          </ViewTransition>
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F19] via-[#0B0F19]/90 to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,#0B0F19_95%)] pointer-events-none" />
@@ -88,11 +94,7 @@ export default async function BlogPostPage({ params }: Props) {
             </span>
             <span className="flex items-center gap-1.5">
               <Calendar className="h-4 w-4 text-[#FFBE00]" />
-              {new Date(post.date).toLocaleDateString("en-IN", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
+              {formatDate(post.date)}
             </span>
             <span className="flex items-center gap-1.5">
               <User className="h-4 w-4 text-[#FFBE00]" />
@@ -276,6 +278,6 @@ export default async function BlogPostPage({ params }: Props) {
           )}
         </div>
       </section>
-    </>
+    </ViewTransition>
   );
 }

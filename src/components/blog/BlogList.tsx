@@ -1,13 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef, Suspense } from "react";
+import { useState, useEffect, useRef, Suspense, ViewTransition } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import SafeImage from "@/components/ui/SafeImage";
-import { Search, X, ChevronRight, ChevronLeft } from "lucide-react";
-
 interface BlogPost {
   slug: string;
   title: string;
@@ -17,6 +14,10 @@ interface BlogPost {
   category: string;
   image: string;
 }
+import SafeImage from "@/components/ui/SafeImage";
+import { formatDate } from "@/lib/utils";
+import { Search, X, ChevronRight, ChevronLeft } from "lucide-react";
+
 
 interface BlogListProps {
   posts: BlogPost[];
@@ -281,13 +282,15 @@ function BlogListContent({ posts }: BlogListProps) {
             >
               {/* Image */}
               <div className="relative w-full lg:w-[55%] min-h-[220px] lg:min-h-[320px] rounded-2xl overflow-hidden shrink-0">
-                <SafeImage
-                  src={featuredPost.image}
-                  alt={featuredPost.title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 55vw"
-                  className="object-cover group-hover:scale-[1.01] transition-transform duration-500"
-                />
+                <ViewTransition name={`blog-image-${featuredPost.slug}`}>
+                  <SafeImage
+                    src={featuredPost.image}
+                    alt={featuredPost.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 55vw"
+                    className="object-cover group-hover:scale-[1.01] transition-transform duration-500"
+                  />
+                </ViewTransition>
                 <span className="absolute top-4 left-4 bg-[#FF6B35] text-white text-[9px] font-black px-3.5 py-1.5 rounded-lg uppercase tracking-widest shadow-sm">
                   🔥 Featured Guide
                 </span>
@@ -302,11 +305,7 @@ function BlogListContent({ posts }: BlogListProps) {
                     </span>
                     <span>•</span>
                     <span>
-                      {new Date(featuredPost.date).toLocaleDateString("en-IN", {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric",
-                      })}
+                      {formatDate(featuredPost.date)}
                     </span>
                     <span>•</span>
                     <span>By {featuredPost.author}</span>
@@ -354,13 +353,15 @@ function BlogListContent({ posts }: BlogListProps) {
                     className="flex flex-col flex-grow h-full"
                   >
                     <div className="relative h-44 overflow-hidden bg-gray-100 shrink-0">
-                      <SafeImage
-                        src={post.image}
-                        alt={post.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
+                      <ViewTransition name={`blog-image-${post.slug}`}>
+                        <SafeImage
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </ViewTransition>
                       <span className="absolute top-3 left-3 bg-[#1E293B] text-white text-[9px] font-black px-2.5 py-1 rounded-lg uppercase tracking-wider shadow-sm border border-white/5">
                         {post.category}
                       </span>
@@ -370,11 +371,7 @@ function BlogListContent({ posts }: BlogListProps) {
                       <div>
                         <div className="flex items-center gap-2 text-gray-400 text-xs mb-3 font-mono">
                           <span>
-                            {new Date(post.date).toLocaleDateString("en-IN", {
-                              day: "numeric",
-                              month: "long",
-                              year: "numeric",
-                            })}
+                            {formatDate(post.date)}
                           </span>
                           <span>•</span>
                           <span>{post.author}</span>

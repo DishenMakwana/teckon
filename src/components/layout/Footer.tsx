@@ -1,10 +1,12 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MessageCircle, Mail, Phone, MapPin, ChevronRight } from "lucide-react";
 
 export default function Footer() {
+  const year = 2026;
   return (
     <footer className="bg-teckon-dark-blue text-white">
       {/* Main footer grid */}
@@ -270,7 +272,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-white/50 text-xs">
-            © {new Date().getFullYear()} Shreeji Hydraulics.{" "}
+            © {year} Shreeji Hydraulics.{" "}
             <Link href="/" className="hover:text-white underline">
               TECKON™
             </Link>{" "}

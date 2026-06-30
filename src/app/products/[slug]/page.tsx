@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { ViewTransition } from "react";
 import SafeImage from "@/components/ui/SafeImage";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -41,6 +42,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+export const unstable_instant = false;
+
 export async function generateStaticParams() {
   return PRODUCTS.map((p) => ({ slug: p.slug }));
 }
@@ -81,7 +84,7 @@ export default async function ProductDetailPage({ params }: Props) {
   }
 
   return (
-    <>
+    <ViewTransition name={`product-detail-${slug}`}>
       {/* Premium Header */}
       <section
         id="product-hero"
@@ -126,11 +129,13 @@ export default async function ProductDetailPage({ params }: Props) {
             <div className="lg:col-span-5 space-y-6">
               {/* Product Main Zoom Viewer */}
               <div className="relative rounded-3xl overflow-hidden shadow-lg border border-gray-100">
-                <ProductImageViewer
-                  src={product.image}
-                  alt={product.name}
-                  backgroundColor={product.backgroundColor}
-                />
+                <ViewTransition name={`product-image-${product.slug}`}>
+                  <ProductImageViewer
+                    src={product.image}
+                    alt={product.name}
+                    backgroundColor={product.backgroundColor}
+                  />
+                </ViewTransition>
               </div>
 
               {/* Technical Blueprint Thumbnail Box */}
@@ -383,6 +388,6 @@ export default async function ProductDetailPage({ params }: Props) {
           )}
         </div>
       </section>
-    </>
+    </ViewTransition>
   );
 }

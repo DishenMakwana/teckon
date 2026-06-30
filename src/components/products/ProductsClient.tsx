@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense, useRef } from "react";
+import { useState, useEffect, Suspense, useRef, ViewTransition } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
@@ -469,14 +469,16 @@ function ProductsContent() {
                           </div>
                         )}
 
-                        <SafeImage
-                          src={product.image}
-                          alt={product.name}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                          className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
-                          loading="eager"
-                        />
+                        <ViewTransition name={`product-image-${product.slug}`}>
+                          <SafeImage
+                            src={product.image}
+                            alt={product.name}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                            className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                            loading="eager"
+                          />
+                        </ViewTransition>
                         <span className="absolute bottom-3 right-3 bg-teckon-dark-blue/80 backdrop-blur-md text-white text-[10px] font-black px-2.5 py-1 rounded-lg tracking-wider border border-white/5 select-none z-10 animate-fade-in group-hover:opacity-0 transition-opacity">
                           {product.categoryLabel}
                         </span>

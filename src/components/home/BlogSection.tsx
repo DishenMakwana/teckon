@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import SafeImage from "@/components/ui/SafeImage";
 import { BLOG_POSTS } from "@/lib/data";
+import { formatDate } from "@/lib/utils";
 
 export default function BlogSection() {
   const ref = useRef(null);
@@ -69,11 +70,7 @@ export default function BlogSection() {
                 <div>
                   <div className="flex items-center gap-2 text-gray-600 text-xs mb-3">
                     <span>
-                      {new Date(post.date).toLocaleDateString("en-IN", {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric",
-                      })}
+                      {formatDate(post.date)}
                     </span>
                     <span>•</span>
                     <span>{post.author}</span>

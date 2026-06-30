@@ -146,7 +146,13 @@ export default function HomePage() {
       </section>
 
       <StatsStrip />
-      <ProductsCarousel />
+      <Suspense fallback={
+        <div className="h-[450px] bg-slate-900/5 flex items-center justify-center">
+          <div className="w-8 h-8 border-4 border-[#FFBE00] border-t-transparent rounded-full animate-spin" />
+        </div>
+      }>
+        <ProductsCarousel />
+      </Suspense>
       <AboutSection />
       <WhyChooseUs />
       <Suspense
@@ -223,7 +229,13 @@ export default function HomePage() {
 
       <PartnersMarquee />
       <GlobalPresence />
-      <Testimonials />
+      <Suspense fallback={
+        <div className="h-[350px] bg-slate-900/5 flex items-center justify-center">
+          <div className="w-8 h-8 border-4 border-[#FFBE00] border-t-transparent rounded-full animate-spin" />
+        </div>
+      }>
+        <Testimonials />
+      </Suspense>
       <BlogSection />
 
       {/* CTA Banner */}

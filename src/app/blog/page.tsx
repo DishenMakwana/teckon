@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Suspense } from "react";
+
+export const unstable_instant = false;
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { BLOG_POSTS } from "@/lib/data";
-import dynamic from "next/dynamic";
-
-const BlogList = dynamic(() => import("@/components/blog/BlogList"), {
-  ssr: true,
-});
+import BlogList from "@/components/blog/BlogList";
 
 export const metadata: Metadata = {
   title: "Blog & News | Teckon™ Quality Spares",
@@ -54,7 +53,13 @@ export default function BlogPage() {
 
       <section id="blog-list" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <BlogList posts={BLOG_POSTS} />
+          <Suspense fallback={
+            <div className="h-96 flex items-center justify-center">
+              <div className="w-8 h-8 border-4 border-[#FFBE00] border-t-transparent rounded-full animate-spin" />
+            </div>
+          }>
+            <BlogList posts={BLOG_POSTS} />
+          </Suspense>
         </div>
       </section>
     </>

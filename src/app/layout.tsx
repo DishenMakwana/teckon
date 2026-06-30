@@ -8,6 +8,7 @@ import MobileStickyBar from "@/components/layout/MobileStickyBar";
 import BackToTop from "@/components/ui/BackToTop";
 import Preloader from "@/components/layout/Preloader";
 import Script from "next/script";
+import { Suspense } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const outfit = Outfit({
@@ -148,43 +149,55 @@ export default function RootLayout({
       <body className="font-sans bg-white text-gray-900 antialiased pb-16 md:pb-0">
         <Preloader />
         {/* Facebook Pixel */}
-        <Script id="facebook-pixel" strategy="lazyOnload">
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '123456789012345');
-            fbq('track', 'PageView');
-          `}
-        </Script>
+        <Script
+          id="facebook-pixel"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '123456789012345');
+              fbq('track', 'PageView');
+            `,
+          }}
+        />
 
         {/* Google Tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-4H3G6CLV4Q"
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-4H3G6CLV4Q');
-          `}
-        </Script>
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new window.Date());
+              gtag('config', 'G-4H3G6CLV4Q');
+            `,
+          }}
+        />
 
         {/* <TopInfoBar /> */}
-        <Navbar />
+        <Suspense fallback={<div className="h-16 bg-[#0B0F19]" />}>
+          <Navbar />
+        </Suspense>
         <main className="min-h-screen overflow-x-hidden">{children}</main>
         <Footer />
         <QuickAccessRail />
         <MobileStickyBar />
         <BackToTop />
-        <SpeedInsights />
+        <Suspense fallback={null}>
+          <SpeedInsights />
+        </Suspense>
       </body>
     </html>
   );

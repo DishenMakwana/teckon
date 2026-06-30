@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 
-const ProductsClient = dynamic(
-  () => import("@/components/products/ProductsClient"),
-  { ssr: true }
-);
+export const unstable_instant = false;
+
+import { Suspense } from "react";
+
+import ProductsClient from "@/components/products/ProductsClient";
 
 export const metadata: Metadata = {
   title: "Genuine Hydraulic Spares Catalog | Teckon™ Quality Spares",
@@ -24,5 +25,13 @@ export const metadata: Metadata = {
 };
 
 export default function ProductsPage() {
-  return <ProductsClient />;
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-[#FFBE00] border-t-transparent rounded-full animate-spin" />
+      </div>
+    }>
+      <ProductsClient />
+    </Suspense>
+  );
 }

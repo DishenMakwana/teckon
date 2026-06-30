@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  cacheComponents: true,
   images: {
     remotePatterns: [
       {
@@ -8,6 +9,10 @@ const nextConfig: NextConfig = {
         hostname: "cdn.jsdelivr.net",
       },
     ],
+  },
+  experimental: {
+    viewTransition: true,
+    optimizePackageImports: ["lucide-react"],
   },
 };
 
