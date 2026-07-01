@@ -13,7 +13,8 @@ export default function SafeImage({
   fallbackText,
   className = "",
   style,
-  loading = "eager",
+  loading,
+  priority,
   ...props
 }: SafeImageProps) {
   const [error, setError] = useState(false);
@@ -30,13 +31,17 @@ export default function SafeImage({
     );
   }
 
+  // If priority is true, Next.js handles loading. Otherwise default to lazy.
+  const imageLoading = loading || (priority ? undefined : "lazy");
+
   return (
     <Image
       src={src}
       alt={alt}
       className={className}
       style={style}
-      loading={loading}
+      loading={imageLoading}
+      priority={priority}
       onError={() => setError(true)}
       {...props}
     />

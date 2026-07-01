@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, ViewTransition } from "react";
 import { motion, useInView } from "framer-motion";
 import SafeImage from "@/components/ui/SafeImage";
 import Link from "next/link";
@@ -158,14 +158,16 @@ export default function ProductsCarousel() {
                         backgroundColor: product.backgroundColor || "#F2F3F4",
                       }}
                     >
-                      <SafeImage
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                        className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
-                        loading="eager"
-                      />
+                      <ViewTransition name={`product-image-${product.slug}`}>
+                        <SafeImage
+                          src={product.image}
+                          alt={product.name}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                          className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                          loading="eager"
+                        />
+                      </ViewTransition>
                       <span className="absolute bottom-3 right-3 bg-teckon-dark-blue/80 backdrop-blur-md text-white text-[10px] font-black px-2.5 py-1 rounded-lg tracking-wider border border-white/5 select-none z-10 animate-fade-in group-hover:opacity-0 transition-opacity">
                         {product.categoryLabel}
                       </span>

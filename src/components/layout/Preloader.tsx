@@ -11,6 +11,7 @@ export default function Preloader() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    document.documentElement.classList.add("preloader-active");
     document.body.style.overflow = "hidden";
 
     const start = performance.now();
@@ -28,11 +29,13 @@ export default function Preloader() {
       window.setTimeout(() => {
         setVisible(false);
         document.body.style.overflow = "";
+        document.documentElement.classList.remove("preloader-active");
       }, 350);
     }, duration);
 
     return () => {
       document.body.style.overflow = "";
+      document.documentElement.classList.remove("preloader-active");
       window.clearTimeout(timer);
       window.clearInterval(frame);
     };

@@ -1,6 +1,14 @@
 "use client";
 
-import { useState, useEffect, Suspense, useRef, ViewTransition } from "react";
+import {
+  useState,
+  useEffect,
+  useCallback,
+  useMemo,
+  Suspense,
+  useRef,
+  ViewTransition,
+} from "react";
 import { useDebouncedCallback } from "use-debounce";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
@@ -78,37 +86,29 @@ function ProductsContent() {
   const searchQuery = searchParams.get("search");
   const mostUsedQuery = searchParams.get("mostUsed");
 
-  const [active, setActive] = useState("all");
-  const [searchVal, setSearchVal] = useState("");
-  const [showMostUsed, setShowMostUsed] = useState(false);
+  // Derive filter state directly from URL params — no redundant local mirrors.
+  // useSearchParams() is reactive in the App Router and updates synchronously
+  // on client-side navigation, so local state duplication is unnecessary.
+  const active = categoryQuery ?? "all";
+  const showMostUsed = mostUsedQuery === "true";
+
+  // searchVal stays as local state so the search input updates instantly while
+  // the URL update is debounced by 300 ms.
+  const [searchVal, setSearchVal] = useState(searchQuery ?? "");
+
+  // Sync searchVal when URL param changes (browser back/forward navigation).
+  // Uses the "store previous render info" pattern (React docs) instead of
+  // useEffect to avoid the extra render cycle and the set-state-in-effect lint rule.
+  const [prevSearchQuery, setPrevSearchQuery] = useState(searchQuery);
+  if (searchQuery !== prevSearchQuery) {
+    setPrevSearchQuery(searchQuery);
+    setSearchVal(searchQuery ?? "");
+  }
 
   // Scroll indicator fade states
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showLeftFade, setShowLeftFade] = useState(false);
   const [showRightFade, setShowRightFade] = useState(false);
-
-  const [prevCategoryQuery, setPrevCategoryQuery] = useState<string | null>(
-    null
-  );
-  const [prevSearchQuery, setPrevSearchQuery] = useState<string | null>(null);
-  const [prevMostUsedQuery, setPrevMostUsedQuery] = useState<string | null>(
-    null
-  );
-
-  if (categoryQuery !== prevCategoryQuery) {
-    setActive(categoryQuery || "all");
-    setPrevCategoryQuery(categoryQuery);
-  }
-
-  if (searchQuery !== prevSearchQuery) {
-    setSearchVal(searchQuery || "");
-    setPrevSearchQuery(searchQuery);
-  }
-
-  if (mostUsedQuery !== prevMostUsedQuery) {
-    setShowMostUsed(mostUsedQuery === "true");
-    setPrevMostUsedQuery(mostUsedQuery);
-  }
 
   // Debounced URL updates for searchVal
   const handleSearch = useDebouncedCallback((term: string) => {
@@ -125,7 +125,6 @@ function ProductsContent() {
   }, 300);
 
   const handleCategoryChange = (categoryId: string) => {
-    setActive(categoryId);
     const params = new URLSearchParams(searchParams.toString());
     if (categoryId === "all") {
       params.delete("category");
@@ -137,7 +136,6 @@ function ProductsContent() {
 
   const handleMostUsedToggle = () => {
     const nextMostUsed = !showMostUsed;
-    setShowMostUsed(nextMostUsed);
     const params = new URLSearchParams(searchParams.toString());
     if (nextMostUsed) {
       params.set("mostUsed", "true");
@@ -147,75 +145,59 @@ function ProductsContent() {
     router.push(`/products?${params.toString()}`, { scroll: false });
   };
 
-  const filtered = PRODUCTS.filter((product) => {
-    const matchesCategory = active === "all" || product.category === active;
+  const filtered = useMemo(() => {
+    const lowerSearch = searchVal.toLowerCase();
+    return PRODUCTS.filter((product) => {
+      const matchesCategory = active === "all" || product.category === active;
 
-    const matchesSearch =
-      !searchVal ||
-      product.name.toLowerCase().includes(searchVal.toLowerCase()) ||
-      product.model.toLowerCase().includes(searchVal.toLowerCase()) ||
-      product.ref.toLowerCase().includes(searchVal.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchVal.toLowerCase()) ||
-      (product.categoryLabel &&
-        product.categoryLabel
-          .toLowerCase()
-          .includes(searchVal.toLowerCase())) ||
-      (Array.isArray(
-        (product as { crossReferences?: string[] }).crossReferences
-      ) &&
-        (product as { crossReferences?: string[] }).crossReferences!.some(
-          (ref) => ref.toLowerCase().includes(searchVal.toLowerCase())
-        ));
+      const matchesSearch =
+        !lowerSearch ||
+        product.name.toLowerCase().includes(lowerSearch) ||
+        product.model.toLowerCase().includes(lowerSearch) ||
+        product.ref.toLowerCase().includes(lowerSearch) ||
+        product.description.toLowerCase().includes(lowerSearch) ||
+        (product.categoryLabel?.toLowerCase().includes(lowerSearch) ?? false) ||
+        (product.crossReferences?.some((ref) =>
+          ref.toLowerCase().includes(lowerSearch)
+        ) ??
+          false);
 
-    const matchesMostUsed =
-      !showMostUsed || (product as { mostUsed?: boolean }).mostUsed === true;
+      const matchesMostUsed = !showMostUsed || product.mostUsed === true;
 
-    return matchesCategory && matchesSearch && matchesMostUsed;
-  });
-
-  // Interleave products of different categories to avoid same-category clustering side-by-side
-  const getDisplayProducts = (list: typeof PRODUCTS) => {
-    if (active !== "all") return list;
-    const groups: { [key: string]: typeof PRODUCTS } = {};
-    list.forEach((p) => {
-      if (!groups[p.category]) {
-        groups[p.category] = [];
-      }
-      groups[p.category].push(p);
+      return matchesCategory && matchesSearch && matchesMostUsed;
     });
-    const categoriesList = Object.keys(groups);
-    const interleaved: typeof PRODUCTS = [];
-    let maxLen = 0;
-    categoriesList.forEach((cat) => {
-      maxLen = Math.max(maxLen, groups[cat].length);
+  }, [active, searchVal, showMostUsed]);
+
+  // Interleave products across categories to avoid same-category clustering.
+  const displayList = useMemo(() => {
+    if (active !== "all") return filtered;
+    type ProductItem = (typeof PRODUCTS)[number];
+    const groups: Record<string, ProductItem[]> = {};
+    filtered.forEach((p) => {
+      (groups[p.category] ??= []).push(p);
     });
+    const cats = Object.keys(groups);
+    const interleaved: ProductItem[] = [];
+    const maxLen = Math.max(0, ...cats.map((c) => groups[c].length));
     for (let i = 0; i < maxLen; i++) {
-      categoriesList.forEach((cat) => {
-        if (i < groups[cat].length) {
-          interleaved.push(groups[cat][i]);
-        }
+      cats.forEach((cat) => {
+        if (i < groups[cat].length) interleaved.push(groups[cat][i]);
       });
     }
     return interleaved;
-  };
-
-  const displayList = getDisplayProducts(filtered);
+  }, [filtered, active]);
 
   const [visibleCount, setVisibleCount] = useState(12);
   const [loadingMore, setLoadingMore] = useState(false);
 
-  const [prevActive, setPrevActive] = useState("all");
-  const [prevSearchVal, setPrevSearchVal] = useState("");
-  const [prevShowMostUsed, setPrevShowMostUsed] = useState(false);
-
-  if (
-    active !== prevActive ||
-    searchVal !== prevSearchVal ||
-    showMostUsed !== prevShowMostUsed
-  ) {
-    setPrevActive(active);
-    setPrevSearchVal(searchVal);
-    setPrevShowMostUsed(showMostUsed);
+  // Reset pagination whenever the active filter set changes.
+  // Uses the documented "store previous render info" pattern to avoid the
+  // extra render cycle of useEffect while keeping a single fingerprint state
+  // instead of three separate prev-state mirrors.
+  const filterFingerprint = `${active}|${searchVal}|${showMostUsed}`;
+  const [prevFingerprint, setPrevFingerprint] = useState(filterFingerprint);
+  if (filterFingerprint !== prevFingerprint) {
+    setPrevFingerprint(filterFingerprint);
     setVisibleCount(12);
     setLoadingMore(false);
   }
@@ -223,22 +205,22 @@ function ProductsContent() {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const loadMoreRef = useRef<HTMLDivElement>(null);
 
-  // Check scroll positions to show/hide indicator fades
-  const checkScroll = () => {
+  // Stable callback — no deps since scrollRef never changes reference.
+  const checkScroll = useCallback(() => {
     const el = scrollRef.current;
     if (el) {
       const { scrollLeft, scrollWidth, clientWidth } = el;
       setShowLeftFade(scrollLeft > 5);
       setShowRightFade(scrollLeft < scrollWidth - clientWidth - 5);
     }
-  };
+  }, []);
 
-  // Recalculate scroll states on mount, resize, and data changes
+  // Recalculate scroll indicators on mount, resize, and when displayed list changes.
   useEffect(() => {
     checkScroll();
     window.addEventListener("resize", checkScroll);
     return () => window.removeEventListener("resize", checkScroll);
-  }, [displayList]);
+  }, [displayList, checkScroll]);
 
   // Load more on scroll intersection
   useEffect(() => {
@@ -459,8 +441,7 @@ function ProductsContent() {
                         }}
                       >
                         {/* Stock Badge overlay */}
-                        {(product as { stockStatus?: string }).stockStatus ===
-                          "limited" && (
+                        {product.stockStatus === "limited" && (
                           <div className="absolute top-3 left-3 z-10 group-hover:opacity-0 transition-opacity duration-300">
                             <span className="flex items-center gap-1 bg-white/90 backdrop-blur-md text-[#0B0F19] text-[8px] font-extrabold px-2 py-0.5 rounded-md tracking-wider border border-gray-100 select-none shadow-sm">
                               <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />

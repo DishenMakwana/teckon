@@ -3,6 +3,7 @@ import Image from "next/image";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/careers" },
   title: "Careers | Teckon™ Quality Spares",
   description:
     "Join the Teckon™ team. We're looking for talented individuals passionate about hydraulic engineering and manufacturing excellence.",

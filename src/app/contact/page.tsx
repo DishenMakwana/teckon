@@ -7,6 +7,7 @@ const ContactClient = dynamic(
 );
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Request a Quote & Contact Us | Teckon™ Quality Spares",
   description:
     "Get in touch with Shreeji Hydraulics (Teckon™) in Rajkot, Gujarat. Request custom quotes for hydraulic pumps, cylinder seal kits, and spares. Direct WhatsApp and phone contacts available.",

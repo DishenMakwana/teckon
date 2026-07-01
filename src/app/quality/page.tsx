@@ -4,6 +4,7 @@ import Link from "next/link";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/quality" },
   title: "Quality & Manufacturing | Teckon™ Quality Spares",
   description:
     "ISO 9001:2015 certified hydraulic parts manufacturing. Learn about Teckon™'s precision manufacturing process, quality control, and certifications.",

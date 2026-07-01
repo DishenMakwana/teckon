@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, ViewTransition } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import SafeImage from "@/components/ui/SafeImage";
@@ -52,14 +52,16 @@ export default function BlogSection() {
             >
               {/* Image Container */}
               <div className="relative h-52 overflow-hidden bg-gray-100 shrink-0">
-                <SafeImage
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="eager"
-                />
+                <ViewTransition name={`blog-image-${post.slug}`}>
+                  <SafeImage
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="eager"
+                  />
+                </ViewTransition>
                 <span className="absolute top-3 left-3 bg-[#1E293B] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
                   {post.category}
                 </span>
