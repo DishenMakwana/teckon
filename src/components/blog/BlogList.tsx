@@ -288,6 +288,7 @@ function BlogListContent({ posts }: BlogListProps) {
                     fill
                     sizes="(max-width: 1024px) 100vw, 55vw"
                     className="object-cover group-hover:scale-[1.01] transition-transform duration-500"
+                    priority
                   />
                 </ViewTransition>
                 <span className="absolute top-4 left-4 bg-[#FF6B35] text-white text-[9px] font-black px-3.5 py-1.5 rounded-lg uppercase tracking-widest shadow-sm">

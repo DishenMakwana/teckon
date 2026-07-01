@@ -191,3 +191,8 @@ body {
     color: #0f172a !important;
   }
 }
+
+/* Disable view transitions while preloader is active to prevent elements elevating to top-layer */
+.preloader-active * {
+  view-transition-name: none !important;
+}

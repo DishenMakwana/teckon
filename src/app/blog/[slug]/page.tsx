@@ -325,13 +325,15 @@ export default async function BlogPostPage({ params }: Props) {
                     className="group flex gap-4 bg-gray-50/50 rounded-2xl p-4 border border-gray-100 hover:bg-white hover:shadow-lg transition-all duration-300"
                   >
                     <div className="relative w-24 h-24 rounded-xl overflow-hidden shrink-0 bg-slate-100">
-                      <SafeImage
-                        src={r.image}
-                        alt={r.title}
-                        fill
-                        sizes="96px"
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
+                      <ViewTransition name={`blog-image-${r.slug}`}>
+                        <SafeImage
+                          src={r.image}
+                          alt={r.title}
+                          fill
+                          sizes="96px"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </ViewTransition>
                     </div>
                     <div className="flex flex-col justify-center min-w-0">
                       <span className="text-[10px] text-[#FF6B35] font-mono font-bold uppercase tracking-wider">

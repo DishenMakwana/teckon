@@ -144,6 +144,16 @@ This file serves as the agent's short-term memory of recent tasks, issues resolv
   - Replaced dynamic time and locale string generation with a pure, environment-independent formatting utility to eliminate hydration errors.
   - Verified compile and linter execute cleanly in less than 500ms.
 
+### Session: July 1, 2026
+- **Task:** Remove Next.js experimental feature configuration.
+- **Action:** Cleaned `next.config.ts` by removing `cacheComponents` and the `experimental` block (`viewTransition`, `optimizePackageImports`). Verified `npm run build` completes successfully on Next.js 16.2.9.
+- **Task:** Fix product and blog images bleeding through the loading screen on page reload.
+- **Action:** Added a `.preloader-active` class statically to the `html` tag in [layout.tsx](file:///Users/dishen/Downloads/teckon/src/app/layout.tsx) and managed adding/removing it during the mount lifecycle inside [Preloader.tsx](file:///Users/dishen/Downloads/teckon/src/components/layout/Preloader.tsx). Added a CSS rule in [globals.css](file:///Users/dishen/Downloads/teckon/src/app/globals.css) setting `view-transition-name: none !important` on all elements when `.preloader-active` is present on the root. This prevents the browser from elevating product and blog images wrapped in `<ViewTransition>` to the top-layer pseudo-elements while the loader screen is showing. Verified build compiles successfully.
+- **Task:** Implement ViewTransition wrapper on homepage blog/product cards and detail page related cards.
+- **Action:** Wrapped product and blog images on the homepage ([ProductsCarousel.tsx](file:///Users/dishen/Downloads/teckon/src/components/home/ProductsCarousel.tsx) and [BlogSection.tsx](file:///Users/dishen/Downloads/teckon/src/components/home/BlogSection.tsx)) and detail page related content panels ([page.tsx](file:///Users/dishen/Downloads/teckon/src/app/products/[slug]/page.tsx) and [page.tsx](file:///Users/dishen/Downloads/teckon/src/app/blog/[slug]/page.tsx)) in `<ViewTransition>` components matching the corresponding detail views. This ensures seamless image transition animations when navigating from any context. Verified build compiles successfully.
+- **Task:** Resolve Largest Contentful Paint (LCP) browser warnings on the Blog list page.
+- **Action:** Updated [SafeImage.tsx](file:///Users/dishen/Downloads/teckon/src/components/ui/SafeImage.tsx) to dynamically omit the `loading="lazy"` attribute when the `priority` prop is enabled, preventing Next.js console warnings. Added the `priority` prop to the featured guide's [SafeImage](file:///Users/dishen/Downloads/teckon/src/components/blog/BlogList.tsx#L285-L292) inside [BlogList.tsx](file:///Users/dishen/Downloads/teckon/src/components/blog/BlogList.tsx) since it renders above the fold. Restored the missing `buildDisplaySpecs` utility in [utils.ts](file:///Users/dishen/Downloads/teckon/src/lib/utils.ts) to resolve Next.js Turbopack compilation errors. Verified build compiles successfully.
+
 ## Previous Milestones
 1. **SEO Optimization & Keyword Audit:** Updated configurations, keywords, and tags.
 2. **Inquiry Form Container Update:** Wrapped the inquiry form in a styled card component for visual layout improvement.
@@ -151,4 +161,3 @@ This file serves as the agent's short-term memory of recent tasks, issues resolv
 4. **India Map Click Integration:** Integrated click functionality on the India Map SVG/component.
 5. **Contact Page Redesign:** Removed the redundant "Direct Contact" section; placed inquiry form and map side-by-side on desktop.
 6. **Homepage Reviews & Blog Enhancements:** Redesigned testimonial cards to show ratings and reviewer names, added animations, and added blog posts for JCB/Hitachi parts.
-

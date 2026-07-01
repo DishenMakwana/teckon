@@ -422,13 +422,15 @@ export default async function ProductDetailPage({ params }: Props) {
                         backgroundColor: p.backgroundColor || "#F2F3F4",
                       }}
                     >
-                      <SafeImage
-                        src={p.image}
-                        alt={p.name}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                        className="object-contain p-3 group-hover:scale-105 transition-transform duration-500"
-                      />
+                      <ViewTransition name={`product-image-${p.slug}`}>
+                        <SafeImage
+                          src={p.image}
+                          alt={p.name}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                          className="object-contain p-3 group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </ViewTransition>
                     </div>
                     <div className="font-extrabold text-sm text-[#0B0F19] mb-1 line-clamp-2 leading-snug group-hover:text-[#FF6B35] transition-colors">
                       {p.name}

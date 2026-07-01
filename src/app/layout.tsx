@@ -148,7 +148,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={outfit.variable}>
+    <html lang="en" className={`${outfit.variable} preloader-active`} data-scroll-behavior="smooth">
       <head>
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <script
@@ -160,7 +160,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans bg-white text-gray-900 antialiased pb-16 md:pb-0">
         <Preloader />
-
+        
         {/* Google Tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-4H3G6CLV4Q"
