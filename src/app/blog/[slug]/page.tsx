@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { ViewTransition } from "react";
 import SafeImage from "@/components/ui/SafeImage";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
-import { BLOG_POSTS } from "@/lib/data";
+import { BLOG_POSTS, COMPANY } from "@/lib/data";
 import { formatDate } from "@/lib/utils";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import {
@@ -21,11 +21,63 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+/**
+ * Builds BlogPosting JSON-LD structured data for a blog post page.
+ *
+ * Serves structured data in the initial server-rendered HTML so that
+ * Google's article indexing and AI search citations can extract the
+ * headline, author, date, and image without JavaScript execution.
+ */
+function buildArticleSchema(
+  slug: string,
+  post: {
+    title: string;
+    excerpt: string;
+    date: string;
+    image: string;
+    author: string;
+  }
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    dateModified: post.date,
+    image: `${COMPANY.url}${post.image}`,
+    url: `${COMPANY.url}/blog/${slug}`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${COMPANY.url}/blog/${slug}`,
+    },
+    author: {
+      "@type": "Organization",
+      name: post.author,
+      url: COMPANY.url,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: COMPANY.brandFull,
+      url: COMPANY.url,
+      logo: {
+        "@type": "ImageObject",
+        url: `${COMPANY.url}/teckon.png`,
+      },
+    },
+    about: {
+      "@type": "Thing",
+      name: "Hydraulic Parts and Heavy Machinery Maintenance",
+    },
+  };
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = BLOG_POSTS.find((p) => p.slug === slug);
   if (!post) return { title: "Post Not Found" };
   return {
+    alternates: { canonical: `/blog/${slug}` },
     title: `${post.title} | Teckon™ Blog`,
     description: post.excerpt,
     keywords: [
@@ -36,6 +88,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "JCB maintenance guides",
       "heavy equipment advice",
     ],
+    openGraph: {
+      type: "article",
+      title: `${post.title} | Teckon™ Blog`,
+      description: post.excerpt,
+      publishedTime: post.date,
+      authors: [post.author],
+      images: [{ url: post.image, alt: post.title }],
+    },
   };
 }
 
@@ -50,11 +110,21 @@ export default async function BlogPostPage({ params }: Props) {
   const post = BLOG_POSTS.find((p) => p.slug === slug);
   if (!post) notFound();
 
-  // Get related articles
+  // Related articles: up to 2 posts excluding the current one
   const related = BLOG_POSTS.filter((p) => p.slug !== slug).slice(0, 2);
+
+  // Article JSON-LD — included in server HTML so AI crawlers can extract
+  // the headline, author, publish date, and image without running JavaScript.
+  const articleSchema = buildArticleSchema(slug, post);
 
   return (
     <ViewTransition name={`blog-detail-${slug}`}>
+      {/* Article structured data — server-rendered so Googlebot and AI crawlers
+          read headline, author, and publish date on the first HTTP response. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       {/* Dynamic Scroll Reading Progress bar */}
       <ScrollProgressBar />
 

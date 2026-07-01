@@ -10,6 +10,7 @@ import Preloader from "@/components/layout/Preloader";
 import Script from "next/script";
 import { Suspense } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { COMPANY } from "@/lib/data";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -99,17 +100,28 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Organization + LocalBusiness JSON-LD schema injected into every page.
+ *
+ * Using both types lets Google understand the entity as both a brand
+ * (Organization) and a physical business (LocalBusiness) eligible for
+ * Knowledge Panel and Local Pack features.
+ */
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Shreeji Hydraulics",
-  alternateName: "Teckon™ Quality Spares",
-  url: "https://teckon.vercel.app",
-  logo: "https://teckon.vercel.app/teckon.png",
+  "@type": ["Organization", "LocalBusiness"],
+  name: COMPANY.name,
+  alternateName: COMPANY.brandFull,
+  description:
+    "ISO 9001:2015 certified manufacturer of premium hydraulic spare parts for JCB, Terex, CAT, and heavy machinery. Established in Rajkot, Gujarat since 2000.",
+  foundingDate: String(COMPANY.founded),
+  url: COMPANY.url,
+  logo: `${COMPANY.url}/teckon.png`,
+  image: `${COMPANY.url}/teckon.png`,
   contactPoint: [
     {
       "@type": "ContactPoint",
-      telephone: "+91-63518-79842",
+      telephone: COMPANY.phones.main,
       contactType: "sales",
       areaServed: "IN",
       availableLanguage: ["en", "hi", "gu"],
@@ -124,9 +136,9 @@ const organizationSchema = {
     addressCountry: "IN",
   },
   sameAs: [
-    "https://facebook.com/shreejihydraulics",
-    "https://linkedin.com/company/shreeji-hydraulics",
-    "https://instagram.com/shreejihydraulics",
+    COMPANY.social.facebook,
+    COMPANY.social.linkedin,
+    COMPANY.social.instagram,
   ],
 };
 
@@ -136,7 +148,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={outfit.variable} data-scroll-behavior="smooth">
+    <html lang="en" className={outfit.variable}>
       <head>
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <script
@@ -148,31 +160,13 @@ export default function RootLayout({
       </head>
       <body className="font-sans bg-white text-gray-900 antialiased pb-16 md:pb-0">
         <Preloader />
-        {/* Facebook Pixel */}
-        <Script
-          id="facebook-pixel"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              !function(f,b,e,v,n,t,s)
-              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-              n.queue=[];t=b.createElement(e);t.async=!0;
-              t.src=v;s=b.getElementsByTagName(e)[0];
-              s.parentNode.insertBefore(t,s)}(window, document,'script',
-              'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '123456789012345');
-              fbq('track', 'PageView');
-            `,
-          }}
-        />
 
         {/* Google Tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-4H3G6CLV4Q"
           strategy="afterInteractive"
         />
+
         <Script
           id="google-analytics"
           strategy="afterInteractive"

@@ -8,6 +8,7 @@ import { BLOG_POSTS } from "@/lib/data";
 import BlogList from "@/components/blog/BlogList";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/blog" },
   title: "Blog & News | Teckon™ Quality Spares",
   description:
     "Technical guides, industry news, and company updates from Teckon™ — India's hydraulic parts specialists.",

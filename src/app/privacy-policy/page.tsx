@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PrivacyPolicyClient from "@/components/privacy-policy/PrivacyPolicyClient";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy-policy" },
   title: "Privacy Policy | Teckon™ Quality Spares",
   description:
     "Privacy policy for Teckon™ Quality Spares (Shreeji Hydraulics) — how we collect, use, and protect your data.",

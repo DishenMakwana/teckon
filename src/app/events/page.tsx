@@ -4,6 +4,7 @@ import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { EVENTS } from "@/lib/data";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/events" },
   title: "Events & Exhibitions | Teckon™ Quality Spares",
   description:
     "Teckon™'s presence at major construction equipment trade shows and exhibitions across India.",

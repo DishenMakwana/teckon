@@ -5,6 +5,7 @@ import { Phone } from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "About Us — Teckon™ Quality Spares | Shreeji Hydraulics",
   description:
     "Learn about Teckon™ (Shreeji Hydraulics), established in 2000 in Rajkot, Gujarat. Meet our founders Mr. Alpesh Patel and Mr. J.C. Patel and discover our vision and values.",

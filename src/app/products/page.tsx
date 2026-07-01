@@ -7,6 +7,7 @@ import { Suspense } from "react";
 import ProductsClient from "@/components/products/ProductsClient";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/products" },
   title: "Genuine Hydraulic Spares Catalog | Teckon™ Quality Spares",
   description:
     "Browse our premium catalog of replacement hydraulic spare parts for JCB, Terex, CAT, L770, Tata JD, and excavators. High pressure pumps, seals, valves, and components.",

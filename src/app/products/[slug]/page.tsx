@@ -5,7 +5,8 @@ import SafeImage from "@/components/ui/SafeImage";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
-import { PRODUCTS } from "@/lib/data";
+import { PRODUCTS, COMPANY } from "@/lib/data";
+import { buildDisplaySpecs } from "@/lib/utils";
 import ProductImageViewer from "@/components/products/ProductImageViewer";
 import ProductB2BPanel from "@/components/products/ProductB2BPanel";
 import {
@@ -22,11 +23,60 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+/**
+ * Builds Product JSON-LD structured data for a product detail page.
+ *
+ * Structured data is included in the server-rendered HTML so search engines
+ * and AI crawlers can extract product details (name, SKU, availability)
+ * without executing JavaScript.
+ */
+function buildProductSchema(
+  slug: string,
+  product: {
+    name: string;
+    description: string;
+    sku: string;
+    mpn: string;
+    image: string;
+  }
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description,
+    sku: product.sku,
+    mpn: product.mpn,
+    brand: {
+      "@type": "Brand",
+      name: COMPANY.brand,
+    },
+    manufacturer: {
+      "@type": "Organization",
+      name: COMPANY.name,
+      url: COMPANY.url,
+    },
+    image: `${COMPANY.url}${product.image}`,
+    offers: {
+      "@type": "Offer",
+      url: `${COMPANY.url}/products/${slug}`,
+      priceCurrency: "INR",
+      availability: "https://schema.org/InStock",
+      itemCondition: "https://schema.org/NewCondition",
+      seller: {
+        "@type": "Organization",
+        name: COMPANY.name,
+      },
+    },
+  };
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = PRODUCTS.find((p) => p.slug === slug);
   if (!product) return { title: "Product Not Found" };
   return {
+    alternates: { canonical: `/products/${slug}` },
     title: `${product.name} | Teckon™ Quality Spares`,
     description: product.description,
     keywords: [
@@ -39,6 +89,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "heavy machinery hydraulic parts",
       "aftermarket OEM replacement spares",
     ],
+    openGraph: {
+      title: `${product.name} | Teckon™ Quality Spares`,
+      description: product.description,
+      images: [{ url: product.image, alt: product.name }],
+      type: "website",
+    },
   };
 }
 
@@ -53,38 +109,37 @@ export default async function ProductDetailPage({ params }: Props) {
   const product = PRODUCTS.find((p) => p.slug === slug);
   if (!product) notFound();
 
-  // Find other products in same category for Related Products
+  // Related products from the same category (max 4), excluding this one
   const relatedProducts = PRODUCTS.filter(
     (p) => p.category === product.category && p.slug !== product.slug
   ).slice(0, 4);
 
-  // Combine specs dynamically to avoid duplicate cards and show everything in the bento grid
-  const displaySpecs: Record<string, string> = {};
+  // Merge product.specs with optional weight and material fields into a
+  // clean display map. buildDisplaySpecs handles deduplication of Material keys.
+  const displaySpecs = buildDisplaySpecs(
+    product.specs,
+    product.weight,
+    product.material
+  );
 
-  // 1. Copy all existing specs
-  Object.entries(product.specs).forEach(([key, val]) => {
-    if (val) {
-      displaySpecs[key] = val;
-    }
+  // Product JSON-LD — in server-rendered HTML so Google indexes it immediately
+  // without waiting for JavaScript execution.
+  const productSchema = buildProductSchema(product.slug, {
+    name: product.name,
+    description: product.description,
+    sku: product.model,
+    mpn: product.ref,
+    image: product.image,
   });
-
-  // 2. Add/override with Physical Weight
-  if (product.weight) {
-    displaySpecs["Physical Weight"] = product.weight;
-  }
-
-  // 3. Add/override with Base Material and remove generic Material
-  if (product.material) {
-    const keysToDelete = Object.keys(displaySpecs).filter(
-      (k) =>
-        k.toLowerCase() === "material" || k.toLowerCase() === "base material"
-    );
-    keysToDelete.forEach((k) => delete displaySpecs[k]);
-    displaySpecs["Base Material"] = product.material;
-  }
 
   return (
     <ViewTransition name={`product-detail-${slug}`}>
+      {/* Product structured data — server-rendered so Googlebot reads it
+          on the first HTTP response without needing JavaScript execution. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       {/* Premium Header */}
       <section
         id="product-hero"

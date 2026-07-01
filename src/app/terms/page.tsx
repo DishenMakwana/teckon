@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import TermsClient from "@/components/terms/TermsClient";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/terms" },
   title: "Terms & Conditions | Teckon™ Quality Spares",
   description:
     "Terms and conditions for using Teckon™ Quality Spares (Shreeji Hydraulics) website and services.",

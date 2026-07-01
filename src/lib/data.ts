@@ -1,10 +1,42 @@
 // Central data store for all website content
 
+export interface Product {
+  slug: string;
+  name: string;
+  model: string;
+  ref: string;
+  category: string;
+  categoryLabel: string;
+  description: string;
+  image: string;
+  backgroundColor?: string;
+  specs: Record<string, string>;
+  // Optional fields — only present on some products
+  weight?: string;
+  material?: string;
+  crossReferences?: string[];
+  mostUsed?: boolean;
+  stockStatus?: "limited" | "in-stock" | "out-of-stock";
+}
+
+/** Shape for each blog post stored in BLOG_POSTS. */
+export interface BlogPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string; // ISO format: YYYY-MM-DD
+  author: string;
+  category: string;
+  image: string;
+  content: string;
+}
+
 export const COMPANY = {
   name: "Shreeji Hydraulics",
   brand: "Teckon™",
   brandFull: "Teckon™ Quality Spares",
   tagline: "Quality Spares",
+  url: "https://teckon.vercel.app",
   founded: 2000,
   email: "shreejihyd4008@gmail.com",
   phones: {
@@ -1025,7 +1057,7 @@ JCB uses a load-sensing variable displacement piston pump system on their JS ser
 - Integrated hydraulic cooling circuit
 - Proprietary seal geometry on cylinders
 
-## CAT Hydraulic Architecture  
+## CAT Hydraulic Architecture
 Caterpillar equipment generally employs a more complex electro-hydraulic control system on newer models, while older machines like the CAT 424B use conventional open-center hydraulic circuits.
 
 ## Why Original-Quality Spares Matter
