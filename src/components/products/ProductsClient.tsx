@@ -16,6 +16,7 @@ import SafeImage from "@/components/ui/SafeImage";
 import Link from "next/link";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { PRODUCTS } from "@/lib/data";
+import { searchProducts } from "@/lib/search";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, X, ChevronRight, ChevronLeft } from "lucide-react";
 
@@ -85,16 +86,19 @@ function ProductsContent() {
   const categoryQuery = searchParams.get("category");
   const searchQuery = searchParams.get("search");
   const mostUsedQuery = searchParams.get("mostUsed");
+  const limitedQuery = searchParams.get("limited");
 
   // Derive filter state directly from URL params — no redundant local mirrors.
   // useSearchParams() is reactive in the App Router and updates synchronously
   // on client-side navigation, so local state duplication is unnecessary.
   const active = categoryQuery ?? "all";
   const showMostUsed = mostUsedQuery === "true";
+  const showLimited = limitedQuery === "true";
 
   // searchVal stays as local state so the search input updates instantly while
   // the URL update is debounced by 300 ms.
   const [searchVal, setSearchVal] = useState(searchQuery ?? "");
+  const [clickedSlug, setClickedSlug] = useState<string | null>(null);
 
   // Sync searchVal when URL param changes (browser back/forward navigation).
   // Uses the "store previous render info" pattern (React docs) instead of
@@ -145,28 +149,26 @@ function ProductsContent() {
     router.push(`/products?${params.toString()}`, { scroll: false });
   };
 
+  const handleLimitedToggle = () => {
+    const next = !showLimited;
+    const params = new URLSearchParams(searchParams.toString());
+    if (next) {
+      params.set("limited", "true");
+    } else {
+      params.delete("limited");
+    }
+    router.push(`/products?${params.toString()}`, { scroll: false });
+  };
+
   const filtered = useMemo(() => {
-    const lowerSearch = searchVal.toLowerCase();
-    return PRODUCTS.filter((product) => {
+    const searched = searchProducts(PRODUCTS, searchVal);
+    return searched.filter((product) => {
       const matchesCategory = active === "all" || product.category === active;
-
-      const matchesSearch =
-        !lowerSearch ||
-        product.name.toLowerCase().includes(lowerSearch) ||
-        product.model.toLowerCase().includes(lowerSearch) ||
-        product.ref.toLowerCase().includes(lowerSearch) ||
-        product.description.toLowerCase().includes(lowerSearch) ||
-        (product.categoryLabel?.toLowerCase().includes(lowerSearch) ?? false) ||
-        (product.crossReferences?.some((ref) =>
-          ref.toLowerCase().includes(lowerSearch)
-        ) ??
-          false);
-
       const matchesMostUsed = !showMostUsed || product.mostUsed === true;
-
-      return matchesCategory && matchesSearch && matchesMostUsed;
+      const matchesLimited = !showLimited || product.stockStatus === "limited";
+      return matchesCategory && matchesMostUsed && matchesLimited;
     });
-  }, [active, searchVal, showMostUsed]);
+  }, [active, searchVal, showMostUsed, showLimited]);
 
   // Interleave products across categories to avoid same-category clustering.
   const displayList = useMemo(() => {
@@ -194,7 +196,7 @@ function ProductsContent() {
   // Uses the documented "store previous render info" pattern to avoid the
   // extra render cycle of useEffect while keeping a single fingerprint state
   // instead of three separate prev-state mirrors.
-  const filterFingerprint = `${active}|${searchVal}|${showMostUsed}`;
+  const filterFingerprint = `${active}|${searchVal}|${showMostUsed}|${showLimited}`;
   const [prevFingerprint, setPrevFingerprint] = useState(filterFingerprint);
   if (filterFingerprint !== prevFingerprint) {
     setPrevFingerprint(filterFingerprint);
@@ -331,6 +333,21 @@ function ProductsContent() {
               >
                 <span>Customer Choice</span>
               </button>
+
+              {/* Limited Stock Toggle */}
+              <button
+                onClick={handleLimitedToggle}
+                className={`flex items-center justify-center gap-1.5 px-4 py-3 rounded-2xl border text-xs font-black uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap select-none ${
+                  showLimited
+                    ? "bg-amber-50 text-amber-700 border-amber-400 shadow-sm font-extrabold"
+                    : "bg-gray-50 border-gray-200 text-gray-500 hover:text-gray-800 hover:bg-gray-100/50"
+                }`}
+              >
+                <span
+                  className={`w-1.5 h-1.5 rounded-full ${showLimited ? "bg-amber-500 animate-pulse" : "bg-gray-400"}`}
+                />
+                <span>Limited</span>
+              </button>
             </div>
 
             {/* Horizontal Scroll Pill Filters Wrapper with indicator animations */}
@@ -432,6 +449,7 @@ function ProductsContent() {
                     <Link
                       href={`/products/${product.slug}`}
                       className="flex flex-col flex-1 w-full relative"
+                      onClick={() => setClickedSlug(product.slug)}
                     >
                       {/* Image container with hover specs fader */}
                       <div
@@ -450,19 +468,34 @@ function ProductsContent() {
                           </div>
                         )}
 
-                        <ViewTransition name={`product-image-${product.slug}`}>
-                          <SafeImage
-                            src={product.image}
-                            alt={product.name}
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                            className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
-                            loading="eager"
-                          />
+                        <ViewTransition
+                          name={
+                            clickedSlug === product.slug
+                              ? `product-image-${product.slug}`
+                              : undefined
+                          }
+                        >
+                          <div className="absolute inset-0">
+                            <SafeImage
+                              src={product.image}
+                              alt={product.name}
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                              className="object-contain p-4 group-hover:scale-105 transition-transform duration-500 z-0"
+                              loading="eager"
+                            />
+                            <span
+                              className={`absolute bottom-3 right-3 bg-teckon-dark-blue/80
+                                backdrop-blur-md text-white text-[10px]
+                                font-black px-2.5 py-1 rounded-lg tracking-wider
+                                border border-white/5 select-none z-10
+                                animate-fade-in group-hover:opacity-0
+                                transition-opacity`}
+                            >
+                              {product.categoryLabel}
+                            </span>
+                          </div>
                         </ViewTransition>
-                        <span className="absolute bottom-3 right-3 bg-teckon-dark-blue/80 backdrop-blur-md text-white text-[10px] font-black px-2.5 py-1 rounded-lg tracking-wider border border-white/5 select-none z-10 animate-fade-in group-hover:opacity-0 transition-opacity">
-                          {product.categoryLabel}
-                        </span>
 
                         {/* Glassmorphic Specs Hover Overlay */}
                         <div className="absolute inset-0 bg-[#0B0F19]/90 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-350 flex flex-col justify-center p-4 z-20">

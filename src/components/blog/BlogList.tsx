@@ -62,6 +62,7 @@ function BlogListContent({ posts }: BlogListProps) {
 
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchVal, setSearchVal] = useState("");
+  const [clickedSlug, setClickedSlug] = useState<string | null>(null);
 
   // Scroll indicator fade states
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -349,20 +350,34 @@ function BlogListContent({ posts }: BlogListProps) {
                   <Link
                     href={`/blog/${post.slug}`}
                     className="flex flex-col flex-grow h-full"
+                    onClick={() => setClickedSlug(post.slug)}
                   >
                     <div className="relative h-44 overflow-hidden bg-gray-100 shrink-0">
-                      <ViewTransition name={`blog-image-${post.slug}`}>
-                        <SafeImage
-                          src={post.image}
-                          alt={post.title}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
+                      <ViewTransition
+                        name={
+                          clickedSlug === post.slug
+                            ? `blog-image-${post.slug}`
+                            : undefined
+                        }
+                      >
+                        <div className="absolute inset-0">
+                          <SafeImage
+                            src={post.image}
+                            alt={post.title}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            className="object-cover group-hover:scale-105 transition-transform duration-500 z-0"
+                          />
+                          <span
+                            className={`absolute top-3 left-3 bg-[#1E293B]
+                              text-white text-[9px] font-black px-2.5
+                              py-1 rounded-lg uppercase tracking-wider
+                              shadow-sm border border-white/5 z-10`}
+                          >
+                            {post.category}
+                          </span>
+                        </div>
                       </ViewTransition>
-                      <span className="absolute top-3 left-3 bg-[#1E293B] text-white text-[9px] font-black px-2.5 py-1 rounded-lg uppercase tracking-wider shadow-sm border border-white/5">
-                        {post.category}
-                      </span>
                     </div>
 
                     <div className="p-5 flex flex-col justify-between flex-grow">

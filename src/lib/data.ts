@@ -96,7 +96,7 @@ export const COMPANY = {
   ],
 };
 
-export const PRODUCTS = [
+export const PRODUCTS: Product[] = [
   {
     slug: "jcb-hydraulic-pump",
     weight: "8.2 kg",
