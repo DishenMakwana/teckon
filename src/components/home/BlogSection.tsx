@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, ViewTransition } from "react";
+import { useRef, ViewTransition, useState } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import SafeImage from "@/components/ui/SafeImage";
@@ -10,6 +10,7 @@ import { formatDate } from "@/lib/utils";
 export default function BlogSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const [clickedSlug, setClickedSlug] = useState<string | null>(null);
 
   // Get the latest 3 blog posts (first 3 in the list represent our featured/latest blogs)
   const latestPosts = BLOG_POSTS.slice(0, 3);
@@ -52,19 +53,32 @@ export default function BlogSection() {
             >
               {/* Image Container */}
               <div className="relative h-52 overflow-hidden bg-gray-100 shrink-0">
-                <ViewTransition name={`blog-image-${post.slug}`}>
-                  <SafeImage
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="eager"
-                  />
+                <ViewTransition
+                  name={
+                    clickedSlug === post.slug
+                      ? `blog-image-${post.slug}`
+                      : undefined
+                  }
+                >
+                  <div className="absolute inset-0">
+                    <SafeImage
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 z-0"
+                      loading="eager"
+                    />
+                    <span
+                      className={`absolute top-3 left-3 bg-[#1E293B]
+                        text-white text-[10px] font-extrabold px-3
+                        py-1 rounded-full uppercase tracking-wider
+                        shadow-sm z-10`}
+                    >
+                      {post.category}
+                    </span>
+                  </div>
                 </ViewTransition>
-                <span className="absolute top-3 left-3 bg-[#1E293B] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
-                  {post.category}
-                </span>
               </div>
 
               {/* Text Body */}
@@ -90,6 +104,7 @@ export default function BlogSection() {
                   <Link
                     href={`/blog/${post.slug}`}
                     className="inline-flex items-center gap-1.5 text-[#FF6B35] font-bold text-sm hover:gap-3 transition-all"
+                    onClick={() => setClickedSlug(post.slug)}
                   >
                     Read Technical Guide on {post.category}{" "}
                     <span className="text-xs">→</span>

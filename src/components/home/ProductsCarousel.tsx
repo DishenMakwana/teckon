@@ -79,6 +79,7 @@ export default function ProductsCarousel() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
   const [products, setProducts] = useState<typeof PRODUCTS>(defaultProducts);
+  const [clickedSlug, setClickedSlug] = useState<string | null>(null);
 
   useEffect(() => {
     // Pick one random product from each category
@@ -151,6 +152,7 @@ export default function ProductsCarousel() {
                   <Link
                     href={`/products/${product.slug}`}
                     className="flex flex-col flex-1 w-full relative"
+                    onClick={() => setClickedSlug(product.slug)}
                   >
                     <div
                       className="relative h-44 border-b border-gray-100 overflow-hidden shrink-0"
@@ -158,19 +160,34 @@ export default function ProductsCarousel() {
                         backgroundColor: product.backgroundColor || "#F2F3F4",
                       }}
                     >
-                      <ViewTransition name={`product-image-${product.slug}`}>
-                        <SafeImage
-                          src={product.image}
-                          alt={product.name}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                          className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
-                          loading="eager"
-                        />
+                      <ViewTransition
+                        name={
+                          clickedSlug === product.slug
+                            ? `product-image-${product.slug}`
+                            : undefined
+                        }
+                      >
+                        <div className="absolute inset-0">
+                          <SafeImage
+                            src={product.image}
+                            alt={product.name}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                            className="object-contain p-4 group-hover:scale-105 transition-transform duration-500 z-0"
+                            loading="eager"
+                          />
+                          <span
+                            className={`absolute bottom-3 right-3 bg-teckon-dark-blue/80
+                              backdrop-blur-md text-white text-[10px]
+                              font-black px-2.5 py-1 rounded-lg tracking-wider
+                              border border-white/5 select-none z-10
+                              animate-fade-in group-hover:opacity-0
+                              transition-opacity`}
+                          >
+                            {product.categoryLabel}
+                          </span>
+                        </div>
                       </ViewTransition>
-                      <span className="absolute bottom-3 right-3 bg-teckon-dark-blue/80 backdrop-blur-md text-white text-[10px] font-black px-2.5 py-1 rounded-lg tracking-wider border border-white/5 select-none z-10 animate-fade-in group-hover:opacity-0 transition-opacity">
-                        {product.categoryLabel}
-                      </span>
 
                       {/* Glassmorphic Specs Hover Overlay */}
                       <div className="absolute inset-0 bg-[#0B0F19]/90 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-350 flex flex-col justify-center p-4 z-20">
