@@ -157,7 +157,9 @@ export default function AboutPage() {
                   <h3 className="text-xl font-bold text-teckon-blue mb-3">
                     {p.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">{p.description}</p>
+                  <p className="text-gray-600 leading-relaxed">
+                    {p.description}
+                  </p>
                 </div>
               );
             })}
@@ -239,13 +241,15 @@ export default function AboutPage() {
       </section>
 
       {/* Vision & Mission */}
-      <section id="vision-mission" className="py-24 bg-white relative overflow-hidden">
+      <section
+        id="vision-mission"
+        className="py-24 bg-white relative overflow-hidden"
+      >
         {/* Background grid pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(11,15,25,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(11,15,25,0.015)_1px,transparent_1px)] bg-[size:3rem_3rem] pointer-events-none" />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            
             {/* Left Column: Heading & Context */}
             <div className="lg:col-span-5 lg:sticky lg:top-24">
               <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">
@@ -257,7 +261,9 @@ export default function AboutPage() {
               </h2>
               <div className="w-16 h-1.5 bg-[#FFBE00] rounded-full mb-6" />
               <p className="text-gray-600 leading-relaxed mb-6">
-                At Teckon, our core principles guide our engineering quality, supply chain integrity, and customer commitments. We strive to set new benchmarks in the hydraulic spares industry.
+                At Teckon, our core principles guide our engineering quality,
+                supply chain integrity, and customer commitments. We strive to
+                set new benchmarks in the hydraulic spares industry.
               </p>
               <div className="hidden lg:block relative w-full h-40 border border-slate-100 rounded-3xl overflow-hidden bg-slate-50/50 p-6">
                 {/* Visual grid blueprint accent inside box */}
@@ -274,12 +280,12 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-            
+
             {/* Right Column: High-Craft Cards Stack */}
             <div className="lg:col-span-7 flex flex-col gap-8 relative">
               {/* Connecting line */}
               <div className="absolute left-10 md:left-12 top-10 bottom-10 w-0.5 border-l-2 border-dashed border-slate-200 pointer-events-none hidden sm:block" />
-              
+
               {/* Vision Card */}
               <div className="group relative bg-slate-50/30 border border-slate-200/60 rounded-3xl p-8 md:p-10 hover:bg-white hover:border-teckon-blue/30 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(11,15,25,0.04)] overflow-hidden flex flex-col sm:flex-row gap-6 items-start">
                 <span className="absolute right-6 bottom-4 text-7xl font-mono font-black text-slate-200/20 select-none group-hover:text-teckon-blue/5 transition-colors duration-300 uppercase pointer-events-none">
@@ -294,12 +300,12 @@ export default function AboutPage() {
                   </h3>
                   <p className="text-slate-800 leading-relaxed text-lg font-bold italic">
                     &ldquo;To be the leading manufacturer of hydraulic parts and
-                    spares in India, delivering innovation and precision to every
-                    client nationwide.&rdquo;
+                    spares in India, delivering innovation and precision to
+                    every client nationwide.&rdquo;
                   </p>
                 </div>
               </div>
-              
+
               {/* Mission Card */}
               <div className="group relative bg-slate-50/30 border border-slate-200/60 rounded-3xl p-8 md:p-10 hover:bg-white hover:border-[#FF6B35]/30 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(11,15,25,0.04)] overflow-hidden flex flex-col sm:flex-row gap-6 items-start">
                 <span className="absolute right-6 bottom-4 text-7xl font-mono font-black text-slate-200/20 select-none group-hover:text-[#FF6B35]/5 transition-colors duration-300 uppercase pointer-events-none">
@@ -313,22 +319,23 @@ export default function AboutPage() {
                     Our Mission
                   </h3>
                   <p className="text-slate-800 leading-relaxed text-lg font-bold italic">
-                    &ldquo;To manufacture and distribute world-class hydraulic parts
-                    through cutting-edge technology, continuous improvement, and an
-                    unwavering commitment to quality and customer
-                    satisfaction.&rdquo;
+                    &ldquo;To manufacture and distribute world-class hydraulic
+                    parts through cutting-edge technology, continuous
+                    improvement, and an unwavering commitment to quality and
+                    customer satisfaction.&rdquo;
                   </p>
                 </div>
               </div>
-              
             </div>
-            
           </div>
         </div>
       </section>
 
       {/* Core Values */}
-      <section id="values" className="py-20 bg-teckon-blue relative overflow-hidden">
+      <section
+        id="values"
+        className="py-20 bg-teckon-blue relative overflow-hidden"
+      >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_70%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
@@ -346,7 +353,9 @@ export default function AboutPage() {
                     <Icon className="w-6 h-6 text-[#FFBE00]" />
                   </div>
                   <div className="text-white font-bold mb-1">{v.title}</div>
-                  <div className="text-white/60 text-xs leading-normal">{v.desc}</div>
+                  <div className="text-white/60 text-xs leading-normal">
+                    {v.desc}
+                  </div>
                 </div>
               );
             })}

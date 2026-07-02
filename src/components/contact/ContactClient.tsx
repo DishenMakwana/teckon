@@ -3,7 +3,16 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
-import { MapPin, Phone, Mail, MessageCircle, Clock, Info, CheckCircle2, XCircle } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  MessageCircle,
+  Clock,
+  Info,
+  CheckCircle2,
+  XCircle,
+} from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { sendInquiryAction } from "@/app/actions/contact";
 

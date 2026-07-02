@@ -227,7 +227,9 @@ export default function QualityPage() {
                   <h3 className="font-black text-teckon-blue mb-2 text-lg">
                     {cert.title}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{cert.desc}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {cert.desc}
+                  </p>
                 </div>
               );
             })}

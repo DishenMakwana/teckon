@@ -3,7 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Factory, Settings, MessageSquare, Phone, ShieldCheck } from "lucide-react";
+import {
+  Factory,
+  Settings,
+  MessageSquare,
+  Phone,
+  ShieldCheck,
+} from "lucide-react";
 import { COMPANY } from "@/lib/data";
 
 export default function HeroSection() {
@@ -38,7 +44,9 @@ export default function HeroSection() {
           className="inline-flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1.5 rounded-full mb-4 md:mb-6 animate-pulse"
         >
           <Factory className="w-3.5 h-3.5 shrink-0 text-[#0B0F19]" />
-          <span>ISO 9001:2015 Certified | Precision Engineered | Pan-India Coverage</span>
+          <span>
+            ISO 9001:2015 Certified | Precision Engineered | Pan-India Coverage
+          </span>
         </motion.div>
 
         <motion.h1
@@ -103,19 +111,23 @@ export default function HeroSection() {
           className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mt-4 md:mt-10 text-white/50 text-[10px] sm:text-xs md:text-sm"
         >
           <span className="flex items-center gap-1.5">
-            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" /> JCB Specialists
+            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" /> JCB
+            Specialists
           </span>
           <span className="hidden sm:block text-white/20">|</span>
           <span className="flex items-center gap-1.5">
-            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" /> Terex Parts
+            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" /> Terex
+            Parts
           </span>
           <span className="hidden sm:block text-white/20">|</span>
           <span className="flex items-center gap-1.5">
-            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" /> CAT Components
+            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" /> CAT
+            Components
           </span>
           <span className="hidden sm:block text-white/20">|</span>
           <span className="flex items-center gap-1.5">
-            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" /> OEM Specifications
+            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" /> OEM
+            Specifications
           </span>
         </motion.div>
       </div>

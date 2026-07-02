@@ -256,7 +256,9 @@ export default function IndiaMapChart() {
                       <div
                         className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center ${ICON_BG_CLASSES[activeId]}`}
                       >
-                        <ActiveIcon className={`w-4 h-4 ${TEXT_COLOR_CLASSES[activeId]}`} />
+                        <ActiveIcon
+                          className={`w-4 h-4 ${TEXT_COLOR_CLASSES[activeId]}`}
+                        />
                       </div>
                     );
                   })()}

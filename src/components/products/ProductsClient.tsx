@@ -18,7 +18,15 @@ import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { PRODUCTS } from "@/lib/data";
 import { searchProducts } from "@/lib/search";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, X, ChevronRight, ChevronLeft, Settings, MessageSquare, PackageOpen } from "lucide-react";
+import {
+  Search,
+  X,
+  ChevronRight,
+  ChevronLeft,
+  Settings,
+  MessageSquare,
+  PackageOpen,
+} from "lucide-react";
 
 const categories = [
   { id: "all", label: "All Products" },

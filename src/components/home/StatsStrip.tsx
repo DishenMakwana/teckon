@@ -45,7 +45,8 @@ const stats = [
     label: "States Served",
     icon: Map,
     tag: "Pan-India Logistics",
-    description: "Robust supply network delivering to major active project sites.",
+    description:
+      "Robust supply network delivering to major active project sites.",
   },
   {
     end: 5000,
@@ -110,7 +111,9 @@ export default function StatsStrip() {
                 {/* Metric count */}
                 <div className="text-4xl md:text-5xl font-black text-white tracking-tight flex items-baseline justify-center gap-0.5 mb-2">
                   <Counter end={stat.end} duration={2000} />
-                  <span className="text-[#FFBE00] font-black">{stat.suffix}</span>
+                  <span className="text-[#FFBE00] font-black">
+                    {stat.suffix}
+                  </span>
                 </div>
 
                 {/* Label */}
@@ -135,4 +138,3 @@ export default function StatsStrip() {
     </section>
   );
 }
-

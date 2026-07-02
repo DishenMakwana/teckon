@@ -16,7 +16,14 @@ interface BlogPost {
 }
 import SafeImage from "@/components/ui/SafeImage";
 import { formatDate } from "@/lib/utils";
-import { Search, X, ChevronRight, ChevronLeft, Newspaper, Flame } from "lucide-react";
+import {
+  Search,
+  X,
+  ChevronRight,
+  ChevronLeft,
+  Newspaper,
+  Flame,
+} from "lucide-react";
 
 interface BlogListProps {
   posts: BlogPost[];
