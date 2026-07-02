@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Factory, Settings, MessageSquare, Phone, ShieldCheck } from "lucide-react";
 import { COMPANY } from "@/lib/data";
 
 export default function HeroSection() {
@@ -36,7 +37,8 @@ export default function HeroSection() {
           transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1.5 rounded-full mb-4 md:mb-6 animate-pulse"
         >
-          🏭 ISO 9001:2015 Certified | Precision Engineered | Pan-India Coverage
+          <Factory className="w-3.5 h-3.5 shrink-0 text-[#0B0F19]" />
+          <span>ISO 9001:2015 Certified | Precision Engineered | Pan-India Coverage</span>
         </motion.div>
 
         <motion.h1
@@ -75,7 +77,7 @@ export default function HeroSection() {
             href="/products"
             className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#FFBE00] text-[#0B0F19] font-black px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg hover:bg-[#d99e00] transition-colors shadow-xl"
           >
-            🔩 Explore Products
+            <Settings className="w-4 h-4 shrink-0" /> Explore Products
           </Link>
           <a
             href={COMPANY.whatsapp}
@@ -83,13 +85,13 @@ export default function HeroSection() {
             rel="noopener noreferrer"
             className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#128C7E] text-white font-bold px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg hover:bg-[#0f766a] transition-colors shadow-xl"
           >
-            💬 WhatsApp Inquiry
+            <MessageSquare className="w-4 h-4 shrink-0" /> WhatsApp Inquiry
           </a>
           <a
             href={`tel:${COMPANY.phones.mainRaw}`}
             className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white/10 border-2 border-white/40 text-white font-bold px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg hover:bg-white/20 transition-colors"
           >
-            📞 Call Now
+            <Phone className="w-4 h-4 shrink-0" /> Call Now
           </a>
         </motion.div>
 
@@ -100,13 +102,21 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mt-4 md:mt-10 text-white/50 text-[10px] sm:text-xs md:text-sm"
         >
-          <span>✅ JCB Specialists</span>
+          <span className="flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" /> JCB Specialists
+          </span>
           <span className="hidden sm:block text-white/20">|</span>
-          <span>✅ Terex Parts</span>
+          <span className="flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" /> Terex Parts
+          </span>
           <span className="hidden sm:block text-white/20">|</span>
-          <span>✅ CAT Components</span>
+          <span className="flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" /> CAT Components
+          </span>
           <span className="hidden sm:block text-white/20">|</span>
-          <span>✅ OEM Specifications</span>
+          <span className="flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" /> OEM Specifications
+          </span>
         </motion.div>
       </div>
     </section>

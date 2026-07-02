@@ -18,7 +18,7 @@ import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { PRODUCTS } from "@/lib/data";
 import { searchProducts } from "@/lib/search";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, X, ChevronRight, ChevronLeft } from "lucide-react";
+import { Search, X, ChevronRight, ChevronLeft, Settings, MessageSquare, PackageOpen } from "lucide-react";
 
 const categories = [
   { id: "all", label: "All Products" },
@@ -423,7 +423,9 @@ function ProductsContent() {
 
           {displayList.length === 0 ? (
             <div className="text-center py-20 text-gray-400 bg-white rounded-3xl border border-gray-100 shadow-sm">
-              <div className="text-5xl mb-4">🔩</div>
+              <div className="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center mx-auto mb-4">
+                <PackageOpen className="w-8 h-8 text-teckon-blue" />
+              </div>
               <p className="font-semibold text-lg text-gray-700">
                 No products found matching your criteria.
               </p>
@@ -500,7 +502,8 @@ function ProductsContent() {
                         {/* Glassmorphic Specs Hover Overlay */}
                         <div className="absolute inset-0 bg-[#0B0F19]/90 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-350 flex flex-col justify-center p-4 z-20">
                           <span className="text-[10px] font-mono text-[#FFBE00] uppercase tracking-widest mb-3 font-bold flex items-center gap-1.5 border-b border-white/10 pb-1.5">
-                            ⚙️ Technical Specs
+                            <Settings className="w-3.5 h-3.5 text-[#FFBE00] shrink-0" />
+                            <span>Technical Specs</span>
                           </span>
                           <div className="space-y-2 text-xs text-white">
                             {Object.entries(product.specs)
@@ -602,9 +605,10 @@ function ProductsContent() {
                   href="https://wa.me/919426915578?text=Hello%20Shreeji%20Hydraulics,%20I%20want%20to%20inquire%20about%20custom%20hydraulic%20spares"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#128C7E] text-white font-bold px-8 py-3.5 rounded-2xl hover:bg-[#0f766a] transition-colors text-sm shadow-lg"
+                  className="flex items-center justify-center gap-2 bg-[#128C7E] text-white font-bold px-8 py-3.5 rounded-2xl hover:bg-[#0f766a] transition-colors text-sm shadow-lg"
                 >
-                  💬 WhatsApp Sourcing
+                  <MessageSquare className="w-4 h-4 shrink-0" />
+                  <span>WhatsApp Sourcing</span>
                 </a>
               </div>
             </div>

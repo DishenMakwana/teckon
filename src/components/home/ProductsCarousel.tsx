@@ -4,6 +4,7 @@ import { useRef, useState, useEffect, ViewTransition } from "react";
 import { motion, useInView } from "framer-motion";
 import SafeImage from "@/components/ui/SafeImage";
 import Link from "next/link";
+import { Settings } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { PRODUCTS } from "@/lib/data";
@@ -192,7 +193,8 @@ export default function ProductsCarousel() {
                       {/* Glassmorphic Specs Hover Overlay */}
                       <div className="absolute inset-0 bg-[#0B0F19]/90 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-350 flex flex-col justify-center p-4 z-20">
                         <span className="text-[10px] font-mono text-[#FFBE00] uppercase tracking-widest mb-3 font-bold flex items-center gap-1.5 border-b border-white/10 pb-1.5">
-                          ⚙️ Technical Specs
+                          <Settings className="w-3 h-3 text-[#FFBE00] shrink-0" />
+                          <span>Technical Specs</span>
                         </span>
                         <div className="space-y-2 text-xs text-white">
                           {Object.entries(product.specs || {})

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
-import { MapPin, Phone, Mail, MessageCircle, Clock, Info } from "lucide-react";
+import { MapPin, Phone, Mail, MessageCircle, Clock, Info, CheckCircle2, XCircle } from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { sendInquiryAction } from "@/app/actions/contact";
 
@@ -250,15 +250,19 @@ export default function ContactClient() {
               </h2>
 
               {submitted && (
-                <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-6 text-green-700 font-semibold">
-                  ✅ Thank you! Your inquiry has been submitted. We&apos;ll get
-                  back to you shortly.
+                <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-6 text-green-700 font-semibold flex items-start gap-2.5">
+                  <CheckCircle2 className="w-5 h-5 shrink-0 text-green-600 mt-0.5" />
+                  <span>
+                    Thank you! Your inquiry has been submitted. We&apos;ll get
+                    back to you shortly.
+                  </span>
                 </div>
               )}
 
               {submitError && (
-                <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-6 text-red-700 font-semibold">
-                  ❌ {submitError}
+                <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-6 text-red-700 font-semibold flex items-start gap-2.5">
+                  <XCircle className="w-5 h-5 shrink-0 text-red-600 mt-0.5" />
+                  <span>{submitError}</span>
                 </div>
               )}
 
@@ -335,14 +339,14 @@ export default function ContactClient() {
                         })}
                         className="w-28 shrink-0 border border-gray-200 rounded-xl pl-3 pr-7 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all bg-white font-medium custom-select-sm"
                       >
-                        <option value="+91">🇮🇳 +91</option>
-                        <option value="+86">🇨🇳 +86</option>
-                        <option value="+971">🇦🇪 +971</option>
-                        <option value="+966">🇸🇦 +966</option>
-                        <option value="+44">🇬🇧 +44</option>
-                        <option value="+1">🇺🇸 +1</option>
-                        <option value="+977">🇳🇵 +977</option>
-                        <option value="+880">🇧🇩 +880</option>
+                        <option value="+91">IND (+91)</option>
+                        <option value="+86">CHN (+86)</option>
+                        <option value="+971">ARE (+971)</option>
+                        <option value="+966">SAU (+966)</option>
+                        <option value="+44">GBR (+44)</option>
+                        <option value="+1">USA (+1)</option>
+                        <option value="+977">NPL (+977)</option>
+                        <option value="+880">BGD (+880)</option>
                       </select>
                       <input
                         {...register("phone", {

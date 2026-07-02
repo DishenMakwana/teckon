@@ -16,7 +16,7 @@ interface BlogPost {
 }
 import SafeImage from "@/components/ui/SafeImage";
 import { formatDate } from "@/lib/utils";
-import { Search, X, ChevronRight, ChevronLeft } from "lucide-react";
+import { Search, X, ChevronRight, ChevronLeft, Newspaper, Flame } from "lucide-react";
 
 interface BlogListProps {
   posts: BlogPost[];
@@ -262,7 +262,9 @@ function BlogListContent({ posts }: BlogListProps) {
 
       {filteredPosts.length === 0 ? (
         <div className="text-center py-20 text-gray-400 bg-white rounded-3xl border border-gray-100 shadow-sm">
-          <div className="text-5xl mb-4">📰</div>
+          <div className="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center mx-auto mb-4">
+            <Newspaper className="w-8 h-8 text-teckon-blue" />
+          </div>
           <p className="font-semibold text-lg text-gray-700">
             No articles found matching your criteria.
           </p>
@@ -292,8 +294,9 @@ function BlogListContent({ posts }: BlogListProps) {
                     priority
                   />
                 </ViewTransition>
-                <span className="absolute top-4 left-4 bg-[#FF6B35] text-white text-[9px] font-black px-3.5 py-1.5 rounded-lg uppercase tracking-widest shadow-sm">
-                  🔥 Featured Guide
+                <span className="absolute top-4 left-4 bg-[#FF6B35] text-white text-[9px] font-black px-3.5 py-1.5 rounded-lg uppercase tracking-widest shadow-sm flex items-center gap-1.5">
+                  <Flame className="w-3.5 h-3.5 fill-white text-white" />
+                  <span>Featured Guide</span>
                 </span>
               </div>
 

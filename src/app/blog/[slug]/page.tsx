@@ -15,6 +15,8 @@ import {
   Mail,
   Phone,
   MessageSquare,
+  Zap,
+  Factory,
 } from "lucide-react";
 
 interface Props {
@@ -222,7 +224,7 @@ export default async function BlogPostPage({ params }: Props) {
                         key={i}
                         className="flex items-start gap-2 text-slate-600 text-sm ml-2"
                       >
-                        <span className="text-[#FFBE00] mt-1 text-xs">⚡</span>
+                        <Zap className="w-3 h-3 text-[#FFBE00] mt-1 shrink-0 fill-[#FFBE00]" />
                         <span className="flex-1">{trimmed.slice(2)}</span>
                       </li>
                     );
@@ -248,8 +250,9 @@ export default async function BlogPostPage({ params }: Props) {
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
 
                 <div className="relative z-10 space-y-4">
-                  <span className="text-[#FFBE00] font-mono text-[9px] uppercase tracking-widest font-bold">
-                    🔧 Factory Spares Sourcing
+                  <span className="text-[#FFBE00] font-mono text-[9px] uppercase tracking-widest font-bold flex items-center gap-1.5 justify-center md:justify-start">
+                    <Factory className="w-3.5 h-3.5 shrink-0" />
+                    <span>Factory Spares Sourcing</span>
                   </span>
                   <h3 className="text-white font-black text-lg leading-tight">
                     Need Hydraulic Parts?

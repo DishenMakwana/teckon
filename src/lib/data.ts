@@ -1634,7 +1634,7 @@ export const PARTS_CATEGORIES = [
   {
     slug: "filters",
     name: "Filters",
-    icon: "🔵",
+    icon: "circle",
     description:
       "Engine oil, hydraulic, fuel, and air filters for all major construction equipment brands.",
     items: [
@@ -1655,7 +1655,7 @@ export const PARTS_CATEGORIES = [
   {
     slug: "pins-and-bushes",
     name: "Pins & Bushes",
-    icon: "⚙️",
+    icon: "settings",
     description:
       "Precision-machined pivot pins and bronze bushes for boom, dipper, bucket and linkage connections.",
     items: [
@@ -1671,7 +1671,7 @@ export const PARTS_CATEGORIES = [
   {
     slug: "ground-engaging-tools",
     name: "Ground Engaging Tools",
-    icon: "⛏️",
+    icon: "wrench",
     description:
       "Bucket teeth, cutting edges, side cutters, rippers, and wear plates for earthmoving applications.",
     items: [
@@ -1692,7 +1692,7 @@ export const PARTS_CATEGORIES = [
   {
     slug: "powertrain-components",
     name: "Powertrain Components",
-    icon: "🔧",
+    icon: "wrench",
     description:
       "Engine, gearbox, axle and drivetrain parts for wheeled and tracked construction equipment.",
     items: [
@@ -1708,7 +1708,7 @@ export const PARTS_CATEGORIES = [
   {
     slug: "electrical-lighting",
     name: "Electrical & Lighting",
-    icon: "💡",
+    icon: "lightbulb",
     description:
       "Wiring harnesses, LED work lights, switches, relays, and instrument clusters.",
     items: [
@@ -1724,7 +1724,7 @@ export const PARTS_CATEGORIES = [
   {
     slug: "cab-body-parts",
     name: "Cab & Body Parts",
-    icon: "🚧",
+    icon: "construction",
     description:
       "Glass, door seals, mirrors, panels and structural cab components for operator safety and comfort.",
     items: [
@@ -1745,7 +1745,7 @@ export const PARTS_CATEGORIES = [
   {
     slug: "undercarriage",
     name: "Undercarriage Parts",
-    icon: "🔩",
+    icon: "settings",
     description:
       "Track rollers, carrier rollers, idlers, sprockets, track chains and duo-cone seals for tracked equipment.",
     items: [
@@ -1767,7 +1767,7 @@ export const PARTS_CATEGORIES = [
   {
     slug: "service-fluids",
     name: "Service Fluids",
-    icon: "🛢️",
+    icon: "droplet",
     description:
       "Hydraulic oils, engine oils, transmission fluids, and greases specified for major equipment brands.",
     items: [
@@ -1786,7 +1786,7 @@ export const EVENTS = [
   {
     year: "2024",
     name: "Excon South Asia 2024",
-    location: "Bengaluru, India 🇮🇳",
+    location: "Bengaluru, India",
     description:
       "Visited South Asia's premier construction equipment exhibition to connect with excavator and backhoe loaders manufacturers.",
     type: "past",
@@ -1795,7 +1795,7 @@ export const EVENTS = [
   {
     year: "2023",
     name: "Excon Bengaluru 2023",
-    location: "Bengaluru, India 🇮🇳",
+    location: "Bengaluru, India",
     description:
       "Visited to study hydraulic system upgrades and build associations with construction machinery component suppliers.",
     type: "past",
@@ -1804,7 +1804,7 @@ export const EVENTS = [
   {
     year: "2022",
     name: "bauma CONEXPO India 2022",
-    location: "Greater Noida, India 🇮🇳",
+    location: "Greater Noida, India",
     description:
       "Visited the construction machinery expo to meet with raw material suppliers and machinery makers.",
     type: "past",
@@ -1813,7 +1813,7 @@ export const EVENTS = [
   {
     year: "2022",
     name: "Excon South Asia 2022",
-    location: "Bengaluru, India 🇮🇳",
+    location: "Bengaluru, India",
     description:
       "Visited to evaluate new hydraulics parts designs and network with heavy equipment dealers.",
     type: "past",
@@ -1822,7 +1822,7 @@ export const EVENTS = [
   {
     year: "2019",
     name: "Excon Bengaluru 2019",
-    location: "Bengaluru, India 🇮🇳",
+    location: "Bengaluru, India",
     description:
       "Visited to study gear pump technologies and strengthen relationships with heavy machinery spare parts distributors.",
     type: "past",
@@ -1831,7 +1831,7 @@ export const EVENTS = [
   {
     year: "2018",
     name: "bauma CONEXPO India 2018",
-    location: "Greater Noida, India 🇮🇳",
+    location: "Greater Noida, India",
     description:
       "Visited to engage with earthmoving and road construction machinery manufacturers.",
     type: "past",
@@ -1840,7 +1840,7 @@ export const EVENTS = [
   {
     year: "2017",
     name: "Excon Bengaluru 2017",
-    location: "Bengaluru, India 🇮🇳",
+    location: "Bengaluru, India",
     description:
       "Visited to connect with hydraulic power generation specialists and parts vendors across India.",
     type: "past",
@@ -1849,7 +1849,7 @@ export const EVENTS = [
   {
     year: "2015",
     name: "Excon Bengaluru 2015",
-    location: "Bengaluru, India 🇮🇳",
+    location: "Bengaluru, India",
     description:
       "Visited to review fluid power transmission systems and forge partnerships in the aftermarket spare parts segment.",
     type: "past",
@@ -1858,7 +1858,7 @@ export const EVENTS = [
   {
     year: "2014",
     name: "bauma CONEXPO India 2014",
-    location: "Greater Noida, India 🇮🇳",
+    location: "Greater Noida, India",
     description:
       "Visited to examine emerging hydraulic technology developments in earthmoving machinery.",
     type: "past",

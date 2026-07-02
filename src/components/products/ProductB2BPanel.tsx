@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Truck, Send, Info } from "lucide-react";
+import { Check, Truck, Send, Info, Briefcase } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface ProductB2BPanelProps {
@@ -105,8 +105,9 @@ export default function ProductB2BPanel({ product }: ProductB2BPanelProps) {
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           <div className="lg:col-span-5 text-center lg:text-left space-y-2">
-            <span className="text-[#FFBE00] font-mono text-[9px] uppercase tracking-widest font-black flex items-center justify-center lg:justify-start gap-1">
-              💼 Wholesale Sourcing
+            <span className="text-[#FFBE00] font-mono text-[9px] uppercase tracking-widest font-black flex items-center justify-center lg:justify-start gap-1.5">
+              <Briefcase className="w-3 h-3 text-[#FFBE00] shrink-0" />
+              <span>Wholesale Sourcing</span>
             </span>
             <h4 className="text-white font-black text-xl leading-tight">
               Request Bulk Pricing Quote
