@@ -171,7 +171,8 @@ export default async function ProductDetailPage({ params }: Props) {
             {product.name}
           </h1>
           <div className="inline-flex items-center gap-2 bg-[#FFBE00]/10 border border-[#FFBE00]/20 rounded-full px-3 py-1 text-xs font-bold text-[#FFBE00]">
-            🔩 {product.categoryLabel}
+            <Layers className="w-3.5 h-3.5 text-[#FFBE00] shrink-0" />
+            <span>{product.categoryLabel}</span>
           </div>
         </div>
       </section>
@@ -216,8 +217,8 @@ export default async function ProductDetailPage({ params }: Props) {
                 <div className="relative h-32 rounded-2xl overflow-hidden bg-[#0B0F19] border border-white/10 flex flex-col items-center justify-center text-center p-4 select-none shadow-inner">
                   {/* Grid overlay */}
                   <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:10px_10px] pointer-events-none" />
-                  <div className="relative z-10 text-[#FFBE00] text-2xl mb-1">
-                    🛠️
+                  <div className="relative z-10 text-[#FFBE00] mb-2">
+                    <Wrench className="w-6 h-6 text-[#FFBE00]" />
                   </div>
                   <div className="relative z-10 text-[9px] font-mono font-bold text-white/50 tracking-wider uppercase mb-1">
                     CAD Blueprint

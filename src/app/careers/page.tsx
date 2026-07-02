@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
+import { Rocket, Users, Trophy, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/careers" },
@@ -19,17 +20,17 @@ export const metadata: Metadata = {
 
 const cultureValues = [
   {
-    icon: "🚀",
+    icon: Rocket,
     title: "Growth Mindset",
     desc: "We invest in our people's professional development and continuous learning.",
   },
   {
-    icon: "🤝",
+    icon: Users,
     title: "Collaborative Culture",
     desc: "Work alongside experienced hydraulic engineers and industry experts.",
   },
   {
-    icon: "🏆",
+    icon: Trophy,
     title: "Reward Excellence",
     desc: "Competitive compensation and recognition for outstanding performance.",
   },
@@ -76,18 +77,23 @@ export default function CareersPage() {
             <h2 className="text-4xl font-black text-[#111111]">Our Culture</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {cultureValues.map((v) => (
-              <div
-                key={v.title}
-                className="text-center bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-md transition-shadow"
-              >
-                <div className="text-5xl mb-4">{v.icon}</div>
-                <h3 className="text-xl font-bold text-teckon-blue mb-3">
-                  {v.title}
-                </h3>
-                <p className="text-gray-600">{v.desc}</p>
-              </div>
-            ))}
+            {cultureValues.map((v) => {
+              const Icon = v.icon;
+              return (
+                <div
+                  key={v.title}
+                  className="flex flex-col items-center text-center bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-md hover:border-teckon-blue/10 hover:bg-white transition-all duration-300 group"
+                >
+                  <div className="w-16 h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center mb-6 group-hover:bg-[#FFBE00]/10 group-hover:border-[#FFBE00]/20 transition-all duration-300">
+                    <Icon className="w-8 h-8 text-teckon-blue group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <h3 className="text-xl font-bold text-teckon-blue mb-3">
+                    {v.title}
+                  </h3>
+                  <p className="text-gray-600">{v.desc}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -125,7 +131,8 @@ export default function CareersPage() {
               href="mailto:shreejihyd4008@gmail.com?subject=Resume%20Submission%20—%20Teckon%E2%84%A2%20Quality%20Spares"
               className="inline-flex items-center gap-2 bg-[#FFBE00] text-[#0B0F19] font-bold px-8 py-4 rounded-xl hover:bg-[#d99e00] transition-colors text-base shadow-md"
             >
-              📧 Send Your Resume
+              <Mail className="w-5 h-5 shrink-0" />
+              <span>Send Your Resume</span>
             </a>
           </div>
         </div>

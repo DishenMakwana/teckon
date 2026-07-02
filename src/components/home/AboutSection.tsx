@@ -4,10 +4,18 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { Factory, Globe, BadgeCheck, Wrench } from "lucide-react";
 
 export default function AboutSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+
+  const features = [
+    { icon: Factory, label: "Advanced Manufacturing" },
+    { icon: Globe, label: "Pan-India Reach" },
+    { icon: BadgeCheck, label: "ISO 9001:2015 Certified" },
+    { icon: Wrench, label: "5000+ SKUs in Stock" },
+  ];
 
   return (
     <section id="about" className="py-20 bg-[#0B0F19]" ref={ref}>
@@ -77,20 +85,18 @@ export default function AboutSection() {
             </p>
 
             <div className="grid grid-cols-2 gap-4 mb-8">
-              {[
-                { icon: "🏭", label: "Advanced Manufacturing" },
-                { icon: "🌍", label: "Pan-India Reach" },
-                { icon: "✅", label: "ISO 9001:2015 Certified" },
-                { icon: "🔧", label: "5000+ SKUs in Stock" },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="flex items-center gap-2.5 text-sm text-slate-200 font-medium bg-white/5 border border-white/10 rounded-xl p-3 shadow-inner"
-                >
-                  <span className="text-lg leading-none">{item.icon}</span>
-                  <span>{item.label}</span>
-                </div>
-              ))}
+              {features.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.label}
+                    className="flex items-center gap-3 text-sm text-slate-200 font-medium bg-white/5 border border-white/10 rounded-xl p-3 shadow-inner group hover:bg-white/10 hover:border-[#FFBE00]/20 transition-all duration-300"
+                  >
+                    <Icon className="w-5 h-5 text-[#FFBE00] shrink-0" />
+                    <span>{item.label}</span>
+                  </div>
+                );
+              })}
             </div>
 
             <Link

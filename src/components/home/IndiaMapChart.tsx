@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, ComponentType } from "react";
 import indiaMap from "@svg-maps/india";
 import { motion, AnimatePresence } from "framer-motion";
+import { Factory, Wrench, Truck, Settings } from "lucide-react";
 
 /* ── State data ─────────────────────────────────────────────────────── */
 const HIGHLIGHT = new Set(["gj", "rj", "mh", "mp"]);
@@ -11,7 +12,7 @@ interface StateInfo {
   name: string;
   city: string;
   role: string;
-  icon: string;
+  icon: ComponentType<{ className?: string }>;
   color: string;
 }
 
@@ -20,28 +21,28 @@ const STATE_INFO: Record<string, StateInfo> = {
     name: "Gujarat",
     city: "Rajkot (HQ)",
     role: "Primary Supply Hub",
-    icon: "🏭",
+    icon: Factory,
     color: "#FFBE00",
   },
   rj: {
     name: "Rajasthan",
     city: "Jaipur & Jodhpur",
     role: "Key Distribution Partner",
-    icon: "🔧",
+    icon: Wrench,
     color: "#FF9D3D",
   },
   mh: {
     name: "Maharashtra",
     city: "Pune & Mumbai",
     role: "Distribution Hub",
-    icon: "🚚",
+    icon: Truck,
     color: "#FF6B35",
   },
   mp: {
     name: "Madhya Pradesh",
     city: "Indore & Bhopal",
     role: "Central Network Node",
-    icon: "⚙️",
+    icon: Settings,
     color: "#E84393",
   },
 };
@@ -249,11 +250,18 @@ export default function IndiaMapChart() {
                   transition={{ duration: 0.22, ease: "easeOut" }}
                   className={`rounded-xl border px-4 py-2.5 flex items-center gap-3 ${PANEL_STYLE_CLASSES[activeId]}`}
                 >
-                  <div
-                    className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-lg ${ICON_BG_CLASSES[activeId]}`}
-                  >
-                    {activeInfo.icon}
-                  </div>
+                  {(() => {
+                    const ActiveIcon = activeInfo.icon;
+                    return (
+                      <div
+                        className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center ${ICON_BG_CLASSES[activeId]}`}
+                      >
+                        <ActiveIcon
+                          className={`w-4 h-4 ${TEXT_COLOR_CLASSES[activeId]}`}
+                        />
+                      </div>
+                    );
+                  })()}
 
                   <div className="flex-1 min-w-0 text-left">
                     <div className="flex items-center gap-2 mb-0.5">
