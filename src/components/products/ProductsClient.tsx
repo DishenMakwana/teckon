@@ -343,7 +343,9 @@ function ProductsContent() {
                     : "bg-gray-50 border-gray-200 text-gray-500 hover:text-gray-800 hover:bg-gray-100/50"
                 }`}
               >
-                <span className={`w-1.5 h-1.5 rounded-full ${showLimited ? "bg-amber-500 animate-pulse" : "bg-gray-400"}`} />
+                <span
+                  className={`w-1.5 h-1.5 rounded-full ${showLimited ? "bg-amber-500 animate-pulse" : "bg-gray-400"}`}
+                />
                 <span>Limited</span>
               </button>
             </div>
