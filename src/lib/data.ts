@@ -1790,7 +1790,7 @@ export const EVENTS = [
     description:
       "Visited South Asia's premier construction equipment exhibition to connect with excavator and backhoe loaders manufacturers.",
     type: "past",
-    image: "/images/events/excon-south-asia-2024.png",
+    image: "/images/events/excon-south-asia-2024.webp",
   },
   {
     year: "2023",
@@ -1799,7 +1799,7 @@ export const EVENTS = [
     description:
       "Visited to study hydraulic system upgrades and build associations with construction machinery component suppliers.",
     type: "past",
-    image: "/images/events/excon-bengaluru-2023.png",
+    image: "/images/events/excon-bengaluru-2023.webp",
   },
   {
     year: "2022",
@@ -1808,7 +1808,7 @@ export const EVENTS = [
     description:
       "Visited the construction machinery expo to meet with raw material suppliers and machinery makers.",
     type: "past",
-    image: "/images/events/bauma-india-2022.png",
+    image: "/images/events/bauma-india-2022.webp",
   },
   {
     year: "2022",
@@ -1817,7 +1817,7 @@ export const EVENTS = [
     description:
       "Visited to evaluate new hydraulics parts designs and network with heavy equipment dealers.",
     type: "past",
-    image: "/images/events/excon-south-asia-2022.png",
+    image: "/images/events/excon-south-asia-2022.webp",
   },
   {
     year: "2019",
@@ -1826,7 +1826,7 @@ export const EVENTS = [
     description:
       "Visited to study gear pump technologies and strengthen relationships with heavy machinery spare parts distributors.",
     type: "past",
-    image: "/images/events/excon-bengaluru-2019.png",
+    image: "/images/events/excon-bengaluru-2019.webp",
   },
   {
     year: "2018",
@@ -1835,7 +1835,7 @@ export const EVENTS = [
     description:
       "Visited to engage with earthmoving and road construction machinery manufacturers.",
     type: "past",
-    image: "/images/events/bauma-india-2018.png",
+    image: "/images/events/bauma-india-2018.webp",
   },
   {
     year: "2017",
