@@ -16,6 +16,9 @@ import {
   Activity,
   Droplet,
   Layers,
+  Phone,
+  MessageSquare,
+  Mail,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -377,7 +380,8 @@ export default function Navbar() {
                   href="tel:+916351879842"
                   className="flex items-center justify-center gap-2 bg-[#1E293B] text-white py-3 rounded-xl font-semibold text-sm"
                 >
-                  📞 Call +91-63518 79842
+                  <Phone className="w-4 h-4 shrink-0" />
+                  <span>Call +91-63518 79842</span>
                 </a>
                 <a
                   href="https://wa.me/919426915578?text=Hello%20Shreeji%20Hydraulics,%20I%20want%20to%20inquire%20about%20hydraulic%20spares"
@@ -385,13 +389,15 @@ export default function Navbar() {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 bg-[#128C7E] text-white py-3 rounded-xl font-semibold text-sm"
                 >
-                  💬 WhatsApp Inquiry
+                  <MessageSquare className="w-4 h-4 shrink-0" />
+                  <span>WhatsApp Inquiry</span>
                 </a>
                 <a
                   href="mailto:shreejihyd4008@gmail.com"
                   className="flex items-center justify-center gap-2 bg-[#FF6B35] text-white py-3 rounded-xl font-semibold text-sm"
                 >
-                  ✉️ shreejihyd4008@gmail.com
+                  <Mail className="w-4 h-4 shrink-0" />
+                  <span>shreejihyd4008@gmail.com</span>
                 </a>
               </div>
             </motion.div>

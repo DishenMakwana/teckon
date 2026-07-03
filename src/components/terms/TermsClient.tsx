@@ -11,6 +11,8 @@ import {
   HelpCircle,
   Mail,
   MessageSquare,
+  Lightbulb,
+  Settings,
 } from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 
@@ -217,8 +219,9 @@ export default function TermsClient() {
 
               {/* Sidebar Navigation */}
               <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm space-y-4">
-                <span className="text-xs font-black uppercase tracking-wider text-slate-400 block border-b border-gray-100 pb-2">
-                  📄 Sections
+                <span className="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center gap-1.5 border-b border-gray-100 pb-2">
+                  <FileText className="w-3.5 h-3.5 shrink-0" />
+                  <span>Sections</span>
                 </span>
                 <nav className="flex flex-col gap-1.5">
                   {SECTIONS.map((s) => {
@@ -336,7 +339,7 @@ export default function TermsClient() {
                         {/* TL;DR Summary Block (print:hidden) */}
                         <div className="bg-slate-50/80 border-l-4 border-[#FFBE00] rounded-r-2xl p-4 mb-4 select-none print:hidden flex gap-3">
                           <div className="w-6 h-6 rounded-lg bg-[#FFBE00]/10 flex items-center justify-center text-xs shrink-0 font-bold text-[#FF6B35]">
-                            💡
+                            <Lightbulb className="w-4 h-4 text-[#FF6B35]" />
                           </div>
                           <div>
                             <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block mb-0.5">
@@ -375,8 +378,8 @@ export default function TermsClient() {
               {/* Sticky bottom floating support contact bar (print:hidden) */}
               <div className="bg-slate-900 border border-white/5 rounded-3xl p-5 sm:p-6 shadow-xl flex flex-col sm:flex-row gap-4 items-center justify-between text-slate-300 print:hidden">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-lg">
-                    ⚙️
+                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <Settings className="w-5 h-5 text-[#FFBE00]" />
                   </div>
                   <div>
                     <h4 className="text-white text-xs font-black uppercase tracking-wider">

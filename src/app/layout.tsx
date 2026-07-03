@@ -41,7 +41,11 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/teckon.ico",
+    icon: [
+      { url: "/icon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/teckon.ico", sizes: "any" },
+    ],
     apple: "/teckon.png",
   },
   keywords: [

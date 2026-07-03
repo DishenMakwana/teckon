@@ -25,7 +25,7 @@ export default function PartnersMarquee() {
   return (
     <section
       id="partners"
-      className="py-16 bg-gray-50 overflow-hidden"
+      className="py-16 bg-white overflow-hidden border-b border-gray-100"
       ref={ref}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
@@ -43,14 +43,16 @@ export default function PartnersMarquee() {
           </h2>
         </motion.div>
       </div>
-      <div className="relative">
-        <div className="flex gap-6 animate-marquee w-max">
+
+      {/* Marquee Wrapper with Edge Fade Masking (matching pure white bg-white) */}
+      <div className="relative overflow-hidden w-full py-4 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-20 before:bg-gradient-to-r before:from-white before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-20 after:bg-gradient-to-l after:from-white after:to-transparent">
+        <div className="flex gap-6 animate-marquee w-max hover:[animation-play-state:paused]">
           {doubled.map((partner, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-44 h-20 bg-white border border-gray-200 rounded-xl flex items-center justify-center px-4 shadow-sm hover:border-teckon-blue hover:shadow-md transition-all"
+              className="flex-shrink-0 w-44 h-20 bg-slate-50/80 border border-slate-200/60 rounded-2xl flex items-center justify-center px-4 shadow-sm hover:border-[#FFBE00]/30 hover:bg-white hover:scale-[1.03] hover:shadow-[0_10px_30px_rgba(255,190,0,0.06)] transition-all duration-300 group/item select-none cursor-pointer"
             >
-              <span className="text-gray-600 font-semibold text-sm text-center">
+              <span className="text-[#0B0F19] font-extrabold text-sm group-hover/item:text-[#FF6B35] transition-colors text-center">
                 {partner}
               </span>
             </div>
