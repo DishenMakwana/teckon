@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { MapPin, Calendar, CheckCircle2, ChevronRight } from "lucide-react";
+import { MapPin, CheckCircle2 } from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { EVENTS } from "@/lib/data";
 
@@ -40,7 +40,7 @@ export default function EventsPage() {
       {/* Events Timeline Section (Light Themed) */}
       <section id="timeline" className="py-20 bg-slate-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Heading (Restored Original Styling) */}
+          {/* Section Heading */}
           <div className="text-center mb-16">
             <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">
               Presence
@@ -71,9 +71,9 @@ export default function EventsPage() {
 
                   {/* Content Card (Left or Right side depending on index) */}
                   <div className="w-full md:w-[46%] pl-10 md:pl-0 flex">
-                    <div className="bg-white border border-gray-100 rounded-3xl p-6 md:p-8 hover:border-[#FFBE00]/40 hover:shadow-xl transition-all duration-350 shadow-sm group relative overflow-hidden flex-1 flex flex-col justify-between">
-                      {/* Translucent year background watermark */}
-                      <div className="absolute -top-3 -right-3 font-mono text-6xl font-black text-slate-100/50 group-hover:text-[#FFBE00]/10 transition-colors pointer-events-none select-none">
+                    <div className="bg-white border border-gray-100 rounded-3xl p-6 md:p-8 hover:border-[#FFBE00]/45 hover:shadow-xl transition-all duration-350 shadow-sm group relative overflow-hidden flex-1 flex flex-col justify-between">
+                      {/* Translucent year background watermark (Visibility improved) */}
+                      <div className="absolute -top-1 -right-1 font-mono text-6xl font-black text-slate-200/80 group-hover:text-[#FFBE00]/20 transition-colors pointer-events-none select-none">
                         {event.year}
                       </div>
 
@@ -101,14 +101,6 @@ export default function EventsPage() {
                           {event.description}
                         </p>
                       </div>
-
-                      {/* Micro-interactive read indicator */}
-                      <div className="mt-6 pt-4 border-t border-slate-50 flex items-center justify-between">
-                        <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest font-black">
-                          Association Verified
-                        </span>
-                        <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-teckon-blue group-hover:translate-x-1 transition-all" />
-                      </div>
                     </div>
                   </div>
 
@@ -124,12 +116,9 @@ export default function EventsPage() {
                     </div>
                   </div>
 
-                  {/* Image Card (Alternating opposite to content card) */}
-                  <div className="w-full md:w-[46%] pl-10 md:pl-0">
-                    <div className="relative aspect-[16/10] w-full rounded-3xl overflow-hidden border border-gray-100 shadow-sm group/img">
-                      {/* Overlay card hover gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent z-10 transition-opacity duration-350 opacity-80 group-hover/img:opacity-60" />
-
+                  {/* Image Card (Stretched to match text card height, redundant info removed) */}
+                  <div className="w-full md:w-[46%] pl-10 md:pl-0 flex">
+                    <div className="relative w-full rounded-3xl overflow-hidden border border-gray-100 shadow-sm group/img h-full min-h-[240px] md:min-h-full flex-1">
                       <Image
                         src={event.image}
                         alt={event.name}
@@ -138,22 +127,6 @@ export default function EventsPage() {
                         className="object-cover scale-100 group-hover/img:scale-105 transition-transform duration-700 ease-out"
                         loading="lazy"
                       />
-
-                      {/* Small floating metadata label on top-left of image */}
-                      <div className="absolute top-4 left-4 z-20 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-lg border border-gray-100 flex items-center gap-1.5 text-[10px] font-mono font-semibold text-slate-700 shadow-sm">
-                        <Calendar className="w-3.5 h-3.5 text-[#C2410C]" />
-                        <span>Visited in {event.year}</span>
-                      </div>
-
-                      {/* Floating overlay text at bottom */}
-                      <div className="absolute bottom-4 left-4 right-4 z-20 flex flex-col space-y-1">
-                        <span className="text-white text-xs font-black uppercase tracking-wider">
-                          {event.name}
-                        </span>
-                        <span className="text-[#FFBE00] text-[10px] font-bold">
-                          {event.location}
-                        </span>
-                      </div>
                     </div>
                   </div>
                 </motion.div>
