@@ -57,9 +57,9 @@ export default function HomePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Teckon Quality Spares",
-    "alternateName": ["Teckon Spares", "Shreeji Hydraulics"],
-    "url": "https://teckon.vercel.app/",
+    name: "Teckon Quality Spares",
+    alternateName: ["Teckon Spares", "Shreeji Hydraulics"],
+    url: "https://teckon.vercel.app/",
   };
 
   return (
