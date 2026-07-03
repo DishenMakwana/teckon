@@ -83,9 +83,6 @@ export default function EventsPage() {
                             <CheckCircle2 className="w-3 h-3 text-[#C2410C]" />
                             <span>Visited</span>
                           </span>
-                          <span className="text-slate-400 font-mono text-xs">
-                            {event.year}
-                          </span>
                         </div>
 
                         <h3 className="text-xl font-black text-[#111111] group-hover:text-teckon-blue transition-colors leading-snug">

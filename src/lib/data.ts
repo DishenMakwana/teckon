@@ -1844,7 +1844,7 @@ export const EVENTS = [
     description:
       "Visited to connect with hydraulic power generation specialists and parts vendors across India.",
     type: "past",
-    image: "/images/events/excon-bengaluru-2017.png",
+    image: "/images/events/excon-bengaluru-2017.webp",
   },
   {
     year: "2015",
@@ -1853,7 +1853,7 @@ export const EVENTS = [
     description:
       "Visited to review fluid power transmission systems and forge partnerships in the aftermarket spare parts segment.",
     type: "past",
-    image: "/images/events/excon-bengaluru-2015.png",
+    image: "/images/events/excon-bengaluru-2015.webp",
   },
   {
     year: "2014",
@@ -1862,6 +1862,6 @@ export const EVENTS = [
     description:
       "Visited to examine emerging hydraulic technology developments in earthmoving machinery.",
     type: "past",
-    image: "/images/events/bauma-india-2014.png",
+    image: "/images/events/bauma-india-2014.webp",
   },
 ];
