@@ -1,16 +1,125 @@
 # Teckon™ Quality Spares
-> Premium Hydraulic Parts & Spares for Heavy Machinery manufactured by Shreeji Hydraulics.
 
-## Core Information
-- **Manufacturer:** Shreeji Hydraulics (based in Rajkot, Gujarat, India). Established in 2000.
-- **Certifications:** ISO 9001:2015 Certified.
-- **Specializations:** High-quality aftermarket spares and components matching OEM specifications for JCB, Terex, Caterpillar (CAT), Hitachi, L770, Tata JD, and major earthmoving/construction equipment brands.
-- **Main Products:** Hydraulic cylinders, pump assemblies, seal kits, control valves, tipper systems, breakers, and high-tensile pins & bushes.
+> Shreeji Hydraulics (Teckon™ Quality Spares) is an ISO 9001:2015 certified manufacturer of premium aftermarket hydraulic parts and spares for heavy earthmoving and construction machinery. Established in 2000 in Rajkot, Gujarat, India, the company delivers precision-engineered components that serve as high-durability replacements for original equipment manufacturer (OEM) parts.
 
-## Site Structure & Key Pages
-- [Home Page](https://teckon.vercel.app/): Brand overview, core advantages, interactive supply map, top products, client testimonials, and latest blog posts.
-- [About Us](https://teckon.vercel.app/about): Company history, 25+ years industry experience, detailed manufacturing capabilities, VMC/CNC precision facilities, and founder profiles (Alpesh Patel, J.C. Patel).
-- [Products Catalog](https://teckon.vercel.app/products): Browse full inventory of hydraulic parts filterable by manufacturer categories (JCB, Terex, CAT, Excavators, Breakers & Tippers, etc.).
-- [Quality Systems](https://teckon.vercel.app/quality): ISO 9001:2015 certification details, material testing, precision machining tolerancing, and inspection procedures.
-- [Technical Blog](https://teckon.vercel.app/blog): Maintenance guides, diagnostic tips for hydraulic pumps, excavator seal kit installation tutorials, and parts selection guides.
-- [Contact & Inquiries](https://teckon.vercel.app/contact): Secure parts inquiry form, direct phone contacts, office address, and live Google Maps location.
+---
+
+## Company Profile & Heritage
+
+*   **Corporate Entity:** Shreeji Hydraulics (Brand Name: Teckon™ / Teckon Quality Spares)
+*   **Established:** 2000 (Built upon founders' 25+ years of personal experience in hydraulic servicing and precision machining).
+*   **Location:** 36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot, Gujarat 360004, India.
+*   **Certifications:** ISO 9001:2015 Quality Management System Certified.
+*   **Operational Scope:** Pan-India delivery network and international B2B parts supply.
+
+### Executive Leadership & Founders
+*   **Mr. J.C. Patel (Co-Founder & Director):** Leads the technical engineering division. He oversees tool design, tolerances calibration, raw material audits, and the rigorous quality assurance inspection protocols that ensure Teckon parts match OEM fitment and reliability.
+*   **Mr. Alpesh Patel (Co-Founder & Director):** Leads market development, client relationships, B2B procurement agreements, and the distribution network across India.
+
+---
+
+## Core Values & Pillars
+
+*   **Quality First:** Uncompromising precision at every manufacturing stage. Every gear pump, valve, and cylinder component undergoes testing on dynamic hydraulic test benches to verify performance under peak operating pressures.
+*   **Absolute Integrity:** Honest B2B transactions, transparent material specifications (never down-grading raw materials), and clear communication of delivery timelines.
+*   **Continuous Innovation:** Constant investment in modern CNC and VMC machining centers, high-accuracy Coordinate Measuring Machines (CMM), and updated product designs that resolve known OEM wear vulnerabilities.
+*   **Customer-Centric Execution:** Providing quick turnaround times, fast technical quotes, custom bulk packaging, and direct query channels via phone, email, and WhatsApp.
+*   **Team Synergy:** A cohesive team of experienced machine programmers, design engineers, assembly technicians, and logistics coordinators working together to maintain continuous production flow.
+
+---
+
+## Product Range & Specializations
+
+Teckon™ specializes in manufacturing and supplying aftermarket hydraulic spares designed to match or exceed OEM specifications:
+
+### 1. JCB Backhoe & Excavator Spares
+Specialized replacements for JCB 3DX, 4DX, and telehandler models:
+*   **Hydraulic Pump Assemblies:** High-pressure double and triple gear pumps (e.g. Part No: 20/925345, 20/925588).
+*   **Cylinder Seal Kits:** Heavy-duty polyurethane and NBR seal kits for boom, bucket, dipper, stabilizer, and steering cylinders.
+*   **Relief & Control Valves:** Main Relief Valves (MRV), unloader valves, and spool blocks.
+*   **Axle & Hub Components:** 5-hole and 10-hole planetary hubs, CW stud hubs, and drive gears.
+
+### 2. Terex Parts
+Aftermarket spares for Terex TLB backhoe loaders:
+*   Hydraulic gear pumps, control valves, loader bucket cylinders, pins, and bushes.
+
+### 3. Caterpillar (CAT) Spares
+Replacement components for CAT 424B and related backhoes/loaders:
+*   High-pressure gear pumps, seal kits, wear rings, and hydraulic cylinders.
+
+### 4. Excavator, Breaker, & Tipper Spares
+*   **Excavator Parts:** Seal kits, bucket links, and main control valve spools for Hitachi EX200, Komatsu PC200, and Kobelco.
+*   **Breaker & Tipper Spares:** Seals, pistons, front chucks, tie rods, and high-tensile pins and bushes designed to withstand extreme abrasive dust and mechanical vibration.
+
+### 5. Engine Spares
+*   Oil cooler cover plates (e.g., JCB Part No: 320/04212), belt tensioners, idler pulleys, water pumps, and oil seals.
+
+---
+
+## Quality Assurance & Manufacturing Process
+
+Teckon™ maintains a strict 6-stage quality workflow at its Rajkot factory:
+1.  **CAD/CAM Engineering:** Structural and dimensional analysis using advanced SolidWorks design software to verify part fitment.
+2.  **Material Inspection:** Metallurgical analysis, spectrometry, and hardness testing on raw forgings and castings from certified steel suppliers.
+3.  **Precision Machining:** CNC and VMC machining centers achieve tolerances within micrometric bounds.
+4.  **CMM Dimensional Audit:** Verification of exact tolerances and coordinates using Coordinate Measuring Machines.
+5.  **Clean Assembly:** Component assembly performed in controlled, dust-free cleanrooms to prevent seal damage.
+6.  **Certified Bench Testing:** Volumetric efficiency, leakage, and pressure-rating validation on heavy-duty hydraulic testing benches before parts are packaged and stamped.
+
+---
+
+## Legal Aftermarket Disclaimer
+
+> **For Reference Only:** All manufacturer names, OEM part numbers, symbols, and descriptions (such as JCB, Terex, CAT, Case, Tata JD, Carraro, Dana, etc.) are used for identification and reference purposes only. It is not implied that any part listed is the product of these original equipment manufacturers. Teckon™ (Shreeji Hydraulics) is an independent manufacturer and supplier of high-quality aftermarket replacement parts.
+
+---
+
+## Contact Directories
+
+*   **Primary Sales Inquiry:** +91-63518 79842 (Phone / WhatsApp)
+*   **Technical Director (Mr. J.C. Patel):** +91 94262 02945
+*   **Marketing Director (Mr. Alpesh Patel):** +91 94269 15578
+*   **General Inquiry Email:** shreejihyd4008@gmail.com
+*   **Official Website:** [https://teckon.vercel.app](https://teckon.vercel.app)
+
+---
+
+## Target Search Queries & Semantic Keywords
+
+To improve search engine visibility and assist search crawlers and LLMs in ranking and identifying the core focus of Teckon Spares and Shreeji Hydraulics, the following semantic keywords and user search terms are targeted:
+
+### Brand & Manufacturer Entities
+*   Shreeji Hydraulics Rajkot
+*   Teckon Quality Spares
+*   Alpesh Patel Shreeji Hydraulics
+*   J.C. Patel Shreeji Hydraulics
+
+### Core Product Search Terms
+*   JCB aftermarket hydraulic gear pump manufacturer
+*   Caterpillar CAT 424B hydraulic pump replacement
+*   Terex backhoe loader spare parts India
+*   Excavator hydraulic cylinder seal kits manufacturer
+*   Heavy duty hydraulic gear pump Rajkot
+*   High pressure double gear pumps for earthmoving machinery
+*   Pins and bushes for JCB 3DX
+*   JCB oil cooler cover plate 320/04212
+
+### Categorical & Industry Search Phrases
+*   ISO 9001:2015 hydraulic spares manufacturer Gujarat
+*   Premium replacement parts for JCB backhoe loaders
+*   B2B hydraulic parts exporter India
+*   High durability aftermarket excavator spares
+*   Construction equipment hydraulic spares supplier
+
+---
+
+## Website Structure & Core Links
+
+*   [Homepage](https://teckon.vercel.app/): Main landing page detailing product categories, supply footprint, and company summary.
+*   [About Us](https://teckon.vercel.app/about): Narrative of Alpesh Patel and J.C. Patel's 25+ year journey, historical milestones, and corporate core values.
+*   [Genuine Products Catalog](https://teckon.vercel.app/products): Complete list of hydraulic gear pumps, cylinder seal kits, control valves, and axle parts.
+*   [Quality & Manufacturing Systems](https://teckon.vercel.app/quality): Overview of ISO 9001:2015 certification, 6-stage process, and testing standards.
+*   [Events & Exhibitions Timeline](https://teckon.vercel.app/events): History of expo attendance and partnerships.
+*   [Careers Portal](https://teckon.vercel.app/careers): Job culture guidelines and resume intakes.
+*   [Privacy Policy](https://teckon.vercel.app/privacy-policy): Compliance and user data protection details.
+*   [Terms & Conditions](https://teckon.vercel.app/terms): Terms of website use and the full OEM aftermarket reference disclaimer.

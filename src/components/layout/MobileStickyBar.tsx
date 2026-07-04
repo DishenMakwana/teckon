@@ -33,7 +33,7 @@ export default function MobileStickyBar() {
         </a>
         <Link
           href="/contact"
-          className="flex flex-col items-center justify-center py-3 gap-1 bg-[#FF6B35] text-white hover:bg-[#e55a25] transition-colors group"
+          className="flex flex-col items-center justify-center py-3 gap-1 bg-teckon-orange text-white hover:bg-teckon-orange/90 transition-colors group"
           aria-label="Quick Inquiry"
         >
           <Send

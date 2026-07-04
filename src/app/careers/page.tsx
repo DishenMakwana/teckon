@@ -37,8 +37,20 @@ const cultureValues = [
 ];
 
 export default function CareersPage() {
+  const careersSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Careers | Teckon™ Quality Spares",
+    "description": "Join the Teckon™ team. We're looking for talented individuals passionate about hydraulic engineering and manufacturing excellence.",
+    "url": "https://teckon.vercel.app/careers"
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(careersSchema) }}
+      />
       {/* Hero */}
       <section
         id="careers-hero"

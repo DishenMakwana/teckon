@@ -123,7 +123,7 @@ export default function NotFound() {
             <motion.div
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto h-12 flex items-center justify-center gap-2 bg-[#FF6B35] hover:bg-[#e55a25] text-white text-xs font-bold px-6 rounded-2xl transition-colors tracking-wider uppercase shadow-md shadow-[#FF6B35]/15"
+              className="w-full sm:w-auto h-12 flex items-center justify-center gap-2 bg-teckon-orange hover:bg-teckon-orange/90 text-white text-xs font-bold px-6 rounded-2xl transition-colors tracking-wider uppercase shadow-md shadow-teckon-orange/15"
             >
               <Phone className="h-4 w-4" />
               Contact Us

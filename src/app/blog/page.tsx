@@ -23,8 +23,28 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
+  const blogListSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog & News | Teckon™ Quality Spares",
+    "description": "Technical guides, industry news, and company updates from Teckon™ — India's hydraulic parts specialists.",
+    "url": "https://teckon.vercel.app/blog",
+    "blogPost": BLOG_POSTS.map((post) => ({
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.excerpt,
+      "datePublished": post.date,
+      "url": `https://teckon.vercel.app/blog/${post.slug}`,
+      "image": post.image
+    }))
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogListSchema) }}
+      />
       <section
         id="blog-hero"
         className="bg-teckon-dark-blue py-20 relative overflow-hidden"

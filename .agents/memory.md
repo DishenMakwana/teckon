@@ -170,6 +170,14 @@ This file serves as the agent's short-term memory of recent tasks, issues resolv
 - **Task:** Redesign StatsStrip with premium glassmorphic cards and Lucide icons.
 - **Action:** Re-engineered [StatsStrip.tsx](file:///Users/dishen/Downloads/teckon/src/components/home/StatsStrip.tsx) to replace the simple statistics bar with a grid of four glassmorphic cards. Integrated glowing hover states, top yellow borders, Lucide icon badges (`Award`, `Map`, `Boxes`, `ShieldCheck`), contextual subtitles, and bottom micro-tags. Modularized the count-up `Counter` animation triggered via viewport `useInView` hooks. Verified successful production compile under Next.js Turbopack.
 
+### Session: July 3, 2026
+- **Task:** Investigate sitemap index discovery and canonical URLs in Google Search Console.
+- **Action:** Audited `sitemap.ts` and `robots.ts` implementation. Ran production build to verify generation of static sitemap.xml and robots.txt. Confirmed that both files build successfully and format properly. Verified the live `https://teckon.vercel.app/sitemap.xml` using `curl` and confirmed it successfully returns a `200 OK` status code and a correct `application/xml` Content-Type header. Investigated the Google Search Console "Couldn't fetch" sitemap error and confirmed it is a known temporary GSC processing queue status that resolves itself.
+- **Task:** Configure Web App Manifest and Open Graph/Twitter image metadata conventions.
+- **Action:** Created `src/app/manifest.ts` using the dynamic file convention. Created `src/app/opengraph-image.tsx` using `ImageResponse` to programmatically render a premium 1200x630 social preview card, and re-exported it in `src/app/twitter-image.tsx`. Cleaned up hardcoded images in `src/app/layout.tsx` metadata. Verified that everything compiles and builds perfectly.
+- **Task:** Configure App Icons metadata file conventions.
+- **Action:** Removed manual `icons` property configuration from `layout.tsx` metadata. Copied static assets `teckon.ico` (regenerated as standard 32x32 RGBA using Pillow to resolve Turbopack compilation errors), `icon-192.png`, and `teckon.png` to their standard convention locations (`favicon.ico`, `icon.png`, and `apple-icon.png`) in `src/app/`. Verified successful production compile with zero errors.
+
 ## Previous Milestones
 1. **SEO Optimization & Keyword Audit:** Updated configurations, keywords, and tags.
 2. **Inquiry Form Container Update:** Wrapped the inquiry form in a styled card component for visual layout improvement.

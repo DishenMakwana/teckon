@@ -30,7 +30,7 @@ export default function QuickAccessRail() {
       </a>
       <Link
         href="/contact"
-        className="group flex items-center bg-[#FF6B35] text-white px-3 py-3 rounded-l-xl shadow-lg hover:px-6 transition-all duration-300"
+        className="group flex items-center bg-teckon-orange text-white px-3 py-3 rounded-l-xl shadow-lg hover:px-6 transition-all duration-300"
         aria-label="Quick Inquiry"
       >
         <Send size={20} />

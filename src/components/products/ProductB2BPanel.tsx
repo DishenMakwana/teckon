@@ -26,10 +26,18 @@ export default function ProductB2BPanel({ product }: ProductB2BPanelProps) {
   const [rfqSubmitted, setRfqSubmitted] = useState<boolean>(false);
   const [fullName, setFullName] = useState<string>("");
   const [contactInfo, setContactInfo] = useState<string>("");
+  const [attemptedSubmit, setAttemptedSubmit] = useState<boolean>(false);
+  const [validationError, setValidationError] = useState<string | null>(null);
 
   const handleRfqSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!fullName || !contactInfo) return;
+    setAttemptedSubmit(true);
+
+    if (!fullName.trim() || !contactInfo.trim()) {
+      setValidationError("Please fill out all required fields.");
+      return;
+    }
+    setValidationError(null);
 
     const productUrl =
       typeof window !== "undefined"
@@ -41,6 +49,7 @@ export default function ProductB2BPanel({ product }: ProductB2BPanelProps) {
     window.open(whatsappUrl, "_blank");
 
     setRfqSubmitted(true);
+    setAttemptedSubmit(false);
     setTimeout(() => {
       setRfqSubmitted(false);
       setFullName("");
@@ -135,16 +144,34 @@ export default function ProductB2BPanel({ product }: ProductB2BPanelProps) {
                       placeholder="Full Name"
                       required
                       value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      className="w-full px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-[#FFBE00] focus:border-[#FFBE00]"
+                      onChange={(e) => {
+                        setFullName(e.target.value);
+                        if (attemptedSubmit) setValidationError(null);
+                      }}
+                      aria-invalid={attemptedSubmit && !fullName.trim() ? "true" : "false"}
+                      aria-describedby={validationError ? "b2b-validation-error" : undefined}
+                      className={`w-full px-4 py-2.5 bg-white/5 border rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 ${
+                        attemptedSubmit && !fullName.trim()
+                          ? "border-red-500 focus:ring-red-500 focus:border-red-500"
+                          : "border-white/10 focus:ring-[#FFBE00] focus:border-[#FFBE00]"
+                      }`}
                     />
                     <input
                       type="text"
                       placeholder="Phone or Email"
                       required
                       value={contactInfo}
-                      onChange={(e) => setContactInfo(e.target.value)}
-                      className="w-full px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-[#FFBE00] focus:border-[#FFBE00]"
+                      onChange={(e) => {
+                        setContactInfo(e.target.value);
+                        if (attemptedSubmit) setValidationError(null);
+                      }}
+                      aria-invalid={attemptedSubmit && !contactInfo.trim() ? "true" : "false"}
+                      aria-describedby={validationError ? "b2b-validation-error" : undefined}
+                      className={`w-full px-4 py-2.5 bg-white/5 border rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 ${
+                        attemptedSubmit && !contactInfo.trim()
+                          ? "border-red-500 focus:ring-red-500 focus:border-red-500"
+                          : "border-white/10 focus:ring-[#FFBE00] focus:border-[#FFBE00]"
+                      }`}
                     />
                   </div>
 
@@ -177,9 +204,15 @@ export default function ProductB2BPanel({ product }: ProductB2BPanelProps) {
                     </div>
                   </div>
 
+                  {validationError && (
+                    <p id="b2b-validation-error" role="alert" className="text-red-500 text-xs font-semibold px-1">
+                      {validationError}
+                    </p>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 bg-[#FF6B35] hover:bg-[#e55a25] text-white font-black py-3 rounded-xl transition-colors text-xs uppercase tracking-wide cursor-pointer shadow-md"
+                    className="w-full flex items-center justify-center gap-2 bg-teckon-orange hover:bg-teckon-orange/90 text-white font-black py-3 rounded-xl transition-colors text-xs uppercase tracking-wide cursor-pointer shadow-md"
                   >
                     <Send size={12} />
                     <span>Submit Quote Request</span>

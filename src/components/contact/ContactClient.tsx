@@ -288,11 +288,18 @@ export default function ContactClient() {
                       {...register("fullName", {
                         required: "Please enter your full name",
                       })}
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all"
+                      id="fullName"
+                      aria-invalid={errors.fullName ? "true" : "false"}
+                      aria-describedby={errors.fullName ? "fullName-error" : undefined}
+                      className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all ${
+                        errors.fullName
+                          ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
+                          : "border-gray-200 focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10"
+                      }`}
                       placeholder="Your full name"
                     />
                     {errors.fullName && (
-                      <p className="text-red-500 text-xs mt-1">
+                      <p id="fullName-error" role="alert" className="text-red-600 text-xs mt-1 font-semibold">
                         {errors.fullName.message}
                       </p>
                     )}
@@ -312,11 +319,18 @@ export default function ContactClient() {
                         },
                       })}
                       type="email"
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all"
+                      id="email"
+                      aria-invalid={errors.email ? "true" : "false"}
+                      aria-describedby={errors.email ? "email-error" : undefined}
+                      className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all ${
+                        errors.email
+                          ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
+                          : "border-gray-200 focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10"
+                      }`}
                       placeholder="your@email.com"
                     />
                     {errors.email && (
-                      <p className="text-red-500 text-xs mt-1">
+                      <p id="email-error" role="alert" className="text-red-600 text-xs mt-1 font-semibold">
                         {errors.email.message}
                       </p>
                     )}
@@ -366,6 +380,7 @@ export default function ContactClient() {
                           },
                         })}
                         type="tel"
+                        id="phone"
                         maxLength={10}
                         onInput={(e) => {
                           // Allow only numerical values, slice to 10 digits
@@ -373,12 +388,18 @@ export default function ContactClient() {
                             .replace(/[^0-9]/g, "")
                             .slice(0, 10);
                         }}
-                        className="flex-1 min-w-0 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all"
+                        aria-invalid={errors.phone ? "true" : "false"}
+                        aria-describedby={errors.phone ? "phone-error" : undefined}
+                        className={`flex-1 min-w-0 border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all ${
+                          errors.phone
+                            ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
+                            : "border-gray-200 focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10"
+                        }`}
                         placeholder="Enter 10-digit number"
                       />
                     </div>
                     {errors.phone && (
-                      <p className="text-red-500 text-xs mt-1">
+                      <p id="phone-error" role="alert" className="text-red-600 text-xs mt-1 font-semibold">
                         {errors.phone.message}
                       </p>
                     )}
@@ -440,11 +461,18 @@ export default function ContactClient() {
                         "Please describe your inquiry or parts requirement",
                     })}
                     rows={5}
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all resize-none"
+                    id="message"
+                    aria-invalid={errors.message ? "true" : "false"}
+                    aria-describedby={errors.message ? "message-error" : undefined}
+                    className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all resize-none ${
+                      errors.message
+                        ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
+                        : "border-gray-200 focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10"
+                    }`}
                     placeholder="Describe the hydraulic parts you need, your equipment model, and any specific requirements..."
                   />
                   {errors.message && (
-                    <p className="text-red-500 text-xs mt-1">
+                    <p id="message-error" role="alert" className="text-red-600 text-xs mt-1 font-semibold">
                       {errors.message.message}
                     </p>
                   )}
@@ -453,7 +481,7 @@ export default function ContactClient() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#FF6B35] text-white font-bold py-4 rounded-xl text-lg hover:bg-[#e55a25] transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full bg-teckon-orange text-white font-bold py-4 rounded-xl text-lg hover:bg-teckon-orange/90 transition-colors disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {isSubmitting ? "Sending..." : "Send Inquiry"}
                 </button>

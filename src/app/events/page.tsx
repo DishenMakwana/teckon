@@ -7,8 +7,40 @@ import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { EVENTS } from "@/lib/data";
 
 export default function EventsPage() {
+  const eventsListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemPage",
+    "name": "Events & Exhibitions | Teckon™ Quality Spares",
+    "description": "Our team visits and explores key automotive component and construction equipment expos to stay updated on engineering advancements.",
+    "url": "https://teckon.vercel.app/events",
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": EVENTS.length,
+      "itemListElement": EVENTS.map((event, idx) => ({
+        "@type": "ListItem",
+        "position": idx + 1,
+        "item": {
+          "@type": "Event",
+          "name": event.name,
+          "startDate": `${event.year}-01-01`,
+          "location": {
+            "@type": "Place",
+            "name": event.location,
+            "address": event.location
+          },
+          "image": event.image,
+          "description": event.description
+        }
+      }))
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventsListSchema) }}
+      />
       {/* Hero (Restored Original Section) */}
       <section
         id="events-hero"

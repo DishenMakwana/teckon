@@ -12,7 +12,7 @@ const config: Config = {
         teckon: {
           blue: "#1A3A7A",
           "dark-blue": "#002D5C",
-          orange: "#FF6B35",
+          orange: "#D03E0B",
           yellow: "#FFCC00",
           black: "#111111",
         },

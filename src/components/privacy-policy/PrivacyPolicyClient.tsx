@@ -254,7 +254,7 @@ export default function PrivacyPolicyClient() {
                   </p>
                   <button
                     onClick={handlePrint}
-                    className="w-full flex items-center justify-center gap-2 bg-[#FF6B35] hover:bg-[#e55a25] text-white font-black py-2.5 rounded-xl transition-colors text-xs uppercase tracking-wide cursor-pointer"
+                    className="w-full flex items-center justify-center gap-2 bg-teckon-orange hover:bg-teckon-orange/90 text-white font-black py-2.5 rounded-xl transition-colors text-xs uppercase tracking-wide cursor-pointer"
                   >
                     <Printer size={13} />
                     Print / Save PDF

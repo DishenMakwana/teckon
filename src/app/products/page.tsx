@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import ProductsClient from "@/components/products/ProductsClient";
+import { PRODUCTS } from "@/lib/data";
 
 export const unstable_instant = false;
-
-import { Suspense } from "react";
-
-import ProductsClient from "@/components/products/ProductsClient";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/products" },
@@ -25,15 +24,39 @@ export const metadata: Metadata = {
 };
 
 export default function ProductsPage() {
+  const productsListSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Genuine Hydraulic Spares Catalog | Teckon™ Quality Spares",
+    "description": "Browse our premium catalog of replacement hydraulic spare parts for JCB, Terex, CAT, L770, Tata JD, and excavators. High pressure pumps, seals, valves, and components.",
+    "url": "https://teckon.vercel.app/products",
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": PRODUCTS.length,
+      "itemListElement": PRODUCTS.map((p, idx) => ({
+        "@type": "ListItem",
+        "position": idx + 1,
+        "url": `https://teckon.vercel.app/products/${p.slug}`,
+        "name": p.name
+      }))
+    }
+  };
+
   return (
-    <Suspense
-      fallback={
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-          <div className="w-8 h-8 border-4 border-[#FFBE00] border-t-transparent rounded-full animate-spin" />
-        </div>
-      }
-    >
-      <ProductsClient />
-    </Suspense>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productsListSchema) }}
+      />
+      <Suspense
+        fallback={
+          <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+            <div className="w-8 h-8 border-4 border-[#FFBE00] border-t-transparent rounded-full animate-spin" />
+          </div>
+        }
+      >
+        <ProductsClient />
+      </Suspense>
+    </>
   );
 }

@@ -193,13 +193,13 @@ export default function Navbar() {
                         {/* Categories List */}
                         <div className="col-span-8">
                           <div className="flex justify-between items-center mb-4 pb-2 border-b border-slate-100">
-                            <span className="text-[10px] font-mono text-slate-400 font-bold uppercase tracking-wider">
+                            <span className="text-[10px] font-mono text-slate-500 font-bold uppercase tracking-wider">
                               Category Catalog
                             </span>
                             <Link
                               href="/products"
                               onClick={() => setDropdownOpen(false)}
-                              className="text-xs font-bold text-[#FF6B35] hover:text-[#e05621] transition-colors flex items-center gap-1 group/all"
+                              className="text-xs font-bold text-teckon-orange hover:text-teckon-orange/90 transition-colors flex items-center gap-1 group/all"
                             >
                               View All Products
                               <span className="group-hover:translate-x-0.5 transition-transform">
@@ -220,8 +220,8 @@ export default function Navbar() {
                                 <div className="w-10 h-10 rounded-xl bg-slate-50 text-slate-600 flex items-center justify-center group-hover/item:bg-[#FFBE00]/10 group-hover/item:text-[#FFBE00] transition-colors shrink-0">
                                   <item.icon size={18} />
                                 </div>
-                                <div>
-                                  <div className="text-sm font-bold text-[#1E293B] group-hover/item:text-[#FF6B35] transition-colors">
+                                  <div>
+                                    <div className="text-sm font-bold text-[#1E293B] group-hover/item:text-teckon-orange transition-colors">
                                     {item.name}
                                   </div>
                                   <div className="text-[11px] text-gray-500 font-medium leading-normal mt-0.5">
@@ -394,7 +394,7 @@ export default function Navbar() {
                 </a>
                 <a
                   href="mailto:shreejihyd4008@gmail.com"
-                  className="flex items-center justify-center gap-2 bg-[#FF6B35] text-white py-3 rounded-xl font-semibold text-sm"
+                  className="flex items-center justify-center gap-2 bg-teckon-orange hover:bg-teckon-orange/90 text-white py-3 rounded-xl font-semibold text-sm transition-colors"
                 >
                   <Mail className="w-4 h-4 shrink-0" />
                   <span>shreejihyd4008@gmail.com</span>

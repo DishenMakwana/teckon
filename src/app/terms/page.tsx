@@ -15,5 +15,21 @@ export const metadata: Metadata = {
 };
 
 export default function TermsPage() {
-  return <TermsClient />;
+  const termsSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Terms & Conditions | Teckon™ Quality Spares",
+    "description": "Terms and conditions for using Teckon™ Quality Spares (Shreeji Hydraulics) website and services.",
+    "url": "https://teckon.vercel.app/terms"
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(termsSchema) }}
+      />
+      <TermsClient />
+    </>
+  );
 }

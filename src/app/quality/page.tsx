@@ -100,8 +100,20 @@ const certs = [
 ];
 
 export default function QualityPage() {
+  const qualitySchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Quality & Manufacturing | Teckon™ Quality Spares",
+    "description": "ISO 9001:2015 certified hydraulic parts manufacturing. Learn about Teckon™'s precision manufacturing process, quality control, and certifications.",
+    "url": "https://teckon.vercel.app/quality"
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(qualitySchema) }}
+      />
       {/* Hero */}
       <section
         id="quality-hero"
