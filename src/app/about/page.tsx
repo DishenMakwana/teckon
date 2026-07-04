@@ -106,27 +106,28 @@ export default function AboutPage() {
   const aboutSchema = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    "name": "About Us — Teckon™ Quality Spares | Shreeji Hydraulics",
-    "description": "Learn about Teckon™ (Shreeji Hydraulics), established in 2000 in Rajkot, Gujarat. Meet our founders Mr. Alpesh Patel and Mr. J.C. Patel and discover our vision and values.",
-    "url": "https://teckon.vercel.app/about",
-    "mainEntity": {
+    name: "About Us — Teckon™ Quality Spares | Shreeji Hydraulics",
+    description:
+      "Learn about Teckon™ (Shreeji Hydraulics), established in 2000 in Rajkot, Gujarat. Meet our founders Mr. Alpesh Patel and Mr. J.C. Patel and discover our vision and values.",
+    url: "https://teckon.vercel.app/about",
+    mainEntity: {
       "@type": "Organization",
-      "name": "Teckon Quality Spares",
-      "url": "https://teckon.vercel.app",
-      "logo": "https://teckon.vercel.app/teckon.png",
-      "founders": [
+      name: "Teckon Quality Spares",
+      url: "https://teckon.vercel.app",
+      logo: "https://teckon.vercel.app/teckon.png",
+      founders: [
         {
           "@type": "Person",
-          "name": "Mr. J.C. Patel",
-          "jobTitle": "Co-Founder & Director"
+          name: "Mr. J.C. Patel",
+          jobTitle: "Co-Founder & Director",
         },
         {
           "@type": "Person",
-          "name": "Mr. Alpesh Patel",
-          "jobTitle": "Co-Founder & Director"
-        }
-      ]
-    }
+          name: "Mr. Alpesh Patel",
+          jobTitle: "Co-Founder & Director",
+        },
+      ],
+    },
   };
 
   return (

@@ -67,9 +67,7 @@ export default function BlogCard({
         <div className="relative h-44 overflow-hidden bg-gray-100 shrink-0">
           <ViewTransition
             name={
-              clickedSlug === post.slug
-                ? `blog-image-${post.slug}`
-                : undefined
+              clickedSlug === post.slug ? `blog-image-${post.slug}` : undefined
             }
           >
             <div className="absolute inset-0">

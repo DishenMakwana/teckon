@@ -18,9 +18,10 @@ export default function TermsPage() {
   const termsSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Terms & Conditions | Teckon™ Quality Spares",
-    "description": "Terms and conditions for using Teckon™ Quality Spares (Shreeji Hydraulics) website and services.",
-    "url": "https://teckon.vercel.app/terms"
+    name: "Terms & Conditions | Teckon™ Quality Spares",
+    description:
+      "Terms and conditions for using Teckon™ Quality Spares (Shreeji Hydraulics) website and services.",
+    url: "https://teckon.vercel.app/terms",
   };
 
   return (

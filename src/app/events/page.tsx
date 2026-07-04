@@ -10,29 +10,30 @@ export default function EventsPage() {
   const eventsListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemPage",
-    "name": "Events & Exhibitions | Teckon™ Quality Spares",
-    "description": "Our team visits and explores key automotive component and construction equipment expos to stay updated on engineering advancements.",
-    "url": "https://teckon.vercel.app/events",
-    "mainEntity": {
+    name: "Events & Exhibitions | Teckon™ Quality Spares",
+    description:
+      "Our team visits and explores key automotive component and construction equipment expos to stay updated on engineering advancements.",
+    url: "https://teckon.vercel.app/events",
+    mainEntity: {
       "@type": "ItemList",
-      "numberOfItems": EVENTS.length,
-      "itemListElement": EVENTS.map((event, idx) => ({
+      numberOfItems: EVENTS.length,
+      itemListElement: EVENTS.map((event, idx) => ({
         "@type": "ListItem",
-        "position": idx + 1,
-        "item": {
+        position: idx + 1,
+        item: {
           "@type": "Event",
-          "name": event.name,
-          "startDate": `${event.year}-01-01`,
-          "location": {
+          name: event.name,
+          startDate: `${event.year}-01-01`,
+          location: {
             "@type": "Place",
-            "name": event.location,
-            "address": event.location
+            name: event.location,
+            address: event.location,
           },
-          "image": event.image,
-          "description": event.description
-        }
-      }))
-    }
+          image: event.image,
+          description: event.description,
+        },
+      })),
+    },
   };
 
   return (

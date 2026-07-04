@@ -290,7 +290,9 @@ export default function ContactClient() {
                       })}
                       id="fullName"
                       aria-invalid={errors.fullName ? "true" : "false"}
-                      aria-describedby={errors.fullName ? "fullName-error" : undefined}
+                      aria-describedby={
+                        errors.fullName ? "fullName-error" : undefined
+                      }
                       className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all ${
                         errors.fullName
                           ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
@@ -299,7 +301,11 @@ export default function ContactClient() {
                       placeholder="Your full name"
                     />
                     {errors.fullName && (
-                      <p id="fullName-error" role="alert" className="text-red-600 text-xs mt-1 font-semibold">
+                      <p
+                        id="fullName-error"
+                        role="alert"
+                        className="text-red-600 text-xs mt-1 font-semibold"
+                      >
                         {errors.fullName.message}
                       </p>
                     )}
@@ -321,7 +327,9 @@ export default function ContactClient() {
                       type="email"
                       id="email"
                       aria-invalid={errors.email ? "true" : "false"}
-                      aria-describedby={errors.email ? "email-error" : undefined}
+                      aria-describedby={
+                        errors.email ? "email-error" : undefined
+                      }
                       className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all ${
                         errors.email
                           ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
@@ -330,7 +338,11 @@ export default function ContactClient() {
                       placeholder="your@email.com"
                     />
                     {errors.email && (
-                      <p id="email-error" role="alert" className="text-red-600 text-xs mt-1 font-semibold">
+                      <p
+                        id="email-error"
+                        role="alert"
+                        className="text-red-600 text-xs mt-1 font-semibold"
+                      >
                         {errors.email.message}
                       </p>
                     )}
@@ -389,7 +401,9 @@ export default function ContactClient() {
                             .slice(0, 10);
                         }}
                         aria-invalid={errors.phone ? "true" : "false"}
-                        aria-describedby={errors.phone ? "phone-error" : undefined}
+                        aria-describedby={
+                          errors.phone ? "phone-error" : undefined
+                        }
                         className={`flex-1 min-w-0 border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all ${
                           errors.phone
                             ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
@@ -399,7 +413,11 @@ export default function ContactClient() {
                       />
                     </div>
                     {errors.phone && (
-                      <p id="phone-error" role="alert" className="text-red-600 text-xs mt-1 font-semibold">
+                      <p
+                        id="phone-error"
+                        role="alert"
+                        className="text-red-600 text-xs mt-1 font-semibold"
+                      >
                         {errors.phone.message}
                       </p>
                     )}
@@ -463,7 +481,9 @@ export default function ContactClient() {
                     rows={5}
                     id="message"
                     aria-invalid={errors.message ? "true" : "false"}
-                    aria-describedby={errors.message ? "message-error" : undefined}
+                    aria-describedby={
+                      errors.message ? "message-error" : undefined
+                    }
                     className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all resize-none ${
                       errors.message
                         ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
@@ -472,7 +492,11 @@ export default function ContactClient() {
                     placeholder="Describe the hydraulic parts you need, your equipment model, and any specific requirements..."
                   />
                   {errors.message && (
-                    <p id="message-error" role="alert" className="text-red-600 text-xs mt-1 font-semibold">
+                    <p
+                      id="message-error"
+                      role="alert"
+                      className="text-red-600 text-xs mt-1 font-semibold"
+                    >
                       {errors.message.message}
                     </p>
                   )}

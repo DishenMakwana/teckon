@@ -220,8 +220,8 @@ export default function Navbar() {
                                 <div className="w-10 h-10 rounded-xl bg-slate-50 text-slate-600 flex items-center justify-center group-hover/item:bg-[#FFBE00]/10 group-hover/item:text-[#FFBE00] transition-colors shrink-0">
                                   <item.icon size={18} />
                                 </div>
-                                  <div>
-                                    <div className="text-sm font-bold text-[#1E293B] group-hover/item:text-teckon-orange transition-colors">
+                                <div>
+                                  <div className="text-sm font-bold text-[#1E293B] group-hover/item:text-teckon-orange transition-colors">
                                     {item.name}
                                   </div>
                                   <div className="text-[11px] text-gray-500 font-medium leading-normal mt-0.5">

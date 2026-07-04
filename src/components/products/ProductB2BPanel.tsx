@@ -148,8 +148,12 @@ export default function ProductB2BPanel({ product }: ProductB2BPanelProps) {
                         setFullName(e.target.value);
                         if (attemptedSubmit) setValidationError(null);
                       }}
-                      aria-invalid={attemptedSubmit && !fullName.trim() ? "true" : "false"}
-                      aria-describedby={validationError ? "b2b-validation-error" : undefined}
+                      aria-invalid={
+                        attemptedSubmit && !fullName.trim() ? "true" : "false"
+                      }
+                      aria-describedby={
+                        validationError ? "b2b-validation-error" : undefined
+                      }
                       className={`w-full px-4 py-2.5 bg-white/5 border rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 ${
                         attemptedSubmit && !fullName.trim()
                           ? "border-red-500 focus:ring-red-500 focus:border-red-500"
@@ -165,8 +169,14 @@ export default function ProductB2BPanel({ product }: ProductB2BPanelProps) {
                         setContactInfo(e.target.value);
                         if (attemptedSubmit) setValidationError(null);
                       }}
-                      aria-invalid={attemptedSubmit && !contactInfo.trim() ? "true" : "false"}
-                      aria-describedby={validationError ? "b2b-validation-error" : undefined}
+                      aria-invalid={
+                        attemptedSubmit && !contactInfo.trim()
+                          ? "true"
+                          : "false"
+                      }
+                      aria-describedby={
+                        validationError ? "b2b-validation-error" : undefined
+                      }
                       className={`w-full px-4 py-2.5 bg-white/5 border rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 ${
                         attemptedSubmit && !contactInfo.trim()
                           ? "border-red-500 focus:ring-red-500 focus:border-red-500"
@@ -205,7 +215,11 @@ export default function ProductB2BPanel({ product }: ProductB2BPanelProps) {
                   </div>
 
                   {validationError && (
-                    <p id="b2b-validation-error" role="alert" className="text-red-500 text-xs font-semibold px-1">
+                    <p
+                      id="b2b-validation-error"
+                      role="alert"
+                      className="text-red-500 text-xs font-semibold px-1"
+                    >
                       {validationError}
                     </p>
                   )}

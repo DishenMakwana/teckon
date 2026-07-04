@@ -27,19 +27,20 @@ export default function ProductsPage() {
   const productsListSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Genuine Hydraulic Spares Catalog | Teckon™ Quality Spares",
-    "description": "Browse our premium catalog of replacement hydraulic spare parts for JCB, Terex, CAT, L770, Tata JD, and excavators. High pressure pumps, seals, valves, and components.",
-    "url": "https://teckon.vercel.app/products",
-    "mainEntity": {
+    name: "Genuine Hydraulic Spares Catalog | Teckon™ Quality Spares",
+    description:
+      "Browse our premium catalog of replacement hydraulic spare parts for JCB, Terex, CAT, L770, Tata JD, and excavators. High pressure pumps, seals, valves, and components.",
+    url: "https://teckon.vercel.app/products",
+    mainEntity: {
       "@type": "ItemList",
-      "numberOfItems": PRODUCTS.length,
-      "itemListElement": PRODUCTS.map((p, idx) => ({
+      numberOfItems: PRODUCTS.length,
+      itemListElement: PRODUCTS.map((p, idx) => ({
         "@type": "ListItem",
-        "position": idx + 1,
-        "url": `https://teckon.vercel.app/products/${p.slug}`,
-        "name": p.name
-      }))
-    }
+        position: idx + 1,
+        url: `https://teckon.vercel.app/products/${p.slug}`,
+        name: p.name,
+      })),
+    },
   };
 
   return (
