@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import QuickAccessRail from "@/components/layout/QuickAccessRail";
-import MobileStickyBar from "@/components/layout/MobileStickyBar";
 import BackToTop from "@/components/ui/BackToTop";
 import Preloader from "@/components/layout/Preloader";
 import Script from "next/script";
@@ -175,7 +174,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans bg-white text-gray-900 antialiased pb-16 md:pb-0">
+      <body className="font-sans bg-white text-gray-900 antialiased">
         <Preloader />
 
         {/* Google Tag (gtag.js) */}
@@ -204,7 +203,7 @@ export default function RootLayout({
         <main className="min-h-screen overflow-x-hidden">{children}</main>
         <Footer />
         <QuickAccessRail />
-        <MobileStickyBar />
+        {/* <MobileStickyBar /> */}
         <BackToTop />
         <Suspense fallback={null}>
           <SpeedInsights />
