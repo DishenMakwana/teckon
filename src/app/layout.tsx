@@ -6,7 +6,6 @@ import Footer from "@/components/layout/Footer";
 import QuickAccessRail from "@/components/layout/QuickAccessRail";
 import BackToTop from "@/components/ui/BackToTop";
 import Preloader from "@/components/layout/Preloader";
-import Script from "next/script";
 import { Suspense } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { COMPANY } from "@/lib/data";
@@ -173,28 +172,25 @@ export default function RootLayout({
             __html: JSON.stringify(organizationSchema),
           }}
         />
-      </head>
-      <body className="font-sans bg-white text-gray-900 antialiased">
-        <Preloader />
-
-        {/* Google Tag (gtag.js) */}
-        <Script
+        {/* Google Analytics (gtag.js) - Placed in head for Search Console Ownership Verification */}
+        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
+        <script
+          async
           src="https://www.googletagmanager.com/gtag/js?id=G-4H3G6CLV4Q"
-          strategy="afterInteractive"
         />
-
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
-              gtag('js', new window.Date());
+              gtag('js', new Date());
               gtag('config', 'G-4H3G6CLV4Q');
             `,
           }}
         />
+      </head>
+      <body className="font-sans bg-white text-gray-900 antialiased">
+        <Preloader />
 
         {/* <TopInfoBar /> */}
         <Suspense fallback={<div className="h-16 bg-[#0B0F19]" />}>
