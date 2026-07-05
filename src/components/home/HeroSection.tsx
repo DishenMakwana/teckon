@@ -68,11 +68,7 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-white/80 text-xs sm:text-sm md:text-base max-w-2xl mx-auto mb-6 md:mb-8"
         >
-          {COMPANY.brand} is a premium manufacturer of hydraulic parts &amp;
-          spares for heavy machinery. Since {COMPANY.founded}, we have been a
-          trusted leader delivering precision-engineered hydraulic spares across
-          India, specializing in JCB, Terex, CAT, Tata JD, L770, breakers,
-          tippers, and excavator components.
+          {`${COMPANY.brand} is a premium manufacturer of hydraulic parts & spares for heavy machinery. Since ${COMPANY.founded}, we have been a trusted leader delivering precision-engineered hydraulic spares across India, specializing in JCB, Terex, CAT, Tata JD, L770, breakers, tippers, and excavator components.`}
         </motion.p>
 
         <motion.div
