@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
@@ -101,6 +102,20 @@ export default function ProductsCarousel() {
               </SwiperSlide>
             ))}
           </Swiper>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center mt-12"
+        >
+          <Link
+            href="/products"
+            className="inline-flex items-center gap-2 border-2 border-[#1E293B] text-[#1E293B] font-bold px-8 py-3 rounded-xl hover:bg-[#1E293B] hover:text-white transition-colors"
+          >
+            Explore Products
+          </Link>
         </motion.div>
       </div>
     </section>

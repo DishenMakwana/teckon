@@ -164,7 +164,9 @@ export default function Navbar() {
                   onMouseEnter={() => setDropdownOpen(true)}
                   onMouseLeave={() => setDropdownOpen(false)}
                 >
-                  <button
+                  <Link
+                    href={link.href}
+                    onClick={() => setDropdownOpen(false)}
                     className={`flex items-center gap-1 px-3 py-2 rounded-lg text-base font-bold transition-colors ${
                       pathname.startsWith("/products")
                         ? "text-[#1E293B] bg-slate-100"
@@ -176,7 +178,7 @@ export default function Navbar() {
                       size={14}
                       className={`transition-transform ${dropdownOpen ? "rotate-180" : ""}`}
                     />
-                  </button>
+                  </Link>
                   <AnimatePresence>
                     {dropdownOpen && (
                       <motion.div
@@ -188,7 +190,7 @@ export default function Navbar() {
                           stiffness: 380,
                           damping: 30,
                         }}
-                        className="absolute top-full left-1/2 -translate-x-[35%] w-[720px] bg-white/95 backdrop-blur-xl shadow-2xl border border-slate-100 rounded-3xl overflow-hidden mt-3 p-6 z-50 grid grid-cols-12 gap-6"
+                        className="absolute top-full left-1/2 -translate-x-[35%] w-[720px] bg-white/95 backdrop-blur-xl shadow-2xl border border-slate-100 rounded-3xl overflow-hidden mt-3 p-6 z-50 grid grid-cols-12 gap-6 before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3"
                       >
                         {/* Categories List */}
                         <div className="col-span-8">
@@ -346,6 +348,7 @@ export default function Navbar() {
                   <div key={link.name}>
                     <Link
                       href={link.href}
+                      onClick={() => setMobileOpen(false)}
                       className={`block px-4 py-3 rounded-xl text-base font-bold transition-colors ${
                         pathname === link.href
                           ? "bg-[#1E293B] text-white"
@@ -361,6 +364,7 @@ export default function Navbar() {
                             key={item.name}
                             href={item.href}
                             rel="nofollow"
+                            onClick={() => setMobileOpen(false)}
                             className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs text-gray-500 hover:text-[#1E293B] hover:bg-gray-50 transition-colors"
                           >
                             <item.icon
