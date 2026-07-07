@@ -210,6 +210,10 @@ This file serves as the agent's short-term memory of recent tasks, issues resolv
   - Refactored [.agents/patterns.md](file:///Users/dishen/Downloads/teckon/.agents/patterns.md) section 8 and added section 9 ("Mandatory Post-Update Check") to require npm-based linting and formatting steps.
   - Verified linter and formatter run successfully on all files.
 
+### Session: July 7, 2026
+- **Task:** Implement smooth scroll behavior using Lenis.
+- **Action:** Installed `lenis` npm library. Created client component [SmoothScroller.tsx](file:///Users/dishen/Downloads/teckon/src/components/layout/SmoothScroller.tsx) to configure Lenis scrolling options. Wrapped root [layout.tsx](file:///Users/dishen/Downloads/teckon/src/app/layout.tsx) main children inside `SmoothScroller`, and configured [globals.css](file:///Users/dishen/Downloads/teckon/src/app/globals.css) with Lenis viewport helpers while disabling native browser scroll smoothing to prevent conflicts. Implemented a Next.js pathname hook to reset scrolling position to the top of the viewport smoothly upon route navigation. Verified build and linter execute successfully.
+
 ## Previous Milestones
 1. **SEO Optimization & Keyword Audit:** Updated configurations, keywords, and tags.
 2. **Inquiry Form Container Update:** Wrapped the inquiry form in a styled card component for visual layout improvement.
