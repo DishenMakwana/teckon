@@ -191,6 +191,25 @@ This file serves as the agent's short-term memory of recent tasks, issues resolv
   - Added a centered `Explore Products` CTA button styled exactly like the BlogSection button (`border-2 border-[#1E293B] text-[#1E293B] font-bold px-8 py-3 rounded-xl hover:bg-[#1E293B] hover:text-white transition-colors`).
   - Verified compilation and build succeeded with 0 errors.
 
+### Session: July 6, 2026
+- **Task:** Transition from short-tail to long-tail SEO keywords for improved search engine targeting.
+- **Action:**
+  - Added industry-specific, location-specific (Rajkot/Gujarat), and transactional long-tail keywords to global layout page, about page, contact page, blog listing page, careers page, quality page, and events layout.
+  - Implemented dynamic long-tail keyword generators in product details (`[slug]/page.tsx`) and blog details (`blog/[slug]/page.tsx`) using product and post meta parameters.
+  - Verified successful production builds and compiles under Turbopack.
+- **Task:** Refactor Google Tag Manager and Google Analytics integrations to use official Next.js App Router third-party components.
+- **Action:**
+  - Installed `@next/third-parties` dependency package.
+  - Refactored [layout.tsx](file:///Users/dishen/Downloads/teckon/src/app/layout.tsx) to import `GoogleTagManager` and `GoogleAnalytics` from `@next/third-parties/google`.
+  - Configured them to render dynamically using `process.env.NEXT_PUBLIC_GTM_ID` and `process.env.NEXT_PUBLIC_GA_ID`.
+  - Removed outdated, manual inline script tag injection blocks from `<head>` and `<body>` (noscript iframe).
+  - Confirmed production build runs successfully.
+- **Task:** Update project guidelines to require post-edit lint and format checks.
+- **Action:**
+  - Added mandatory rules under [AGENTS.md](file:///Users/dishen/Downloads/teckon/AGENTS.md) requiring running `npm run lint` and `npm run format` after any code edits.
+  - Refactored [.agents/patterns.md](file:///Users/dishen/Downloads/teckon/.agents/patterns.md) section 8 and added section 9 ("Mandatory Post-Update Check") to require npm-based linting and formatting steps.
+  - Verified linter and formatter run successfully on all files.
+
 ## Previous Milestones
 1. **SEO Optimization & Keyword Audit:** Updated configurations, keywords, and tags.
 2. **Inquiry Form Container Update:** Wrapped the inquiry form in a styled card component for visual layout improvement.
@@ -198,3 +217,4 @@ This file serves as the agent's short-term memory of recent tasks, issues resolv
 4. **India Map Click Integration:** Integrated click functionality on the India Map SVG/component.
 5. **Contact Page Redesign:** Removed the redundant "Direct Contact" section; placed inquiry form and map side-by-side on desktop.
 6. **Homepage Reviews & Blog Enhancements:** Redesigned testimonial cards to show ratings and reviewer names, added animations, and added blog posts for JCB/Hitachi parts.
+

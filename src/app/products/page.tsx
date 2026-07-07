@@ -20,6 +20,12 @@ export const metadata: Metadata = {
     "heavy machinery spares Rajkot",
     "Teckon product catalog",
     "buy hydraulic parts online India",
+    "where to buy aftermarket JCB backhoe loader spares",
+    "heavy equipment replacement hydraulic pump catalog",
+    "excavator hydraulic cylinder seal kits wholesale price",
+    "hydraulic spare parts for CAT construction machinery",
+    "industrial grade loader pins and bushes online",
+    "quality replacement gear pumps for earthmoving machinery",
   ],
 };
 

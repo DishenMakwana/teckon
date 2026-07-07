@@ -88,6 +88,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       product.categoryLabel,
       "heavy machinery hydraulic parts",
       "aftermarket OEM replacement spares",
+      `buy replacement ${product.name} online`,
+      `aftermarket ${product.name} for ${product.model}`,
+      `heavy duty ${product.name} specifications and price`,
+      `hydraulic parts supplier for ${product.model} backhoe loader`,
     ],
     openGraph: {
       title: `${product.name} | Teckon™ Quality Spares`,

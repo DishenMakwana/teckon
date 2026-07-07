@@ -19,6 +19,10 @@ export const metadata: Metadata = {
     "Alpesh Patel phone number",
     "Teckon contact",
     "hydraulic spares WhatsApp inquiry",
+    "request bulk quote for JCB 3DX hydraulic pumps",
+    "Shreeji Hydraulics contact number and factory address Rajkot",
+    "inquire wholesale prices for excavator seal kits",
+    "industrial heavy machinery spares supplier contact detail",
   ],
 };
 

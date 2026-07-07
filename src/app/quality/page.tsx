@@ -28,6 +28,10 @@ export const metadata: Metadata = {
     "precision hydraulic engineering",
     "hydraulic testing standards",
     "Teckon quality assurance",
+    "heavy machinery parts quality control standards",
+    "precision CNC and VMC machining services Rajkot",
+    "hydraulic component pressure testing procedure",
+    "ISO certified manufacturing standards for JCB spares",
   ],
 };
 

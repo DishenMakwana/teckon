@@ -29,6 +29,10 @@ export const metadata: Metadata = {
     "hydraulic parts manufacturing history",
     "Rajkot spares manufacturer",
     "Teckon values and team",
+    "history of Shreeji Hydraulics Rajkot manufacturer",
+    "Alpesh Patel hydraulic spare parts business Gujarat",
+    "ISO 9001 2015 certified heavy equipment parts factory",
+    "B2B industrial hydraulic components manufacturing process",
   ],
 };
 

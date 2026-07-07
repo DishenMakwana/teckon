@@ -89,6 +89,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "hydraulic maintenance tips",
       "JCB maintenance guides",
       "heavy equipment advice",
+      `how to do ${post.title}`,
+      `step by step guide for ${post.title}`,
+      "heavy machinery parts troubleshooting tips",
     ],
     openGraph: {
       type: "article",

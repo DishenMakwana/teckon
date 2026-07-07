@@ -38,6 +38,7 @@ To conserve context window tokens and avoid reading the entire codebase:
   - [.agents/memory.md](file://./.agents/memory.md): Current task state and session history.
 - **NEVER** rewrite or search the whole codebase if these files provide the necessary details.
 - **UPDATE** [.agents/memory.md](file://./.agents/memory.md) at the end of each session or after significant changes to maintain accurate progress history.
+- **MANDATORY RUN LINT & FORMAT:** After updating the code, you **MUST** run `npm run lint` and `npm run format` to ensure compliance with the codebase standards.
 
 <!-- code-review-graph MCP tools -->
 ## MCP Tools: code-review-graph

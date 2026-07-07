@@ -120,12 +120,23 @@ All code written to `src/**/*.{ts,tsx}` files **must** comply with these rules a
 Every `git commit` triggers this pipeline **before** the commit is accepted:
 
 ```
-Step 1 → yarn run lint    (runs: eslint)
-Step 2 → yarn run format  (runs: prettier --write "src/**/*.{ts,tsx}")
+Step 1 → npm run lint    (runs: eslint)
+Step 2 → npm run format  (runs: prettier --write "src/**/*.{ts,tsx}")
 ```
 
 ### What this means for agents writing code:
-1. **Write ESLint-clean code on the first pass.** If `yarn run lint` fails, the commit is rejected.
-2. **Follow Prettier rules when writing code.** Although `yarn run format` auto-fixes formatting, writing pre-formatted code avoids unnecessary diffs and reformatting noise during commit.
+1. **Write ESLint-clean code on the first pass.** If `npm run lint` fails, the commit is rejected.
+2. **Follow Prettier rules when writing code.** Although `npm run format` auto-fixes formatting, writing pre-formatted code avoids unnecessary diffs and reformatting noise during commit.
 3. **Never skip or disable these hooks.** They are the project's quality gate.
-4. **Test before committing** — if unsure, run `yarn run lint` and `yarn run format` manually before `git commit` to catch issues early.
+4. **Test before committing** — if unsure, run `npm run lint` and `npm run format` manually before `git commit` to catch issues early.
+
+---
+
+## 9. Mandatory Post-Update Check
+
+- **Rule:** After making any code changes, developers and agents **MUST** execute:
+  ```bash
+  npm run lint
+  npm run format
+  ```
+  This guarantees codebase consistency and verifies zero syntax/style regressions.

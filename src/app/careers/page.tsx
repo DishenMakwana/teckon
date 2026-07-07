@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     "VMC programmer openings",
     "hydraulic engineer vacancies Gujarat",
     "manufacturing factory jobs Rajkot",
+    "CNC operator and VMC programmer job vacancies in Rajkot",
+    "work as a hydraulic design engineer in Gujarat",
+    "machinery parts manufacturing company career opportunities",
   ],
 };
 

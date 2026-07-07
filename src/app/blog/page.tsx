@@ -19,6 +19,10 @@ export const metadata: Metadata = {
     "heavy machinery blogs",
     "construction equipment spares news",
     "hydraulic pump rebuild guide",
+    "heavy machinery hydraulic maintenance guide",
+    "how to troubleshoot JCB backhoe loader hydraulic system",
+    "step by step hydraulic pump rebuild tutorial",
+    "excavator loader maintenance and service tips",
   ],
 };
 

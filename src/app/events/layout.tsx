@@ -11,6 +11,8 @@ export const metadata: Metadata = {
     "Shreeji Hydraulics news",
     "construction equipment expo Gujarat",
     "Excon India parts supplier",
+    "Teckon presence at heavy machinery expo India",
+    "construction equipment exhibitions trade show Gujarat",
   ],
 };
 
