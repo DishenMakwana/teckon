@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Outfit } from "next/font/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -84,6 +85,13 @@ export const metadata: Metadata = {
     "B2B hydraulic parts exporter India",
     "High durability aftermarket excavator spares",
     "Construction equipment hydraulic spares supplier",
+    "aftermarket JCB 3DX hydraulic pump manufacturers in Rajkot",
+    "heavy machinery replacement parts supplier Gujarat",
+    "construction equipment hydraulic seal kits distributor India",
+    "high pressure hydraulic gear pump for JCB excavator",
+    "Terex backhoe loader hydraulic cylinder spares replacement",
+    "ISO certified earthmover spare parts manufacturer",
+    "buy premium B2B hydraulic spares Rajkot",
   ],
   openGraph: {
     title: "Teckon™ Quality Spares | Premium Hydraulic Parts",
@@ -164,6 +172,9 @@ export default function RootLayout({
       className={`${outfit.variable} preloader-active`}
       data-scroll-behavior="smooth"
     >
+      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ""} />
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
+
       <head>
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <script
@@ -172,46 +183,8 @@ export default function RootLayout({
             __html: JSON.stringify(organizationSchema),
           }}
         />
-        {/* Google Analytics (gtag.js) - Placed in head for Search Console Ownership Verification */}
-        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-4H3G6CLV4Q"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-4H3G6CLV4Q');
-            `,
-          }}
-        />
-        {/* Google Tag Manager */}
-        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-W5456QX9');
-            `,
-          }}
-        />
       </head>
       <body className="font-sans bg-white text-gray-900 antialiased">
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-W5456QX9"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
         <Preloader />
 
         {/* <TopInfoBar /> */}
