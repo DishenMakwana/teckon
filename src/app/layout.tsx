@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import QuickAccessRail from "@/components/layout/QuickAccessRail";
 import BackToTop from "@/components/ui/BackToTop";
 import Preloader from "@/components/layout/Preloader";
+import SmoothScroller from "@/components/layout/SmoothScroller";
 import { Suspense } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { COMPANY } from "@/lib/data";
@@ -167,11 +168,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${outfit.variable} preloader-active`}
-      data-scroll-behavior="smooth"
-    >
+    <html lang="en" className={`${outfit.variable} preloader-active`}>
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ""} />
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
 
@@ -191,7 +188,9 @@ export default function RootLayout({
         <Suspense fallback={<div className="h-16 bg-[#0B0F19]" />}>
           <Navbar />
         </Suspense>
-        <main className="min-h-screen overflow-x-hidden">{children}</main>
+        <main className="min-h-screen overflow-x-hidden">
+          <SmoothScroller>{children}</SmoothScroller>
+        </main>
         <Footer />
         <QuickAccessRail />
         {/* <MobileStickyBar /> */}
