@@ -24,6 +24,9 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // Stable top-level option in Next.js 16 — NOT experimental.
+  // Graduated from experimental.dynamicIO / experimental.useCache in v15.
+  // Enables the "use cache" directive and React <Activity>-based nav state preservation.
   cacheComponents: true,
   reactCompiler: true,
 
@@ -45,6 +48,16 @@ const nextConfig: NextConfig = {
 
   async headers() {
     return [
+      // Prevent search engines from indexing optimized images
+      {
+        source: "/_next/image",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex",
+          },
+        ],
+      },
       // Security headers on all routes
       {
         source: "/(.*)",

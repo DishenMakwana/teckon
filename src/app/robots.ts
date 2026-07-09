@@ -17,21 +17,21 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       // Default: allow all web crawlers including Googlebot, Bingbot, etc.
-      { userAgent: "*", allow: "/" },
+      { userAgent: "*", allow: "/", disallow: "/_next/image" },
 
       // OpenAI — GPTBot handles model training; ChatGPT-User handles real-time browsing
-      { userAgent: "GPTBot", allow: "/" },
-      { userAgent: "ChatGPT-User", allow: "/" },
+      { userAgent: "GPTBot", allow: "/", disallow: "/_next/image" },
+      { userAgent: "ChatGPT-User", allow: "/", disallow: "/_next/image" },
 
       // Perplexity AI — always cites sources, high citation value for B2B content
-      { userAgent: "PerplexityBot", allow: "/" },
+      { userAgent: "PerplexityBot", allow: "/", disallow: "/_next/image" },
 
       // Anthropic Claude — both the training crawler and the search crawler
-      { userAgent: "ClaudeBot", allow: "/" },
-      { userAgent: "anthropic-ai", allow: "/" },
+      { userAgent: "ClaudeBot", allow: "/", disallow: "/_next/image" },
+      { userAgent: "anthropic-ai", allow: "/", disallow: "/_next/image" },
 
       // Google Gemini training (separate from Googlebot which handles Search)
-      { userAgent: "Google-Extended", allow: "/" },
+      { userAgent: "Google-Extended", allow: "/", disallow: "/_next/image" },
     ],
     sitemap: `${COMPANY.url}/sitemap.xml`,
   };

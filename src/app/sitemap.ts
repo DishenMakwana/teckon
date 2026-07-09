@@ -1,12 +1,14 @@
 import type { MetadataRoute } from "next";
 import { COMPANY, PRODUCTS, BLOG_POSTS } from "@/lib/data";
 
-// All data comes from static local imports.
-// revalidate=false → cache indefinitely; Vercel regenerates on next deployment.
-export const revalidate = false;
+// All data comes from static local imports — no external fetches.
+// ISR window: serve from cache, regenerate in the background at most once per
+// hour. This avoids cold-start cache misses (e.g. Googlebot hitting a stale
+// Vercel edge node) that would otherwise force a synchronous regeneration.
+export const revalidate = 3600; // seconds — regenerate at most once per hour
 
-// Captured once at build time so every URL gets a consistent lastModified
-// timestamp without forcing dynamic rendering via repeated new Date() calls.
+// Captured once per render so every URL gets a consistent lastModified
+// timestamp within the same ISR window.
 const BUILD_TIME = new Date();
 
 export default function sitemap(): MetadataRoute.Sitemap {

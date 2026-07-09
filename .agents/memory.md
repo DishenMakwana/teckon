@@ -210,6 +210,13 @@ This file serves as the agent's short-term memory of recent tasks, issues resolv
   - Refactored [.agents/patterns.md](file:///Users/dishen/Downloads/teckon/.agents/patterns.md) section 8 and added section 9 ("Mandatory Post-Update Check") to require npm-based linting and formatting steps.
   - Verified linter and formatter run successfully on all files.
 
+### Session: July 9, 2026
+- **Task:** Configure X-Robots-Tag for optimized images and restrict crawling of /_next/image.
+- **Action:**
+  - Added custom header rule in [next.config.ts](file:///Users/dishen/Downloads/teckon/next.config.ts) to append `X-Robots-Tag: noindex` for the `/_next/image` path, preventing search engines from indexing optimized images.
+  - Updated [robots.ts](file:///Users/dishen/Downloads/teckon/src/app/robots.ts) to explicitly add `disallow: "/_next/image"` across all user agent rules to block web crawlers from crawling these optimization paths.
+  - Verified successful production build compilation and ran `npm run lint` and `npm run format`.
+
 ## Previous Milestones
 1. **SEO Optimization & Keyword Audit:** Updated configurations, keywords, and tags.
 2. **Inquiry Form Container Update:** Wrapped the inquiry form in a styled card component for visual layout improvement.
