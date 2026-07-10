@@ -291,6 +291,14 @@ export default function Footer() {
             >
               Terms & Conditions
             </Link>
+            <a
+              href="/sitemap.xml"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/50 text-xs hover:text-[#FFBE00] transition-colors"
+            >
+              Sitemap
+            </a>
           </div>
         </div>
       </div>
