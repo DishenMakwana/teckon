@@ -1,0 +1,271 @@
+# Teckon™ Quality Spares — Full Company & Product Reference
+
+> This document is the comprehensive machine-readable reference for Teckon™ (Shreeji Hydraulics). It is intended for AI assistants, search engines, and retrieval systems that need a deep understanding of the company's products, services, pages, and operations to provide accurate answers to user queries.
+
+---
+
+## 1. Company Profile
+
+- **Legal Entity:** Shreeji Hydraulics
+- **Brand Name:** Teckon™ / Teckon Quality Spares
+- **Founded:** 2000 (Rajkot, Gujarat, India)
+- **Certifications:** ISO 9001:2015 Quality Management System
+- **Operational Scope:** Pan-India delivery network + international B2B supply
+- **Industry Classification:** Aftermarket Hydraulic Parts Manufacturing for Heavy Construction & Earthmoving Equipment
+- **Business Model:** Business-to-Business (B2B) — manufacturer, supplier, and exporter of aftermarket hydraulic spares
+
+### Headquarters Address
+36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat 360004, India
+
+### Executive Leadership
+- **Mr. J.C. Patel (Co-Founder & Director):** Leads technical engineering, tool design, tolerances calibration, raw material audits, and quality assurance inspection protocols.
+- **Mr. Alpesh Patel (Co-Founder & Director):** Leads market development, client relationships, B2B procurement agreements, and the distribution network across India.
+
+### Core Values
+1. **Quality First** — Precision at every manufacturing stage; all parts tested on dynamic hydraulic test benches.
+2. **Absolute Integrity** — Transparent material specifications; no downgrading of raw materials.
+3. **Continuous Innovation** — Modern CNC/VMC machining centers, CMM inspection, updated product designs.
+4. **Customer-Centric Execution** — Quick turnaround times, fast technical quotes, custom bulk packaging.
+5. **Team Synergy** — Experienced machine programmers, design engineers, assembly technicians, and logistics coordinators.
+
+---
+
+## 2. Website Structure & Key Pages
+
+| Page | URL | Description |
+|------|-----|-------------|
+| Homepage | https://teckon.vercel.app/ | Main landing page with product categories, stats, supply footprint map, diagnostics bench, and company summary |
+| About Us | https://teckon.vercel.app/about | Founders' story, 25+ year journey, company milestones, core values, and team |
+| Products Catalog | https://teckon.vercel.app/products | Full searchable catalog with 38+ hydraulic parts across 9 categories with fuzzy search |
+| Quality & Manufacturing | https://teckon.vercel.app/quality | ISO 9001:2015 certification, 6-stage quality process, and testing standards |
+| Events & Exhibitions | https://teckon.vercel.app/events | History of industry expo attendance (Excon, bauma CONEXPO) from 2014–2024 |
+| Blog / Knowledge Base | https://teckon.vercel.app/blog | 15 technical articles on hydraulic maintenance, troubleshooting, and parts guides |
+| Contact Us | https://teckon.vercel.app/contact | Inquiry form, Google Maps location, business hours, phone numbers |
+| Careers | https://teckon.vercel.app/careers | Job culture and resume submission portal |
+| Privacy Policy | https://teckon.vercel.app/privacy-policy | Data protection details and e-commerce roadmap disclosures |
+| Terms & Conditions | https://teckon.vercel.app/terms | Usage terms, OEM aftermarket reference disclaimer, catalog-only disclosures |
+
+---
+
+## 3. Product Catalog — Detailed Breakdown
+
+Teckon™ stocks 38+ individual SKUs across 9 product categories. All parts are engineered to match or exceed OEM specifications.
+
+### 3.1 JCB Spares (9 products)
+Specialized replacements for JCB 3DX, 4DX, and JS Series backhoe loaders and excavators:
+- JCB Hydraulic Pump Assembly (Ref: 20/925345)
+- JCB Hydraulic Cylinder Seal Kit (Ref: TK-SK-3DX-01)
+- JCB 3DX Main Control Valve (Ref: 25/222916)
+- JCB 3DX Boom Lift Cylinder (Ref: 550/41202)
+- JCB JS Series Dipper Arm Cylinder (Ref: KRV18445)
+- JCB 3DX Complete Pin & Bush Kit (Ref: TK-PB-3DX-38)
+- JCB Dieselmax Engine Oil Filter (Ref: 320/04133)
+- JCB Hydraulic Return Filter Element (Ref: 32/925346)
+- JCB Fuel Filter & Water Separator (Ref: 320/07394)
+
+### 3.2 Hitachi Parts (6 products)
+Replacement components for Hitachi EX200, Zaxis ZX200, and tracked excavators:
+- Hitachi HPV102 Main Hydraulic Pump Rebuild Kit (Ref: HPV102-RK-01)
+- Hitachi Zaxis Swing Motor Assembly (Ref: 4621174)
+- Hitachi EX200 Final Drive Travel Motor (Ref: 9116474)
+- Hitachi ZX200 Boom Cylinder Seal Kit (Ref: 4649050)
+- Hitachi ZX200 Bottom Track Roller (Ref: 9247453)
+- Hitachi Duo-Cone Floating Seal Set (Ref: 4110369)
+
+### 3.3 Terex Parts (3 products)
+Aftermarket spares for Terex TLB backhoe loaders:
+- Terex Hydraulic Lift Cylinder (Ref: 6190724M91)
+- Terex TLB840 Full Cylinder Seal Kit Set (Ref: TK-TEREX-SK)
+- Terex Hydraulic Steering Unit (Ref: 3518854M91)
+
+### 3.4 CAT Components (4 products)
+Replacement components for CAT 424B and 428E backhoes/loaders:
+- CAT 424 Control Valve Assembly (Ref: 233-8209)
+- CAT 428E Bucket Cylinder Assembly (Ref: 232-2113)
+- CAT 424B Main Hydraulic Gear Pump (Ref: 278-2853)
+- CAT 428E Cylinder Seal Kit Bundle (Ref: 233-9205)
+
+### 3.5 Breakers & Tippers (3 products)
+- Hydraulic Breaker Accumulator (Ref: BRK-ACC-140)
+- Hydraulic Breaker Front Head Seal Kit (Ref: TK-BRK-SK-01)
+- Tipper Body Telescopic Hydraulic Cylinder (Ref: TIP-HYD-CYL-4S)
+
+### 3.6 L770 / Tata JD (3 products)
+- L770 Track Roller Assembly (Ref: L770-TR-01)
+- L770 Front Idler Assembly (Ref: L770-IDL-01)
+- L770 Drive Sprocket Segment Set (Ref: L770-SPR-SET)
+
+### 3.7 Excavator Parts (4 products)
+Universal excavator components for 20-ton class machines:
+- Excavator Bucket Cylinder (Ref: EXC-BKT-CYL-200)
+- 20-Ton Class Excavator Swing Motor (Ref: EXC-SWG-MTR-20T)
+- Excavator Two-Speed Travel Motor (Ref: EXC-TRV-MTR-2S)
+- Excavator Carrier (Top) Roller (Ref: EXC-CRR-RLR-01)
+
+### 3.8 General Hydraulics (3 products)
+- High-Pressure Hydraulic Hose Assembly (Ref: TK-HHA-R2AT-01)
+- BSP Hydraulic Fitting Assortment Kit (Ref: TK-BSP-KIT-50)
+- Hydraulic Bladder Accumulator (Ref: TK-BLA-ACC-10L)
+
+### 3.9 Filters & Service (3 products)
+- Universal Hydraulic Spin-On Filter (Ref: TK-HYD-SPO-10)
+- Heavy Equipment Primary Air Filter (Ref: TK-AIR-PRI-300)
+- Universal Diesel Fuel Filter (Ref: TK-DSL-FLT-01)
+
+---
+
+## 4. Extended Parts Taxonomy
+
+Beyond individual SKUs, Teckon™ covers the following broader parts categories:
+
+| Category | Key Items | Compatible Machines |
+|----------|-----------|---------------------|
+| Filters | Engine oil, hydraulic, fuel, air, transmission filters | JCB 3DX/4DX, Hitachi ZX200, CAT 424B |
+| Pins & Bushes | Dipper arm, bucket, boom cylinder, tipping link, stabiliser pins; bronze bush kits | JCB 3DX/3CX, Hitachi EX200, Terex TLB840 |
+| Ground Engaging Tools | Standard & rock bucket teeth, cutting edges (400HB/500HB), side cutters, ripper shanks, wear plates | All excavators, backhoe loaders, dozers, graders |
+| Powertrain Components | Engine overhaul kits, gearbox repair kits, axle components, drive shafts, torque converters | JCB 4DX, CAT 424B, L770 Crawler |
+| Electrical & Lighting | Wiring harnesses, LED work lights, switches, relays, instrument clusters, alternators, starters | JCB 3DX/JS130, Hitachi ZX, CAT 424B |
+| Cab & Body Parts | Windscreen glass, door seals, side mirrors, hinges, operator seats, ROPS/FOPS panels | JCB 3DX, JS series, Hitachi ZX, Terex |
+| Undercarriage Parts | Bottom/top track rollers, front idlers, drive sprockets, track chains, duo-cone seals | Hitachi ZX200/EX200, JCB JS130/JS200, L770 |
+| Service Fluids | Hydraulic oil (ISO VG 46/68), engine oil 15W-40, gear oil 80W-90, multiplex grease, anti-wear additives | All construction equipment |
+
+---
+
+## 5. Quality Assurance & Manufacturing Process
+
+Teckon™ maintains a strict **6-stage quality workflow** at its Rajkot factory:
+
+1. **CAD/CAM Engineering** — SolidWorks design analysis for structural and dimensional fitment verification.
+2. **Material Inspection** — Metallurgical analysis, spectrometry, and hardness testing on raw forgings/castings from certified steel suppliers.
+3. **Precision Machining** — CNC and VMC machining centers achieve micrometric tolerances.
+4. **CMM Dimensional Audit** — Coordinate Measuring Machine verification of exact tolerances and coordinates.
+5. **Clean Assembly** — Components assembled in controlled, dust-free cleanrooms to prevent seal damage.
+6. **Certified Bench Testing** — Volumetric efficiency, leakage, and pressure-rating validation on heavy-duty hydraulic testing benches before packaging.
+
+---
+
+## 6. Shipping & Delivery
+
+### Delivery Zones & Estimated Times
+
+| Region | Single Part | Bulk Order |
+|--------|------------|------------|
+| Gujarat (local) | 1–2 business days | 2–4 business days |
+| Rest of India | 2–4 business days | 4–6 business days |
+
+### Shipping Methods
+- Road freight and courier services for domestic orders
+- Same-day dispatch available for in-stock items ordered before 5:00 PM IST
+- Custom bulk packaging available for fleet and dealer orders
+- International B2B shipping available on request
+
+### Order Channels
+- Phone inquiry: +91-63518 79842
+- WhatsApp: +91 94269 15578
+- Email RFQ: shreejihyd4008@gmail.com
+- Website inquiry form: https://teckon.vercel.app/contact
+
+> **Note:** Delivery timelines may be extended during Gujarat public holidays as transport and logistics services remain closed.
+
+---
+
+## 7. Blog / Knowledge Base Articles
+
+Teckon™ publishes technical hydraulic guides and industry insights. 15 articles currently available:
+
+1. [The Complete Guide to Hydraulic System Maintenance](https://teckon.vercel.app/blog/hydraulic-maintenance-guide) — Fluid checks, filter schedules, cylinder inspection, pressure testing.
+2. [Hitachi Excavator Hydraulics: EX200 & Zaxis Troubleshooting](https://teckon.vercel.app/blog/hitachi-excavator-parts-guide) — Diagnosis of common Hitachi hydraulic failures.
+3. [JCB 3CX Hydraulics: Gear Pumps vs Piston Pumps Guide](https://teckon.vercel.app/blog/jcb-hydraulic-pump-guide) — Pump selection and performance comparison for JCB machines.
+4. [JCB vs CAT Hydraulic Systems: What You Need to Know](https://teckon.vercel.app/blog/jcb-vs-cat-hydraulics) — Comparative analysis of JCB and Caterpillar hydraulic architectures.
+5. [Guide to Hitachi Swing Motor & Final Drive Maintenance](https://teckon.vercel.app/blog/hitachi-swing-motor-guide) — Swing motor and travel motor maintenance procedures.
+6. [JCB Cylinder Seal Kits: How to Prevent Hydraulic Leakage](https://teckon.vercel.app/blog/jcb-cylinder-seal-kit-guide) — Seal kit selection and installation best practices.
+7. [Teckon™ Expands Pan-India Distribution Network in 2025](https://teckon.vercel.app/blog/teckon-india-expansion-2025) — Company news on nationwide supply chain growth.
+8. [Complete Guide to JCB 3DX Hydraulic Pump Replacement](https://teckon.vercel.app/blog/jcb-3dx-hydraulic-pump-replacement) — Step-by-step pump replacement walkthrough.
+9. [How to Choose the Right Bucket Teeth for Your Excavator or Backhoe](https://teckon.vercel.app/blog/bucket-teeth-selection-guide) — Bucket teeth types and selection criteria.
+10. [Understanding Hydraulic Cylinder Rod Seal Failures](https://teckon.vercel.app/blog/hydraulic-cylinder-rod-seal-failures) — Root causes and prevention strategies for seal failures.
+11. [Hydraulic Oil Selection Guide for JCB, Hitachi & Komatsu Machines](https://teckon.vercel.app/blog/hydraulic-oil-selection-guide) — Viscosity grades, temperature ranges, and brand compatibility.
+12. [ISO 9001:2015 and What It Means for Hydraulic Parts Quality](https://teckon.vercel.app/blog/iso-9001-hydraulic-parts-quality) — How ISO certification ensures consistent manufacturing quality.
+13. [Pins and Bushes: The Small Parts That Keep Heavy Machines Running](https://teckon.vercel.app/blog/pins-and-bushes-guide) — Materials, wear patterns, and replacement intervals.
+14. [Top 10 Signs Your Excavator Hydraulic Pump Needs Replacement](https://teckon.vercel.app/blog/excavator-pump-replacement-signs) — Diagnostic indicators for pump failure.
+15. [The Growing Market for Pre-Owned Construction Equipment in India](https://teckon.vercel.app/blog/pre-owned-construction-equipment-india) — Market analysis and aftermarket parts demand for used machines.
+
+---
+
+## 8. Industry Events & Exhibitions Attended
+
+Teckon™ / Shreeji Hydraulics regularly attends India's premier construction equipment expositions:
+
+- **Excon South Asia 2024** — Bengaluru
+- **Excon Bengaluru 2023** — Bengaluru
+- **bauma CONEXPO India 2022** — Greater Noida
+- **Excon South Asia 2022** — Bengaluru
+- **Excon Bengaluru 2019** — Bengaluru
+- **bauma CONEXPO India 2018** — Greater Noida
+- **Excon Bengaluru 2017** — Bengaluru
+- **Excon Bengaluru 2015** — Bengaluru
+- **bauma CONEXPO India 2014** — Greater Noida
+
+---
+
+## 9. Contact Directory
+
+| Channel | Detail |
+|---------|--------|
+| Primary Sales Inquiry | +91-63518 79842 (Phone / WhatsApp) |
+| Mr. J.C. Patel (Technical Director) | +91 94262 02945 |
+| Mr. Alpesh Patel (Marketing Director) | +91 94269 15578 |
+| General Inquiry Email | shreejihyd4008@gmail.com |
+| Official Website | https://teckon.vercel.app |
+| Facebook | https://facebook.com/shreejihydraulics |
+| LinkedIn | https://linkedin.com/company/shreeji-hydraulics |
+| Instagram | https://instagram.com/shreejihydraulics |
+
+### Business Hours (IST — Indian Standard Time)
+- Monday to Saturday: 10:00 AM – 7:00 PM
+- Sunday: Open (adjusted hours)
+- Closed on Gujarat public holidays
+
+---
+
+## 10. Interactive Site Features
+
+- **Hydraulic Cylinder Telemetry Bench** — Interactive simulator on the homepage where users can adjust bore, stroke, and pump flow to visualize cylinder mechanics in real time.
+- **Fuzzy Product Search** — Tokenized matching algorithm with Levenshtein distance scoring for finding products by name, model number, or reference number.
+- **Machine Fitment Checker** — B2B tool on product detail pages to verify part compatibility with specific equipment models.
+- **Bulk Order RFQ Form** — Wholesale request-for-quote form prefilled with product details for fleet and dealer orders.
+- **Pan-India Supply Network Map** — Interactive SVG map showing distribution coverage across Indian states.
+- **Blog Scroll Progress Bar** — Reading progress indicator on article pages.
+
+---
+
+## 11. Technical & SEO Keywords
+
+### Brand Entities
+- Shreeji Hydraulics Rajkot
+- Teckon Quality Spares
+- Teckon™
+- Alpesh Patel Shreeji Hydraulics
+- J.C. Patel Shreeji Hydraulics
+
+### Primary Product Queries
+- JCB aftermarket hydraulic gear pump manufacturer
+- Caterpillar CAT 424B hydraulic pump replacement
+- Terex backhoe loader spare parts India
+- Excavator hydraulic cylinder seal kits manufacturer
+- Heavy duty hydraulic gear pump Rajkot
+- Pins and bushes for JCB 3DX
+- Hitachi EX200 final drive travel motor
+
+### Industry & Trust Queries
+- ISO 9001:2015 hydraulic spares manufacturer Gujarat
+- Premium replacement parts for JCB backhoe loaders
+- B2B hydraulic parts exporter India
+- Construction equipment hydraulic spares supplier
+- Aftermarket JCB 3DX hydraulic pump manufacturers Rajkot
+- Heavy machinery replacement parts supplier Gujarat
+
+---
+
+## 12. Legal: Aftermarket OEM Reference Disclaimer
+
+All manufacturer names, OEM part numbers, symbols, and descriptions (such as JCB, Terex, CAT, Caterpillar, Case, Tata JD, Hitachi, Komatsu, Kobelco, Carraro, Dana, etc.) are used for identification and cross-reference purposes only. It is not implied that any part listed is the product of these original equipment manufacturers. Teckon™ (Shreeji Hydraulics) is an independent manufacturer and supplier of high-quality aftermarket replacement parts.

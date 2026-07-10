@@ -217,6 +217,15 @@ This file serves as the agent's short-term memory of recent tasks, issues resolv
   - Updated [robots.ts](file:///Users/dishen/Downloads/teckon/src/app/robots.ts) to explicitly add `disallow: "/_next/image"` across all user agent rules to block web crawlers from crawling these optimization paths.
   - Verified successful production build compilation and ran `npm run lint` and `npm run format`.
 
+### Session: July 10, 2026
+- **Task:** Set up AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization) for AI discoverability.
+- **Action:**
+  - Rewrote [llms.txt](file:///Users/dishen/Downloads/teckon/public/llms.txt) with a concise, structured brand summary (company profile, 9 product categories, equipment brands served, founders, contact) optimized for AI assistants to surface Teckon in relevant answers.
+  - Created [llms-full.txt](file:///Users/dishen/Downloads/teckon/public/llms-full.txt) with a comprehensive 12-section reference document covering: company profile, all website pages, all 38 products with ref numbers across 9 categories, extended parts taxonomy (8 additional categories with compatible machines), 6-stage quality process, delivery zones/times, all 15 blog articles with URLs, events history (2014–2024), contact directory, interactive site features, SEO keywords, and legal OEM disclaimer.
+  - Overhauled [robots.ts](file:///Users/dishen/Downloads/teckon/src/app/robots.ts) to separate AI crawlers into two groups: ALLOWED retrieval/citation bots (ChatGPT-User, PerplexityBot, ClaudeBot, Applebot-Extended) that surface content in AI answers, and BLOCKED training crawlers (GPTBot, Google-Extended, anthropic-ai, CCBot, FacebookBot, Meta-ExternalAgent, Bytespider, Amazonbot, cohere-ai, AI2Bot, Diffbot, omgili, Scrapy) that scrape content to train foundation models.
+  - Verified lint, format, and production build all pass with zero errors.
+
+
 ## Previous Milestones
 1. **SEO Optimization & Keyword Audit:** Updated configurations, keywords, and tags.
 2. **Inquiry Form Container Update:** Wrapped the inquiry form in a styled card component for visual layout improvement.
