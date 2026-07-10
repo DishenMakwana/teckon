@@ -67,8 +67,13 @@ export default function robots(): MetadataRoute.Robots {
       // Common Crawl — open dataset used to train many LLMs
       { userAgent: "CCBot", disallow: "/" },
 
-      // Meta AI training crawler
-      { userAgent: "FacebookBot", disallow: "/" },
+      // Meta — FacebookBot handles BOTH link preview rendering (OG tags on
+      // Facebook/Instagram/WhatsApp) AND some AI data collection. Blocking
+      // it would break social sharing previews, so we allow it. The dedicated
+      // AI training crawler (Meta-ExternalAgent) is blocked separately below.
+      { userAgent: "FacebookBot", allow: "/", disallow: "/_next/image" },
+
+      // Meta AI training crawler (dedicated to model training, not previews)
       { userAgent: "Meta-ExternalAgent", disallow: "/" },
 
       // ByteDance / TikTok AI training crawler
