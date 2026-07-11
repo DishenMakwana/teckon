@@ -36,7 +36,13 @@ export const metadata: Metadata = {
   ],
 };
 
-const pillars = [
+interface Pillar {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+}
+
+const pillars: Pillar[] = [
   {
     icon: Leaf,
     title: "Sustainable Manufacturing",
@@ -57,7 +63,13 @@ const pillars = [
   },
 ];
 
-const values = [
+interface ValueItem {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  desc: string;
+}
+
+const values: ValueItem[] = [
   {
     icon: ShieldCheck,
     title: "Quality",
@@ -85,7 +97,17 @@ const values = [
   },
 ];
 
-const founders = [
+interface Founder {
+  name: string;
+  role: string;
+  image: string;
+  alt: string;
+  focus: string;
+  note: string;
+  phone: string;
+}
+
+const founders: Founder[] = [
   {
     name: "Mr. J.C. Patel",
     role: "Co-Founder & Director",
@@ -106,8 +128,8 @@ const founders = [
   },
 ];
 
-export default function AboutPage() {
-  const aboutSchema = {
+export default function AboutPage(): React.JSX.Element {
+  const aboutSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
     name: "About Us — Teckon™ Quality Spares | Shreeji Hydraulics",

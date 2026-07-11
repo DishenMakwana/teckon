@@ -20,7 +20,9 @@ interface ProductB2BPanelProps {
   };
 }
 
-export default function ProductB2BPanel({ product }: ProductB2BPanelProps) {
+export default function ProductB2BPanel({
+  product,
+}: ProductB2BPanelProps): React.JSX.Element {
   // RFQ Form states
   const [qty, setQty] = useState<number>(5);
   const [rfqSubmitted, setRfqSubmitted] = useState<boolean>(false);
@@ -29,7 +31,7 @@ export default function ProductB2BPanel({ product }: ProductB2BPanelProps) {
   const [attemptedSubmit, setAttemptedSubmit] = useState<boolean>(false);
   const [validationError, setValidationError] = useState<string | null>(null);
 
-  const handleRfqSubmit = (e: React.FormEvent) => {
+  const handleRfqSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
     setAttemptedSubmit(true);
 

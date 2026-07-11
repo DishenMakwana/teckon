@@ -2,7 +2,7 @@
 
 import { Mail, Phone, MessageCircle } from "lucide-react";
 
-export default function TopInfoBar() {
+export default function TopInfoBar(): React.JSX.Element {
   return (
     <div className="bg-teckon-dark-blue text-white text-sm py-2.5 px-4">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 md:gap-0">

@@ -22,7 +22,14 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const productCategories = [
+interface ProductCategory {
+  name: string;
+  href: string;
+  desc: string;
+  icon: React.ComponentType<{ className?: string; size?: number }>;
+}
+
+const productCategories: ProductCategory[] = [
   {
     name: "JCB Spares",
     href: "/products?category=jcb",
@@ -79,7 +86,13 @@ const productCategories = [
   },
 ];
 
-const navLinks = [
+interface NavLink {
+  name: string;
+  href: string;
+  dropdown?: ProductCategory[];
+}
+
+const navLinks: NavLink[] = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Products", href: "/products", dropdown: productCategories },
@@ -90,30 +103,30 @@ const navLinks = [
   { name: "Contact", href: "/contact" },
 ];
 
-export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const pathname = usePathname();
+export default function Navbar(): React.JSX.Element {
+  const [scrolled, setScrolled] = useState<boolean>(false);
+  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
+  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
+  const pathname: string = usePathname();
 
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+  useEffect((): (() => void) => {
+    const handleScroll = (): void => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return (): void => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const handle = setTimeout(() => {
-      setMobileOpen((open) => (open ? false : open));
+  useEffect((): (() => void) => {
+    const handle: NodeJS.Timeout = setTimeout((): void => {
+      setMobileOpen((open: boolean): boolean => (open ? false : open));
       setDropdownOpen(false);
     }, 0);
-    return () => clearTimeout(handle);
+    return (): void => clearTimeout(handle);
   }, [pathname]);
 
-  useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
+  useEffect((): (() => void) => {
+    const handleOutsideClick = (event: MouseEvent): void => {
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node)
@@ -125,7 +138,7 @@ export default function Navbar() {
     if (dropdownOpen) {
       document.addEventListener("click", handleOutsideClick);
     }
-    return () => {
+    return (): void => {
       document.removeEventListener("click", handleOutsideClick);
     };
   }, [dropdownOpen]);
@@ -153,140 +166,142 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) =>
-              link.dropdown ? (
-                <div
-                  key={link.name}
-                  ref={dropdownRef}
-                  className="relative"
-                  onMouseEnter={() => setDropdownOpen(true)}
-                  onMouseLeave={() => setDropdownOpen(false)}
-                >
-                  <Link
-                    href={link.href}
-                    onClick={() => setDropdownOpen(false)}
-                    className={`flex items-center gap-1 px-3 py-2 rounded-lg text-base font-bold transition-colors ${
-                      pathname.startsWith("/products")
-                        ? "text-[#1E293B] bg-slate-100"
-                        : "text-gray-700 hover:text-[#1E293B] hover:bg-gray-50"
-                    }`}
+            {navLinks.map(
+              (link: NavLink): React.JSX.Element =>
+                link.dropdown ? (
+                  <div
+                    key={link.name}
+                    ref={dropdownRef}
+                    className="relative"
+                    onMouseEnter={() => setDropdownOpen(true)}
+                    onMouseLeave={() => setDropdownOpen(false)}
                   >
-                    {link.name}
-                    <ChevronDown
-                      size={14}
-                      className={`transition-transform ${dropdownOpen ? "rotate-180" : ""}`}
-                    />
-                  </Link>
-                  <AnimatePresence>
-                    {dropdownOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 15 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 15 }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 380,
-                          damping: 30,
-                        }}
-                        className="absolute top-full left-1/2 -translate-x-[35%] w-[720px] bg-white/95 backdrop-blur-xl shadow-2xl border border-slate-100 rounded-3xl overflow-hidden mt-3 p-6 z-50 grid grid-cols-12 gap-6 before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3"
-                      >
-                        {/* Categories List */}
-                        <div className="col-span-8">
-                          <div className="flex justify-between items-center mb-4 pb-2 border-b border-slate-100">
-                            <span className="text-[10px] font-mono text-slate-500 font-bold uppercase tracking-wider">
-                              Category Catalog
-                            </span>
-                            <Link
-                              href="/products"
-                              onClick={() => setDropdownOpen(false)}
-                              className="text-xs font-bold text-teckon-orange hover:text-teckon-orange/90 transition-colors flex items-center gap-1 group/all"
-                            >
-                              View All Products
-                              <span className="group-hover:translate-x-0.5 transition-transform">
-                                →
+                    <Link
+                      href={link.href}
+                      onClick={() => setDropdownOpen(false)}
+                      className={`flex items-center gap-1 px-3 py-2 rounded-lg text-base font-bold transition-colors ${
+                        pathname.startsWith("/products")
+                          ? "text-[#1E293B] bg-slate-100"
+                          : "text-gray-700 hover:text-[#1E293B] hover:bg-gray-50"
+                      }`}
+                    >
+                      {link.name}
+                      <ChevronDown
+                        size={14}
+                        className={`transition-transform ${dropdownOpen ? "rotate-180" : ""}`}
+                      />
+                    </Link>
+                    <AnimatePresence>
+                      {dropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 15 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 15 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 380,
+                            damping: 30,
+                          }}
+                          className="absolute top-full left-1/2 -translate-x-[35%] w-[720px] bg-white/95 backdrop-blur-xl shadow-2xl border border-slate-100 rounded-3xl overflow-hidden mt-3 p-6 z-50 grid grid-cols-12 gap-6 before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3"
+                        >
+                          {/* Categories List */}
+                          <div className="col-span-8">
+                            <div className="flex justify-between items-center mb-4 pb-2 border-b border-slate-100">
+                              <span className="text-[10px] font-mono text-slate-500 font-bold uppercase tracking-wider">
+                                Category Catalog
                               </span>
-                            </Link>
-                          </div>
-
-                          <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-                            {link.dropdown.map((item) => (
                               <Link
-                                key={item.name}
-                                href={item.href}
-                                rel="nofollow"
+                                href="/products"
                                 onClick={() => setDropdownOpen(false)}
-                                className="flex gap-3.5 p-2 rounded-2xl hover:bg-slate-50 transition-all duration-200 group/item"
+                                className="text-xs font-bold text-teckon-orange hover:text-teckon-orange/90 transition-colors flex items-center gap-1 group/all"
                               >
-                                <div className="w-10 h-10 rounded-xl bg-slate-50 text-slate-600 flex items-center justify-center group-hover/item:bg-[#FFBE00]/10 group-hover/item:text-[#FFBE00] transition-colors shrink-0">
-                                  <item.icon size={18} />
-                                </div>
-                                <div>
-                                  <div className="text-sm font-bold text-[#1E293B] group-hover/item:text-teckon-orange transition-colors">
-                                    {item.name}
-                                  </div>
-                                  <div className="text-[11px] text-gray-500 font-medium leading-normal mt-0.5">
-                                    {item.desc}
-                                  </div>
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Interactive Calculator Sidebar Callout */}
-                        <div className="col-span-4 flex flex-col">
-                          <div className="bg-[#0B0F19] rounded-2xl p-5 relative overflow-hidden flex flex-col justify-between h-full border border-white/5 shadow-inner">
-                            {/* Grid bg overlay */}
-                            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:12px_12px] pointer-events-none" />
-                            {/* Glow accent */}
-                            <div className="absolute -right-8 -bottom-8 w-24 h-24 bg-[#FFBE00]/10 rounded-full blur-xl pointer-events-none" />
-
-                            <div className="relative z-10">
-                              <span className="text-[9px] font-mono text-[#FFBE00] uppercase tracking-wider font-extrabold bg-[#FFBE00]/10 px-2.5 py-1 rounded-md">
-                                Interactive Tool
-                              </span>
-                              <h4 className="text-white font-black text-base mt-4 leading-tight">
-                                Telemetry &amp; Force Bench
-                              </h4>
-                              <p className="text-slate-400 text-[11px] mt-2.5 leading-relaxed font-medium">
-                                Simulate bore, rod, and stroke dimensions to
-                                calculate operating forces in real-time.
-                              </p>
-                            </div>
-
-                            <div className="relative z-10 mt-6 pt-4 border-t border-white/5">
-                              <Link
-                                href="/#diagnostics"
-                                onClick={() => setDropdownOpen(false)}
-                                className="inline-flex items-center gap-1.5 text-xs text-[#FFBE00] hover:text-[#d99e00] font-bold group/btn"
-                              >
-                                Launch Calculator
-                                <span className="group-hover/btn:translate-x-1 transition-transform">
+                                View All Products
+                                <span className="group-hover:translate-x-0.5 transition-transform">
                                   →
                                 </span>
                               </Link>
                             </div>
+
+                            <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+                              {link.dropdown.map(
+                                (item: ProductCategory): React.JSX.Element => (
+                                  <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    rel="nofollow"
+                                    onClick={() => setDropdownOpen(false)}
+                                    className="flex gap-3.5 p-2 rounded-2xl hover:bg-slate-50 transition-all duration-200 group/item"
+                                  >
+                                    <div className="w-10 h-10 rounded-xl bg-slate-50 text-slate-600 flex items-center justify-center group-hover/item:bg-[#FFBE00]/10 group-hover/item:text-[#FFBE00] transition-colors shrink-0">
+                                      <item.icon size={18} />
+                                    </div>
+                                    <div>
+                                      <div className="text-sm font-bold text-[#1E293B] group-hover/item:text-teckon-orange transition-colors">
+                                        {item.name}
+                                      </div>
+                                      <div className="text-[11px] text-gray-500 font-medium leading-normal mt-0.5">
+                                        {item.desc}
+                                      </div>
+                                    </div>
+                                  </Link>
+                                )
+                              )}
+                            </div>
                           </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ) : (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={`px-3 py-2 rounded-lg text-base font-bold transition-colors ${
-                    pathname === link.href
-                      ? "text-[#1E293B] bg-slate-100 font-black"
-                      : "text-gray-700 hover:text-[#1E293B] hover:bg-gray-50"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              )
+
+                          {/* Interactive Calculator Sidebar Callout */}
+                          <div className="col-span-4 flex flex-col">
+                            <div className="bg-[#0B0F19] rounded-2xl p-5 relative overflow-hidden flex flex-col justify-between h-full border border-white/5 shadow-inner">
+                              {/* Grid bg overlay */}
+                              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:12px_12px] pointer-events-none" />
+                              {/* Glow accent */}
+                              <div className="absolute -right-8 -bottom-8 w-24 h-24 bg-[#FFBE00]/10 rounded-full blur-xl pointer-events-none" />
+
+                              <div className="relative z-10">
+                                <span className="text-[9px] font-mono text-[#FFBE00] uppercase tracking-wider font-extrabold bg-[#FFBE00]/10 px-2.5 py-1 rounded-md">
+                                  Interactive Tool
+                                </span>
+                                <h4 className="text-white font-black text-base mt-4 leading-tight">
+                                  Telemetry &amp; Force Bench
+                                </h4>
+                                <p className="text-slate-400 text-[11px] mt-2.5 leading-relaxed font-medium">
+                                  Simulate bore, rod, and stroke dimensions to
+                                  calculate operating forces in real-time.
+                                </p>
+                              </div>
+
+                              <div className="relative z-10 mt-6 pt-4 border-t border-white/5">
+                                <Link
+                                  href="/#diagnostics"
+                                  onClick={() => setDropdownOpen(false)}
+                                  className="inline-flex items-center gap-1.5 text-xs text-[#FFBE00] hover:text-[#d99e00] font-bold group/btn"
+                                >
+                                  Launch Calculator
+                                  <span className="group-hover/btn:translate-x-1 transition-transform">
+                                    →
+                                  </span>
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`px-3 py-2 rounded-lg text-base font-bold transition-colors ${
+                      pathname === link.href
+                        ? "text-[#1E293B] bg-slate-100 font-black"
+                        : "text-gray-700 hover:text-[#1E293B] hover:bg-gray-50"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                )
             )}
           </nav>
 
@@ -344,40 +359,44 @@ export default function Navbar() {
                 </button>
               </div>
               <nav className="p-4 flex flex-col gap-1">
-                {navLinks.map((link) => (
-                  <div key={link.name}>
-                    <Link
-                      href={link.href}
-                      onClick={() => setMobileOpen(false)}
-                      className={`block px-4 py-3 rounded-xl text-base font-bold transition-colors ${
-                        pathname === link.href
-                          ? "bg-[#1E293B] text-white"
-                          : "text-gray-700 hover:bg-gray-100"
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
-                    {link.dropdown && (
-                      <div className="ml-4 mt-1 flex flex-col gap-1">
-                        {link.dropdown.map((item) => (
-                          <Link
-                            key={item.name}
-                            href={item.href}
-                            rel="nofollow"
-                            onClick={() => setMobileOpen(false)}
-                            className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs text-gray-500 hover:text-[#1E293B] hover:bg-gray-50 transition-colors"
-                          >
-                            <item.icon
-                              size={13}
-                              className="text-gray-400 shrink-0"
-                            />
-                            <span>{item.name}</span>
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
+                {navLinks.map(
+                  (link: NavLink): React.JSX.Element => (
+                    <div key={link.name}>
+                      <Link
+                        href={link.href}
+                        onClick={(): void => setMobileOpen(false)}
+                        className={`block px-4 py-3 rounded-xl text-base font-bold transition-colors ${
+                          pathname === link.href
+                            ? "bg-[#1E293B] text-white"
+                            : "text-gray-700 hover:bg-gray-100"
+                        }`}
+                      >
+                        {link.name}
+                      </Link>
+                      {link.dropdown && (
+                        <div className="ml-4 mt-1 flex flex-col gap-1">
+                          {link.dropdown.map(
+                            (item: ProductCategory): React.JSX.Element => (
+                              <Link
+                                key={item.name}
+                                href={item.href}
+                                rel="nofollow"
+                                onClick={(): void => setMobileOpen(false)}
+                                className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs text-gray-500 hover:text-[#1E293B] hover:bg-gray-50 transition-colors"
+                              >
+                                <item.icon
+                                  size={13}
+                                  className="text-gray-400 shrink-0"
+                                />
+                                <span>{item.name}</span>
+                              </Link>
+                            )
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  )
+                )}
               </nav>
               <div className="p-4 pb-24 border-t border-gray-100 flex flex-col gap-3">
                 <a

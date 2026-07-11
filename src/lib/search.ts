@@ -4,28 +4,33 @@ import { Product } from "./data";
 function getLevenshteinDistance(a: string, b: string): number {
   const matrix: number[][] = [];
 
-  for (let i = 0; i <= a.length; i++) {
+  for (let i: number = 0; i <= a.length; i++) {
     matrix[i] = [i];
   }
-  for (let j = 0; j <= b.length; j++) {
+  for (let j: number = 0; j <= b.length; j++) {
     matrix[0][j] = j;
   }
 
-  for (let i = 1; i <= a.length; i++) {
-    for (let j = 1; j <= b.length; j++) {
-      if (a[i - 1] === b[j - 1]) {
-        matrix[i][j] = matrix[i - 1][j - 1];
-      } else {
-        matrix[i][j] = Math.min(
-          matrix[i - 1][j] + 1, // deletion
-          matrix[i][j - 1] + 1, // insertion
-          matrix[i - 1][j - 1] + 1 // substitution
-        );
+  for (let i: number = 1; i <= a.length; i++) {
+    for (let j: number = 1; j <= b.length; j++) {
+      const matrixI = matrix[i];
+      const matrixPrev = matrix[i - 1];
+      if (matrixI && matrixPrev) {
+        if (a[i - 1] === b[j - 1]) {
+          matrixI[j] = matrixPrev[j - 1] ?? 0;
+        } else {
+          matrixI[j] = Math.min(
+            (matrixPrev[j] ?? 0) + 1, // deletion
+            (matrixI[j - 1] ?? 0) + 1, // insertion
+            (matrixPrev[j - 1] ?? 0) + 1 // substitution
+          );
+        }
       }
     }
   }
 
-  return matrix[a.length][b.length];
+  const lastRow = matrix[a.length];
+  return lastRow ? (lastRow[b.length] ?? 0) : 0;
 }
 
 // Tokenize text: convert to lowercase and split by non-alphanumeric chars
@@ -55,11 +60,11 @@ function scoreTermAgainstWord(term: string, word: string): TermMatchResult {
 
   // Fuzzy matching for terms of length >= 3
   if (term.length >= 3) {
-    const distance = getLevenshteinDistance(term, word);
+    const distance: number = getLevenshteinDistance(term, word);
     // Threshold: max 1 typo for length 3, max 2 typos for length 4+
-    const maxAllowedDistance = term.length === 3 ? 1 : 2;
+    const maxAllowedDistance: number = term.length === 3 ? 1 : 2;
     if (distance <= maxAllowedDistance) {
-      const sim = 1 - distance / Math.max(term.length, word.length);
+      const sim: number = 1 - distance / Math.max(term.length, word.length);
       return { score: 0.4 * sim, matched: true };
     }
   }
@@ -67,7 +72,18 @@ function scoreTermAgainstWord(term: string, word: string): TermMatchResult {
   return { score: 0, matched: false };
 }
 
-const FIELD_WEIGHTS = {
+interface FieldWeights {
+  name: number;
+  model: number;
+  ref: number;
+  crossReferences: number;
+  categoryLabel: number;
+  category: number;
+  specs: number;
+  description: number;
+}
+
+const FIELD_WEIGHTS: FieldWeights = {
   name: 10,
   model: 8,
   ref: 8,
@@ -78,48 +94,70 @@ const FIELD_WEIGHTS = {
   description: 1,
 };
 
+interface ScoredProductItem {
+  product: Product;
+  matchedTermsCount: number;
+  totalScore: number;
+}
+
+interface ProductFields {
+  name: string[];
+  model: string[];
+  ref: string[];
+  crossReferences: string[];
+  categoryLabel: string[];
+  category: string[];
+  specs: string[];
+  description: string[];
+}
+
 /**
  * Searches and ranks products based on relevance to query.
  * Prioritizes products matching BOTH/all query terms.
  */
 export function searchProducts(products: Product[], query: string): Product[] {
-  const cleanQuery = query.trim();
+  const cleanQuery: string = query.trim();
   if (!cleanQuery) return products;
 
-  const queryTerms = tokenize(cleanQuery);
+  const queryTerms: string[] = tokenize(cleanQuery);
   if (queryTerms.length === 0) return products;
 
-  const scoredProducts = products
-    .map((product) => {
-      const fields = {
+  const scoredProducts: ScoredProductItem[] = products
+    .map((product: Product): ScoredProductItem => {
+      const fields: ProductFields = {
         name: tokenize(product.name),
         model: tokenize(product.model),
         ref: tokenize(product.ref),
         crossReferences: (product.crossReferences || []).flatMap(tokenize),
         categoryLabel: tokenize(product.categoryLabel || ""),
         category: tokenize(product.category),
-        specs: Object.entries(product.specs || {}).flatMap(([k, v]) => [
-          ...tokenize(k),
-          ...tokenize(v || ""),
-        ]),
+        specs: Object.entries(product.specs || {}).flatMap(
+          ([k, v]: [string, string]): string[] => [
+            ...tokenize(k),
+            ...tokenize(v || ""),
+          ]
+        ),
         description: tokenize(product.description || ""),
       };
 
-      let totalScore = 0;
-      let matchedTermsCount = 0;
+      let totalScore: number = 0;
+      let matchedTermsCount: number = 0;
 
       for (const term of queryTerms) {
-        let bestTermScoreForProduct = 0;
-        let termMatched = false;
+        let bestTermScoreForProduct: number = 0;
+        let termMatched: boolean = false;
 
-        for (const [fieldName, words] of Object.entries(fields)) {
-          const weight =
-            FIELD_WEIGHTS[fieldName as keyof typeof FIELD_WEIGHTS] || 1;
+        const entries = Object.entries(fields) as [
+          keyof ProductFields,
+          string[],
+        ][];
+        for (const [fieldName, words] of entries) {
+          const weight: number = FIELD_WEIGHTS[fieldName] || 1;
           for (const word of words) {
             const { score, matched } = scoreTermAgainstWord(term, word);
             if (matched) {
               termMatched = true;
-              const weightedScore = score * weight;
+              const weightedScore: number = score * weight;
               if (weightedScore > bestTermScoreForProduct) {
                 bestTermScoreForProduct = weightedScore;
               }
@@ -139,13 +177,13 @@ export function searchProducts(products: Product[], query: string): Product[] {
         totalScore,
       };
     })
-    .filter((item) => item.matchedTermsCount > 0)
-    .sort((a, b) => {
+    .filter((item: ScoredProductItem): boolean => item.matchedTermsCount > 0)
+    .sort((a: ScoredProductItem, b: ScoredProductItem): number => {
       if (b.matchedTermsCount !== a.matchedTermsCount) {
         return b.matchedTermsCount - a.matchedTermsCount;
       }
       return b.totalScore - a.totalScore;
     });
 
-  return scoredProducts.map((item) => item.product);
+  return scoredProducts.map((item: ScoredProductItem): Product => item.product);
 }

@@ -3,11 +3,11 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-export default function PartnersMarquee() {
+export default function PartnersMarquee(): React.JSX.Element {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
 
-  const partners = [
+  const partners: string[] = [
     "JCB India",
     "Terex Equipment",
     "Caterpillar",
@@ -20,7 +20,7 @@ export default function PartnersMarquee() {
     "BEML Limited",
   ];
 
-  const doubled = [...partners, ...partners];
+  const doubled: string[] = [...partners, ...partners];
 
   return (
     <section

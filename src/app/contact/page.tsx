@@ -28,8 +28,8 @@ export const metadata: Metadata = {
 
 import { COMPANY } from "@/lib/data";
 
-export default function ContactPage() {
-  const contactSchema = {
+export default function ContactPage(): React.JSX.Element {
+  const contactSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     name: "Request a Quote & Contact Us | Teckon™ Quality Spares",

@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function TermsPage() {
-  const termsSchema = {
+export default function TermsPage(): React.JSX.Element {
+  const termsSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Terms & Conditions | Teckon™ Quality Spares",

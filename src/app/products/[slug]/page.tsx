@@ -5,7 +5,7 @@ import SafeImage from "@/components/ui/SafeImage";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
-import { PRODUCTS, COMPANY } from "@/lib/data";
+import { PRODUCTS, COMPANY, Product } from "@/lib/data";
 import { buildDisplaySpecs } from "@/lib/utils";
 import ProductImageViewer from "@/components/products/ProductImageViewer";
 import ProductB2BPanel from "@/components/products/ProductB2BPanel";
@@ -32,21 +32,15 @@ interface Props {
  */
 function buildProductSchema(
   slug: string,
-  product: {
-    name: string;
-    description: string;
-    sku: string;
-    mpn: string;
-    image: string;
-  }
-) {
+  product: Product
+): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
     description: product.description,
-    sku: product.sku,
-    mpn: product.mpn,
+    sku: product.model,
+    mpn: product.ref,
     brand: {
       "@type": "Brand",
       name: COMPANY.brand,
@@ -72,8 +66,10 @@ function buildProductSchema(
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const product = PRODUCTS.find((p) => p.slug === slug);
+  const { slug }: { slug: string } = await params;
+  const product: Product | undefined = PRODUCTS.find(
+    (p: Product): boolean => p.slug === slug
+  );
   if (!product) return { title: "Product Not Found" };
   return {
     alternates: { canonical: `/products/${slug}` },
@@ -102,25 +98,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export const unstable_instant = false;
+export const unstable_instant: boolean = false;
 
-export async function generateStaticParams() {
-  return PRODUCTS.map((p) => ({ slug: p.slug }));
+export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
+  return PRODUCTS.map((p: Product): { slug: string } => ({ slug: p.slug }));
 }
 
-export default async function ProductDetailPage({ params }: Props) {
-  const { slug } = await params;
-  const product = PRODUCTS.find((p) => p.slug === slug);
+export default async function ProductDetailPage({
+  params,
+}: Props): Promise<React.JSX.Element> {
+  const { slug }: { slug: string } = await params;
+  const product: Product | undefined = PRODUCTS.find(
+    (p: Product): boolean => p.slug === slug
+  );
   if (!product) notFound();
 
   // Related products from the same category (max 4), excluding this one
-  const relatedProducts = PRODUCTS.filter(
-    (p) => p.category === product.category && p.slug !== product.slug
+  const relatedProducts: Product[] = PRODUCTS.filter(
+    (p: Product): boolean =>
+      p.category === product.category && p.slug !== product.slug
   ).slice(0, 4);
 
   // Merge product.specs with optional weight and material fields into a
   // clean display map. buildDisplaySpecs handles deduplication of Material keys.
-  const displaySpecs = buildDisplaySpecs(
+  const displaySpecs: Record<string, string> = buildDisplaySpecs(
     product.specs,
     product.weight,
     product.material
@@ -128,13 +129,10 @@ export default async function ProductDetailPage({ params }: Props) {
 
   // Product JSON-LD — in server-rendered HTML so Google indexes it immediately
   // without waiting for JavaScript execution.
-  const productSchema = buildProductSchema(product.slug, {
-    name: product.name,
-    description: product.description,
-    sku: product.model,
-    mpn: product.ref,
-    image: product.image,
-  });
+  const productSchema: Record<string, unknown> = buildProductSchema(
+    product.slug,
+    product
+  );
 
   return (
     <ViewTransition name={`product-detail-${slug}`}>
@@ -258,136 +256,144 @@ export default async function ProductDetailPage({ params }: Props) {
                 </h3>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                  {Object.entries(displaySpecs).map(([key, val]) => {
-                    const isRotation = key.toLowerCase().includes("rotation");
-                    const isDisplacement =
-                      key.toLowerCase().includes("displacement") ||
-                      key.toLowerCase().includes("cc");
-                    const isMaterial = key.toLowerCase().includes("material");
-                    const isWeight = key.toLowerCase().includes("weight");
+                  {Object.entries(displaySpecs).map(
+                    ([key, val]: [string, string]): React.JSX.Element => {
+                      const isRotation: boolean = key
+                        .toLowerCase()
+                        .includes("rotation");
+                      const isDisplacement: boolean =
+                        key.toLowerCase().includes("displacement") ||
+                        key.toLowerCase().includes("cc");
+                      const isMaterial: boolean = key
+                        .toLowerCase()
+                        .includes("material");
+                      const isWeight: boolean = key
+                        .toLowerCase()
+                        .includes("weight");
 
-                    if (isRotation) {
-                      const isClockwise =
-                        val.toLowerCase().includes("clockwise") &&
-                        !val.toLowerCase().includes("anti");
-                      return (
-                        <div
-                          key={key}
-                          className="col-span-1 bg-gradient-to-br from-slate-900 to-[#1E293B] border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center shadow-md min-h-[140px] relative overflow-hidden group"
-                        >
-                          {/* Rotating Gear/Arrow overlay */}
-                          <div className="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 mb-2 relative">
-                            <RotateCw
-                              className="h-6 w-6 text-[#FFBE00]"
-                              style={{
-                                animation: `spin 6s linear infinite ${isClockwise ? "" : "reverse"}`,
-                              }}
-                            />
-                            <span className="absolute text-[8px] font-mono font-bold text-white/40">
-                              ROT
-                            </span>
-                          </div>
-                          <div>
-                            <div className="text-[10px] font-mono font-semibold text-white/50 uppercase tracking-wider mb-1">
-                              {key}
-                            </div>
-                            <div className="text-xs font-black text-white">
-                              {val}
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    }
-
-                    if (isDisplacement) {
-                      return (
-                        <div
-                          key={key}
-                          className="col-span-1 bg-slate-50 border border-slate-100 rounded-2xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm hover:shadow-md transition-shadow"
-                        >
-                          <div className="w-8 h-8 rounded-lg bg-[#FFBE00]/10 flex items-center justify-center text-lg mb-2">
-                            <Layers className="h-4.5 w-4.5 text-[#FFBE00]" />
-                          </div>
-                          <div>
-                            <div className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider mb-1">
-                              {key}
-                            </div>
-                            <div className="text-sm font-black text-slate-900 font-mono">
-                              {val}
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    }
-
-                    if (isMaterial) {
-                      return (
-                        <div
-                          key={key}
-                          className="col-span-1 bg-slate-50 border border-slate-100 rounded-2xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm hover:shadow-md transition-shadow"
-                        >
-                          <div className="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center text-lg mb-2">
-                            <Shield className="h-4.5 w-4.5 text-orange-500" />
-                          </div>
-                          <div>
-                            <div className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider mb-1">
-                              {key}
-                            </div>
-                            <div className="text-sm font-black text-slate-900">
-                              {val}
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    }
-
-                    if (isWeight) {
-                      return (
-                        <div
-                          key={key}
-                          className="col-span-1 bg-slate-50 border border-slate-100 rounded-2xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm hover:shadow-md transition-shadow"
-                        >
-                          <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-lg mb-2">
-                            <Scale className="h-4.5 w-4.5 text-blue-500" />
-                          </div>
-                          <div>
-                            <div className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider mb-1">
-                              {key}
-                            </div>
-                            <div className="text-sm font-black text-slate-900 font-mono">
-                              {val}
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    }
-
-                    // General Specs card
-                    return (
-                      <div
-                        key={key}
-                        className="col-span-1 bg-slate-50 border border-slate-100 rounded-2xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm hover:shadow-md transition-shadow"
-                      >
-                        <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-lg mb-2 text-slate-500">
-                          <Award className="h-4.5 w-4.5 text-slate-500" />
-                        </div>
-                        <div>
+                      if (isRotation) {
+                        const isClockwise: boolean =
+                          val.toLowerCase().includes("clockwise") &&
+                          !val.toLowerCase().includes("anti");
+                        return (
                           <div
-                            className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider mb-1 truncate"
-                            title={key}
+                            key={key}
+                            className="col-span-1 bg-gradient-to-br from-slate-900 to-[#1E293B] border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center shadow-md min-h-[140px] relative overflow-hidden group"
                           >
-                            {key}
+                            {/* Rotating Gear/Arrow overlay */}
+                            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 mb-2 relative">
+                              <RotateCw
+                                className="h-6 w-6 text-[#FFBE00]"
+                                style={{
+                                  animation: `spin 6s linear infinite ${isClockwise ? "" : "reverse"}`,
+                                }}
+                              />
+                              <span className="absolute text-[8px] font-mono font-bold text-white/40">
+                                ROT
+                              </span>
+                            </div>
+                            <div>
+                              <div className="text-[10px] font-mono font-semibold text-white/50 uppercase tracking-wider mb-1">
+                                {key}
+                              </div>
+                              <div className="text-xs font-black text-white">
+                                {val}
+                              </div>
+                            </div>
                           </div>
+                        );
+                      }
+
+                      if (isDisplacement) {
+                        return (
                           <div
-                            className="text-xs font-extrabold text-slate-800 line-clamp-2 leading-tight"
-                            title={val}
+                            key={key}
+                            className="col-span-1 bg-slate-50 border border-slate-100 rounded-2xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm hover:shadow-md transition-shadow"
                           >
-                            {val}
+                            <div className="w-8 h-8 rounded-lg bg-[#FFBE00]/10 flex items-center justify-center text-lg mb-2">
+                              <Layers className="h-4.5 w-4.5 text-[#FFBE00]" />
+                            </div>
+                            <div>
+                              <div className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider mb-1">
+                                {key}
+                              </div>
+                              <div className="text-sm font-black text-slate-900 font-mono">
+                                {val}
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      }
+
+                      if (isMaterial) {
+                        return (
+                          <div
+                            key={key}
+                            className="col-span-1 bg-slate-50 border border-slate-100 rounded-2xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm hover:shadow-md transition-shadow"
+                          >
+                            <div className="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center text-lg mb-2">
+                              <Shield className="h-4.5 w-4.5 text-orange-500" />
+                            </div>
+                            <div>
+                              <div className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider mb-1">
+                                {key}
+                              </div>
+                              <div className="text-sm font-black text-slate-900">
+                                {val}
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      }
+
+                      if (isWeight) {
+                        return (
+                          <div
+                            key={key}
+                            className="col-span-1 bg-slate-50 border border-slate-100 rounded-2xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm hover:shadow-md transition-shadow"
+                          >
+                            <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-lg mb-2">
+                              <Scale className="h-4.5 w-4.5 text-blue-500" />
+                            </div>
+                            <div>
+                              <div className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider mb-1">
+                                {key}
+                              </div>
+                              <div className="text-sm font-black text-slate-900 font-mono">
+                                {val}
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      }
+
+                      // General Specs card
+                      return (
+                        <div
+                          key={key}
+                          className="col-span-1 bg-slate-50 border border-slate-100 rounded-2xl p-4 flex flex-col justify-between min-h-[140px] shadow-sm hover:shadow-md transition-shadow"
+                        >
+                          <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-lg mb-2 text-slate-500">
+                            <Award className="h-4.5 w-4.5 text-slate-500" />
+                          </div>
+                          <div>
+                            <div
+                              className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider mb-1 truncate"
+                              title={key}
+                            >
+                              {key}
+                            </div>
+                            <div
+                              className="text-xs font-extrabold text-slate-800 line-clamp-2 leading-tight"
+                              title={val}
+                            >
+                              {val}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    }
+                  )}
                 </div>
               </div>
 
@@ -415,36 +421,38 @@ export default async function ProductDetailPage({ params }: Props) {
                 </Link>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {relatedProducts.map((p) => (
-                  <Link
-                    key={p.slug}
-                    href={`/products/${p.slug}`}
-                    className="group bg-gray-50/50 rounded-2xl p-4 border border-gray-100 hover:shadow-lg hover:bg-white transition-all duration-300 flex flex-col h-full"
-                  >
-                    <div
-                      className="relative h-32 rounded-xl overflow-hidden mb-4 border border-gray-200/50 shrink-0"
-                      style={{
-                        backgroundColor: p.backgroundColor || "#F2F3F4",
-                      }}
+                {relatedProducts.map(
+                  (p: Product): React.JSX.Element => (
+                    <Link
+                      key={p.slug}
+                      href={`/products/${p.slug}`}
+                      className="group bg-gray-50/50 rounded-2xl p-4 border border-gray-100 hover:shadow-lg hover:bg-white transition-all duration-300 flex flex-col h-full"
                     >
-                      <ViewTransition name={`product-image-${p.slug}`}>
-                        <SafeImage
-                          src={p.image}
-                          alt={p.name}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                          className="object-contain p-3 group-hover:scale-105 transition-transform duration-500"
-                        />
-                      </ViewTransition>
-                    </div>
-                    <div className="font-extrabold text-sm text-[#0B0F19] mb-1 line-clamp-2 leading-snug group-hover:text-[#FF6B35] transition-colors">
-                      {p.name}
-                    </div>
-                    <div className="text-[10px] text-[#FF6B35] font-mono font-bold mt-auto">
-                      {p.model}
-                    </div>
-                  </Link>
-                ))}
+                      <div
+                        className="relative h-32 rounded-xl overflow-hidden mb-4 border border-gray-200/50 shrink-0"
+                        style={{
+                          backgroundColor: p.backgroundColor || "#F2F3F4",
+                        }}
+                      >
+                        <ViewTransition name={`product-image-${p.slug}`}>
+                          <SafeImage
+                            src={p.image}
+                            alt={p.name}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                            className="object-contain p-3 group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </ViewTransition>
+                      </div>
+                      <div className="font-extrabold text-sm text-[#0B0F19] mb-1 line-clamp-2 leading-snug group-hover:text-[#FF6B35] transition-colors">
+                        {p.name}
+                      </div>
+                      <div className="text-[10px] text-[#FF6B35] font-mono font-bold mt-auto">
+                        {p.model}
+                      </div>
+                    </Link>
+                  )
+                )}
               </div>
             </div>
           )}

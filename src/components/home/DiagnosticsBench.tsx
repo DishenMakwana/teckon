@@ -59,7 +59,7 @@ const PRESETS: Preset[] = [
   },
 ];
 
-export default function DiagnosticsBench() {
+export default function DiagnosticsBench(): React.JSX.Element {
   const [activePreset, setActivePreset] = useState<string>("jcb-3dx-lift");
 
   // Custom state if Custom mode is selected
@@ -74,12 +74,14 @@ export default function DiagnosticsBench() {
   const [direction, setDirection] = useState<number>(1); // 1 = extending, -1 = retracting
   const [isSimulating, setIsSimulating] = useState<boolean>(false);
 
-  const isCustom = activePreset === "custom";
+  const isCustom: boolean = activePreset === "custom";
 
   // Active values based on selection
-  const values = useMemo(() => {
+  const values: Preset = useMemo((): Preset => {
     if (!isCustom) {
-      const preset = PRESETS.find((p) => p.id === activePreset);
+      const preset: Preset | undefined = PRESETS.find(
+        (p) => p.id === activePreset
+      );
       if (preset) return preset;
     }
     return {
@@ -105,31 +107,38 @@ export default function DiagnosticsBench() {
     customFlow,
   ]);
 
+  interface SimulationStats {
+    pushForceTons: number;
+    pullForceTons: number;
+    volumeLiters: number;
+    extendTimeSec: number;
+  }
+
   // Derived calculations
-  const stats = useMemo(() => {
-    const boreCm = values.bore / 10;
-    const rodCm = values.rod / 10;
-    const strokeCm = values.stroke / 10;
+  const stats: SimulationStats = useMemo((): SimulationStats => {
+    const boreCm: number = values.bore / 10;
+    const rodCm: number = values.rod / 10;
+    const strokeCm: number = values.stroke / 10;
 
     // Cylinder Area (Push) = pi * r^2
-    const areaPush = Math.PI * Math.pow(boreCm / 2, 2); // cm^2
+    const areaPush: number = Math.PI * Math.pow(boreCm / 2, 2); // cm^2
     // Rod Area = pi * r^2
-    const areaRod = Math.PI * Math.pow(rodCm / 2, 2); // cm^2
+    const areaRod: number = Math.PI * Math.pow(rodCm / 2, 2); // cm^2
     // Cylinder Area (Pull) = Area (Push) - Area (Rod)
-    const areaPull = areaPush - areaRod; // cm^2
+    const areaPull: number = areaPush - areaRod; // cm^2
 
     // Push/Pull Force (kg) = Pressure (bar) * Area (cm^2)
-    const pushForceKg = values.pressure * areaPush;
-    const pullForceKg = values.pressure * areaPull;
+    const pushForceKg: number = values.pressure * areaPush;
+    const pullForceKg: number = values.pressure * areaPull;
 
-    const pushForceTons = pushForceKg / 1000;
-    const pullForceTons = pullForceKg / 1000;
+    const pushForceTons: number = pushForceKg / 1000;
+    const pullForceTons: number = pullForceKg / 1000;
 
     // Stroke Volume (Liters) = Area * Stroke / 1000
-    const volumeLiters = (areaPush * strokeCm) / 1000;
+    const volumeLiters: number = (areaPush * strokeCm) / 1000;
 
     // Stroke time (sec) = Volume (Liters) / (Flow Rate (LPM) / 60)
-    const extendTimeSec = (60 * volumeLiters) / values.flow;
+    const extendTimeSec: number = (60 * volumeLiters) / values.flow;
 
     return {
       pushForceTons: parseFloat(pushForceTons.toFixed(2)),
@@ -144,16 +153,16 @@ export default function DiagnosticsBench() {
     if (!isSimulating) return;
 
     let animationFrameId: number;
-    let lastTime = performance.now();
-    const cycleTime = Math.max(0.3, stats.extendTimeSec); // protect against division by zero/extreme values
+    let lastTime: number = performance.now();
+    const cycleTime: number = Math.max(0.3, stats.extendTimeSec); // protect against division by zero/extreme values
 
-    const animate = (time: number) => {
-      const delta = (time - lastTime) / 1000; // delta in seconds
+    const animate = (time: number): void => {
+      const delta: number = (time - lastTime) / 1000; // delta in seconds
       lastTime = time;
 
       // Increase/decrease extension based on delta time divided by cycle duration
-      setExtension((prev) => {
-        let nextExtension = prev + (delta / cycleTime) * direction;
+      setExtension((prev: number): number => {
+        let nextExtension: number = prev + (delta / cycleTime) * direction;
 
         if (nextExtension >= 1) {
           nextExtension = 1;
@@ -173,10 +182,10 @@ export default function DiagnosticsBench() {
   }, [isSimulating, direction, stats.extendTimeSec]);
 
   // Handle Preset changes
-  const handlePresetSelect = (id: string) => {
+  const handlePresetSelect = (id: string): void => {
     setActivePreset(id);
     if (id !== "custom") {
-      const preset = PRESETS.find((p) => p.id === id);
+      const preset: Preset | undefined = PRESETS.find((p) => p.id === id);
       if (preset) {
         setCustomBore(preset.bore);
         setCustomRod(Math.min(preset.rod, preset.bore - 10));
@@ -188,47 +197,60 @@ export default function DiagnosticsBench() {
   };
 
   // Safe rod input handler (must be smaller than bore)
-  const handleBoreChange = (val: number) => {
+  const handleBoreChange = (val: number): void => {
     setCustomBore(val);
     if (customRod >= val) {
       setCustomRod(Math.max(20, val - 10));
     }
   };
 
-  const handleRodChange = (val: number) => {
+  const handleRodChange = (val: number): void => {
     setCustomRod(Math.min(val, customBore - 10));
   };
 
   // SVG Gauge calculations
-  const gaugeRotation = useMemo(() => {
-    const ratio = Math.min(Math.max(values.pressure / 400, 0), 1);
+  const gaugeRotation: number = useMemo((): number => {
+    const ratio: number = Math.min(Math.max(values.pressure / 400, 0), 1);
     return -97 + ratio * 194;
   }, [values.pressure]);
 
-  // SVG Cylinder Dimensions calculations
-  const cylinderDims = useMemo(() => {
-    // 1. Barrel Length (based on stroke 100 - 2000) mapped to 85px - 165px
-    const barrelWidth = 85 + (values.stroke - 100) * (80 / 1900);
-    // 2. Bore (based on bore 40 - 200) mapped to 20px - 56px
-    const barrelHeight = 20 + (values.bore - 40) * (36 / 160);
-    // 3. Rod (based on rod 20 - 190) mapped to 8px - 40px
-    const rawRodHeight = 8 + (values.rod - 20) * (32 / 170);
-    // Cap rod height to fit inside barrel height with margin
-    const rodHeight = Math.min(rawRodHeight, barrelHeight - 6);
+  interface CylinderDims {
+    barrelWidth: number;
+    barrelHeight: number;
+    rodHeight: number;
+    barrelX: number;
+    centerY: number;
+    pistonWidth: number;
+    endCapWidth: number;
+    pistonX: number;
+    rodTipX: number;
+    pistonRange: number;
+  }
 
-    const barrelX = 35;
-    const centerY = 65;
-    const pistonWidth = 10;
-    const endCapWidth = 6;
+  // SVG Cylinder Dimensions calculations
+  const cylinderDims: CylinderDims = useMemo((): CylinderDims => {
+    // 1. Barrel Length (based on stroke 100 - 2000) mapped to 85px - 165px
+    const barrelWidth: number = 85 + (values.stroke - 100) * (80 / 1900);
+    // 2. Bore (based on bore 40 - 200) mapped to 20px - 56px
+    const barrelHeight: number = 20 + (values.bore - 40) * (36 / 160);
+    // 3. Rod (based on rod 20 - 190) mapped to 8px - 40px
+    const rawRodHeight: number = 8 + (values.rod - 20) * (32 / 170);
+    // Cap rod height to fit inside barrel height with margin
+    const rodHeight: number = Math.min(rawRodHeight, barrelHeight - 6);
+
+    const barrelX: number = 35;
+    const centerY: number = 65;
+    const pistonWidth: number = 10;
+    const endCapWidth: number = 6;
 
     // Piston sliding bounds
-    const pistonMinX = barrelX + 2;
-    const pistonMaxX = barrelX + barrelWidth - pistonWidth - 2;
-    const pistonRange = pistonMaxX - pistonMinX;
-    const pistonX = pistonMinX + extension * pistonRange;
+    const pistonMinX: number = barrelX + 2;
+    const pistonMaxX: number = barrelX + barrelWidth - pistonWidth - 2;
+    const pistonRange: number = pistonMaxX - pistonMinX;
+    const pistonX: number = pistonMinX + extension * pistonRange;
 
     // Rod Tip X
-    const rodTipX =
+    const rodTipX: number =
       barrelX + barrelWidth + endCapWidth + extension * pistonRange;
 
     return {
@@ -246,7 +268,7 @@ export default function DiagnosticsBench() {
   }, [values.stroke, values.bore, values.rod, extension]);
 
   // Calculate percentage helper for custom slider fills
-  const getPercent = (val: number, min: number, max: number) => {
+  const getPercent = (val: number, min: number, max: number): number => {
     return ((val - min) / (max - min)) * 100;
   };
 

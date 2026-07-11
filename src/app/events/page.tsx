@@ -6,8 +6,8 @@ import { MapPin, CheckCircle2 } from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { EVENTS } from "@/lib/data";
 
-export default function EventsPage() {
-  const eventsListSchema = {
+export default function EventsPage(): React.JSX.Element {
+  const eventsListSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "ItemPage",
     name: "Events & Exhibitions | Teckon™ Quality Spares",
@@ -17,22 +17,24 @@ export default function EventsPage() {
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: EVENTS.length,
-      itemListElement: EVENTS.map((event, idx) => ({
-        "@type": "ListItem",
-        position: idx + 1,
-        item: {
-          "@type": "Event",
-          name: event.name,
-          startDate: `${event.year}-01-01`,
-          location: {
-            "@type": "Place",
-            name: event.location,
-            address: event.location,
+      itemListElement: EVENTS.map(
+        (event: (typeof EVENTS)[number], idx: number) => ({
+          "@type": "ListItem",
+          position: idx + 1,
+          item: {
+            "@type": "Event",
+            name: event.name,
+            startDate: `${event.year}-01-01`,
+            location: {
+              "@type": "Place",
+              name: event.location,
+              address: event.location,
+            },
+            image: event.image,
+            description: event.description,
           },
-          image: event.image,
-          description: event.description,
-        },
-      })),
+        })
+      ),
     },
   };
 
@@ -88,7 +90,7 @@ export default function EventsPage() {
             <div className="absolute left-4 md:left-1/2 -translate-x-0.5 top-2 bottom-2 w-0.5 bg-slate-200 pointer-events-none" />
 
             <div className="space-y-16">
-              {EVENTS.map((event, i) => (
+              {EVENTS.map((event: (typeof EVENTS)[number], i: number) => (
                 <motion.div
                   key={event.name}
                   initial={{ opacity: 0, y: 30 }}

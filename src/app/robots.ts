@@ -21,7 +21,7 @@ import { COMPANY } from "@/lib/data";
  * ═══════════════════════════════════════════════════════════════════════
  */
 export default function robots(): MetadataRoute.Robots {
-  const base = COMPANY.url;
+  const base: string = COMPANY.url;
 
   return {
     rules: [

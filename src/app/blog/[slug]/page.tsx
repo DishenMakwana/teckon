@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { ViewTransition } from "react";
 import SafeImage from "@/components/ui/SafeImage";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
-import { BLOG_POSTS, COMPANY } from "@/lib/data";
+import { BLOG_POSTS, COMPANY, BlogPost } from "@/lib/data";
 import { formatDate } from "@/lib/utils";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import {
@@ -32,14 +32,8 @@ interface Props {
  */
 function buildArticleSchema(
   slug: string,
-  post: {
-    title: string;
-    excerpt: string;
-    date: string;
-    image: string;
-    author: string;
-  }
-) {
+  post: BlogPost
+): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -75,8 +69,10 @@ function buildArticleSchema(
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const post = BLOG_POSTS.find((p) => p.slug === slug);
+  const { slug }: { slug: string } = await params;
+  const post: BlogPost | undefined = BLOG_POSTS.find(
+    (p: BlogPost): boolean => p.slug === slug
+  );
   if (!post) return { title: "Post Not Found" };
   return {
     alternates: { canonical: `/blog/${slug}` },
@@ -104,23 +100,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export const unstable_instant = false;
+export const unstable_instant: boolean = false;
 
-export async function generateStaticParams() {
-  return BLOG_POSTS.map((p) => ({ slug: p.slug }));
+export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
+  return BLOG_POSTS.map((p: BlogPost): { slug: string } => ({ slug: p.slug }));
 }
 
-export default async function BlogPostPage({ params }: Props) {
-  const { slug } = await params;
-  const post = BLOG_POSTS.find((p) => p.slug === slug);
+export default async function BlogPostPage({
+  params,
+}: Props): Promise<React.JSX.Element> {
+  const { slug }: { slug: string } = await params;
+  const post: BlogPost | undefined = BLOG_POSTS.find(
+    (p: BlogPost): boolean => p.slug === slug
+  );
   if (!post) notFound();
 
   // Related articles: up to 2 posts excluding the current one
-  const related = BLOG_POSTS.filter((p) => p.slug !== slug).slice(0, 2);
+  const related: BlogPost[] = BLOG_POSTS.filter(
+    (p: BlogPost): boolean => p.slug !== slug
+  ).slice(0, 2);
 
   // Article JSON-LD — included in server HTML so AI crawlers can extract
   // the headline, author, publish date, and image without running JavaScript.
-  const articleSchema = buildArticleSchema(slug, post);
+  const articleSchema: Record<string, unknown> = buildArticleSchema(slug, post);
 
   return (
     <ViewTransition name={`blog-detail-${slug}`}>
@@ -195,53 +197,55 @@ export default async function BlogPostPage({ params }: Props) {
 
               {/* Main formatted parser */}
               <div className="space-y-6 text-slate-600 font-medium leading-relaxed">
-                {post.content.split("\n").map((line, i) => {
-                  const trimmed = line.trim();
-                  if (!trimmed) return <div key={i} className="h-2" />;
+                {post.content
+                  .split("\n")
+                  .map((line: string, i: number): React.JSX.Element | null => {
+                    const trimmed: string = line.trim();
+                    if (!trimmed) return <div key={i} className="h-2" />;
 
-                  if (trimmed.startsWith("## ")) {
-                    return (
-                      <h2
-                        key={i}
-                        className="text-2xl font-black text-[#0B0F19] mt-8 mb-4 border-b border-slate-100 pb-2 uppercase font-mono tracking-wide"
-                      >
-                        {trimmed.slice(3)}
-                      </h2>
-                    );
-                  }
+                    if (trimmed.startsWith("## ")) {
+                      return (
+                        <h2
+                          key={i}
+                          className="text-2xl font-black text-[#0B0F19] mt-8 mb-4 border-b border-slate-100 pb-2 uppercase font-mono tracking-wide"
+                        >
+                          {trimmed.slice(3)}
+                        </h2>
+                      );
+                    }
 
-                  if (trimmed.startsWith("**") && trimmed.endsWith("**")) {
+                    if (trimmed.startsWith("**") && trimmed.endsWith("**")) {
+                      return (
+                        <p
+                          key={i}
+                          className="font-extrabold text-[#0B0F19] my-3 text-base"
+                        >
+                          {trimmed.slice(2, -2)}
+                        </p>
+                      );
+                    }
+
+                    if (trimmed.startsWith("- ")) {
+                      return (
+                        <li
+                          key={i}
+                          className="flex items-start gap-2 text-slate-600 text-sm ml-2"
+                        >
+                          <Zap className="w-3 h-3 text-[#FFBE00] mt-1 shrink-0 fill-[#FFBE00]" />
+                          <span className="flex-1">{trimmed.slice(2)}</span>
+                        </li>
+                      );
+                    }
+
                     return (
                       <p
                         key={i}
-                        className="font-extrabold text-[#0B0F19] my-3 text-base"
+                        className="text-slate-600 text-[15px] leading-relaxed"
                       >
-                        {trimmed.slice(2, -2)}
+                        {trimmed}
                       </p>
                     );
-                  }
-
-                  if (trimmed.startsWith("- ")) {
-                    return (
-                      <li
-                        key={i}
-                        className="flex items-start gap-2 text-slate-600 text-sm ml-2"
-                      >
-                        <Zap className="w-3 h-3 text-[#FFBE00] mt-1 shrink-0 fill-[#FFBE00]" />
-                        <span className="flex-1">{trimmed.slice(2)}</span>
-                      </li>
-                    );
-                  }
-
-                  return (
-                    <p
-                      key={i}
-                      className="text-slate-600 text-[15px] leading-relaxed"
-                    >
-                      {trimmed}
-                    </p>
-                  );
-                })}
+                  })}
               </div>
             </article>
 
@@ -324,33 +328,35 @@ export default async function BlogPostPage({ params }: Props) {
                 Related Articles
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {related.map((r) => (
-                  <Link
-                    key={r.slug}
-                    href={`/blog/${r.slug}`}
-                    className="group flex gap-4 bg-gray-50/50 rounded-2xl p-4 border border-gray-100 hover:bg-white hover:shadow-lg transition-all duration-300"
-                  >
-                    <div className="relative w-24 h-24 rounded-xl overflow-hidden shrink-0 bg-slate-100">
-                      <ViewTransition name={`blog-image-${r.slug}`}>
-                        <SafeImage
-                          src={r.image}
-                          alt={r.title}
-                          fill
-                          sizes="96px"
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                      </ViewTransition>
-                    </div>
-                    <div className="flex flex-col justify-center min-w-0">
-                      <span className="text-[10px] text-[#FF6B35] font-mono font-bold uppercase tracking-wider">
-                        {r.category}
-                      </span>
-                      <h3 className="font-extrabold text-[#0B0F19] text-sm leading-snug mt-1 group-hover:text-[#FF6B35] transition-colors line-clamp-2">
-                        {r.title}
-                      </h3>
-                    </div>
-                  </Link>
-                ))}
+                {related.map(
+                  (r: BlogPost): React.JSX.Element => (
+                    <Link
+                      key={r.slug}
+                      href={`/blog/${r.slug}`}
+                      className="group flex gap-4 bg-gray-50/50 rounded-2xl p-4 border border-gray-100 hover:bg-white hover:shadow-lg transition-all duration-300"
+                    >
+                      <div className="relative w-24 h-24 rounded-xl overflow-hidden shrink-0 bg-slate-100">
+                        <ViewTransition name={`blog-image-${r.slug}`}>
+                          <SafeImage
+                            src={r.image}
+                            alt={r.title}
+                            fill
+                            sizes="96px"
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </ViewTransition>
+                      </div>
+                      <div className="flex flex-col justify-center min-w-0">
+                        <span className="text-[10px] text-[#FF6B35] font-mono font-bold uppercase tracking-wider">
+                          {r.category}
+                        </span>
+                        <h3 className="font-extrabold text-[#0B0F19] text-sm leading-snug mt-1 group-hover:text-[#FF6B35] transition-colors line-clamp-2">
+                          {r.title}
+                        </h3>
+                      </div>
+                    </Link>
+                  )
+                )}
               </div>
             </div>
           )}

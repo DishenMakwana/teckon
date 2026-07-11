@@ -48,7 +48,7 @@ export default function BlogCard({
   post,
   clickedSlug,
   setClickedSlug,
-}: BlogCardProps) {
+}: BlogCardProps): React.JSX.Element {
   return (
     <motion.article
       layout

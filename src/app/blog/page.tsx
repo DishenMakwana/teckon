@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Suspense } from "react";
 
-export const unstable_instant = false;
+export const unstable_instant: boolean = false;
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
-import { BLOG_POSTS } from "@/lib/data";
+import { BLOG_POSTS, BlogPost } from "@/lib/data";
 import BlogList from "@/components/blog/BlogList";
 
 export const metadata: Metadata = {
@@ -26,22 +26,24 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function BlogPage() {
-  const blogListSchema = {
+export default function BlogPage(): React.JSX.Element {
+  const blogListSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Blog",
     name: "Blog & News | Teckon™ Quality Spares",
     description:
       "Technical guides, industry news, and company updates from Teckon™ — India's hydraulic parts specialists.",
     url: "https://teckon.vercel.app/blog",
-    blogPost: BLOG_POSTS.map((post) => ({
-      "@type": "BlogPosting",
-      headline: post.title,
-      description: post.excerpt,
-      datePublished: post.date,
-      url: `https://teckon.vercel.app/blog/${post.slug}`,
-      image: post.image,
-    })),
+    blogPost: BLOG_POSTS.map(
+      (post: BlogPost): Record<string, unknown> => ({
+        "@type": "BlogPosting",
+        headline: post.title,
+        description: post.excerpt,
+        datePublished: post.date,
+        url: `https://teckon.vercel.app/blog/${post.slug}`,
+        image: post.image,
+      })
+    ),
   };
 
   return (

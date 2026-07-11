@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from "react";
 
-export default function ScrollProgressBar() {
-  const [progress, setProgress] = useState(0);
+export default function ScrollProgressBar(): React.JSX.Element {
+  const [progress, setProgress] = useState<number>(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const docHeight = document.documentElement.scrollHeight;
-      const windowHeight = window.innerHeight;
-      const totalHeight = docHeight - windowHeight;
+  useEffect((): (() => void) => {
+    const handleScroll = (): void => {
+      const docHeight: number = document.documentElement.scrollHeight;
+      const windowHeight: number = window.innerHeight;
+      const totalHeight: number = docHeight - windowHeight;
       if (totalHeight > 0) {
         setProgress((window.scrollY / totalHeight) * 100);
       }
@@ -18,7 +18,7 @@ export default function ScrollProgressBar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Trigger once on mount
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return (): void => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (

@@ -9,18 +9,23 @@ interface CounterProps {
   duration?: number;
 }
 
-function Counter({ end, duration = 2000 }: CounterProps) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
+interface CounterProps {
+  end: number;
+  duration?: number;
+}
+
+function Counter({ end, duration = 2000 }: CounterProps): React.JSX.Element {
+  const [count, setCount] = useState<number>(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView: boolean = useInView(ref, { once: true, margin: "-50px" });
 
   useEffect(() => {
     if (!inView) return;
-    const startTime = Date.now();
-    const tick = () => {
-      const elapsed = Date.now() - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // Cubic ease out
+    const startTime: number = Date.now();
+    const tick = (): void => {
+      const elapsed: number = Date.now() - startTime;
+      const progress: number = Math.min(elapsed / duration, 1);
+      const eased: number = 1 - Math.pow(1 - progress, 3); // Cubic ease out
       setCount(Math.floor(eased * end));
       if (progress < 1) requestAnimationFrame(tick);
     };
@@ -30,7 +35,16 @@ function Counter({ end, duration = 2000 }: CounterProps) {
   return <span ref={ref}>{count.toLocaleString()}</span>;
 }
 
-const stats = [
+interface StatItem {
+  end: number;
+  suffix: string;
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+  tag: string;
+  description: string;
+}
+
+const stats: StatItem[] = [
   {
     end: 25,
     suffix: "+",
@@ -66,9 +80,12 @@ const stats = [
   },
 ];
 
-export default function StatsStrip() {
-  const containerRef = useRef(null);
-  const inView = useInView(containerRef, { once: true, margin: "-100px" });
+export default function StatsStrip(): React.JSX.Element {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const inView: boolean = useInView(containerRef, {
+    once: true,
+    margin: "-100px",
+  });
 
   return (
     <section
@@ -81,7 +98,7 @@ export default function StatsStrip() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {stats.map((stat, i) => {
+          {stats.map((stat: StatItem, i: number) => {
             const Icon = stat.icon;
             return (
               <motion.div

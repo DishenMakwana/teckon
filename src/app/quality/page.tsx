@@ -35,7 +35,14 @@ export const metadata: Metadata = {
   ],
 };
 
-const steps = [
+interface StepItem {
+  num: string;
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+}
+
+const steps: StepItem[] = [
   {
     num: "01",
     icon: DraftingCompass,
@@ -80,7 +87,13 @@ const steps = [
   },
 ];
 
-const certs = [
+interface CertItem {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  desc: string;
+}
+
+const certs: CertItem[] = [
   {
     icon: Award,
     title: "ISO 9001:2015 Certified",
@@ -103,8 +116,8 @@ const certs = [
   },
 ];
 
-export default function QualityPage() {
-  const qualitySchema = {
+export default function QualityPage(): React.JSX.Element {
+  const qualitySchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Quality & Manufacturing | Teckon™ Quality Spares",

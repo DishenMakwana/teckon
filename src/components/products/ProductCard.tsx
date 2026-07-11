@@ -63,7 +63,7 @@ export default function ProductCard({
   product,
   clickedSlug,
   setClickedSlug,
-}: ProductCardProps) {
+}: ProductCardProps): React.JSX.Element {
   return (
     <motion.div
       layout

@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function PrivacyPolicyPage() {
-  const privacySchema = {
+export default function PrivacyPolicyPage(): React.JSX.Element {
+  const privacySchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Privacy Policy | Teckon™ Quality Spares",

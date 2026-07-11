@@ -15,7 +15,7 @@ export default function ProductImageViewer({
   src,
   alt,
   backgroundColor = "#F2F3F4",
-}: ProductImageViewerProps) {
+}: ProductImageViewerProps): React.JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
   const [scale, setScale] = useState(1);
   const [dragKey, setDragKey] = useState(0); // Used to force reset drag position

@@ -28,7 +28,7 @@ const defaultProducts = categoriesList
   .map((cat) => PRODUCTS.find((p) => p.category === cat))
   .filter(Boolean) as typeof PRODUCTS;
 
-export default function ProductsCarousel() {
+export default function ProductsCarousel(): React.JSX.Element {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
   const [products, setProducts] = useState<typeof PRODUCTS>(defaultProducts);

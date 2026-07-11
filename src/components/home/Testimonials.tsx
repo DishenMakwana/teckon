@@ -8,7 +8,14 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const testimonials = [
+interface Testimonial {
+  name: string;
+  company: string;
+  quote: string;
+  rating: number;
+}
+
+const testimonials: Testimonial[] = [
   {
     name: "Rajesh Kumar",
     company: "Kumar Construction, Jaipur",
@@ -53,7 +60,7 @@ const testimonials = [
   },
 ];
 
-const gradients = [
+const gradients: string[] = [
   "from-[#FF6B35] to-[#FFBE00]",
   "from-[#1E293B] to-[#0B0F19]",
   "from-[#3B82F6] to-[#1D4ED8]",
@@ -62,7 +69,7 @@ const gradients = [
   "from-[#EC4899] to-[#BE185D]",
 ];
 
-export default function Testimonials() {
+export default function Testimonials(): React.JSX.Element {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 

@@ -22,7 +22,7 @@ interface BlogListProps {
   posts: BlogPost[];
 }
 
-function BlogListContent({ posts }: BlogListProps) {
+function BlogListContent({ posts }: BlogListProps): React.JSX.Element {
   const router = useRouter();
   const searchParams = useSearchParams();
   const categoryQuery = searchParams.get("category");
@@ -54,7 +54,7 @@ function BlogListContent({ posts }: BlogListProps) {
   }
 
   // Debounced URL updates for searchVal
-  const handleSearch = useDebouncedCallback((term: string) => {
+  const handleSearch = useDebouncedCallback((term: string): void => {
     const currentSearch = searchParams.get("search") || "";
     if (term !== currentSearch) {
       const params = new URLSearchParams(searchParams.toString());
@@ -67,7 +67,7 @@ function BlogListContent({ posts }: BlogListProps) {
     }
   }, 300);
 
-  const handleCategoryChange = (categoryId: string) => {
+  const handleCategoryChange = (categoryId: string): void => {
     setActiveCategory(categoryId);
     const params = new URLSearchParams(searchParams.toString());
     if (categoryId === "All") {
@@ -100,7 +100,7 @@ function BlogListContent({ posts }: BlogListProps) {
   });
 
   // Check scroll positions to show/hide indicator fades
-  const checkScroll = () => {
+  const checkScroll = (): void => {
     const el = scrollRef.current;
     if (el) {
       const { scrollLeft, scrollWidth, clientWidth } = el;

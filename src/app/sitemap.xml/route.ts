@@ -1,11 +1,21 @@
-import { COMPANY, PRODUCTS, BLOG_POSTS } from "@/lib/data";
+import { COMPANY, PRODUCTS, BLOG_POSTS, Product, BlogPost } from "@/lib/data";
 
-export async function GET() {
-  const { url: baseUrl } = COMPANY;
-  const buildTime = new Date().toISOString();
+interface StaticRoute {
+  route: string;
+  priority: string;
+  changefreq: string;
+  image?: {
+    loc: string;
+    title: string;
+  };
+}
+
+export async function GET(): Promise<Response> {
+  const { url: baseUrl }: { url: string } = COMPANY;
+  const buildTime: string = new Date().toISOString();
 
   // Define static routes with optional images
-  const staticRoutes = [
+  const staticRoutes: StaticRoute[] = [
     {
       route: "",
       priority: "1.0",
@@ -32,9 +42,9 @@ export async function GET() {
   ];
 
   // 1. Build Static Routes XML entries
-  const staticXml = staticRoutes
-    .map((item) => {
-      const imgXml = item.image
+  const staticXml: string = staticRoutes
+    .map((item: StaticRoute): string => {
+      const imgXml: string = item.image
         ? `\n    <image:image>
       <image:loc>${baseUrl}${item.image.loc}</image:loc>
       <image:title>${escapeXml(item.image.title)}</image:title>
@@ -50,8 +60,8 @@ export async function GET() {
     .join("\n");
 
   // 2. Build Product Routes XML entries (with image mapping)
-  const productXml = PRODUCTS.map((product) => {
-    const imgXml = product.image
+  const productXml: string = PRODUCTS.map((product: Product): string => {
+    const imgXml: string = product.image
       ? `\n    <image:image>
       <image:loc>${baseUrl}${product.image}</image:loc>
       <image:title>${escapeXml(product.name)} ${escapeXml(product.model)}</image:title>
@@ -66,8 +76,8 @@ export async function GET() {
   }).join("\n");
 
   // 3. Build Blog Routes XML entries (with image mapping)
-  const blogXml = BLOG_POSTS.map((post) => {
-    const imgXml = post.image
+  const blogXml: string = BLOG_POSTS.map((post: BlogPost): string => {
+    const imgXml: string = post.image
       ? `\n    <image:image>
       <image:loc>${baseUrl}${post.image}</image:loc>
       <image:title>${escapeXml(post.title)}</image:title>
@@ -82,7 +92,7 @@ export async function GET() {
   }).join("\n");
 
   // Combine into standard XML response with namespaces
-  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+  const sitemapXml: string = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${staticXml}
@@ -101,7 +111,7 @@ ${blogXml}
 
 // Helper to escape characters to prevent XML parsing issues
 function escapeXml(unsafe: string): string {
-  return unsafe.replace(/[<>&'"]/g, (c) => {
+  return unsafe.replace(/[<>&'"]/g, (c: string): string => {
     switch (c) {
       case "<":
         return "&lt;";
