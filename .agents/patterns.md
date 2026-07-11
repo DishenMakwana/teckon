@@ -140,3 +140,15 @@ Step 2 → npm run format  (runs: prettier --write "src/**/*.{ts,tsx}")
   npm run format
   ```
   This guarantees codebase consistency and verifies zero syntax/style regressions.
+
+---
+
+## 10. Strict TypeScript Type Safety & Cleanliness
+
+- **Rule:** Every variable, function argument, and function return type must be strictly and explicitly typed.
+- **Rules to observe:**
+  - Explicit return type annotation on all components (`: React.JSX.Element` or `: Promise<React.JSX.Element>`).
+  - Explicit return types on all functions and async methods (`: void`, `: Promise<void>`, etc.).
+  - Explicit parameter types on all callbacks, event handlers, and lambdas.
+  - Avoid `any` completely. Use specific types or `unknown` (e.g. `Record<string, unknown>`).
+  - No unused imports or variables. Always compile with `--noUnusedLocals --noUnusedParameters` to verify cleanliness.
