@@ -4,7 +4,13 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Factory, Map, BadgeCheck, Wrench } from "lucide-react";
 
-const usps = [
+interface Usp {
+  icon: React.ComponentType<{ size?: number; className?: string }>;
+  title: string;
+  description: string;
+}
+
+const usps: Usp[] = [
   {
     icon: Factory,
     title: "Advanced Manufacturing",
@@ -31,7 +37,7 @@ const usps = [
   },
 ];
 
-export default function WhyChooseUs() {
+export default function WhyChooseUs(): React.JSX.Element {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 

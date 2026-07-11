@@ -9,7 +9,10 @@ interface ErrorProps {
   reset: () => void;
 }
 
-export default function ErrorPage({ error, reset }: ErrorProps) {
+export default function ErrorPage({
+  error,
+  reset,
+}: ErrorProps): React.JSX.Element {
   useEffect(() => {
     // Log the error to an error reporting service if available
     console.error("Root layout error caught:", error);

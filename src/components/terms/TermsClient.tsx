@@ -89,7 +89,7 @@ const SECTIONS: Section[] = [
   },
 ];
 
-export default function TermsClient() {
+export default function TermsClient(): React.JSX.Element {
   const [activeSection, setActiveSection] = useState<string>("acceptance");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [copiedSection, setCopiedSection] = useState<string | null>(null);
@@ -105,7 +105,7 @@ export default function TermsClient() {
 
   // Set up Intersection Observer to track scroll position
   useEffect(() => {
-    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+    const handleIntersect = (entries: IntersectionObserverEntry[]): void => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id);
@@ -131,7 +131,7 @@ export default function TermsClient() {
     };
   }, [searchQuery]); // Re-observe when DOM elements filter/mount
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (id: string): void => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
@@ -139,14 +139,14 @@ export default function TermsClient() {
     }
   };
 
-  const copyLink = (id: string) => {
+  const copyLink = (id: string): void => {
     const url = `${window.location.origin}${window.location.pathname}#${id}`;
     navigator.clipboard.writeText(url);
     setCopiedSection(id);
     setTimeout(() => setCopiedSection(null), 2000);
   };
 
-  const handlePrint = () => {
+  const handlePrint = (): void => {
     window.print();
   };
 

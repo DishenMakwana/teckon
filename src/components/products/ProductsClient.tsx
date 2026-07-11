@@ -29,7 +29,7 @@ const categories = [
   { id: "general", label: "General Hydraulics" },
 ];
 
-function ProductsContent() {
+function ProductsContent(): React.JSX.Element {
   const {
     active,
     showMostUsed,
@@ -346,7 +346,7 @@ function ProductsContent() {
   );
 }
 
-export default function ProductsClient() {
+export default function ProductsClient(): React.JSX.Element {
   return (
     <Suspense
       fallback={

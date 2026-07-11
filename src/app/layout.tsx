@@ -126,7 +126,7 @@ export const metadata: Metadata = {
  * (Organization) and a physical business (LocalBusiness) eligible for
  * Knowledge Panel and Local Pack features.
  */
-const organizationSchema = {
+const organizationSchema: Record<string, unknown> = {
   "@context": "https://schema.org",
   "@type": ["Organization", "LocalBusiness"],
   name: COMPANY.name,
@@ -165,7 +165,7 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}) {
+}): React.JSX.Element {
   return (
     <html
       lang="en"

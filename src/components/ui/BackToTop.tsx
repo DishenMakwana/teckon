@@ -4,16 +4,17 @@ import { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function BackToTop() {
-  const [visible, setVisible] = useState(false);
+export default function BackToTop(): React.JSX.Element {
+  const [visible, setVisible] = useState<boolean>(false);
 
-  useEffect(() => {
-    const handleScroll = () => setVisible(window.scrollY > 300);
+  useEffect((): (() => void) => {
+    const handleScroll = (): void => setVisible(window.scrollY > 300);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return (): void => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const scrollToTop = (): void =>
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
     <AnimatePresence>

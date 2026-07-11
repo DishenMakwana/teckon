@@ -16,8 +16,8 @@ export default function SafeImage({
   loading,
   priority,
   ...props
-}: SafeImageProps) {
-  const [error, setError] = useState(false);
+}: SafeImageProps): React.JSX.Element {
+  const [error, setError] = useState<boolean>(false);
 
   // If the image fails to load, render a clean styled fallback container showing the description/name
   if (error || !src) {
@@ -32,7 +32,8 @@ export default function SafeImage({
   }
 
   // If priority is true, Next.js handles loading. Otherwise default to lazy.
-  const imageLoading = loading || (priority ? undefined : "lazy");
+  const imageLoading: ImageProps["loading"] =
+    loading || (priority ? undefined : "lazy");
 
   return (
     <Image
@@ -42,7 +43,7 @@ export default function SafeImage({
       style={style}
       loading={imageLoading}
       priority={priority}
-      onError={() => setError(true)}
+      onError={(): void => setError(true)}
       {...props}
     />
   );

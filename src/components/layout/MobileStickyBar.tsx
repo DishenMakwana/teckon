@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Phone, MessageCircle, Send } from "lucide-react";
 
-export default function MobileStickyBar() {
+export default function MobileStickyBar(): React.JSX.Element {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
       <div className="grid grid-cols-3 bg-[#111111] border-t border-[#FFBE00]/30 pb-safe">

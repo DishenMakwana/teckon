@@ -7,7 +7,7 @@ import SafeImage from "@/components/ui/SafeImage";
 import { BLOG_POSTS } from "@/lib/data";
 import { formatDate } from "@/lib/utils";
 
-export default function BlogSection() {
+export default function BlogSection(): React.JSX.Element {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [clickedSlug, setClickedSlug] = useState<string | null>(null);

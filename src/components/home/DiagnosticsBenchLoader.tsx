@@ -9,6 +9,6 @@ const DiagnosticsBench = dynamic(
   { ssr: false }
 );
 
-export default function DiagnosticsBenchLoader() {
+export default function DiagnosticsBenchLoader(): React.JSX.Element {
   return <DiagnosticsBench />;
 }

@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { COMPANY } from "@/lib/data";
 
-export default function HeroSection() {
+export default function HeroSection(): React.JSX.Element {
   return (
     <section
       id="hero"

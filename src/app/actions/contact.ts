@@ -25,35 +25,48 @@ function escapeHtml(str: string): string {
     .replace(/'/g, "&#x27;");
 }
 
-export async function sendInquiryAction(rawData: unknown) {
+export interface sendInquiryActionResponse {
+  success: boolean;
+  error?:
+    | "VALIDATION_ERROR"
+    | "CONFIGURATION_ERROR"
+    | "DELIVERY_ERROR"
+    | "SYSTEM_ERROR";
+  id?: string;
+}
+
+export async function sendInquiryAction(
+  rawData: unknown
+): Promise<sendInquiryActionResponse> {
   // Server-side validation — client-side form validation can be bypassed.
-  const parsed = ContactSchema.safeParse(rawData);
+  const parsed: ReturnType<typeof ContactSchema.safeParse> =
+    ContactSchema.safeParse(rawData);
   if (!parsed.success) {
     return { success: false, error: "VALIDATION_ERROR" };
   }
-  const data = parsed.data;
+  const data: z.infer<typeof ContactSchema> = parsed.data;
 
-  const apiKey = process.env.RESEND_API_KEY;
+  const apiKey: string | undefined = process.env.RESEND_API_KEY;
   if (!apiKey) {
     console.error("RESEND_API_KEY environment variable is not configured.");
     return { success: false, error: "CONFIGURATION_ERROR" };
   }
 
-  const resend = new Resend(apiKey);
+  const resend: Resend = new Resend(apiKey);
 
   // Clean phone number for WhatsApp link (e.g. "+91 94269 15578" → "919426915578")
-  const cleanPhoneForWhatsapp = data.phone.replace(/[^0-9]/g, "");
+  const cleanPhoneForWhatsapp: string = data.phone.replace(/[^0-9]/g, "");
 
   // Escape all user-supplied values before interpolation into HTML.
-  const safeName = escapeHtml(data.fullName);
-  const safeEmail = escapeHtml(data.email);
-  const safePhone = escapeHtml(data.phone);
-  const safeCity = escapeHtml(data.city);
-  const safeCountry = escapeHtml(data.country);
-  const safeSubject = escapeHtml(data.subject);
-  const safeMessage = escapeHtml(data.message);
+  const safeName: string = escapeHtml(data.fullName);
+  const safeEmail: string = escapeHtml(data.email);
+  const safePhone: string = escapeHtml(data.phone);
+  const safeCity: string = escapeHtml(data.city);
+  const safeCountry: string = escapeHtml(data.country);
+  const safeSubject: string = escapeHtml(data.subject);
+  const safeMessage: string = escapeHtml(data.message);
 
-  const location =
+  const location: string =
     [safeCity, safeCountry].filter(Boolean).join(", ") || "Not Specified";
 
   const htmlContent = `
@@ -259,10 +272,11 @@ export async function sendInquiryAction(rawData: unknown) {
   `;
 
   try {
-    const fromEmail =
+    const fromEmail: string =
       process.env.RESEND_FROM_EMAIL ||
       "Teckon Inquiries <onboarding@resend.dev>";
-    const toEmail = process.env.RESEND_TO_EMAIL || "dishenmakwana.dm@gmail.com";
+    const toEmail: string =
+      process.env.RESEND_TO_EMAIL || "dishenmakwana.dm@gmail.com";
 
     const { data: resData, error } = await resend.emails.send({
       from: fromEmail,
@@ -277,8 +291,8 @@ export async function sendInquiryAction(rawData: unknown) {
       return { success: false, error: "DELIVERY_ERROR" };
     }
 
-    return { success: true, id: resData?.id };
-  } catch (err) {
+    return { success: true, id: resData?.id as string | undefined };
+  } catch (err: unknown) {
     console.error("Server Action Exception:", err);
     return { success: false, error: "SYSTEM_ERROR" };
   }

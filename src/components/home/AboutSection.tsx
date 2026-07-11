@@ -6,11 +6,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { Factory, Globe, BadgeCheck, Wrench } from "lucide-react";
 
-export default function AboutSection() {
+interface Feature {
+  icon: React.ComponentType<{ className?: string; size?: number }>;
+  label: string;
+}
+
+export default function AboutSection(): React.JSX.Element {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
-  const features = [
+  const features: Feature[] = [
     { icon: Factory, label: "Advanced Manufacturing" },
     { icon: Globe, label: "Pan-India Reach" },
     { icon: BadgeCheck, label: "ISO 9001:2015 Certified" },

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Phone, MessageCircle, Send } from "lucide-react";
 
-export default function QuickAccessRail() {
+export default function QuickAccessRail(): React.JSX.Element {
   return (
     <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-1">
       <a

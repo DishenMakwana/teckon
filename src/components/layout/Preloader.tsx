@@ -6,34 +6,35 @@ import { AnimatePresence, motion } from "framer-motion";
 const LOGO_TEXT = "TECKON";
 const LETTERS = LOGO_TEXT.split("");
 
-export default function Preloader() {
-  const [visible, setVisible] = useState(true);
-  const [progress, setProgress] = useState(0);
+export default function Preloader(): React.JSX.Element {
+  const [visible, setVisible] = useState<boolean>(true);
+  const [progress, setProgress] = useState<number>(0);
 
-  useEffect(() => {
+  useEffect((): (() => void) => {
     document.documentElement.classList.add("preloader-active");
     document.body.style.overflow = "hidden";
 
-    const start = performance.now();
-    const duration = 1000;
+    const start: number = performance.now();
+    const duration: number = 1000;
 
-    const tick = () => {
-      const elapsed = performance.now() - start;
-      const eased = 1 - Math.pow(1 - Math.min(elapsed / duration, 1), 3);
+    const tick = (): void => {
+      const elapsed: number = performance.now() - start;
+      const eased: number =
+        1 - Math.pow(1 - Math.min(elapsed / duration, 1), 3);
       setProgress(Math.round(eased * 100));
     };
 
-    const frame = window.setInterval(tick, 16);
-    const timer = window.setTimeout(() => {
+    const frame: number = window.setInterval(tick, 16);
+    const timer: number = window.setTimeout((): void => {
       setProgress(100);
-      window.setTimeout(() => {
+      window.setTimeout((): void => {
         setVisible(false);
         document.body.style.overflow = "";
         document.documentElement.classList.remove("preloader-active");
       }, 350);
     }, duration);
 
-    return () => {
+    return (): void => {
       document.body.style.overflow = "";
       document.documentElement.classList.remove("preloader-active");
       window.clearTimeout(timer);
@@ -91,20 +92,22 @@ export default function Preloader() {
             className="absolute left-1/2 top-1/2 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FF6B35]/10 blur-[140px]"
           />
 
-          {[0, 1, 2].map((i) => (
-            <motion.div
-              key={i}
-              initial={{ scale: 0.65, opacity: 0.4 }}
-              animate={{ scale: 2.2, opacity: 0 }}
-              transition={{
-                duration: 2.4,
-                repeat: Infinity,
-                delay: i * 0.8,
-                ease: "easeOut",
-              }}
-              className="absolute h-28 w-28 rounded-full border border-white/20"
-            />
-          ))}
+          {[0, 1, 2].map(
+            (i: number): React.JSX.Element => (
+              <motion.div
+                key={i}
+                initial={{ scale: 0.65, opacity: 0.4 }}
+                animate={{ scale: 2.2, opacity: 0 }}
+                transition={{
+                  duration: 2.4,
+                  repeat: Infinity,
+                  delay: i * 0.8,
+                  ease: "easeOut",
+                }}
+                className="absolute h-28 w-28 rounded-full border border-white/20"
+              />
+            )
+          )}
 
           <div className="relative z-10 flex flex-col items-center px-6 text-center">
             <motion.div
@@ -121,22 +124,24 @@ export default function Preloader() {
               />
               <div className="relative flex items-center gap-2 sm:gap-3">
                 <div className="flex items-center rounded-2xl border border-[#FFBE00]/40 bg-[#FFBE00] px-4 py-2.5 text-2xl font-black tracking-[0.25em] text-[#0B0F19] shadow-[0_0_24px_rgba(255,190,0,0.16)] sm:text-3xl">
-                  {LETTERS.map((letter, index) => (
-                    <motion.span
-                      key={index}
-                      initial={{ y: 24, opacity: 0, rotateX: -90 }}
-                      animate={{ y: 0, opacity: 1, rotateX: 0 }}
-                      transition={{
-                        duration: 0.45,
-                        delay: 0.15 + index * 0.07,
-                        ease: [0.22, 1, 0.36, 1],
-                      }}
-                      className="inline-block"
-                      style={{ transformOrigin: "bottom center" }}
-                    >
-                      {letter}
-                    </motion.span>
-                  ))}
+                  {LETTERS.map(
+                    (letter: string, index: number): React.JSX.Element => (
+                      <motion.span
+                        key={index}
+                        initial={{ y: 24, opacity: 0, rotateX: -90 }}
+                        animate={{ y: 0, opacity: 1, rotateX: 0 }}
+                        transition={{
+                          duration: 0.45,
+                          delay: 0.15 + index * 0.07,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                        className="inline-block"
+                        style={{ transformOrigin: "bottom center" }}
+                      >
+                        {letter}
+                      </motion.span>
+                    )
+                  )}
                   <motion.span
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}

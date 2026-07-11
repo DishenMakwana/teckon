@@ -83,7 +83,7 @@ const BADGE_BG_CLASSES: Record<string, string> = {
 };
 
 /* ── Component ──────────────────────────────────────────────────────── */
-export default function IndiaMapChart() {
+export default function IndiaMapChart(): React.JSX.Element {
   const [hovered, setHovered] = useState<string | null>(null);
   const [selected, setSelected] = useState<string | null>("gj");
 

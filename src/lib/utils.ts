@@ -7,7 +7,7 @@
  */
 export function formatDate(dateStr: string): string {
   if (!dateStr) return "";
-  const date = new Date(dateStr);
+  const date: Date = new Date(dateStr);
   if (isNaN(date.getTime())) return dateStr;
   return new Intl.DateTimeFormat("en-IN", {
     day: "numeric",
@@ -46,7 +46,7 @@ export function buildDisplaySpecs(
   // Step 3 — consolidate material entries to avoid duplication
   if (material) {
     for (const key of Object.keys(result)) {
-      const lower = key.toLowerCase();
+      const lower: string = key.toLowerCase();
       if (lower === "material" || lower === "base material") {
         delete result[key];
       }

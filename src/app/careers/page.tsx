@@ -21,7 +21,13 @@ export const metadata: Metadata = {
   ],
 };
 
-const cultureValues = [
+interface CultureValue {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  desc: string;
+}
+
+const cultureValues: CultureValue[] = [
   {
     icon: Rocket,
     title: "Growth Mindset",
@@ -39,8 +45,8 @@ const cultureValues = [
   },
 ];
 
-export default function CareersPage() {
-  const careersSchema = {
+export default function CareersPage(): React.JSX.Element {
+  const careersSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Careers | Teckon™ Quality Spares",

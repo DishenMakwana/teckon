@@ -2,16 +2,16 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Home, Wrench, Phone } from "lucide-react";
 
-export default function NotFound() {
+export default function NotFound(): React.JSX.Element {
   useEffect(() => {
     document.title = "404 — Page Not Found | Teckon™ Quality Spares";
   }, []);
 
   // Stagger animation container
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -21,7 +21,7 @@ export default function NotFound() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 15 },
     visible: {
       opacity: 1,
@@ -34,7 +34,7 @@ export default function NotFound() {
     },
   };
 
-  const blockVariants = {
+  const blockVariants: Variants = {
     hidden: { opacity: 0, scale: 0.8, rotate: -5 },
     visible: {
       opacity: 1,

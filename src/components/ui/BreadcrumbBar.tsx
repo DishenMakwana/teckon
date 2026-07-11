@@ -12,7 +12,9 @@ interface BreadcrumbBarProps {
   items: BreadcrumbItem[];
 }
 
-export default function BreadcrumbBar({ items }: BreadcrumbBarProps) {
+export default function BreadcrumbBar({
+  items,
+}: BreadcrumbBarProps): React.JSX.Element {
   return (
     <nav
       className="flex flex-wrap items-center gap-2 text-sm"
@@ -25,21 +27,23 @@ export default function BreadcrumbBar({ items }: BreadcrumbBarProps) {
         <Home size={14} />
         <span>Home</span>
       </Link>
-      {items.map((item, index) => (
-        <div key={index} className="flex items-center gap-2">
-          <ChevronRight size={14} className="text-white/40" />
-          {item.href && index < items.length - 1 ? (
-            <Link
-              href={item.href}
-              className="text-white/70 hover:text-[#FFBE00] transition-colors"
-            >
-              {item.label}
-            </Link>
-          ) : (
-            <span className="text-[#FFBE00] font-semibold">{item.label}</span>
-          )}
-        </div>
-      ))}
+      {items.map(
+        (item: BreadcrumbItem, index: number): React.JSX.Element => (
+          <div key={index} className="flex items-center gap-2">
+            <ChevronRight size={14} className="text-white/40" />
+            {item.href && index < items.length - 1 ? (
+              <Link
+                href={item.href}
+                className="text-white/70 hover:text-[#FFBE00] transition-colors"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <span className="text-[#FFBE00] font-semibold">{item.label}</span>
+            )}
+          </div>
+        )
+      )}
     </nav>
   );
 }

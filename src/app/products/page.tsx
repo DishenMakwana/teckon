@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import ProductsClient from "@/components/products/ProductsClient";
-import { PRODUCTS } from "@/lib/data";
+import { PRODUCTS, Product } from "@/lib/data";
 
-export const unstable_instant = false;
+export const unstable_instant: boolean = false;
 
 export const metadata: Metadata = {
   alternates: { canonical: "/products" },
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function ProductsPage() {
-  const productsListSchema = {
+export default function ProductsPage(): React.JSX.Element {
+  const productsListSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Genuine Hydraulic Spares Catalog | Teckon™ Quality Spares",
@@ -40,12 +40,14 @@ export default function ProductsPage() {
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: PRODUCTS.length,
-      itemListElement: PRODUCTS.map((p, idx) => ({
-        "@type": "ListItem",
-        position: idx + 1,
-        url: `https://teckon.vercel.app/products/${p.slug}`,
-        name: p.name,
-      })),
+      itemListElement: PRODUCTS.map(
+        (p: Product, idx: number): Record<string, unknown> => ({
+          "@type": "ListItem",
+          position: idx + 1,
+          url: `https://teckon.vercel.app/products/${p.slug}`,
+          name: p.name,
+        })
+      ),
     },
   };
 

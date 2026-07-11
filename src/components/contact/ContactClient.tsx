@@ -37,13 +37,13 @@ const DAYS_OF_WEEK = [
   { name: "Saturday", hours: "9:30 am – 7:30 pm", index: 6 },
 ];
 
-const getISTTime = () => {
+const getISTTime = (): Date => {
   const now = new Date();
   const utc = now.getTime() + now.getTimezoneOffset() * 60000;
   return new Date(utc + 5.5 * 3600000);
 };
 
-const checkIfOpen = (date: Date) => {
+const checkIfOpen = (date: Date): boolean => {
   const day = date.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
   const hours = date.getHours();
   const minutes = date.getMinutes();
@@ -68,7 +68,7 @@ const checkIfOpen = (date: Date) => {
   return currentMin >= 570 && currentMin <= 1170;
 };
 
-export default function ContactClient() {
+export default function ContactClient(): React.JSX.Element {
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [currentTime, setCurrentTime] = useState<Date | null>(null);

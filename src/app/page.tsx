@@ -32,7 +32,13 @@ const BlogSection = dynamic(() => import("@/components/home/BlogSection"), {
   ssr: true,
 });
 
-const industries = [
+interface Industry {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+}
+
+const industries: Industry[] = [
   {
     icon: HardHat,
     title: "Construction & Earthmoving",
@@ -53,8 +59,8 @@ const industries = [
   },
 ];
 
-export default function HomePage() {
-  const jsonLd = {
+export default function HomePage(): React.JSX.Element {
+  const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Teckon Quality Spares",
