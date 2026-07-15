@@ -2,9 +2,11 @@ import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { HardHat, Layers, Route, Phone } from "lucide-react";
+import { Industry } from "@/types/industry";
 
 import HeroSection from "@/components/home/HeroSection";
 import StatsStrip from "@/components/home/StatsStrip";
+import DiagnosticsBenchLoader from "@/components/home/DiagnosticsBenchLoader";
 
 const ProductsCarousel = dynamic(
   () => import("@/components/home/ProductsCarousel"),
@@ -16,7 +18,6 @@ const AboutSection = dynamic(() => import("@/components/home/AboutSection"), {
 const WhyChooseUs = dynamic(() => import("@/components/home/WhyChooseUs"), {
   ssr: true,
 });
-import DiagnosticsBenchLoader from "@/components/home/DiagnosticsBenchLoader";
 const PartnersMarquee = dynamic(
   () => import("@/components/home/PartnersMarquee"),
   { ssr: true }
@@ -31,12 +32,6 @@ const Testimonials = dynamic(() => import("@/components/home/Testimonials"), {
 const BlogSection = dynamic(() => import("@/components/home/BlogSection"), {
   ssr: true,
 });
-
-interface Industry {
-  icon: React.ComponentType<{ className?: string }>;
-  title: string;
-  description: string;
-}
 
 const industries: Industry[] = [
   {

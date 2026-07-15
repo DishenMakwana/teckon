@@ -3,16 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Award, Map, Boxes, ShieldCheck } from "lucide-react";
-
-interface CounterProps {
-  end: number;
-  duration?: number;
-}
-
-interface CounterProps {
-  end: number;
-  duration?: number;
-}
+import { CounterProps, StatItem } from "@/types/home";
 
 function Counter({ end, duration = 2000 }: CounterProps): React.JSX.Element {
   const [count, setCount] = useState<number>(0);
@@ -33,15 +24,6 @@ function Counter({ end, duration = 2000 }: CounterProps): React.JSX.Element {
   }, [inView, end, duration]);
 
   return <span ref={ref}>{count.toLocaleString()}</span>;
-}
-
-interface StatItem {
-  end: number;
-  suffix: string;
-  label: string;
-  icon: React.ComponentType<{ className?: string }>;
-  tag: string;
-  description: string;
 }
 
 const stats: StatItem[] = [

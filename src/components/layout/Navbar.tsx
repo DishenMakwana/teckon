@@ -21,13 +21,7 @@ import {
   Mail,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-interface ProductCategory {
-  name: string;
-  href: string;
-  desc: string;
-  icon: React.ComponentType<{ className?: string; size?: number }>;
-}
+import { ProductCategory, NavLink } from "@/types/navbar";
 
 const productCategories: ProductCategory[] = [
   {
@@ -85,12 +79,6 @@ const productCategories: ProductCategory[] = [
     icon: Layers,
   },
 ];
-
-interface NavLink {
-  name: string;
-  href: string;
-  dropdown?: ProductCategory[];
-}
 
 const navLinks: NavLink[] = [
   { name: "Home", href: "/" },

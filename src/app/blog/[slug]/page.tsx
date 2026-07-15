@@ -5,7 +5,9 @@ import { notFound } from "next/navigation";
 import { ViewTransition } from "react";
 import SafeImage from "@/components/ui/SafeImage";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
-import { BLOG_POSTS, COMPANY, BlogPost } from "@/lib/data";
+import { BLOG_POSTS, COMPANY } from "@/lib/data";
+import { BlogPost } from "@/types/blog";
+import { SlugPageProps } from "@/types/page";
 import { formatDate } from "@/lib/utils";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import {
@@ -18,10 +20,6 @@ import {
   Zap,
   Factory,
 } from "lucide-react";
-
-interface Props {
-  params: Promise<{ slug: string }>;
-}
 
 /**
  * Builds BlogPosting JSON-LD structured data for a blog post page.
@@ -68,12 +66,16 @@ function buildArticleSchema(
   };
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: SlugPageProps): Promise<Metadata> {
   const { slug }: { slug: string } = await params;
   const post: BlogPost | undefined = BLOG_POSTS.find(
     (p: BlogPost): boolean => p.slug === slug
   );
+
   if (!post) return { title: "Post Not Found" };
+
   return {
     alternates: { canonical: `/blog/${slug}` },
     title: `${post.title} | Teckon™ Blog`,
@@ -108,7 +110,7 @@ export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
 
 export default async function BlogPostPage({
   params,
-}: Props): Promise<React.JSX.Element> {
+}: SlugPageProps): Promise<React.JSX.Element> {
   const { slug }: { slug: string } = await params;
   const post: BlogPost | undefined = BLOG_POSTS.find(
     (p: BlogPost): boolean => p.slug === slug

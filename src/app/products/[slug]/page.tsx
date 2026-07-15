@@ -5,7 +5,8 @@ import SafeImage from "@/components/ui/SafeImage";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
-import { PRODUCTS, COMPANY, Product } from "@/lib/data";
+import { PRODUCTS, COMPANY } from "@/lib/data";
+import { Product, Props } from "@/types/product";
 import { buildDisplaySpecs } from "@/lib/utils";
 import ProductImageViewer from "@/components/products/ProductImageViewer";
 import ProductB2BPanel from "@/components/products/ProductB2BPanel";
@@ -18,10 +19,6 @@ import {
   Wrench,
   Scale,
 } from "lucide-react";
-
-interface Props {
-  params: Promise<{ slug: string }>;
-}
 
 /**
  * Builds Product JSON-LD structured data for a product detail page.

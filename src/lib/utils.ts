@@ -1,3 +1,5 @@
+import { ProductSpecsInput } from "@/types/product";
+
 /**
  * Formats an ISO date string (YYYY-MM-DD) into a human-readable date
  * using the Indian locale (e.g. "15 March 2025").
@@ -27,7 +29,7 @@ export function formatDate(dateStr: string): string {
  *     This prevents duplicate material rows in the spec grid.
  */
 export function buildDisplaySpecs(
-  specs: Record<string, string | undefined>,
+  specs: ProductSpecsInput,
   weight?: string,
   material?: string
 ): Record<string, string> {

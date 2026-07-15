@@ -2,6 +2,10 @@
 
 import { Resend } from "resend";
 import { z } from "zod";
+import {
+  SendInquiryActionResponse,
+  ContactInquiryData,
+} from "@/types/form-submission";
 
 // ── Validation schema ───────────────────────────────────────────────────────
 const ContactSchema = z.object({
@@ -25,26 +29,16 @@ function escapeHtml(str: string): string {
     .replace(/'/g, "&#x27;");
 }
 
-export interface sendInquiryActionResponse {
-  success: boolean;
-  error?:
-    | "VALIDATION_ERROR"
-    | "CONFIGURATION_ERROR"
-    | "DELIVERY_ERROR"
-    | "SYSTEM_ERROR";
-  id?: string;
-}
-
 export async function sendInquiryAction(
   rawData: unknown
-): Promise<sendInquiryActionResponse> {
+): Promise<SendInquiryActionResponse> {
   // Server-side validation — client-side form validation can be bypassed.
   const parsed: ReturnType<typeof ContactSchema.safeParse> =
     ContactSchema.safeParse(rawData);
   if (!parsed.success) {
     return { success: false, error: "VALIDATION_ERROR" };
   }
-  const data: z.infer<typeof ContactSchema> = parsed.data;
+  const data: ContactInquiryData = parsed.data;
 
   const apiKey: string | undefined = process.env.RESEND_API_KEY;
   if (!apiKey) {

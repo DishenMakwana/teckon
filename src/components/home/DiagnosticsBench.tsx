@@ -2,22 +2,9 @@
 import { useState, useMemo, useEffect } from "react";
 import { Activity, Cpu, Wrench, Play, Square } from "lucide-react";
 import { motion } from "framer-motion";
+import { DiagnosticsPreset } from "@/types/home";
 
-interface Preset {
-  id: string;
-  name: string;
-  machine: string;
-  bore: number; // mm
-  rod: number; // mm
-  stroke: number; // mm
-  pressure: number; // bar
-  flow: number; // LPM
-  partName: string;
-  partRef: string;
-  partSlug: string;
-}
-
-const PRESETS: Preset[] = [
+const PRESETS: DiagnosticsPreset[] = [
   {
     id: "jcb-3dx-lift",
     name: "JCB 3DX Boom Lift Cylinder",
@@ -77,9 +64,9 @@ export default function DiagnosticsBench(): React.JSX.Element {
   const isCustom: boolean = activePreset === "custom";
 
   // Active values based on selection
-  const values: Preset = useMemo((): Preset => {
+  const values: DiagnosticsPreset = useMemo((): DiagnosticsPreset => {
     if (!isCustom) {
-      const preset: Preset | undefined = PRESETS.find(
+      const preset: DiagnosticsPreset | undefined = PRESETS.find(
         (p) => p.id === activePreset
       );
       if (preset) return preset;
@@ -185,7 +172,7 @@ export default function DiagnosticsBench(): React.JSX.Element {
   const handlePresetSelect = (id: string): void => {
     setActivePreset(id);
     if (id !== "custom") {
-      const preset: Preset | undefined = PRESETS.find((p) => p.id === id);
+      const preset: DiagnosticsPreset | undefined = PRESETS.find((p) => p.id === id);
       if (preset) {
         setCustomBore(preset.bore);
         setCustomRod(Math.min(preset.rod, preset.bore - 10));

@@ -3,22 +3,7 @@
 import { useState } from "react";
 import { Check, Truck, Send, Info, Briefcase } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-interface ProductB2BPanelProps {
-  product: {
-    slug: string;
-    name: string;
-    model: string;
-    ref: string;
-    category: string;
-    specs: Record<string, string | undefined>;
-    weight?: string;
-    material?: string;
-    isoCertified?: boolean;
-    crossReferences?: string[];
-    stockStatus?: string;
-  };
-}
+import { ProductB2BPanelProps } from "@/types/product-components";
 
 export default function ProductB2BPanel({
   product,

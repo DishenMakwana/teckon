@@ -4,12 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn, ZoomOut, RotateCcw, Maximize2 } from "lucide-react";
 import SafeImage from "@/components/ui/SafeImage";
-
-interface ProductImageViewerProps {
-  src: string;
-  alt: string;
-  backgroundColor?: string;
-}
+import { ProductImageViewerProps } from "@/types/product-components";
 
 export default function ProductImageViewer({
   src,

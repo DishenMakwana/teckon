@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { Rocket, Users, Trophy, Mail } from "lucide-react";
+import { CultureValue } from "@/types/careers";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/careers" },
@@ -20,12 +21,6 @@ export const metadata: Metadata = {
     "machinery parts manufacturing company career opportunities",
   ],
 };
-
-interface CultureValue {
-  icon: React.ComponentType<{ className?: string }>;
-  title: string;
-  desc: string;
-}
 
 const cultureValues: CultureValue[] = [
   {

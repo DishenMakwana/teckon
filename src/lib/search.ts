@@ -1,4 +1,10 @@
-import { Product } from "./data";
+import { Product } from "@/types/product";
+import {
+  TermMatchResult,
+  FieldWeights,
+  ScoredProductItem,
+  ProductFields,
+} from "@/types/product-search";
 
 // Helper to compute Levenshtein distance between two strings
 function getLevenshteinDistance(a: string, b: string): number {
@@ -41,11 +47,6 @@ function tokenize(text: string): string[] {
     .filter(Boolean);
 }
 
-interface TermMatchResult {
-  score: number;
-  matched: boolean;
-}
-
 // Score a single query term against a target word
 function scoreTermAgainstWord(term: string, word: string): TermMatchResult {
   if (term === word) {
@@ -72,17 +73,6 @@ function scoreTermAgainstWord(term: string, word: string): TermMatchResult {
   return { score: 0, matched: false };
 }
 
-interface FieldWeights {
-  name: number;
-  model: number;
-  ref: number;
-  crossReferences: number;
-  categoryLabel: number;
-  category: number;
-  specs: number;
-  description: number;
-}
-
 const FIELD_WEIGHTS: FieldWeights = {
   name: 10,
   model: 8,
@@ -93,23 +83,6 @@ const FIELD_WEIGHTS: FieldWeights = {
   specs: 3,
   description: 1,
 };
-
-interface ScoredProductItem {
-  product: Product;
-  matchedTermsCount: number;
-  totalScore: number;
-}
-
-interface ProductFields {
-  name: string[];
-  model: string[];
-  ref: string[];
-  crossReferences: string[];
-  categoryLabel: string[];
-  category: string[];
-  specs: string[];
-  description: string[];
-}
 
 /**
  * Searches and ranks products based on relevance to query.

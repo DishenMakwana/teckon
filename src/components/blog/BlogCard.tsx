@@ -5,13 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import SafeImage from "@/components/ui/SafeImage";
 import { formatDate } from "@/lib/utils";
-import { BlogPost } from "@/lib/data";
-
-interface BlogCardProps {
-  post: BlogPost;
-  clickedSlug: string | null;
-  setClickedSlug: (slug: string | null) => void;
-}
+import { BlogCardProps } from "@/types/blog";
 
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.9, y: 20 },
