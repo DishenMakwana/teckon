@@ -14,6 +14,7 @@ import {
   Activity,
 } from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
+import { StepItem, CertItem } from "@/types/quality";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/quality" },
@@ -34,13 +35,6 @@ export const metadata: Metadata = {
     "ISO certified manufacturing standards for JCB spares",
   ],
 };
-
-interface StepItem {
-  num: string;
-  icon: React.ComponentType<{ className?: string }>;
-  title: string;
-  description: string;
-}
 
 const steps: StepItem[] = [
   {
@@ -86,12 +80,6 @@ const steps: StepItem[] = [
       "Hydraulic pressure and performance testing on certified test benches. Only parts that pass all tests receive the Teckon™ quality approval.",
   },
 ];
-
-interface CertItem {
-  icon: React.ComponentType<{ className?: string }>;
-  title: string;
-  desc: string;
-}
 
 const certs: CertItem[] = [
   {
@@ -159,32 +147,6 @@ export default function QualityPage(): React.JSX.Element {
           </p>
         </div>
       </section>
-
-      {/* Manufacturing Image */}
-      {/* <section id="assurance" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative h-80 rounded-2xl overflow-hidden shadow-2xl">
-            <Image
-              src="/images/quality-manufacturing.webp"
-              alt="Teckon quality control laboratory"
-              fill
-              sizes="(max-width: 1280px) 100vw, 1280px"
-              className="object-cover"
-              loading="eager"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F19]/70 to-transparent flex items-center">
-              <div className="p-8">
-                <div className="text-[#FFBE00] font-bold text-sm uppercase tracking-widest mb-2">
-                  ISO 9001:2015
-                </div>
-                <div className="text-white text-3xl font-black">
-                  World-Class Quality Control
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Manufacturing Process */}
       <section id="process" className="py-20 bg-gray-50">

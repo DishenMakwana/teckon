@@ -15,13 +15,7 @@ import {
   Shield,
 } from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
-
-interface Section {
-  id: string;
-  title: string;
-  tldr: string;
-  content: string;
-}
+import { Section } from "@/types/legal";
 
 const SECTIONS: Section[] = [
   {

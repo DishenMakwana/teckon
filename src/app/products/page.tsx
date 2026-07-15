@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import ProductsClient from "@/components/products/ProductsClient";
-import { PRODUCTS, Product } from "@/lib/data";
+import { PRODUCTS } from "@/lib/data";
+import { Product } from "@/types/product";
 
 export const unstable_instant: boolean = false;
 

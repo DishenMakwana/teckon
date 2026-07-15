@@ -7,7 +7,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import SafeImage from "@/components/ui/SafeImage";
 import { formatDate } from "@/lib/utils";
-import { BlogPost } from "@/lib/data";
+import { BlogListProps } from "@/types/blog";
 import {
   Search,
   X,
@@ -17,10 +17,6 @@ import {
   Flame,
 } from "lucide-react";
 import BlogCard from "./BlogCard";
-
-interface BlogListProps {
-  posts: BlogPost[];
-}
 
 function BlogListContent({ posts }: BlogListProps): React.JSX.Element {
   const router = useRouter();

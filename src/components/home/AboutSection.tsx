@@ -5,11 +5,7 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Factory, Globe, BadgeCheck, Wrench } from "lucide-react";
-
-interface Feature {
-  icon: React.ComponentType<{ className?: string; size?: number }>;
-  label: string;
-}
+import { Feature } from "@/types/home";
 
 export default function AboutSection(): React.JSX.Element {
   const ref = useRef(null);

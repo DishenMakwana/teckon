@@ -1,65 +1,8 @@
+import { Product } from "@/types/product";
+import { BlogPost } from "@/types/blog";
+import { CompanyInfo } from "@/types/company-info";
+
 // Central data store for all website content
-export interface Product {
-  slug: string;
-  name: string;
-  model: string;
-  ref: string;
-  category: string;
-  categoryLabel: string;
-  description: string;
-  image: string;
-  backgroundColor?: string;
-  specs: Record<string, string>;
-  // Optional fields — only present on some products
-  weight?: string;
-  material?: string;
-  crossReferences?: string[];
-  mostUsed?: boolean;
-  stockStatus?: "limited" | "in-stock" | "out-of-stock";
-}
-
-/** Shape for each blog post stored in BLOG_POSTS. */
-export interface BlogPost {
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string; // ISO format: YYYY-MM-DD
-  author: string;
-  category: string;
-  image: string;
-  content: string;
-}
-
-export interface CompanyInfo {
-  name: string;
-  brand: string;
-  brandFull: string;
-  tagline: string;
-  url: string;
-  founded: number;
-  email: string;
-  phones: {
-    main: string;
-    mainRaw: string;
-    alpesh: string;
-    alpeshRaw: string;
-    jc: string;
-    jcRaw: string;
-  };
-  whatsapp: string;
-  address: {
-    line1: string;
-    line2: string;
-    full: string;
-  };
-  social: {
-    facebook: string;
-    linkedin: string;
-    instagram: string;
-  };
-  certifications: string[];
-}
-
 export const COMPANY: CompanyInfo = {
   name: "Shreeji Hydraulics",
   brand: "Teckon™",
@@ -958,7 +901,7 @@ export const PRODUCTS: Product[] = [
   },
 ];
 
-export const BLOG_POSTS = [
+export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "hydraulic-maintenance-guide",
     title: "The Complete Guide to Hydraulic System Maintenance",

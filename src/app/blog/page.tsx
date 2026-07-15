@@ -4,7 +4,8 @@ import { Suspense } from "react";
 
 export const unstable_instant: boolean = false;
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
-import { BLOG_POSTS, BlogPost } from "@/lib/data";
+import { BLOG_POSTS } from "@/lib/data";
+import { BlogPost } from "@/types/blog";
 import BlogList from "@/components/blog/BlogList";
 
 export const metadata: Metadata = {

@@ -1,25 +1,10 @@
 import { useState, useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
-import { PRODUCTS, Product } from "@/lib/data";
+import { PRODUCTS } from "@/lib/data";
+import { Product } from "@/types/product";
 import { searchProducts } from "@/lib/search";
-
-export interface UseProductFiltersReturn {
-  active: string;
-  showMostUsed: boolean;
-  showLimited: boolean;
-  searchVal: string;
-  setSearchVal: React.Dispatch<React.SetStateAction<string>>;
-  handleSearch: (term: string) => void;
-  clearSearch: () => void;
-  handleCategoryChange: (categoryId: string) => void;
-  handleMostUsedToggle: () => void;
-  handleLimitedToggle: () => void;
-  displayList: Product[];
-  visibleCount: number;
-  loadingMore: boolean;
-  loadMore: () => void;
-}
+import { UseProductFiltersReturn } from "@/types/product-filters";
 
 /**
  * Custom hook to manage the state and URL syncing logic for product filtering,

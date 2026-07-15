@@ -15,17 +15,7 @@ import {
 } from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { sendInquiryAction } from "@/app/actions/contact";
-
-interface FormData {
-  fullName: string;
-  email: string;
-  countryCode: string;
-  phone: string;
-  city: string;
-  country: string;
-  subject: string;
-  message: string;
-}
+import { FormData } from "@/types/contact";
 
 const DAYS_OF_WEEK = [
   { name: "Sunday", hours: "9:30 am – 12:30 am", index: 0 },

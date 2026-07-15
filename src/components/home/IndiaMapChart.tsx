@@ -1,20 +1,13 @@
 "use client";
 
-import { useState, ComponentType } from "react";
+import { useState } from "react";
 import indiaMap from "@svg-maps/india";
 import { motion, AnimatePresence } from "framer-motion";
 import { Factory, Wrench, Truck, Settings } from "lucide-react";
+import { StateInfo } from "@/types/home";
 
 /* ── State data ─────────────────────────────────────────────────────── */
 const HIGHLIGHT = new Set(["gj", "rj", "mh", "mp"]);
-
-interface StateInfo {
-  name: string;
-  city: string;
-  role: string;
-  icon: ComponentType<{ className?: string }>;
-  color: string;
-}
 
 const STATE_INFO: Record<string, StateInfo> = {
   gj: {

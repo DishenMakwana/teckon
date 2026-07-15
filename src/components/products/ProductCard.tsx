@@ -5,13 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Settings } from "lucide-react";
 import SafeImage from "@/components/ui/SafeImage";
-import { Product } from "@/lib/data";
-
-interface ProductCardProps {
-  product: Product;
-  clickedSlug: string | null;
-  setClickedSlug: (slug: string | null) => void;
-}
+import { ProductCardProps } from "@/types/product-components";
 
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.9, y: 20 },

@@ -2,15 +2,7 @@
 
 import Link from "next/link";
 import { ChevronRight, Home } from "lucide-react";
-
-interface BreadcrumbItem {
-  label: string;
-  href?: string;
-}
-
-interface BreadcrumbBarProps {
-  items: BreadcrumbItem[];
-}
+import { BreadcrumbItem, BreadcrumbBarProps } from "@/types/ui";
 
 export default function BreadcrumbBar({
   items,

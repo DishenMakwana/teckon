@@ -3,12 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Factory, Map, BadgeCheck, Wrench } from "lucide-react";
-
-interface Usp {
-  icon: React.ComponentType<{ size?: number; className?: string }>;
-  title: string;
-  description: string;
-}
+import { Usp } from "@/types/home";
 
 const usps: Usp[] = [
   {

@@ -2,10 +2,7 @@
 
 import { useState } from "react";
 import Image, { ImageProps } from "next/image";
-
-interface SafeImageProps extends Omit<ImageProps, "onError"> {
-  fallbackText?: string;
-}
+import { SafeImageProps } from "@/types/ui";
 
 export default function SafeImage({
   src,

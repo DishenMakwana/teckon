@@ -8,12 +8,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-interface Testimonial {
-  name: string;
-  company: string;
-  quote: string;
-  rating: number;
-}
+import { Testimonial } from "@/types/home";
 
 const testimonials: Testimonial[] = [
   {

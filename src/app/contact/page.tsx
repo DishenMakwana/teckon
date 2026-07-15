@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import { COMPANY } from "@/lib/data";
 
 const ContactClient = dynamic(
   () => import("@/components/contact/ContactClient"),
@@ -25,8 +26,6 @@ export const metadata: Metadata = {
     "industrial heavy machinery spares supplier contact detail",
   ],
 };
-
-import { COMPANY } from "@/lib/data";
 
 export default function ContactPage(): React.JSX.Element {
   const contactSchema: Record<string, unknown> = {

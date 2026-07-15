@@ -15,6 +15,7 @@ import {
   Trophy,
 } from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
+import { Founder, Pillar, ValueItem } from "@/types/about";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/about" },
@@ -36,12 +37,6 @@ export const metadata: Metadata = {
   ],
 };
 
-interface Pillar {
-  icon: React.ComponentType<{ className?: string }>;
-  title: string;
-  description: string;
-}
-
 const pillars: Pillar[] = [
   {
     icon: Leaf,
@@ -62,12 +57,6 @@ const pillars: Pillar[] = [
       "Lean manufacturing principles drive our operations, enabling faster turnaround times and competitive pricing for our clients.",
   },
 ];
-
-interface ValueItem {
-  icon: React.ComponentType<{ className?: string }>;
-  title: string;
-  desc: string;
-}
 
 const values: ValueItem[] = [
   {
@@ -96,16 +85,6 @@ const values: ValueItem[] = [
     desc: "Stronger together as a team",
   },
 ];
-
-interface Founder {
-  name: string;
-  role: string;
-  image: string;
-  alt: string;
-  focus: string;
-  note: string;
-  phone: string;
-}
 
 const founders: Founder[] = [
   {
