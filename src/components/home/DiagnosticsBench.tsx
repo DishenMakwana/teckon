@@ -172,7 +172,9 @@ export default function DiagnosticsBench(): React.JSX.Element {
   const handlePresetSelect = (id: string): void => {
     setActivePreset(id);
     if (id !== "custom") {
-      const preset: DiagnosticsPreset | undefined = PRESETS.find((p) => p.id === id);
+      const preset: DiagnosticsPreset | undefined = PRESETS.find(
+        (p) => p.id === id
+      );
       if (preset) {
         setCustomBore(preset.bore);
         setCustomRod(Math.min(preset.rod, preset.bore - 10));
