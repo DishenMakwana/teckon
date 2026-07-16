@@ -20,7 +20,3 @@ export interface Product {
 }
 
 export type ProductSpecsInput = Record<string, string | undefined>;
-
-export interface Props {
-  params: Promise<{ slug: string }>;
-}

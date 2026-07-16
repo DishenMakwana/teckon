@@ -60,3 +60,25 @@ export interface DiagnosticsPreset {
   partRef: string;
   partSlug: string;
 }
+
+/** Derived hydraulic simulation calculations for the DiagnosticsBench widget. */
+export interface SimulationStats {
+  pushForceTons: number;
+  pullForceTons: number;
+  volumeLiters: number;
+  extendTimeSec: number;
+}
+
+/** SVG layout dimensions computed from bore/stroke values in the DiagnosticsBench. */
+export interface CylinderDims {
+  barrelWidth: number;
+  barrelHeight: number;
+  rodHeight: number;
+  barrelX: number;
+  centerY: number;
+  pistonWidth: number;
+  endCapWidth: number;
+  pistonX: number;
+  rodTipX: number;
+  pistonRange: number;
+}

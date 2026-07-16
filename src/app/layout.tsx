@@ -187,14 +187,12 @@ export default function RootLayout({
       <body className="font-sans bg-white text-gray-900 antialiased">
         <Preloader />
 
-        {/* <TopInfoBar /> */}
         <Suspense fallback={<div className="h-16 bg-[#0B0F19]" />}>
           <Navbar />
         </Suspense>
         <main className="min-h-screen overflow-x-hidden">{children}</main>
         <Footer />
         <QuickAccessRail />
-        {/* <MobileStickyBar /> */}
         <BackToTop />
         <Suspense fallback={null}>
           <SpeedInsights />

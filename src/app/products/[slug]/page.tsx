@@ -6,7 +6,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { PRODUCTS, COMPANY } from "@/lib/data";
-import { Product, Props } from "@/types/product";
+import { Product } from "@/types/product";
+import { SlugPageProps } from "@/types/page";
 import { buildDisplaySpecs } from "@/lib/utils";
 import ProductImageViewer from "@/components/products/ProductImageViewer";
 import ProductB2BPanel from "@/components/products/ProductB2BPanel";
@@ -62,7 +63,9 @@ function buildProductSchema(
   };
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: SlugPageProps): Promise<Metadata> {
   const { slug }: { slug: string } = await params;
   const product: Product | undefined = PRODUCTS.find(
     (p: Product): boolean => p.slug === slug
@@ -103,7 +106,7 @@ export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
 
 export default async function ProductDetailPage({
   params,
-}: Props): Promise<React.JSX.Element> {
+}: SlugPageProps): Promise<React.JSX.Element> {
   const { slug }: { slug: string } = await params;
   const product: Product | undefined = PRODUCTS.find(
     (p: Product): boolean => p.slug === slug

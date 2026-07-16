@@ -2,7 +2,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { Activity, Cpu, Wrench, Play, Square } from "lucide-react";
 import { motion } from "framer-motion";
-import { DiagnosticsPreset } from "@/types/home";
+import { DiagnosticsPreset, SimulationStats, CylinderDims } from "@/types/home";
 
 const PRESETS: DiagnosticsPreset[] = [
   {
@@ -93,13 +93,6 @@ export default function DiagnosticsBench(): React.JSX.Element {
     customPressure,
     customFlow,
   ]);
-
-  interface SimulationStats {
-    pushForceTons: number;
-    pullForceTons: number;
-    volumeLiters: number;
-    extendTimeSec: number;
-  }
 
   // Derived calculations
   const stats: SimulationStats = useMemo((): SimulationStats => {
@@ -202,19 +195,6 @@ export default function DiagnosticsBench(): React.JSX.Element {
     const ratio: number = Math.min(Math.max(values.pressure / 400, 0), 1);
     return -97 + ratio * 194;
   }, [values.pressure]);
-
-  interface CylinderDims {
-    barrelWidth: number;
-    barrelHeight: number;
-    rodHeight: number;
-    barrelX: number;
-    centerY: number;
-    pistonWidth: number;
-    endCapWidth: number;
-    pistonX: number;
-    rodTipX: number;
-    pistonRange: number;
-  }
 
   // SVG Cylinder Dimensions calculations
   const cylinderDims: CylinderDims = useMemo((): CylinderDims => {
