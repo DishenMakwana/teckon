@@ -16,6 +16,14 @@ import {
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { sendInquiryAction } from "@/app/actions/contact";
 import { FormData } from "@/types/contact";
+import {
+  getFormattedCountryList,
+  getMaxPhoneLengthForCountry,
+  validatePhoneInput,
+} from "@/utils/countryCodes";
+import { Country } from "react-phone-number-input";
+
+const { popularCountries, allCountries } = getFormattedCountryList();
 
 const DAYS_OF_WEEK = [
   { name: "Sunday", hours: "9:30 am – 12:30 am", index: 0 },
@@ -63,6 +71,8 @@ export default function ContactClient(): React.JSX.Element {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [currentTime, setCurrentTime] = useState<Date | null>(null);
 
+  const [selectedIso, setSelectedIso] = useState<Country>("IN");
+
   useEffect(() => {
     const initTimer = setTimeout(() => {
       setCurrentTime(getISTTime());
@@ -84,6 +94,8 @@ export default function ContactClient(): React.JSX.Element {
     handleSubmit,
     reset,
     setValue,
+    getValues,
+    trigger,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
     defaultValues: {
@@ -102,7 +114,7 @@ export default function ContactClient(): React.JSX.Element {
     setSubmitted(false);
     setSubmitError(null);
     try {
-      // Combine country code and 10-digit phone number for email delivery
+      // Combine country code and phone number for email delivery
       const combinedData = {
         ...data,
         phone: `${data.countryCode} ${data.phone}`,
@@ -110,6 +122,7 @@ export default function ContactClient(): React.JSX.Element {
       const result = await sendInquiryAction(combinedData);
       if (result.success) {
         setSubmitted(true);
+        setSelectedIso("IN");
         reset({
           fullName: "",
           email: "",
@@ -143,6 +156,8 @@ export default function ContactClient(): React.JSX.Element {
       );
     }
   };
+
+  const maxPhoneLen = getMaxPhoneLengthForCountry(selectedIso);
 
   return (
     <>
@@ -339,79 +354,91 @@ export default function ContactClient(): React.JSX.Element {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">
-                      Phone Number *
-                    </label>
-                    <div className="flex gap-2">
-                      <select
-                        {...register("countryCode", {
-                          onChange: (e) => {
-                            const code = e.target.value;
-                            const countryMap: Record<string, string> = {
-                              "+91": "India",
-                              "+86": "China",
-                              "+971": "United Arab Emirates",
-                              "+966": "Saudi Arabia",
-                              "+44": "United Kingdom",
-                              "+1": "United States",
-                              "+977": "Nepal",
-                              "+880": "Bangladesh",
-                            };
-                            setValue("country", countryMap[code] || "");
-                          },
-                        })}
-                        className="w-28 shrink-0 border border-gray-200 rounded-xl pl-3 pr-7 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all bg-white font-medium custom-select-sm"
-                      >
-                        <option value="+91">IND (+91)</option>
-                        <option value="+86">CHN (+86)</option>
-                        <option value="+971">ARE (+971)</option>
-                        <option value="+966">SAU (+966)</option>
-                        <option value="+44">GBR (+44)</option>
-                        <option value="+1">USA (+1)</option>
-                        <option value="+977">NPL (+977)</option>
-                        <option value="+880">BGD (+880)</option>
-                      </select>
-                      <input
-                        {...register("phone", {
-                          required: "Please enter your 10-digit phone number",
-                          pattern: {
-                            value: /^[0-9]{10}$/,
-                            message: "Phone number must be exactly 10 digits",
-                          },
-                        })}
-                        type="tel"
-                        id="phone"
-                        maxLength={10}
-                        onInput={(e) => {
-                          // Allow only numerical values, slice to 10 digits
-                          e.currentTarget.value = e.currentTarget.value
-                            .replace(/[^0-9]/g, "")
-                            .slice(0, 10);
-                        }}
-                        aria-invalid={errors.phone ? "true" : "false"}
-                        aria-describedby={
-                          errors.phone ? "phone-error" : undefined
+                {/* Phone Number Field (Full width for spacious country code select & 10-digit input) */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">
+                    Phone Number *
+                  </label>
+                  <div className="flex gap-2">
+                    <select
+                      value={selectedIso}
+                      onChange={(e) => {
+                        const iso = e.target.value as Country;
+                        const matched = allCountries.find((c) => c.iso === iso);
+                        if (matched) {
+                          setSelectedIso(matched.iso);
+                          setValue("countryCode", matched.code);
+                          setValue("country", matched.name);
+                          const newMaxLen = getMaxPhoneLengthForCountry(
+                            matched.iso
+                          );
+                          const currentPhone = getValues("phone") || "";
+                          if (currentPhone.length > newMaxLen) {
+                            setValue("phone", currentPhone.slice(0, newMaxLen));
+                          }
+                          trigger("phone");
                         }
-                        className={`flex-1 min-w-0 border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all ${
-                          errors.phone
-                            ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
-                            : "border-gray-200 focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10"
-                        }`}
-                        placeholder="Enter 10-digit number"
-                      />
-                    </div>
-                    {errors.phone && (
-                      <p
-                        id="phone-error"
-                        role="alert"
-                        className="text-red-600 text-xs mt-1 font-semibold"
-                      >
-                        {errors.phone.message}
-                      </p>
-                    )}
+                      }}
+                      className="w-32 sm:w-40 shrink-0 border border-gray-200 rounded-xl pl-3 pr-7 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all bg-white font-medium custom-select-sm"
+                    >
+                      <optgroup label="Popular">
+                        {popularCountries.map((c) => (
+                          <option key={`popular-${c.iso}`} value={c.iso}>
+                            {c.name} ({c.code})
+                          </option>
+                        ))}
+                      </optgroup>
+                      <optgroup label="All Countries">
+                        {allCountries.map((c) => (
+                          <option key={`all-${c.iso}`} value={c.iso}>
+                            {c.name} ({c.code})
+                          </option>
+                        ))}
+                      </optgroup>
+                    </select>
+                    <input
+                      {...register("phone", {
+                        required: "Please enter your phone number",
+                        validate: (val) => validatePhoneInput(val, selectedIso),
+                      })}
+                      type="tel"
+                      id="phone"
+                      maxLength={maxPhoneLen}
+                      onInput={(e) => {
+                        // Dynamically restrict input to selected country's max phone digits
+                        e.currentTarget.value = e.currentTarget.value
+                          .replace(/[^0-9]/g, "")
+                          .slice(0, maxPhoneLen);
+                      }}
+                      aria-invalid={errors.phone ? "true" : "false"}
+                      aria-describedby={
+                        errors.phone ? "phone-error" : undefined
+                      }
+                      className={`flex-1 min-w-0 border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all ${
+                        errors.phone
+                          ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
+                          : "border-gray-200 focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10"
+                      }`}
+                      placeholder={
+                        selectedIso === "IN"
+                          ? "Enter 10-digit number"
+                          : `Enter ${maxPhoneLen}-digit number`
+                      }
+                    />
                   </div>
+                  {errors.phone && (
+                    <p
+                      id="phone-error"
+                      role="alert"
+                      className="text-red-600 text-xs mt-1 font-semibold"
+                    >
+                      {errors.phone.message}
+                    </p>
+                  )}
+                </div>
+
+                {/* City & Country Fields */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1">
                       City
@@ -422,9 +449,6 @@ export default function ContactClient(): React.JSX.Element {
                       placeholder="Your city"
                     />
                   </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1">
                       Country
@@ -433,30 +457,29 @@ export default function ContactClient(): React.JSX.Element {
                       {...register("country")}
                       className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all"
                       placeholder="India"
-                      defaultValue="India"
                     />
                   </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">
-                      Product / Subject
-                    </label>
-                    <select
-                      {...register("subject")}
-                      className="w-full border border-gray-200 rounded-xl pl-4 pr-10 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all bg-white custom-select"
-                    >
-                      <option value="">Select product type</option>
-                      <option>JCB Spares</option>
-                      <option>Hitachi Parts</option>
-                      <option>Terex Parts</option>
-                      <option>CAT Components</option>
-                      <option>Breakers & Tippers</option>
-                      <option>L770 / Tata JD</option>
-                      <option>Excavator Parts</option>
-                      <option>Filters & Services</option>
-                      <option>General Hydraulics</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">
+                    Product / Subject
+                  </label>
+                  <select
+                    {...register("subject")}
+                    className="w-full border border-gray-200 rounded-xl pl-4 pr-10 py-3 text-sm focus:outline-none focus:border-teckon-blue focus:ring-2 focus:ring-teckon-blue/10 transition-all bg-white custom-select"
+                  >
+                    <option value="">Select product type</option>
+                    <option>JCB Spares</option>
+                    <option>Hitachi Parts</option>
+                    <option>Terex Parts</option>
+                    <option>CAT Components</option>
+                    <option>Breakers & Tippers</option>
+                    <option>L770 / Tata JD</option>
+                    <option>Excavator Parts</option>
+                    <option>Filters & Services</option>
+                    <option>General Hydraulics</option>
+                    <option>Other</option>
+                  </select>
                 </div>
 
                 <div>
