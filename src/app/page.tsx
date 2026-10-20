@@ -3,10 +3,12 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { HardHat, Layers, Route, Phone } from "lucide-react";
 import { Industry } from "@/types/industry";
+import { getHomePageData } from "@/lib/db";
 
 import HeroSection from "@/components/home/HeroSection";
 import StatsStrip from "@/components/home/StatsStrip";
 import DiagnosticsBenchLoader from "@/components/home/DiagnosticsBenchLoader";
+import { COMPANY } from "@/lib/data";
 
 const ProductsCarousel = dynamic(
   () => import("@/components/home/ProductsCarousel"),
@@ -54,13 +56,15 @@ const industries: Industry[] = [
   },
 ];
 
-export default function HomePage(): React.JSX.Element {
+export default async function HomePage(): Promise<React.JSX.Element> {
+  await getHomePageData();
+
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Teckon Quality Spares",
     alternateName: ["Teckon Spares", "Shreeji Hydraulics"],
-    url: "https://teckon.vercel.app/",
+    url: COMPANY.url,
   };
 
   return (

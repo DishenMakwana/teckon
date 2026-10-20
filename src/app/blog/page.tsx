@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Suspense } from "react";
+import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
+import BlogList from "@/components/blog/BlogList";
+import { getBlogPosts } from "@/lib/db";
+import { BlogPost } from "@/types/blog";
+import { COMPANY } from "@/lib/data";
 
 export const unstable_instant: boolean = false;
-import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
-import { BLOG_POSTS } from "@/lib/data";
-import { BlogPost } from "@/types/blog";
-import BlogList from "@/components/blog/BlogList";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
@@ -27,21 +28,23 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function BlogPage(): React.JSX.Element {
+export default async function BlogPage(): Promise<React.JSX.Element> {
+  const blogPosts: BlogPost[] = await getBlogPosts();
+
   const blogListSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Blog",
     name: "Blog & News | Teckon™ Quality Spares",
     description:
       "Technical guides, industry news, and company updates from Teckon™ — India's hydraulic parts specialists.",
-    url: "https://teckon.vercel.app/blog",
-    blogPost: BLOG_POSTS.map(
+    url: `${COMPANY.url}/blog`,
+    blogPost: blogPosts.map(
       (post: BlogPost): Record<string, unknown> => ({
         "@type": "BlogPosting",
         headline: post.title,
         description: post.excerpt,
         datePublished: post.date,
-        url: `https://teckon.vercel.app/blog/${post.slug}`,
+        url: `${COMPANY.url}/blog/${post.slug}`,
         image: post.image,
       })
     ),
@@ -89,7 +92,7 @@ export default function BlogPage(): React.JSX.Element {
               </div>
             }
           >
-            <BlogList posts={BLOG_POSTS} />
+            <BlogList posts={blogPosts} />
           </Suspense>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import TermsClient from "@/components/terms/TermsClient";
+import { COMPANY } from "@/lib/data";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/terms" },
@@ -21,7 +22,7 @@ export default function TermsPage(): React.JSX.Element {
     name: "Terms & Conditions | Teckon™ Quality Spares",
     description:
       "Terms and conditions for using Teckon™ Quality Spares (Shreeji Hydraulics) website and services.",
-    url: "https://teckon.vercel.app/terms",
+    url: `${COMPANY.url}/terms`,
   };
 
   return (

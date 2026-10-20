@@ -241,6 +241,24 @@ This file serves as the agent's short-term memory of recent tasks, issues resolv
 - **Action:** Updated all file importer references across the codebase (including blog, products, and component layers).
 - **Action:** Verified compilation and style compliance by successfully executing `npm run lint`, `npm run format`, and `npm run build`.
 
+### Session: October 20, 2026
+- **Task:** Database optimization, local caching, component type synchronization, dead code cleanup via Knip, and top-level import normalization.
+- **Action:** Created `src/lib/db.ts` with local in-memory caching and React `cache()` wrapper. Implemented concurrent database fetching via `Promise.all` (`getHomePageData`, `getProductDetailPageData`, `getBlogDetailPageData`) and integrated across `/`, `/products`, `/products/[slug]`, `/blog`, and `/blog/[slug]`.
+- **Action:** Created `src/types/database.ts` and updated `src/types/contact.ts`, `src/types/product-components.ts`, and `src/types/blog.ts` to centralize all component types and interfaces.
+- **Action:** Removed dead code (`PARTS_CATEGORIES`) in `src/lib/data.ts`, unneeded dependencies in `package.json` (`topojson-client`, `@types/topojson-client`), added `libphonenumber-js`, configured `knip.json`, and verified `bun x knip` reports 0 issues.
+- **Action:** Normalized all imports across the codebase to the top of files, eliminating in-between imports.
+- **Action:** Verified clean passing of `npm run lint`, `npm run format`, and `npm run build` (73/73 static pages).
+
+- **Task:** Social media preview (Open Graph / Twitter card) upgrade matching high-production reference.
+- **Action:** Scaled and deployed high-resolution 1200x630 (1.91:1) assets to `src/app/opengraph-image.png`, `src/app/twitter-image.png`, and `public/og-image.png`.
+- **Action:** Removed legacy dynamic edge runtime generators (`src/app/opengraph-image.tsx`, `src/app/twitter-image.tsx`), eliminating Next.js edge build warnings.
+- **Action:** Configured rich metadata in `src/app/layout.tsx` with high-impact titles, descriptions, and explicit Open Graph dimensions (1200x630).
+- **Action:** Verified clean compilation via `bun x knip` (0 issues), `npm run lint`, `npm run format`, and `npm run build` (75/75 static pages).
+
+- **Task:** Centralize website URL to `COMPANY.url` from `src/lib/data.ts`.
+- **Action:** Replaced all hardcoded occurrences of `https://teckon.vercel.app` across all pages, structured JSON-LD schemas, metadata, and components (`contact`, `products`, `quality`, `privacy-policy`, `terms`, `about`, `blog`, `careers`, `events`, `ProductB2BPanel`) with `COMPANY.url`.
+- **Action:** Verified `npm run lint`, `npm run format`, and `npm run build` pass cleanly.
+
 ## Previous Milestones
 1. **SEO Optimization & Keyword Audit:** Updated configurations, keywords, and tags.
 2. **Inquiry Form Container Update:** Wrapped the inquiry form in a styled card component for visual layout improvement.

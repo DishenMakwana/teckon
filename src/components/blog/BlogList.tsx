@@ -7,7 +7,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import SafeImage from "@/components/ui/SafeImage";
 import { formatDate } from "@/lib/utils";
-import { BlogListProps } from "@/types/blog";
+import { BlogListProps, BlogCategoryFilter } from "@/types/blog";
 import {
   Search,
   X,
@@ -24,7 +24,8 @@ function BlogListContent({ posts }: BlogListProps): React.JSX.Element {
   const categoryQuery = searchParams.get("category");
   const searchQuery = searchParams.get("search");
 
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] =
+    useState<BlogCategoryFilter>("All");
   const [searchVal, setSearchVal] = useState("");
   const [clickedSlug, setClickedSlug] = useState<string | null>(null);
 
@@ -40,7 +41,7 @@ function BlogListContent({ posts }: BlogListProps): React.JSX.Element {
   const [prevSearchQuery, setPrevSearchQuery] = useState<string | null>(null);
 
   if (categoryQuery !== prevCategoryQuery) {
-    setActiveCategory(categoryQuery || "All");
+    setActiveCategory((categoryQuery as BlogCategoryFilter) || "All");
     setPrevCategoryQuery(categoryQuery);
   }
 
@@ -64,7 +65,7 @@ function BlogListContent({ posts }: BlogListProps): React.JSX.Element {
   }, 300);
 
   const handleCategoryChange = (categoryId: string): void => {
-    setActiveCategory(categoryId);
+    setActiveCategory(categoryId as BlogCategoryFilter);
     const params = new URLSearchParams(searchParams.toString());
     if (categoryId === "All") {
       params.delete("category");
@@ -319,7 +320,7 @@ function BlogListContent({ posts }: BlogListProps): React.JSX.Element {
   );
 }
 
-export default function BlogList({ posts }: BlogListProps) {
+export default function BlogList({ posts }: BlogListProps): React.JSX.Element {
   return (
     <Suspense
       fallback={

@@ -5,7 +5,12 @@ import { notFound } from "next/navigation";
 import { ViewTransition } from "react";
 import SafeImage from "@/components/ui/SafeImage";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
-import { BLOG_POSTS, COMPANY } from "@/lib/data";
+import { COMPANY } from "@/lib/data";
+import {
+  getBlogPostBySlug,
+  getBlogPosts,
+  getBlogDetailPageData,
+} from "@/lib/db";
 import { BlogPost } from "@/types/blog";
 import { SlugPageProps } from "@/types/page";
 import { formatDate } from "@/lib/utils";
@@ -70,9 +75,7 @@ export async function generateMetadata({
   params,
 }: SlugPageProps): Promise<Metadata> {
   const { slug }: { slug: string } = await params;
-  const post: BlogPost | undefined = BLOG_POSTS.find(
-    (p: BlogPost): boolean => p.slug === slug
-  );
+  const post: BlogPost | undefined = await getBlogPostBySlug(slug);
 
   if (!post) return { title: "Post Not Found" };
 
@@ -105,22 +108,17 @@ export async function generateMetadata({
 export const unstable_instant: boolean = false;
 
 export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
-  return BLOG_POSTS.map((p: BlogPost): { slug: string } => ({ slug: p.slug }));
+  const posts: BlogPost[] = await getBlogPosts();
+  return posts.map((p: BlogPost): { slug: string } => ({ slug: p.slug }));
 }
 
 export default async function BlogPostPage({
   params,
 }: SlugPageProps): Promise<React.JSX.Element> {
   const { slug }: { slug: string } = await params;
-  const post: BlogPost | undefined = BLOG_POSTS.find(
-    (p: BlogPost): boolean => p.slug === slug
-  );
+  const { post, related }: { post: BlogPost | undefined; related: BlogPost[] } =
+    await getBlogDetailPageData(slug);
   if (!post) notFound();
-
-  // Related articles: up to 2 posts excluding the current one
-  const related: BlogPost[] = BLOG_POSTS.filter(
-    (p: BlogPost): boolean => p.slug !== slug
-  ).slice(0, 2);
 
   // Article JSON-LD — included in server HTML so AI crawlers can extract
   // the headline, author, publish date, and image without running JavaScript.

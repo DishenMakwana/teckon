@@ -15,15 +15,15 @@ export default function ProductImageViewer({
   const [scale, setScale] = useState(1);
   const [dragKey, setDragKey] = useState(0); // Used to force reset drag position
 
-  const closeViewer = () => {
+  const closeViewer = (): void => {
     setIsOpen(false);
     setScale(1);
-    setDragKey((prev) => prev + 1);
+    setDragKey((prev: number): number => prev + 1);
   };
 
   // Handle escape key to close modal
   useEffect(() => {
-    function handleKeyDown(e: KeyboardEvent) {
+    function handleKeyDown(e: KeyboardEvent): void {
       if (e.key === "Escape") {
         closeViewer();
       }

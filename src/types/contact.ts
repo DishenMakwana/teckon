@@ -8,3 +8,9 @@ export interface FormData {
   subject: string;
   message: string;
 }
+
+export interface BusinessHourDay {
+  name: string;
+  hours: string;
+  index: number;
+}

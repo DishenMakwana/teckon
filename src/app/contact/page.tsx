@@ -34,12 +34,12 @@ export default function ContactPage(): React.JSX.Element {
     name: "Request a Quote & Contact Us | Teckon™ Quality Spares",
     description:
       "Get in touch with Shreeji Hydraulics (Teckon™) in Rajkot, Gujarat. Request custom quotes for hydraulic pumps, cylinder seal kits, and spares. Direct WhatsApp and phone contacts available.",
-    url: "https://teckon.vercel.app/contact",
+    url: `${COMPANY.url}/contact`,
     mainEntity: {
       "@type": "LocalBusiness",
       name: COMPANY.name,
       telephone: COMPANY.phones.main,
-      email: "shreejihyd4008@gmail.com",
+      email: COMPANY.email,
       address: {
         "@type": "PostalAddress",
         streetAddress: "36-C Bhaktinagar, Udhyognagar, Gondal Road",

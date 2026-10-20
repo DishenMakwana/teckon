@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   description:
     "Shreeji Hydraulics (Teckon™) offers premium hydraulic parts & spares for JCB, Terex, CAT, and heavy machinery. ISO 9001:2015 certified in Rajkot, Gujarat.",
-  metadataBase: new URL("https://teckon.vercel.app"),
+  metadataBase: new URL(COMPANY.url),
   alternates: {
     canonical: "/",
   },
@@ -94,28 +94,31 @@ export const metadata: Metadata = {
     "buy premium B2B hydraulic spares Rajkot",
   ],
   openGraph: {
-    title: "Teckon™ Quality Spares | Premium Hydraulic Parts",
+    title:
+      "Teckon™ Quality Spares — Precision Hydraulic Parts for JCB, CAT & Hitachi",
     description:
-      "Shreeji Hydraulics (Teckon™) offers premium hydraulic parts & spares for JCB, Terex, CAT, and heavy machinery. ISO 9001:2015 certified in Rajkot, Gujarat.",
-    url: "https://teckon.vercel.app",
+      "Explore 5,000+ replacement hydraulic pumps, control valves, cylinder seal kits, and excavator spares. ISO 9001:2015 certified manufacturer in Rajkot, India.",
+    url: COMPANY.url,
     siteName: "Teckon™ Quality Spares",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "/teckon.png",
-        width: 512,
-        height: 512,
-        alt: "Teckon Quality Spares Logo",
+        url: `${COMPANY.url}/og-image.png`,
+        width: 1200,
+        height: 630,
+        type: "image/png",
+        alt: "Teckon Quality Spares — Industrial Hydraulic Parts & Heavy Machinery Spares",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Teckon™ Quality Spares | Premium Hydraulic Parts",
+    title:
+      "Teckon™ Quality Spares — Precision Hydraulic Parts for JCB, CAT & Hitachi",
     description:
-      "Shreeji Hydraulics (Teckon™) offers premium hydraulic parts & spares for JCB, Terex, CAT, and heavy machinery.",
-    images: ["/teckon.png"],
+      "Explore 5,000+ replacement hydraulic pumps, control valves, cylinder seal kits, and excavator spares. ISO 9001:2015 certified manufacturer in Rajkot, India.",
+    images: [`${COMPANY.url}/og-image.png`],
   },
 };
 

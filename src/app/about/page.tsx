@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { Founder, Pillar, ValueItem } from "@/types/about";
+import { COMPANY } from "@/lib/data";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/about" },
@@ -114,12 +115,12 @@ export default function AboutPage(): React.JSX.Element {
     name: "About Us — Teckon™ Quality Spares | Shreeji Hydraulics",
     description:
       "Learn about Teckon™ (Shreeji Hydraulics), established in 2000 in Rajkot, Gujarat. Meet our founders Mr. Alpesh Patel and Mr. J.C. Patel and discover our vision and values.",
-    url: "https://teckon.vercel.app/about",
+    url: `${COMPANY.url}/about`,
     mainEntity: {
       "@type": "Organization",
       name: "Teckon Quality Spares",
-      url: "https://teckon.vercel.app",
-      logo: "https://teckon.vercel.app/teckon.png",
+      url: COMPANY.url,
+      logo: `${COMPANY.url}/teckon.png`,
       founders: [
         {
           "@type": "Person",

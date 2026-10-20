@@ -1,4 +1,4 @@
-export type InquiryActionErrorType =
+type InquiryActionErrorType =
   | "VALIDATION_ERROR"
   | "CONFIGURATION_ERROR"
   | "DELIVERY_ERROR"

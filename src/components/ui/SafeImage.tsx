@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image, { ImageProps } from "next/image";
+import Image from "next/image";
 import { SafeImageProps } from "@/types/ui";
 
 export default function SafeImage({
@@ -29,7 +29,7 @@ export default function SafeImage({
   }
 
   // If priority is true, Next.js handles loading. Otherwise default to lazy.
-  const imageLoading: ImageProps["loading"] =
+  const imageLoading: SafeImageProps["loading"] =
     loading || (priority ? undefined : "lazy");
 
   return (

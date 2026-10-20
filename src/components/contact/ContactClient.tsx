@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { sendInquiryAction } from "@/app/actions/contact";
-import { FormData } from "@/types/contact";
+import { FormData, BusinessHourDay } from "@/types/contact";
 import {
   getFormattedCountryList,
   getMaxPhoneLengthForCountry,
@@ -25,7 +25,7 @@ import { Country } from "react-phone-number-input";
 
 const { popularCountries, allCountries } = getFormattedCountryList();
 
-const DAYS_OF_WEEK = [
+const DAYS_OF_WEEK: BusinessHourDay[] = [
   { name: "Sunday", hours: "9:30 am – 12:30 am", index: 0 },
   { name: "Monday", hours: "9:30 am – 7:30 pm", index: 1 },
   { name: "Tuesday", hours: "9:30 am – 7:30 pm", index: 2 },

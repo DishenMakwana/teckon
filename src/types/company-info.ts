@@ -1,4 +1,4 @@
-export interface CompanyPhoneInfo {
+interface CompanyPhoneInfo {
   main: string;
   mainRaw: string;
   alpesh: string;
@@ -7,13 +7,13 @@ export interface CompanyPhoneInfo {
   jcRaw: string;
 }
 
-export interface CompanyAddressInfo {
+interface CompanyAddressInfo {
   line1: string;
   line2: string;
   full: string;
 }
 
-export interface CompanySocialInfo {
+interface CompanySocialInfo {
   facebook: string;
   linkedin: string;
   instagram: string;

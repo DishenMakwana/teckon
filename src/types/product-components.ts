@@ -14,6 +14,12 @@ export interface ProductImageViewerProps {
   backgroundColor?: string;
 }
 
+/** Filter category tab definition for the products catalog page. */
+export interface ProductCategoryTab {
+  id: string;
+  label: string;
+}
+
 /** The product data shape consumed by the B2B wholesale inquiry panel. */
 export interface ProductB2BPanelProps {
   product: {

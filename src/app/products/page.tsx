@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import ProductsClient from "@/components/products/ProductsClient";
-import { PRODUCTS } from "@/lib/data";
+import { getProducts } from "@/lib/db";
 import { Product } from "@/types/product";
+import { COMPANY } from "@/lib/data";
 
 export const unstable_instant: boolean = false;
 
@@ -30,22 +31,24 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function ProductsPage(): React.JSX.Element {
+export default async function ProductsPage(): Promise<React.JSX.Element> {
+  const products: Product[] = await getProducts();
+
   const productsListSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Genuine Hydraulic Spares Catalog | Teckon™ Quality Spares",
     description:
       "Browse our premium catalog of replacement hydraulic spare parts for JCB, Terex, CAT, L770, Tata JD, and excavators. High pressure pumps, seals, valves, and components.",
-    url: "https://teckon.vercel.app/products",
+    url: `${COMPANY.url}/products`,
     mainEntity: {
       "@type": "ItemList",
-      numberOfItems: PRODUCTS.length,
-      itemListElement: PRODUCTS.map(
+      numberOfItems: products.length,
+      itemListElement: products.map(
         (p: Product, idx: number): Record<string, unknown> => ({
           "@type": "ListItem",
           position: idx + 1,
-          url: `https://teckon.vercel.app/products/${p.slug}`,
+          url: `${COMPANY.url}/products/${p.slug}`,
           name: p.name,
         })
       ),

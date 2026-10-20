@@ -15,8 +15,9 @@ import {
 } from "lucide-react";
 import ProductCard from "./ProductCard";
 import { useProductFilters } from "@/hooks/useProductFilters";
+import { ProductCategoryTab } from "@/types/product-components";
 
-const categories = [
+const categories: ProductCategoryTab[] = [
   { id: "all", label: "All Products" },
   { id: "jcb", label: "JCB Spares" },
   { id: "hitachi", label: "Hitachi Parts" },

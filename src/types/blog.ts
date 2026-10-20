@@ -21,3 +21,12 @@ export interface BlogCardProps {
 export interface BlogListProps {
   posts: BlogPost[];
 }
+
+export type BlogCategoryFilter =
+  | "All"
+  | "Maintenance"
+  | "Hydraulics"
+  | "Technology"
+  | "Troubleshooting"
+  | "Heavy Machinery"
+  | "Company News";

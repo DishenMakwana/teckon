@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Check, Truck, Send, Info, Briefcase } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ProductB2BPanelProps } from "@/types/product-components";
+import { COMPANY } from "@/lib/data";
 
 export default function ProductB2BPanel({
   product,
@@ -29,7 +30,7 @@ export default function ProductB2BPanel({
     const productUrl =
       typeof window !== "undefined"
         ? window.location.href
-        : `https://teckon.vercel.app/products/${product.slug}`;
+        : `${COMPANY.url}/products/${product.slug}`;
     const message = `Hello Teckon, I want to request a bulk pricing quote:\n- *Name*: ${fullName}\n- *Contact*: ${contactInfo}\n- *Product*: ${product.name}\n- *Model*: ${product.model}\n- *OEM Ref*: ${product.ref}\n- *Quantity*: ${qty} units\n- *URL*: ${productUrl}`;
     const whatsappUrl = `https://wa.me/919426915578?text=${encodeURIComponent(message)}`;
 

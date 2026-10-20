@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { MapPin, CheckCircle2 } from "lucide-react";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
-import { EVENTS } from "@/lib/data";
+import { EVENTS, COMPANY } from "@/lib/data";
 
 export default function EventsPage(): React.JSX.Element {
   const eventsListSchema: Record<string, unknown> = {
@@ -13,7 +13,7 @@ export default function EventsPage(): React.JSX.Element {
     name: "Events & Exhibitions | Teckon™ Quality Spares",
     description:
       "Our team visits and explores key automotive component and construction equipment expos to stay updated on engineering advancements.",
-    url: "https://teckon.vercel.app/events",
+    url: `${COMPANY.url}/events`,
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: EVENTS.length,

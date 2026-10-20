@@ -5,7 +5,12 @@ import SafeImage from "@/components/ui/SafeImage";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
-import { PRODUCTS, COMPANY } from "@/lib/data";
+import { COMPANY } from "@/lib/data";
+import {
+  getProductBySlug,
+  getProducts,
+  getProductDetailPageData,
+} from "@/lib/db";
 import { Product } from "@/types/product";
 import { SlugPageProps } from "@/types/page";
 import { buildDisplaySpecs } from "@/lib/utils";
@@ -67,9 +72,7 @@ export async function generateMetadata({
   params,
 }: SlugPageProps): Promise<Metadata> {
   const { slug }: { slug: string } = await params;
-  const product: Product | undefined = PRODUCTS.find(
-    (p: Product): boolean => p.slug === slug
-  );
+  const product: Product | undefined = await getProductBySlug(slug);
   if (!product) return { title: "Product Not Found" };
   return {
     alternates: { canonical: `/products/${slug}` },
@@ -101,23 +104,17 @@ export async function generateMetadata({
 export const unstable_instant: boolean = false;
 
 export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
-  return PRODUCTS.map((p: Product): { slug: string } => ({ slug: p.slug }));
+  const products: Product[] = await getProducts();
+  return products.map((p: Product): { slug: string } => ({ slug: p.slug }));
 }
 
 export default async function ProductDetailPage({
   params,
 }: SlugPageProps): Promise<React.JSX.Element> {
   const { slug }: { slug: string } = await params;
-  const product: Product | undefined = PRODUCTS.find(
-    (p: Product): boolean => p.slug === slug
-  );
+  const { product, related: relatedProducts } =
+    await getProductDetailPageData(slug);
   if (!product) notFound();
-
-  // Related products from the same category (max 4), excluding this one
-  const relatedProducts: Product[] = PRODUCTS.filter(
-    (p: Product): boolean =>
-      p.category === product.category && p.slug !== product.slug
-  ).slice(0, 4);
 
   // Merge product.specs with optional weight and material fields into a
   // clean display map. buildDisplaySpecs handles deduplication of Material keys.

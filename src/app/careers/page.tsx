@@ -3,6 +3,7 @@ import Image from "next/image";
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { Rocket, Users, Trophy, Mail } from "lucide-react";
 import { CultureValue } from "@/types/careers";
+import { COMPANY } from "@/lib/data";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/careers" },
@@ -47,7 +48,7 @@ export default function CareersPage(): React.JSX.Element {
     name: "Careers | Teckon™ Quality Spares",
     description:
       "Join the Teckon™ team. We're looking for talented individuals passionate about hydraulic engineering and manufacturing excellence.",
-    url: "https://teckon.vercel.app/careers",
+    url: `${COMPANY.url}/careers`,
   };
 
   return (
