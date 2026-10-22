@@ -10,11 +10,11 @@ export const unstable_instant: boolean = false;
 export const metadata: Metadata = {
   alternates: { canonical: "/products" },
   title:
-    "Wholesales & Suppliers Store for Auto Parts | Earthmoving Spares Catalog | Teckon®",
+    "Wholesaler & Suppliers Store for Auto Parts | Earthmoving Spares Catalog | Teckon®",
   description:
-    "Wholesales & suppliers store catalog for auto parts and earthmoving spares. Precision replacement parts for JCB, L&T, JD, Terex (TARAX), CAT, L770, Tata JD, and excavators.",
+    "Wholesaler & suppliers store catalog for auto parts and earthmoving spares. Precision replacement parts for JCB, L&T, JD, Terex (TARAX), CAT, L770, Tata JD, and excavators.",
   keywords: [
-    "Wholesales & Suppliers Store for Auto Parts",
+    "Wholesaler & Suppliers Store for Auto Parts",
     "earthmoving spares of wholesaler",
     "JCB spares wholesaler",
     "L&T spares wholesaler",
@@ -46,9 +46,9 @@ export default async function ProductsPage(): Promise<React.JSX.Element> {
   const productsListSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Wholesales & Suppliers Store for Auto Parts | Earthmoving Spares Catalog | Teckon®",
+    name: "Wholesaler & Suppliers Store for Auto Parts | Earthmoving Spares Catalog | Teckon®",
     description:
-      "Wholesales & suppliers store catalog for auto parts and earthmoving spares. Precision replacement parts for JCB, L&T, JD, Terex (TARAX), CAT, L770, Tata JD, and excavators.",
+      "Wholesaler & suppliers store catalog for auto parts and earthmoving spares. Precision replacement parts for JCB, L&T, JD, Terex (TARAX), CAT, L770, Tata JD, and excavators.",
     url: `${COMPANY.url}/products`,
     mainEntity: {
       "@type": "ItemList",

@@ -1,20 +1,20 @@
-# Teckon™ Quality Spares — Full Company & Product Reference | Wholesales & Suppliers Store for Auto Parts
+# Teckon® Quality Spares — Full Company & Product Reference | Wholesaler & Suppliers Store for Auto Parts
 
-> This document is the comprehensive machine-readable reference for Teckon™ (Shreeji Hydraulics) — Wholesales & Suppliers Store for Auto Parts & Earthmoving Spares (JCB, L&T, JD, Terex / TARAX, CAT). It is intended for AI assistants, search engines, and retrieval systems that need a deep understanding of the company's products, services, pages, and operations to provide accurate answers to user queries.
+> This document is the comprehensive machine-readable reference for Teckon® (Shreeji Hydraulics) — Wholesaler & Suppliers Store for Auto Parts & Earthmoving Spares (JCB, L&T, JD, Terex / TARAX, CAT). It is intended for AI assistants, search engines, and retrieval systems that need a deep understanding of the company's products, services, pages, and operations to provide accurate answers to user queries.
 
 ---
 
 ## 1. Company Profile
 
 - **Legal Entity:** Shreeji Hydraulics
-- **Brand Name:** Teckon™ / Teckon Quality Spares
-- **Tagline:** Wholesales & Suppliers Store for Auto Parts
-- **Headline Focus:** Wholesales & Suppliers Store for Auto Parts — JCB, L&T, JD, Terex, CAT, Earthmoving Spares of Wholesaler (also searched as TARAX / TERAX)
+- **Brand Name:** Teckon® / Teckon Quality Spares
+- **Tagline:** Wholesaler & Suppliers Store for Auto Parts
+- **Headline Focus:** Wholesaler & Suppliers Store for Auto Parts — JCB, L&T, JD, Terex, CAT, Earthmoving Spares of Wholesaler (also searched as TARAX / TERAX)
 - **Founded:** 2000 (Rajkot, Gujarat, India)
 - **Certifications:** ISO 9001:2015 Quality Management System
 - **Operational Scope:** Pan-India delivery network + international B2B supply
 - **Industry Classification:** Auto Parts Wholesaler & Aftermarket Hydraulic Parts Manufacturing for Heavy Construction & Earthmoving Equipment
-- **Business Model:** Business-to-Business (B2B) Wholesales & Suppliers Store — manufacturer, wholesaler, supplier, and exporter of aftermarket hydraulic and earthmoving spares
+- **Business Model:** Business-to-Business (B2B) Wholesaler & Suppliers Store — manufacturer, wholesaler, supplier, and exporter of aftermarket hydraulic and earthmoving spares
 
 ### Headquarters Address
 36-C, Gondal Rd, UDHYOGNAGAR, Bhakti Nagar, Rajkot, Gujarat 360002, India
@@ -37,7 +37,7 @@
 | Page | URL | Description |
 |------|-----|-------------|
 | Homepage | https://teckon.vercel.app/ | Main landing page with product categories, stats, supply footprint map, diagnostics bench, and company summary |
-| About Us | https://teckon.vercel.app/about | Founders' story, 25+ year journey, company milestones, core values, and team |
+| About Us | https://teckon.vercel.app/about | Founders' story, 26+ year journey, company milestones, core values, and team |
 | Products Catalog | https://teckon.vercel.app/products | Full searchable catalog with 38+ hydraulic parts across 9 categories with fuzzy search |
 | Quality & Manufacturing | https://teckon.vercel.app/quality | ISO 9001:2015 certification, 6-stage quality process, and testing standards |
 | Events & Exhibitions | https://teckon.vercel.app/events | History of industry expo attendance (Excon, bauma CONEXPO) from 2014–2026 |
@@ -51,7 +51,7 @@
 
 ## 3. Product Catalog — Detailed Breakdown
 
-Teckon™ stocks 38+ individual SKUs across 9 product categories. All parts are engineered to match or exceed OEM specifications.
+Teckon® stocks 38+ individual SKUs across 9 product categories. All parts are engineered to match or exceed OEM specifications.
 
 ### 3.1 JCB Spares (9 products)
 Specialized replacements for JCB 3DX, 4DX, and JS Series backhoe loaders and excavators:
@@ -119,7 +119,7 @@ Universal excavator components for 20-ton class machines:
 
 ## 4. Extended Parts Taxonomy
 
-Beyond individual SKUs, Teckon™ covers the following broader parts categories:
+Beyond individual SKUs, Teckon® covers the following broader parts categories:
 
 | Category | Key Items | Compatible Machines |
 |----------|-----------|---------------------|
@@ -136,7 +136,7 @@ Beyond individual SKUs, Teckon™ covers the following broader parts categories:
 
 ## 5. Quality Assurance & Manufacturing Process
 
-Teckon™ maintains a strict **6-stage quality workflow** at its Rajkot factory:
+Teckon® maintains a strict **6-stage quality workflow** at its Rajkot factory:
 
 1. **CAD/CAM Engineering** — SolidWorks design analysis for structural and dimensional fitment verification.
 2. **Material Inspection** — Metallurgical analysis, spectrometry, and hardness testing on raw forgings/castings from certified steel suppliers.
@@ -174,7 +174,7 @@ Teckon™ maintains a strict **6-stage quality workflow** at its Rajkot factory:
 
 ## 7. Blog / Knowledge Base Articles
 
-Teckon™ publishes technical hydraulic guides and industry insights. 15 articles currently available:
+Teckon® publishes technical hydraulic guides and industry insights. 15 articles currently available:
 
 1. [The Complete Guide to Hydraulic System Maintenance](https://teckon.vercel.app/blog/hydraulic-maintenance-guide) — Fluid checks, filter schedules, cylinder inspection, pressure testing.
 2. [Hitachi Excavator Hydraulics: EX200 & Zaxis Troubleshooting](https://teckon.vercel.app/blog/hitachi-excavator-parts-guide) — Diagnosis of common Hitachi hydraulic failures.
@@ -182,7 +182,7 @@ Teckon™ publishes technical hydraulic guides and industry insights. 15 article
 4. [JCB vs CAT Hydraulic Systems: What You Need to Know](https://teckon.vercel.app/blog/jcb-vs-cat-hydraulics) — Comparative analysis of JCB and Caterpillar hydraulic architectures.
 5. [Guide to Hitachi Swing Motor & Final Drive Maintenance](https://teckon.vercel.app/blog/hitachi-swing-motor-guide) — Swing motor and travel motor maintenance procedures.
 6. [JCB Cylinder Seal Kits: How to Prevent Hydraulic Leakage](https://teckon.vercel.app/blog/jcb-cylinder-seal-kit-guide) — Seal kit selection and installation best practices.
-7. [Teckon™ Expands Pan-India Distribution Network in 2025](https://teckon.vercel.app/blog/teckon-india-expansion-2025) — Company news on nationwide supply chain growth.
+7. [Teckon® Expands Pan-India Distribution Network in 2025](https://teckon.vercel.app/blog/teckon-india-expansion-2025) — Company news on nationwide supply chain growth.
 8. [Complete Guide to JCB 3DX Hydraulic Pump Replacement](https://teckon.vercel.app/blog/jcb-3dx-hydraulic-pump-replacement) — Step-by-step pump replacement walkthrough.
 9. [How to Choose the Right Bucket Teeth for Your Excavator or Backhoe](https://teckon.vercel.app/blog/bucket-teeth-selection-guide) — Bucket teeth types and selection criteria.
 10. [Understanding Hydraulic Cylinder Rod Seal Failures](https://teckon.vercel.app/blog/hydraulic-cylinder-rod-seal-failures) — Root causes and prevention strategies for seal failures.
@@ -196,7 +196,7 @@ Teckon™ publishes technical hydraulic guides and industry insights. 15 article
 
 ## 8. Industry Events & Exhibitions Attended
 
-Teckon™ / Shreeji Hydraulics regularly attends India's premier construction equipment expositions:
+Teckon® / Shreeji Hydraulics regularly attends India's premier construction equipment expositions:
 
 - **bauma CONEXPO INDIA 2026** — Greater Noida
 - **Excon South Asia 2024** — Bengaluru
@@ -247,7 +247,7 @@ Teckon™ / Shreeji Hydraulics regularly attends India's premier construction eq
 ### Brand Entities
 - Shreeji Hydraulics Rajkot
 - Teckon Quality Spares
-- Teckon™
+- Teckon®
 - Alpesh Patel Shreeji Hydraulics
 - J.C. Patel Shreeji Hydraulics
 
@@ -272,4 +272,4 @@ Teckon™ / Shreeji Hydraulics regularly attends India's premier construction eq
 
 ## 12. Legal: Aftermarket OEM Reference Disclaimer
 
-All manufacturer names, OEM part numbers, symbols, and descriptions (such as JCB, Terex, CAT, Caterpillar, Case, Tata JD, Hitachi, Komatsu, Kobelco, Carraro, Dana, etc.) are used for identification and cross-reference purposes only. It is not implied that any part listed is the product of these original equipment manufacturers. Teckon™ (Shreeji Hydraulics) is an independent manufacturer and supplier of high-quality aftermarket replacement parts.
+All manufacturer names, OEM part numbers, symbols, and descriptions (such as JCB, Terex, CAT, Caterpillar, Case, Tata JD, Hitachi, Komatsu, Kobelco, Carraro, Dana, etc.) are used for identification and cross-reference purposes only. It is not implied that any part listed is the product of these original equipment manufacturers. Teckon® (Shreeji Hydraulics) is an independent manufacturer and supplier of high-quality aftermarket replacement parts.

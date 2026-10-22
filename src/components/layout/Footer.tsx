@@ -41,7 +41,7 @@ export default function Footer(): React.JSX.Element {
               </Link>
             </div>
             <p className="text-white/70 text-sm leading-relaxed mb-4">
-              Wholesales &amp; Suppliers Store for Auto Parts &amp; Earthmoving
+              Wholesaler &amp; Suppliers Store for Auto Parts &amp; Earthmoving
               Spares. Supplying precision-engineered replacement parts for JCB,
               L&amp;T, JD, Terex, and CAT machinery since 2000.
             </p>

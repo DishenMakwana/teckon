@@ -17,6 +17,7 @@ import {
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { Founder, Pillar, ValueItem } from "@/types/about";
 import { COMPANY } from "@/lib/data";
+import { getYearsOfExperience } from "@/lib/utils";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/about" },
@@ -163,9 +164,7 @@ export default function AboutPage(): React.JSX.Element {
             About Teckon®
           </h1>
           <p className="text-white/70 text-xl max-w-2xl">
-            Wholesales &amp; Suppliers Store for Auto Parts &amp; Earthmoving
-            Spares — over 25 years supplying JCB, L&amp;T, JD, Terex, and CAT
-            components across India.
+            {`Wholesaler & Suppliers Store for Auto Parts & Earthmoving Spares — over ${getYearsOfExperience()} years supplying JCB, L&T, JD, Terex, and CAT components across India.`}
           </p>
         </div>
       </section>

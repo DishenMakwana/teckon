@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Factory, Globe, BadgeCheck, Wrench } from "lucide-react";
 import { Feature } from "@/types/home";
+import { getExperienceText } from "@/lib/utils";
 
 export default function AboutSection(): React.JSX.Element {
   const ref = useRef(null);
@@ -42,7 +43,7 @@ export default function AboutSection(): React.JSX.Element {
             </div>
             {/* Floating badge */}
             <div className="absolute -bottom-4 right-0 sm:-right-4 bg-[#FFBE00] text-[#0B0F19] rounded-xl p-4 shadow-xl">
-              <div className="font-black text-2xl">25+</div>
+              <div className="font-black text-2xl">{getExperienceText()}</div>
               <div className="text-xs font-semibold">
                 Years Industry Experience
               </div>
@@ -59,14 +60,14 @@ export default function AboutSection(): React.JSX.Element {
               About Teckon®
             </span>
             <h2 className="text-4xl font-black text-white mb-2">
-              <span>Wholesales &amp; Suppliers Store</span>
+              <span>Wholesaler &amp; Suppliers Store</span>
               <span className="block text-[#FFBE00]">
                 for Auto &amp; Earthmoving Spares
               </span>
             </h2>
             <div className="w-12 h-1.5 bg-[#FFBE00] rounded-full mb-6" />
             <p className="text-slate-300 leading-relaxed mb-4">
-              {`Teckon® is India's premier Wholesales & Suppliers Store for heavy auto parts and earthmoving spares, manufactured and distributed by `}
+              {`Teckon® is India's premier Wholesaler & Suppliers Store for heavy auto parts and earthmoving spares, manufactured and distributed by `}
               <strong>Shreeji Hydraulics</strong>
               {` since 2000. Operating out of our specialized manufacturing facility in Rajkot, Gujarat, we are a leading wholesaler of high-performance hydraulic cylinders, pump assemblies, seal kits, control valves, and high-tensile pins and bushes engineered specifically for JCB, L&T, JD, Terex, CAT, and heavy earthmoving machinery.`}
             </p>

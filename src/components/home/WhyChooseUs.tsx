@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Factory, Map, BadgeCheck, Wrench } from "lucide-react";
 import { Usp } from "@/types/home";
+import { getExperienceText } from "@/lib/utils";
 
 const usps: Usp[] = [
   {
@@ -52,8 +53,7 @@ export default function WhyChooseUs(): React.JSX.Element {
             Why Choose Teckon?
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            With 25+ years in the hydraulic parts industry, Teckon stands apart
-            through quality, reliability, and technical expertise.
+            {`With ${getExperienceText()} years in the hydraulic parts industry, Teckon stands apart through quality, reliability, and technical expertise.`}
           </p>
         </motion.div>
 

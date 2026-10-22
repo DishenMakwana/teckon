@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | Teckon® Quality Spares",
   },
   description:
-    "Shreeji Hydraulics (Teckon®) — Wholesales & Suppliers Store for Auto Parts and Earthmoving Spares. High-performance replacement parts for JCB, L&T, JD, Terex (TARAX), CAT, and heavy machinery. ISO 9001:2015 certified in Rajkot, Gujarat.",
+    "Shreeji Hydraulics (Teckon®) — Wholesaler & Suppliers Store for Auto Parts and Earthmoving Spares. High-performance replacement parts for JCB, L&T, JD, Terex (TARAX), CAT, and heavy machinery. ISO 9001:2015 certified in Rajkot, Gujarat.",
   metadataBase: new URL(COMPANY.url),
   alternates: {
     canonical: "/",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     apple: "/teckon.png",
   },
   keywords: [
-    "Wholesales & Suppliers Store for Auto Parts",
+    "Wholesaler & Suppliers Store for Auto Parts",
     "earthmoving spares of wholesaler",
     "earthmoving spares wholesaler",
     "JCB spares wholesaler",
@@ -107,9 +107,9 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title:
-      "Teckon® — Wholesales & Suppliers Store for Auto Parts & Earthmoving Spares",
+      "Teckon® — Wholesaler & Suppliers Store for Auto Parts & Earthmoving Spares",
     description:
-      "Wholesales & suppliers store for heavy machinery auto parts and earthmoving spares. Specializing in JCB, L&T, JD, Terex (TARAX), and CAT replacement parts. ISO 9001:2015 certified in Rajkot, India.",
+      "Wholesaler & suppliers store for heavy machinery auto parts and earthmoving spares. Specializing in JCB, L&T, JD, Terex (TARAX), and CAT replacement parts. ISO 9001:2015 certified in Rajkot, India.",
     url: COMPANY.url,
     siteName: "Teckon® Quality Spares",
     locale: "en_US",
@@ -120,16 +120,16 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         type: "image/png",
-        alt: "Teckon Quality Spares — Wholesales & Suppliers Store for Auto Parts & Earthmoving Spares",
+        alt: "Teckon Quality Spares — Wholesaler & Suppliers Store for Auto Parts & Earthmoving Spares",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Teckon® — Wholesales & Suppliers Store for Auto Parts & Earthmoving Spares",
+      "Teckon® — Wholesaler & Suppliers Store for Auto Parts & Earthmoving Spares",
     description:
-      "Wholesales & suppliers store for heavy machinery auto parts and earthmoving spares. Specializing in JCB, L&T, JD, Terex (TARAX), and CAT replacement parts. ISO 9001:2015 certified in Rajkot, India.",
+      "Wholesaler & suppliers store for heavy machinery auto parts and earthmoving spares. Specializing in JCB, L&T, JD, Terex (TARAX), and CAT replacement parts. ISO 9001:2015 certified in Rajkot, India.",
     images: [`${COMPANY.url}/og-image.png`],
   },
 };

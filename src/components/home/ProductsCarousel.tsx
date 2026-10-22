@@ -67,7 +67,7 @@ export default function ProductsCarousel(): React.JSX.Element {
             Our Top Products
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Wholesales &amp; suppliers store supplying precision-engineered auto
+            Wholesaler &amp; suppliers store supplying precision-engineered auto
             parts and earthmoving spares for JCB, L&amp;T, JD, Terex, CAT, and
             heavy fleets since 2000.
           </p>

@@ -64,6 +64,18 @@ This file serves as the agent's short-term memory of recent tasks, issues resolv
   2. Enhanced UI logo visibility and design fidelity: replaced system font glyphs in `Navbar.tsx` (desktop & mobile drawer), `Footer.tsx`, and `Preloader.tsx` with a custom, pixel-crisp vector SVG registered trademark (`<circle stroke="currentColor" strokeWidth="1.6" /><path d="..." />`). Set compact kerning (`tracking-tight`) matching the official brand badge, placed `®` tight against the last letter `N` (`ml-0.5 -mt-2` / `-mt-3.5`), and removed excessive tracking (`tracking-[0.25em]`) from `Preloader.tsx` to mirror the real badge design.
   3. Verified 0 remaining `™` occurrences, passed ESLint, Prettier format, Knip audit, and Next.js static build (75/75 pages).
 
+- **Task:** Standardize brand phrasing from "Wholesales" to "Wholesaler".
+- **Action:**
+  1. Replaced all occurrences of "Wholesales & Suppliers Store" with "Wholesaler & Suppliers Store" across `src/lib/data.ts`, `src/app/layout.tsx`, `src/app/products/page.tsx`, `src/app/about/page.tsx`, `HeroSection.tsx`, `AboutSection.tsx`, `ProductsCarousel.tsx`, `ProductsClient.tsx`, `Footer.tsx`, and LLM files (`llms.txt`, `llms-full.txt`).
+  2. Verified 0 remaining "wholesales" occurrences, passed ESLint, Prettier format, Knip audit, and full Next.js static build (75/75 pages).
+
+- **Task:** Calculate dynamic experience years (2026 - 2000 = 26+) and update states served to 6+.
+- **Action:**
+  1. Created centralized experience helper functions in [`src/lib/utils.ts`](file:///Users/dishen/Downloads/teckon/src/lib/utils.ts): `getYearsOfExperience(currentYear)` and `getExperienceText(suffix)` calculating years dynamically from establishment year (`COMPANY.founded = 2000`) and running year 2026.
+  2. Integrated `getYearsOfExperience()` and `getExperienceText()` across all relevant components: `StatsStrip.tsx`, `AboutSection.tsx` floating badge, `WhyChooseUs.tsx`, and `about/page.tsx`.
+  3. Updated States Served in `StatsStrip.tsx` from 10+ to `6+` and synchronized nationwide reach chip in `IndiaMapChart.tsx` to "Strong Reach Across 6+ States".
+  4. Verified lint, format, Knip audit, and full Next.js static build.
+
 - **Task:** Sync homepage product display card styling and interactions with product listing page.
 - **Action:** Updated [ProductsCarousel.tsx](file:///Users/dishen/Downloads/test/src/components/home/ProductsCarousel.tsx) to match [ProductsClient.tsx](file:///Users/dishen/Downloads/test/src/app/products/ProductsClient.tsx). Added `cardVariants` and `buttonVariants` for spring-based hover effects, updated image container height and padding, changed category badge style, integrated the interactive Glassmorphic Specs Hover Overlay to display technical specifications on hover, updated typography styling, and converted the "View Details" CTA button to the animated Dribbble-style "Inquire & Details" hover button. Cast specs values to string to resolve TypeScript type-check issues, and verified clean build output.
 - **Task:** Implement smooth layout and entry/exit filtering transitions on the product catalog and blog listing pages.

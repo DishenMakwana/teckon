@@ -127,7 +127,7 @@ function ProductsContent(): React.JSX.Element {
             Auto Parts &amp; Earthmoving Spares Wholesaler Catalog
           </h1>
           <p className="text-white/70 text-lg sm:text-xl max-w-2xl">
-            Wholesales &amp; suppliers store for genuine replacement auto parts
+            Wholesaler &amp; suppliers store for genuine replacement auto parts
             and earthmoving spares — specializing in JCB, L&amp;T, JD, Terex,
             and CAT machinery.
           </p>

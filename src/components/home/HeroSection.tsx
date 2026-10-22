@@ -45,7 +45,7 @@ export default function HeroSection(): React.JSX.Element {
         >
           <Factory className="w-3.5 h-3.5 shrink-0 text-[#0B0F19]" />
           <span>
-            Wholesales &amp; Suppliers Store | JCB, L&amp;T, JD, Terex, CAT |
+            Wholesaler &amp; Suppliers Store | JCB, L&amp;T, JD, Terex, CAT |
             Earthmoving Spares
           </span>
         </motion.div>
@@ -56,7 +56,7 @@ export default function HeroSection(): React.JSX.Element {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-4 md:mb-6"
         >
-          <span>Wholesales &amp; Suppliers Store</span>
+          <span>Wholesaler &amp; Suppliers Store</span>
           <span className="block text-[#FFBE00]">
             for Auto &amp; Earthmoving Spares
           </span>
@@ -71,7 +71,7 @@ export default function HeroSection(): React.JSX.Element {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-white/80 text-xs sm:text-sm md:text-base max-w-2xl mx-auto mb-6 md:mb-8"
         >
-          {`${COMPANY.brand} is India's trusted Wholesales & Suppliers Store for heavy auto parts and earthmoving spares. Since ${COMPANY.founded}, we provide precision-engineered replacement parts for JCB, L&T, JD, Terex, CAT, Tata JD, L770, breakers, and excavator fleets.`}
+          {`${COMPANY.brand} is India's trusted Wholesaler & Suppliers Store for heavy auto parts and earthmoving spares. Since ${COMPANY.founded}, we provide precision-engineered replacement parts for JCB, L&T, JD, Terex, CAT, Tata JD, L770, breakers, and excavator fleets.`}
         </motion.p>
 
         <motion.div
