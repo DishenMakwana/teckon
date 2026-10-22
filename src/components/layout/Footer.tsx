@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { MessageCircle, Mail, Phone, MapPin, ChevronRight } from "lucide-react";
+import { COMPANY } from "@/lib/data";
 
 export default function Footer(): React.JSX.Element {
   const year: number = 2026;
@@ -16,14 +17,33 @@ export default function Footer(): React.JSX.Element {
             <div className="flex items-center gap-2 mb-4">
               <Link
                 href="/"
-                className="bg-[#FFBE00] text-[#0B0F19] px-3 py-1.5 rounded-lg font-black text-lg hover:bg-[#1E293B] hover:text-white transition-colors"
+                className="bg-[#FFBE00] text-[#0B0F19] px-3.5 py-1.5 rounded-lg font-black text-lg hover:bg-[#1E293B] hover:text-white transition-colors inline-flex items-center tracking-tight"
               >
-                TECKON™
+                <span>TECKON</span>
+                <svg
+                  viewBox="0 0 16 16"
+                  className="w-[13px] h-[13px] sm:w-[14px] sm:h-[14px] ml-0.5 -mt-2 shrink-0"
+                  fill="none"
+                  aria-label="Registered"
+                >
+                  <circle
+                    cx="8"
+                    cy="8"
+                    r="6.8"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                  />
+                  <path
+                    d="M6 4.5H9.2C10.2 4.5 11 5.2 11 6.1C11 6.9 10.4 7.5 9.7 7.7L11.2 11.5H9.7L8.4 8H7.3V11.5H6V4.5ZM7.3 6.9H9C9.5 6.9 9.8 6.6 9.8 6.2C9.8 5.8 9.5 5.6 9 5.6H7.3V6.9Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </Link>
             </div>
             <p className="text-white/70 text-sm leading-relaxed mb-4">
-              Premium Hydraulic Parts & Spares for Heavy Machinery. Trusted by
-              industry leaders across India since 2000.
+              Wholesales &amp; Suppliers Store for Auto Parts &amp; Earthmoving
+              Spares. Supplying precision-engineered replacement parts for JCB,
+              L&amp;T, JD, Terex, and CAT machinery since 2000.
             </p>
             <div className="flex items-center gap-3">
               {/* Facebook */}
@@ -175,7 +195,7 @@ export default function Footer(): React.JSX.Element {
                   name: "Breakers & Tippers",
                   href: "/products?category=breakers",
                 },
-                { name: "L770 / Tata JD", href: "/products?category=l770" },
+                { name: "L&T / JD / L770", href: "/products?category=l770" },
                 {
                   name: "Excavator Parts",
                   href: "/products?category=excavator",
@@ -216,12 +236,23 @@ export default function Footer(): React.JSX.Element {
               Contact Us
             </h3>
             <ul className="flex flex-col gap-3">
-              <li className="flex items-start gap-2 text-sm text-white/70">
-                <MapPin size={14} className="mt-0.5 text-[#FFBE00] shrink-0" />
-                <span>
-                  36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat
-                  360004
-                </span>
+              <li>
+                <a
+                  href={COMPANY.address.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-start gap-2 text-sm text-white/70 hover:text-[#FFBE00] transition-colors"
+                  aria-label="View location on Google Maps (opens in a new tab)"
+                >
+                  <MapPin
+                    size={14}
+                    className="mt-0.5 text-[#FFBE00] shrink-0 group-hover:scale-110 transition-transform"
+                  />
+                  <span>
+                    36-C, Gondal Rd, UDHYOGNAGAR, Bhakti Nagar, Rajkot, Gujarat
+                    360002
+                  </span>
+                </a>
               </li>
               <li>
                 <a
@@ -262,11 +293,11 @@ export default function Footer(): React.JSX.Element {
               Disclaimer:
             </span>
             All manufacturer names, OEM part numbers, symbols, and descriptions
-            (such as JCB, Terex, CAT, Case, Tata JD, Carraro, Dana, etc.) are
-            used for identification and reference purposes only. It is not
-            implied that any part listed is the product of these original
-            equipment manufacturers. We are an independent supplier of
-            high-quality aftermarket replacement parts.
+            (such as JCB, L&amp;T, JD, TARAX, Terex, CAT, Case, Tata JD,
+            Carraro, Dana, etc.) are used for identification and reference
+            purposes only. It is not implied that any part listed is the product
+            of these original equipment manufacturers. We are an independent
+            supplier of high-quality aftermarket replacement parts.
           </p>
         </div>
       </div>
@@ -277,7 +308,7 @@ export default function Footer(): React.JSX.Element {
           <p className="text-white/50 text-xs">
             © {year} Shreeji Hydraulics.{" "}
             <Link href="/" className="hover:text-white underline">
-              TECKON™
+              TECKON®
             </Link>{" "}
             is a registered trademark of Shreeji Hydraulics in India. All rights
             reserved.

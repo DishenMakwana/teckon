@@ -26,11 +26,11 @@ export const viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Teckon™ Quality Spares | Premium Hydraulic Parts",
-    template: "%s | Teckon™ Quality Spares",
+    default: "Teckon® Quality Spares | Premium Hydraulic Parts",
+    template: "%s | Teckon® Quality Spares",
   },
   description:
-    "Shreeji Hydraulics (Teckon™) offers premium hydraulic parts & spares for JCB, Terex, CAT, and heavy machinery. ISO 9001:2015 certified in Rajkot, Gujarat.",
+    "Shreeji Hydraulics (Teckon®) — Wholesales & Suppliers Store for Auto Parts and Earthmoving Spares. High-performance replacement parts for JCB, L&T, JD, Terex (TARAX), CAT, and heavy machinery. ISO 9001:2015 certified in Rajkot, Gujarat.",
   metadataBase: new URL(COMPANY.url),
   alternates: {
     canonical: "/",
@@ -48,6 +48,16 @@ export const metadata: Metadata = {
     apple: "/teckon.png",
   },
   keywords: [
+    "Wholesales & Suppliers Store for Auto Parts",
+    "earthmoving spares of wholesaler",
+    "earthmoving spares wholesaler",
+    "JCB spares wholesaler",
+    "L&T spares wholesaler",
+    "JD spares wholesaler",
+    "TARAX spares supplier",
+    "Terex Tarax parts wholesaler",
+    "CAT earthmoving spares wholesaler",
+    "auto parts wholesaler Rajkot",
     "hydraulic parts",
     "hydraulic spares",
     "JCB spares",
@@ -56,9 +66,11 @@ export const metadata: Metadata = {
     "JCB 3dx parts",
     "Terex parts",
     "Terex spares",
+    "TARAX parts",
     "CAT hydraulics",
     "CAT parts",
     "Tata JD parts",
+    "L&T spares",
     "L770 spares",
     "Hitachi excavator parts",
     "heavy machinery spares India",
@@ -70,7 +82,7 @@ export const metadata: Metadata = {
     "pins and bushes",
     "breaker tipper spares",
     "Teckon",
-    "Teckon™",
+    "Teckon®",
     "Teckon Quality Spares",
     "Shreeji Hydraulics",
     "Shreeji Hydraulics Rajkot",
@@ -95,11 +107,11 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title:
-      "Teckon™ Quality Spares — Precision Hydraulic Parts for JCB, CAT & Hitachi",
+      "Teckon® — Wholesales & Suppliers Store for Auto Parts & Earthmoving Spares",
     description:
-      "Explore 5,000+ replacement hydraulic pumps, control valves, cylinder seal kits, and excavator spares. ISO 9001:2015 certified manufacturer in Rajkot, India.",
+      "Wholesales & suppliers store for heavy machinery auto parts and earthmoving spares. Specializing in JCB, L&T, JD, Terex (TARAX), and CAT replacement parts. ISO 9001:2015 certified in Rajkot, India.",
     url: COMPANY.url,
-    siteName: "Teckon™ Quality Spares",
+    siteName: "Teckon® Quality Spares",
     locale: "en_US",
     type: "website",
     images: [
@@ -108,16 +120,16 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         type: "image/png",
-        alt: "Teckon Quality Spares — Industrial Hydraulic Parts & Heavy Machinery Spares",
+        alt: "Teckon Quality Spares — Wholesales & Suppliers Store for Auto Parts & Earthmoving Spares",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Teckon™ Quality Spares — Precision Hydraulic Parts for JCB, CAT & Hitachi",
+      "Teckon® — Wholesales & Suppliers Store for Auto Parts & Earthmoving Spares",
     description:
-      "Explore 5,000+ replacement hydraulic pumps, control valves, cylinder seal kits, and excavator spares. ISO 9001:2015 certified manufacturer in Rajkot, India.",
+      "Wholesales & suppliers store for heavy machinery auto parts and earthmoving spares. Specializing in JCB, L&T, JD, Terex (TARAX), and CAT replacement parts. ISO 9001:2015 certified in Rajkot, India.",
     images: [`${COMPANY.url}/og-image.png`],
   },
 };
@@ -151,10 +163,10 @@ const organizationSchema: Record<string, unknown> = {
   ],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "36-C Bhaktinagar, Udhyognagar, Gondal Road",
+    streetAddress: "36-C, Gondal Rd, UDHYOGNAGAR, Bhakti Nagar",
     addressLocality: "Rajkot",
     addressRegion: "Gujarat",
-    postalCode: "360004",
+    postalCode: "360002",
     addressCountry: "IN",
   },
   sameAs: [

@@ -28,7 +28,7 @@ const usps: Usp[] = [
     icon: Wrench,
     title: "Specialized Solutions",
     description:
-      "Our experienced engineering team provides custom hydraulic fabrication and technical consulting. We deliver bespoke parts built to exact OEM drawings and specifications for JCB, Terex, CAT, and Hitachi fleets.",
+      "Our experienced engineering team provides custom hydraulic fabrication and technical consulting. We deliver bespoke parts built to exact OEM drawings and specifications for JCB, L&T, JD, Terex, CAT, and Hitachi fleets.",
   },
 ];
 

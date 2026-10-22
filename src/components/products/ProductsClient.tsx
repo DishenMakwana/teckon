@@ -24,7 +24,7 @@ const categories: ProductCategoryTab[] = [
   { id: "terex", label: "Terex Parts" },
   { id: "cat", label: "CAT Components" },
   { id: "breakers", label: "Breakers & Tippers" },
-  { id: "l770", label: "L770 / Tata JD" },
+  { id: "l770", label: "L&T / JD (Tata JD)" },
   { id: "excavator", label: "Excavator Parts" },
   { id: "filters", label: "Filters & Service" },
   { id: "general", label: "General Hydraulics" },
@@ -124,11 +124,12 @@ function ProductsContent(): React.JSX.Element {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <BreadcrumbBar items={[{ label: "Products" }]} />
           <h1 className="text-4xl sm:text-5xl font-black text-white mt-6 mb-4">
-            Product Catalog
+            Auto Parts &amp; Earthmoving Spares Wholesaler Catalog
           </h1>
           <p className="text-white/70 text-lg sm:text-xl max-w-2xl">
-            Genuine quality hydraulic spare parts for JCB, Terex, CAT, L770,
-            Tata JD, and all heavy earthmoving equipment.
+            Wholesales &amp; suppliers store for genuine replacement auto parts
+            and earthmoving spares — specializing in JCB, L&amp;T, JD, Terex,
+            and CAT machinery.
           </p>
         </div>
       </section>

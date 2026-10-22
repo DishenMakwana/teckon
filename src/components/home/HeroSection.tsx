@@ -45,7 +45,8 @@ export default function HeroSection(): React.JSX.Element {
         >
           <Factory className="w-3.5 h-3.5 shrink-0 text-[#0B0F19]" />
           <span>
-            ISO 9001:2015 Certified | Precision Engineered | Pan-India Coverage
+            Wholesales &amp; Suppliers Store | JCB, L&amp;T, JD, Terex, CAT |
+            Earthmoving Spares
           </span>
         </motion.div>
 
@@ -55,10 +56,12 @@ export default function HeroSection(): React.JSX.Element {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-4 md:mb-6"
         >
-          Premium Hydraulic
-          <span className="block text-[#FFBE00]">Parts &amp; Spares</span>
-          <span className="block text-lg sm:text-2xl md:text-4xl font-bold text-white/80 mt-1 md:mt-2">
-            for Heavy Machinery
+          <span>Wholesales &amp; Suppliers Store</span>
+          <span className="block text-[#FFBE00]">
+            for Auto &amp; Earthmoving Spares
+          </span>
+          <span className="block text-lg sm:text-2xl md:text-3xl font-bold text-white/80 mt-1 md:mt-2">
+            JCB • L&amp;T • JD • Terex • CAT Machinery
           </span>
         </motion.h1>
 
@@ -68,7 +71,7 @@ export default function HeroSection(): React.JSX.Element {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-white/80 text-xs sm:text-sm md:text-base max-w-2xl mx-auto mb-6 md:mb-8"
         >
-          {`${COMPANY.brand} is a premium manufacturer of hydraulic parts & spares for heavy machinery. Since ${COMPANY.founded}, we have been a trusted leader delivering precision-engineered hydraulic spares across India, specializing in JCB, Terex, CAT, Tata JD, L770, breakers, tippers, and excavator components.`}
+          {`${COMPANY.brand} is India's trusted Wholesales & Suppliers Store for heavy auto parts and earthmoving spares. Since ${COMPANY.founded}, we provide precision-engineered replacement parts for JCB, L&T, JD, Terex, CAT, Tata JD, L770, breakers, and excavator fleets.`}
         </motion.p>
 
         <motion.div
@@ -81,7 +84,8 @@ export default function HeroSection(): React.JSX.Element {
             href="/products"
             className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#FFBE00] text-[#0B0F19] font-black px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg hover:bg-[#d99e00] transition-colors shadow-xl"
           >
-            <Settings className="w-4 h-4 shrink-0" /> Explore Products
+            <Settings className="w-4 h-4 shrink-0" />
+            <span>Explore Products</span>
           </Link>
           <a
             href={COMPANY.whatsapp}
@@ -89,13 +93,15 @@ export default function HeroSection(): React.JSX.Element {
             rel="noopener noreferrer"
             className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#128C7E] text-white font-bold px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg hover:bg-[#0f766a] transition-colors shadow-xl"
           >
-            <MessageSquare className="w-4 h-4 shrink-0" /> WhatsApp Inquiry
+            <MessageSquare className="w-4 h-4 shrink-0" />
+            <span>WhatsApp Inquiry</span>
           </a>
           <a
             href={`tel:${COMPANY.phones.mainRaw}`}
             className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white/10 border-2 border-white/40 text-white font-bold px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg hover:bg-white/20 transition-colors"
           >
-            <Phone className="w-4 h-4 shrink-0" /> Call Now
+            <Phone className="w-4 h-4 shrink-0" />
+            <span>Call Now</span>
           </a>
         </motion.div>
 
@@ -107,23 +113,33 @@ export default function HeroSection(): React.JSX.Element {
           className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mt-4 md:mt-10 text-white/50 text-[10px] sm:text-xs md:text-sm"
         >
           <span className="flex items-center gap-1.5">
-            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" /> JCB
-            Specialists
+            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" />
+            <span>JCB Spares Wholesaler</span>
           </span>
           <span className="hidden sm:block text-white/20">|</span>
           <span className="flex items-center gap-1.5">
-            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" /> Terex
-            Parts
+            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" />
+            <span>L&amp;T &amp; JD Spares</span>
           </span>
           <span className="hidden sm:block text-white/20">|</span>
           <span className="flex items-center gap-1.5">
-            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" /> CAT
-            Components
+            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" />
+            <span>Terex Parts</span>
           </span>
           <span className="hidden sm:block text-white/20">|</span>
           <span className="flex items-center gap-1.5">
-            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" /> OEM
-            Specifications
+            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" />
+            <span>CAT Components</span>
+          </span>
+          <span className="hidden sm:block text-white/20">|</span>
+          <span className="flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" />
+            <span>Earthmoving Spares Supplier</span>
+          </span>
+          <span className="hidden sm:block text-white/20">|</span>
+          <span className="flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 shrink-0 text-[#FFBE00]" />
+            <span>OEM Specifications</span>
           </span>
         </motion.div>
       </div>

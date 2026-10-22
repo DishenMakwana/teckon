@@ -5,9 +5,12 @@ import { CompanyInfo } from "@/types/company-info";
 // Central data store for all website content
 export const COMPANY: CompanyInfo = {
   name: "Shreeji Hydraulics",
-  brand: "Teckon™",
-  brandFull: "Teckon™ Quality Spares",
-  tagline: "Quality Spares",
+  brand: "Teckon®",
+  brandFull: "Teckon® Quality Spares",
+  tagline: "Wholesales & Suppliers Store for Auto Parts",
+  headline: "Wholesales & Suppliers Store for Auto Parts & Earthmoving Spares",
+  subTagline: "JCB, L&T, JD, Terex, CAT, Earthmoving Spares of Wholesaler",
+  wholesalerBrands: ["JCB", "L&T", "JD", "Terex", "CAT", "Earthmoving Spares"],
   url: "https://teckon.vercel.app",
   founded: 2000,
   email: "shreejihyd4008@gmail.com",
@@ -22,9 +25,10 @@ export const COMPANY: CompanyInfo = {
   whatsapp:
     "https://wa.me/919426915578?text=Hello%20Shreeji%20Hydraulics,%20I%20want%20to%20inquire%20about%20hydraulic%20spares",
   address: {
-    line1: "36-C Bhaktinagar, Udhyognagar,",
-    line2: "Gondal Road, Rajkot-2, Gujarat 360004",
-    full: "36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat 360004",
+    line1: "36-C, Gondal Rd, UDHYOGNAGAR, Bhakti Nagar,",
+    line2: "Gondal Road, Rajkot-2, Gujarat 360002",
+    full: "36-C, Gondal Rd, UDHYOGNAGAR, Bhakti Nagar, Rajkot, Gujarat 360002",
+    mapsUrl: "https://maps.app.goo.gl/uxAsDhUD7DvfASts8",
   },
   social: {
     facebook: "https://facebook.com/shreejihydraulics",
@@ -386,7 +390,14 @@ export const PRODUCTS: Product[] = [
     slug: "terex-hydraulic-cylinder",
     weight: "24.5 kg",
     material: "High-tensile carbon steel, chrome-plated rod",
-    crossReferences: ["OEM-TX-CYL-007", "ALT-TX-CYL-007", "TXCYL007"],
+    crossReferences: [
+      "OEM-TX-CYL-007",
+      "ALT-TX-CYL-007",
+      "TXCYL007",
+      "TARAX",
+      "TERAX",
+      "TARAX-PARTS",
+    ],
     stockStatus: "limited",
     model: "TQS-TRX-001",
     ref: "REF-TX-CYL-007",
@@ -408,7 +419,14 @@ export const PRODUCTS: Product[] = [
     slug: "terex-seal-kit",
     weight: "0.25 kg",
     material: "Nitrile Rubber (NBR) & Polyurethane",
-    crossReferences: ["OEM-TX-SK-TLB840", "ALT-TX-SK-TLB840", "TXSKTLB840"],
+    crossReferences: [
+      "OEM-TX-SK-TLB840",
+      "ALT-TX-SK-TLB840",
+      "TXSKTLB840",
+      "TARAX",
+      "TERAX",
+      "TARAX-PARTS",
+    ],
     mostUsed: true,
     model: "TQS-TRX-002",
     ref: "REF-TX-SK-TLB840",
@@ -430,7 +448,14 @@ export const PRODUCTS: Product[] = [
     slug: "terex-steering-unit",
     weight: "4.5 kg",
     material: "Carbon steel",
-    crossReferences: ["OEM-TX-STR-009", "ALT-TX-STR-009", "TXSTR009"],
+    crossReferences: [
+      "OEM-TX-STR-009",
+      "ALT-TX-STR-009",
+      "TXSTR009",
+      "TARAX",
+      "TERAX",
+      "TARAX-PARTS",
+    ],
     stockStatus: "limited",
     model: "TQS-TRX-003",
     ref: "REF-TX-STR-009",
@@ -610,65 +635,89 @@ export const PRODUCTS: Product[] = [
     slug: "l770-track-roller",
     weight: "18.0 kg",
     material: "Forged medium carbon alloy steel, induction hardened",
-    crossReferences: ["OEM-L770-TR-09", "ALT-L770-TR-09", "L770TR09"],
+    crossReferences: [
+      "OEM-L770-TR-09",
+      "ALT-L770-TR-09",
+      "L770TR09",
+      "L&T",
+      "L-AND-T",
+      "JD",
+      "JOHN-DEERE",
+    ],
     stockStatus: "limited",
     mostUsed: true,
     model: "TQS-L770-001",
     ref: "REF-L770-TR-09",
     category: "l770",
-    categoryLabel: "L770 / Tata JD",
+    categoryLabel: "L&T / JD (Tata JD)",
     name: "L770 Track Roller Assembly",
     description:
-      "Heavy-duty bottom track roller for L770 crawler loaders. Sealed for life with premium bearing steel construction.",
+      "Heavy-duty bottom track roller for L&T 770 and Tata JD crawler loaders. Sealed for life with premium bearing steel construction.",
     image: "/images/products/l770-track-roller.webp",
     backgroundColor: "#ECECED",
     specs: {
       "Flange Type": "Double flange",
       Material: "Forged alloy steel",
       "Seal Type": "Duo-cone floating seal",
-      Compatible: "L770, Tata JD crawler loaders",
+      Compatible: "L&T 770, Tata JD crawler loaders",
     },
   },
   {
     slug: "l770-front-idler",
     weight: "45.0 kg",
     material: "Forged medium carbon alloy steel, induction hardened",
-    crossReferences: ["OEM-L770-IDL-02", "ALT-L770-IDL-02", "L770IDL02"],
+    crossReferences: [
+      "OEM-L770-IDL-02",
+      "ALT-L770-IDL-02",
+      "L770IDL02",
+      "L&T",
+      "L-AND-T",
+      "JD",
+      "JOHN-DEERE",
+    ],
     model: "TQS-L770-002",
     ref: "REF-L770-IDL-02",
     category: "l770",
-    categoryLabel: "L770 / Tata JD",
+    categoryLabel: "L&T / JD (Tata JD)",
     name: "L770 Front Idler Assembly",
     description:
-      "Cast steel front idler with yoke and recoil spring assembly for L770 and Tata JD crawler loaders. Controls track tension and absorbs ground shocks.",
+      "Cast steel front idler with yoke and recoil spring assembly for L&T 770 and Tata JD crawler loaders. Controls track tension and absorbs ground shocks.",
     image: "/images/products/l770-front-idler.webp",
     backgroundColor: "#ECECEC",
     specs: {
       Material: "Cast alloy steel, machined OD",
       "Seal Type": "Duo-cone floating seal",
       "Recoil Spring": "Coil spring with grease recoil cylinder",
-      Compatible: "L770, Tata JD, Komatsu D31 class",
+      Compatible: "L&T 770, Tata JD, Komatsu D31 class",
     },
   },
   {
     slug: "l770-drive-sprocket",
     weight: "45.0 kg",
     material: "Forged medium carbon alloy steel, induction hardened",
-    crossReferences: ["OEM-L770-SPR-07", "ALT-L770-SPR-07", "L770SPR07"],
+    crossReferences: [
+      "OEM-L770-SPR-07",
+      "ALT-L770-SPR-07",
+      "L770SPR07",
+      "L&T",
+      "L-AND-T",
+      "JD",
+      "JOHN-DEERE",
+    ],
     model: "TQS-L770-003",
     ref: "REF-L770-SPR-07",
     category: "l770",
-    categoryLabel: "L770 / Tata JD",
+    categoryLabel: "L&T / JD (Tata JD)",
     name: "L770 Drive Sprocket Segment Set",
     description:
-      "Bolt-on drive sprocket segment set for L770 crawler loaders. Manufactured from Boron alloy steel for maximum wear life.",
+      "Bolt-on drive sprocket segment set for L&T 770 and Tata JD crawler loaders. Manufactured from Boron alloy steel for maximum wear life.",
     image: "/images/products/l770-drive-sprocket.webp",
     backgroundColor: "#ECECEE",
     specs: {
       Material: "Boron alloy steel, 48 HRC hardness",
       "Segments per Set": "8 segments",
       "Tooth Profile": "OEM matched",
-      Compatible: "L770, Tata JD crawler loaders",
+      Compatible: "L&T 770, Tata JD crawler loaders",
     },
   },
 
@@ -908,7 +957,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "Proper maintenance of hydraulic systems can extend equipment life by up to 40%. Learn the critical checkpoints every operator should know.",
     date: "2025-03-15",
-    author: "Teckon™ Technical Team",
+    author: "Teckon® Technical Team",
     category: "Maintenance",
     image: "/images/blog/blog-maintenance.webp",
     content: `
@@ -937,7 +986,7 @@ Hydraulic cylinder rods should be inspected for:
 Annual pressure testing by qualified technicians ensures your system operates within design specifications. Pressure drops indicate seal wear or internal leakage.
 
 ## Conclusion
-A disciplined maintenance schedule, combined with genuine quality spare parts from certified suppliers like Teckon™, will significantly reduce downtime and total ownership cost.
+A disciplined maintenance schedule, combined with genuine quality spare parts from certified suppliers like Teckon®, will significantly reduce downtime and total ownership cost.
     `,
   },
   {
@@ -972,7 +1021,7 @@ When rebuilding a Hitachi pump (such as the HPV102 or HPV118 series), using prem
 - **Regulator Valves:** Spring tensions and spool clearances must match original specs exactly.
 
 ## Conclusion
-Preventative maintenance and early troubleshooting of Hitachi hydraulic pumps can save lakhs in repair costs. When parts replacement becomes necessary, choosing Teckon™'s premium spares ensures OEM-level reliability.
+Preventative maintenance and early troubleshooting of Hitachi hydraulic pumps can save lakhs in repair costs. When parts replacement becomes necessary, choosing Teckon®'s premium spares ensures OEM-level reliability.
     `,
   },
   {
@@ -981,7 +1030,7 @@ Preventative maintenance and early troubleshooting of Hitachi hydraulic pumps ca
     excerpt:
       "An in-depth technical comparison comparing gear pumps and piston pumps in JCB 3CX loaders, and how to identify which pump spares your machine needs.",
     date: "2025-02-25",
-    author: "Teckon™ Technical Team",
+    author: "Teckon® Technical Team",
     category: "JCB Spares",
     image: "/images/blog/blog-jcb-pumps.webp",
     content: `
@@ -1033,7 +1082,7 @@ JCB uses a load-sensing variable displacement piston pump system on their JS ser
 Caterpillar equipment generally employs a more complex electro-hydraulic control system on newer models, while older machines like the CAT 424B use conventional open-center hydraulic circuits.
 
 ## Why Original-Quality Spares Matter
-Using substandard replacement hydraulic parts can void warranties, cause premature failure, and in the worst case, create safety hazards. Teckon™ sources all parts to OEM specifications, ensuring fit, form, and function equivalence.
+Using substandard replacement hydraulic parts can void warranties, cause premature failure, and in the worst case, create safety hazards. Teckon® sources all parts to OEM specifications, ensuring fit, form, and function equivalence.
 
 ## Conclusion
 Understanding your specific machine's hydraulic architecture helps you make better maintenance decisions. Our technical team is always available to help identify the right part for your equipment.
@@ -1077,7 +1126,7 @@ Keep the gear oils changed every 1000 hours, and visually inspect for seal leaks
     excerpt:
       "Understanding seal kit wear, choosing between polyurethane and NBR seals, and step-by-step instructions for replacing boom and bucket cylinder seals on JCB equipment.",
     date: "2025-01-28",
-    author: "Teckon™ Quality Team",
+    author: "Teckon® Quality Team",
     category: "JCB Spares",
     image: "/images/blog/blog-jcb-seals.webp",
     content: `
@@ -1099,24 +1148,24 @@ A heavy-duty cylinder seal kit consists of several distinct seals, each with a s
 ## 3. Step-by-Step Replacement Tips
 - **Inspect the Rod:** Run your hand along the chrome-plated rod. If you feel any nicks, burrs, or deep scratches, the new seals will be sliced and leak within days. Polish or replace the rod first.
 - **Use Installation Tools:** Never use sharp screwdrivers to seat U-cup seals; you will damage the sealing lip. Use plastic seal twisters or hooks.
-- **Match Seal Dimensions:** Even slightly off-size seals will fail. Always verify the cylinder model (e.g. Boom, Bucket, Dipper, Stabilizer, or Steering cylinder) to get the exact matching Teckon™ kit.
+- **Match Seal Dimensions:** Even slightly off-size seals will fail. Always verify the cylinder model (e.g. Boom, Bucket, Dipper, Stabilizer, or Steering cylinder) to get the exact matching Teckon® kit.
 
 ## Conclusion
-By replacing worn seal kits proactively, you prevent cylinder barrel scoring and maintain full digging power. Teckon™ seal kits are made from premium imported raw materials to match or exceed OEM longevity.
+By replacing worn seal kits proactively, you prevent cylinder barrel scoring and maintain full digging power. Teckon® seal kits are made from premium imported raw materials to match or exceed OEM longevity.
     `,
   },
   {
     slug: "teckon-expansion-2025",
-    title: "Teckon™ Expands Pan-India Distribution Network in 2025",
+    title: "Teckon® Expands Pan-India Distribution Network in 2025",
     excerpt:
       "Shreeji Hydraulics strengthens its presence across Gujarat, Rajasthan, Maharashtra and Madhya Pradesh with new distribution partnerships.",
     date: "2025-01-20",
-    author: "Teckon™ Team",
+    author: "Teckon® Team",
     category: "Company News",
     image: "/images/blog/blog-expansion.webp",
     content: `
 ## Exciting Expansion News
-We are proud to announce that Teckon™ Quality Spares has significantly expanded its distribution network across India, making it easier than ever for equipment operators and dealers to access genuine hydraulic spare parts quickly.
+We are proud to announce that Teckon® Quality Spares has significantly expanded its distribution network across India, making it easier than ever for equipment operators and dealers to access genuine hydraulic spare parts quickly.
 
 ## New Distribution Hubs
 In 2025, we have established new distribution partnerships in:
@@ -1128,7 +1177,7 @@ In 2025, we have established new distribution partnerships in:
 With these new hubs, we can now guarantee 24-48 hour delivery across major cities in Gujarat, Rajasthan, Maharashtra, and Madhya Pradesh for stocked items.
 
 ## Looking Ahead
-We continue to invest in our inventory, quality systems, and people to serve our growing customer base. With over 5000 SKUs in stock and ISO 9001:2015 certification, Teckon™ remains committed to being your most reliable hydraulic parts partner.
+We continue to invest in our inventory, quality systems, and people to serve our growing customer base. With over 5000 SKUs in stock and ISO 9001:2015 certification, Teckon® remains committed to being your most reliable hydraulic parts partner.
 
 For inquiries about distribution partnerships or product availability in your region, contact us at shreejihyd4008@gmail.com.
     `,
@@ -1140,7 +1189,7 @@ For inquiries about distribution partnerships or product availability in your re
     excerpt:
       "Filters are the most critical consumable parts on any JCB machine. Replacing them on time prevents 70% of all hydraulic and engine failures. Here's everything you need to know.",
     date: "2025-04-10",
-    author: "Teckon™ Technical Team",
+    author: "Teckon® Technical Team",
     category: "JCB Spares",
     image: "/images/blog/blog-jcb-filters.webp",
     content: `
@@ -1180,7 +1229,7 @@ The JCB 4DX and other 4-wheel drive machines have additional transmission oil fi
 ## Why Genuine-Quality Filters Matter
 Not all replacement filters are equal. Low-cost imitation filters often use lower-grade filter media with larger pore sizes. This means they pass particles that are too large for hydraulic valves and pump clearances — causing accelerated wear even though the filter looks clean.
 
-Teckon™ stocks a complete range of premium hydraulic, engine, fuel, and air filters for JCB 3DX, 3CX, 4CX, JS130, JS200, and NXT series machines — all manufactured to OEM specifications.
+Teckon® stocks a complete range of premium hydraulic, engine, fuel, and air filters for JCB 3DX, 3CX, 4CX, JS130, JS200, and NXT series machines — all manufactured to OEM specifications.
 
 ## Conclusion
 Maintain your filter schedule strictly. Keep a maintenance logbook. A ₹500 filter can protect a ₹3,00,000 hydraulic pump. The maths is simple.
@@ -1226,7 +1275,7 @@ Bucket teeth are manufactured in different steel hardness grades:
 - **500 HB:** Heavy-duty abrasive applications
 - **Carbide-tipped:** Extreme wear, quarry and mining use
 
-Teckon™ recommends 500 HB teeth for most Indian construction site conditions where mixed rock, gravel, and clay are common.
+Teckon® recommends 500 HB teeth for most Indian construction site conditions where mixed rock, gravel, and clay are common.
 
 ## 4. When to Replace
 Replace bucket teeth when:
@@ -1238,7 +1287,7 @@ Replace bucket teeth when:
 Worn teeth waste fuel, reduce production, and stress the bucket lip and adapters. Timely replacement saves money overall.
 
 ## Conclusion
-At Teckon™, we stock standard, heavy-duty, and penetration bucket teeth for all major machine brands. Our technical team can recommend the right tooth for your site conditions, material type, and machine model.
+At Teckon®, we stock standard, heavy-duty, and penetration bucket teeth for all major machine brands. Our technical team can recommend the right tooth for your site conditions, material type, and machine model.
     `,
   },
   {
@@ -1248,7 +1297,7 @@ At Teckon™, we stock standard, heavy-duty, and penetration bucket teeth for al
     excerpt:
       "India's CEV Stage 5 emission regulations came into force in 2024. If you've recently bought a new JCB, Hitachi, or Komatsu machine, here's what changed under the hood — and which parts are now different.",
     date: "2025-05-05",
-    author: "Teckon™ Technical Team",
+    author: "Teckon® Technical Team",
     category: "Industry Update",
     image: "/images/blog/blog-stage-5.webp",
     content: `
@@ -1279,7 +1328,7 @@ Many Stage 5 engines feature updated EGR coolers and valves to handle the more a
 If your machine is a Stage 5 model (any new JCB, Hitachi, or CAT purchased in 2024 or later), do NOT assume that older Stage IV parts will fit. Always verify the stage level and engine serial number when ordering replacement engine or exhaust components.
 
 ## Conclusion
-CEV Stage 5 is a major shift in how construction equipment engines work. Understanding the new after-treatment systems and stocking the right service parts is critical to keeping your fleet running legally and efficiently. Our Teckon™ technical team is trained to advise on Stage 5 parts compatibility across all major brands.
+CEV Stage 5 is a major shift in how construction equipment engines work. Understanding the new after-treatment systems and stocking the right service parts is critical to keeping your fleet running legally and efficiently. Our Teckon® technical team is trained to advise on Stage 5 parts compatibility across all major brands.
     `,
   },
   {
@@ -1328,7 +1377,7 @@ In locations that experience significant temperature variation (like Rajasthan o
 - Overheating — oil too thin, insufficient film strength
 
 ## Conclusion
-Always use the manufacturer-specified oil grade for your machine model and operating climate. At Teckon™, we supply a range of premium hydraulic service fluids suitable for JCB, Hitachi, Komatsu, and Terex equipment. Our technical team is happy to advise on the correct specification for your application.
+Always use the manufacturer-specified oil grade for your machine model and operating climate. At Teckon®, we supply a range of premium hydraulic service fluids suitable for JCB, Hitachi, Komatsu, and Terex equipment. Our technical team is happy to advise on the correct specification for your application.
     `,
   },
   {
@@ -1338,7 +1387,7 @@ Always use the manufacturer-specified oil grade for your machine model and opera
     excerpt:
       "Backhoe loaders and excavators are often confused — but their hydraulic systems, spare parts, and maintenance needs are very different. This guide helps contractors and fleet managers understand what to expect.",
     date: "2025-06-01",
-    author: "Teckon™ Technical Team",
+    author: "Teckon® Technical Team",
     category: "Technical",
     image: "/images/blog/blog-backhoe-excavator.webp",
     content: `
@@ -1384,7 +1433,7 @@ A tracked excavator provides full 360° continuous rotation via a hydraulic swin
 - **Tracked excavators** are best for mass excavation, heavy foundation work, quarrying, and sites where machine stability and continuous heavy digging is required
 
 ## Conclusion
-Whether you operate backhoe loaders or tracked excavators, Teckon™ has you covered with a comprehensive spare parts inventory for both machine types. Our team can identify the correct part for any model based on your serial number and machine configuration.
+Whether you operate backhoe loaders or tracked excavators, Teckon® has you covered with a comprehensive spare parts inventory for both machine types. Our team can identify the correct part for any model based on your serial number and machine configuration.
     `,
   },
   {
@@ -1436,7 +1485,7 @@ For Hitachi ZX and EX series:
 - After installation, always apply fresh grease immediately to protect the new bush before any machine operation
 
 ## Conclusion
-Pins and bushes are inexpensive preventive maintenance items that protect the far more expensive structural steel of your machine's boom and arm. Teckon™ supplies complete pin and bush kits for JCB, Hitachi, CAT, and Terex equipment, matched to OEM dimensions and manufactured from superior-grade bronze and steel.
+Pins and bushes are inexpensive preventive maintenance items that protect the far more expensive structural steel of your machine's boom and arm. Teckon® supplies complete pin and bush kits for JCB, Hitachi, CAT, and Terex equipment, matched to OEM dimensions and manufactured from superior-grade bronze and steel.
     `,
   },
   {
@@ -1446,7 +1495,7 @@ Pins and bushes are inexpensive preventive maintenance items that protect the fa
     excerpt:
       "Ground Engaging Tools are the parts of your machine that touch the earth. They wear fastest and impact productivity the most. Learn about every GET category, when to replace them, and how to choose the right specification.",
     date: "2025-06-15",
-    author: "Teckon™ Technical Team",
+    author: "Teckon® Technical Team",
     category: "Ground Engaging Tools",
     image: "/images/blog/blog-get-tools.webp",
     content: `
@@ -1504,7 +1553,7 @@ Implement a weekly visual GET inspection routine:
 Document wear rates — this helps you predict replacement intervals, order parts proactively, and avoid unplanned downtime.
 
 ## Conclusion
-Ground Engaging Tools may be consumable, but they are strategic. The right GET specification reduces fuel consumption, increases bucket fill factors, and extends the service life of your buckets. Teckon™ supplies a comprehensive range of GET for JCB, CAT, Hitachi, Komatsu, and Volvo equipment across all hardness grades and adapter systems.
+Ground Engaging Tools may be consumable, but they are strategic. The right GET specification reduces fuel consumption, increases bucket fill factors, and extends the service life of your buckets. Teckon® supplies a comprehensive range of GET for JCB, CAT, Hitachi, Komatsu, and Volvo equipment across all hardness grades and adapter systems.
     `,
   },
   {
@@ -1514,7 +1563,7 @@ Ground Engaging Tools may be consumable, but they are strategic. The right GET s
     excerpt:
       "India has one of the world's largest pre-owned construction equipment markets. Understanding this market helps fleet managers and parts buyers make smarter purchasing decisions.",
     date: "2025-06-18",
-    author: "Teckon™ Team",
+    author: "Teckon® Team",
     category: "Industry Insight",
     image: "/images/blog/blog-preowned-demand.webp",
     content: `
@@ -1534,7 +1583,7 @@ For machines older than 7–8 years, original equipment manufacturers often begi
 In January 2025, JCB India and Shriram Automall India Limited (SAMIL) signed a Memorandum of Understanding to formalise the sale of pre-owned JCB machines. This kind of formalisation brings more machines into the organised second-hand market, increasing visibility and driving demand for service and parts from new owners who inherit machines with unknown maintenance histories.
 
 ## What Parts Do Pre-Owned Machine Owners Need Most?
-Based on our experience at Teckon™ serving the pre-owned equipment segment, the highest-demand parts for older machines are:
+Based on our experience at Teckon® serving the pre-owned equipment segment, the highest-demand parts for older machines are:
 
 **Hydraulic System:**
 - Complete pump overhaul/rebuild kits (piston shoes, cylinder block, valve plate)
@@ -1561,10 +1610,10 @@ Based on our experience at Teckon™ serving the pre-owned equipment segment, th
 - Bucket teeth and cutting edges
 
 ## Buying Smart: OEM vs Aftermarket for Pre-Owned Machines
-For a machine over 8 years old, the economic case for using premium-quality aftermarket parts (rather than OEM) becomes very strong. The machine's resale value doesn't justify paying OEM premium prices for every component. The key is choosing aftermarket parts that match OEM dimensional and material specifications — this is exactly what Teckon™ provides.
+For a machine over 8 years old, the economic case for using premium-quality aftermarket parts (rather than OEM) becomes very strong. The machine's resale value doesn't justify paying OEM premium prices for every component. The key is choosing aftermarket parts that match OEM dimensional and material specifications — this is exactly what Teckon® provides.
 
 ## Conclusion
-The pre-owned construction equipment market is not a secondary consideration — it is the backbone of the Indian aftermarket parts industry. At Teckon™, we have specifically structured our inventory and technical expertise to serve this market segment, with parts coverage extending back to machines manufactured in the early 2000s.
+The pre-owned construction equipment market is not a secondary consideration — it is the backbone of the Indian aftermarket parts industry. At Teckon®, we have specifically structured our inventory and technical expertise to serve this market segment, with parts coverage extending back to machines manufactured in the early 2000s.
 
 Contact our team to find the right parts for your fleet, regardless of machine age or model year.
     `,
@@ -1572,6 +1621,15 @@ Contact our team to find the right parts for your fleet, regardless of machine a
 ];
 
 export const EVENTS = [
+  {
+    year: "2026",
+    name: "bauma CONEXPO INDIA 2026",
+    location: "Greater Noida, India",
+    description:
+      "Visited India's premier international trade fair for construction machinery, building material machines, and mining equipment to connect with leading earthmoving OEMs, hydraulic specialists, and explore precision engineering advancements.",
+    type: "past",
+    image: "/images/events/bauma-india-2026.webp",
+  },
   {
     year: "2024",
     name: "Excon South Asia 2024",

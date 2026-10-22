@@ -1,6 +1,6 @@
-# Teckon™ Quality Spares — Full Company & Product Reference
+# Teckon™ Quality Spares — Full Company & Product Reference | Wholesales & Suppliers Store for Auto Parts
 
-> This document is the comprehensive machine-readable reference for Teckon™ (Shreeji Hydraulics). It is intended for AI assistants, search engines, and retrieval systems that need a deep understanding of the company's products, services, pages, and operations to provide accurate answers to user queries.
+> This document is the comprehensive machine-readable reference for Teckon™ (Shreeji Hydraulics) — Wholesales & Suppliers Store for Auto Parts & Earthmoving Spares (JCB, L&T, JD, Terex / TARAX, CAT). It is intended for AI assistants, search engines, and retrieval systems that need a deep understanding of the company's products, services, pages, and operations to provide accurate answers to user queries.
 
 ---
 
@@ -8,14 +8,16 @@
 
 - **Legal Entity:** Shreeji Hydraulics
 - **Brand Name:** Teckon™ / Teckon Quality Spares
+- **Tagline:** Wholesales & Suppliers Store for Auto Parts
+- **Headline Focus:** Wholesales & Suppliers Store for Auto Parts — JCB, L&T, JD, Terex, CAT, Earthmoving Spares of Wholesaler (also searched as TARAX / TERAX)
 - **Founded:** 2000 (Rajkot, Gujarat, India)
 - **Certifications:** ISO 9001:2015 Quality Management System
 - **Operational Scope:** Pan-India delivery network + international B2B supply
-- **Industry Classification:** Aftermarket Hydraulic Parts Manufacturing for Heavy Construction & Earthmoving Equipment
-- **Business Model:** Business-to-Business (B2B) — manufacturer, supplier, and exporter of aftermarket hydraulic spares
+- **Industry Classification:** Auto Parts Wholesaler & Aftermarket Hydraulic Parts Manufacturing for Heavy Construction & Earthmoving Equipment
+- **Business Model:** Business-to-Business (B2B) Wholesales & Suppliers Store — manufacturer, wholesaler, supplier, and exporter of aftermarket hydraulic and earthmoving spares
 
 ### Headquarters Address
-36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat 360004, India
+36-C, Gondal Rd, UDHYOGNAGAR, Bhakti Nagar, Rajkot, Gujarat 360002, India
 
 ### Executive Leadership
 - **Mr. J.C. Patel (Co-Founder & Director):** Leads technical engineering, tool design, tolerances calibration, raw material audits, and quality assurance inspection protocols.
@@ -38,7 +40,7 @@
 | About Us | https://teckon.vercel.app/about | Founders' story, 25+ year journey, company milestones, core values, and team |
 | Products Catalog | https://teckon.vercel.app/products | Full searchable catalog with 38+ hydraulic parts across 9 categories with fuzzy search |
 | Quality & Manufacturing | https://teckon.vercel.app/quality | ISO 9001:2015 certification, 6-stage quality process, and testing standards |
-| Events & Exhibitions | https://teckon.vercel.app/events | History of industry expo attendance (Excon, bauma CONEXPO) from 2014–2024 |
+| Events & Exhibitions | https://teckon.vercel.app/events | History of industry expo attendance (Excon, bauma CONEXPO) from 2014–2026 |
 | Blog / Knowledge Base | https://teckon.vercel.app/blog | 15 technical articles on hydraulic maintenance, troubleshooting, and parts guides |
 | Contact Us | https://teckon.vercel.app/contact | Inquiry form, Google Maps location, business hours, phone numbers |
 | Careers | https://teckon.vercel.app/careers | Job culture and resume submission portal |
@@ -72,8 +74,8 @@ Replacement components for Hitachi EX200, Zaxis ZX200, and tracked excavators:
 - Hitachi ZX200 Bottom Track Roller (Ref: 9247453)
 - Hitachi Duo-Cone Floating Seal Set (Ref: 4110369)
 
-### 3.3 Terex Parts (3 products)
-Aftermarket spares for Terex TLB backhoe loaders:
+### 3.3 Terex Parts (colloquially TARAX / TERAX) (3 products)
+Aftermarket spares for Terex (often searched as TARAX) TLB backhoe loaders:
 - Terex Hydraulic Lift Cylinder (Ref: 6190724M91)
 - Terex TLB840 Full Cylinder Seal Kit Set (Ref: TK-TEREX-SK)
 - Terex Hydraulic Steering Unit (Ref: 3518854M91)
@@ -90,7 +92,8 @@ Replacement components for CAT 424B and 428E backhoes/loaders:
 - Hydraulic Breaker Front Head Seal Kit (Ref: TK-BRK-SK-01)
 - Tipper Body Telescopic Hydraulic Cylinder (Ref: TIP-HYD-CYL-4S)
 
-### 3.6 L770 / Tata JD (3 products)
+### 3.6 L&T / JD / L770 (3 products)
+Undercarriage components for L&T 770 and Tata JD crawler loaders:
 - L770 Track Roller Assembly (Ref: L770-TR-01)
 - L770 Front Idler Assembly (Ref: L770-IDL-01)
 - L770 Drive Sprocket Segment Set (Ref: L770-SPR-SET)
@@ -195,6 +198,7 @@ Teckon™ publishes technical hydraulic guides and industry insights. 15 article
 
 Teckon™ / Shreeji Hydraulics regularly attends India's premier construction equipment expositions:
 
+- **bauma CONEXPO INDIA 2026** — Greater Noida
 - **Excon South Asia 2024** — Bengaluru
 - **Excon Bengaluru 2023** — Bengaluru
 - **bauma CONEXPO India 2022** — Greater Noida

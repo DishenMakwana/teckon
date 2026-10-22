@@ -10,7 +10,7 @@ export default function EventsPage(): React.JSX.Element {
   const eventsListSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "ItemPage",
-    name: "Events & Exhibitions | Teckon™ Quality Spares",
+    name: "Events & Exhibitions | Teckon® Quality Spares",
     description:
       "Our team visits and explores key automotive component and construction equipment expos to stay updated on engineering advancements.",
     url: `${COMPANY.url}/events`,

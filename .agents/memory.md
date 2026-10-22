@@ -51,7 +51,19 @@ This file serves as the agent's short-term memory of recent tasks, issues resolv
 - **Task:** Add phone number click-to-call link on About page founder cards.
 - **Action:** Imported `Phone` from `lucide-react` and overhauled the founder cards on [page.tsx](file:///Users/dishen/Downloads/test/src/app/about/page.tsx) with Dribbble-level UI aesthetics: implemented group hover zoom effects on images, subtle gradient overlay fades, soft card shadow transitions, and an interactive phone number action pill featuring a rotating icon hover animation and active glow shadows. Verified successful build.
 
-### Session: June 24, 2026
+### Session: October 22, 2026
+- **Task:** Fix hydration mismatch error in `AboutSection.tsx` and `/contact` page.
+- **Action:**
+  1. Resolved SSR vs Client text node discrepancy (`" since 2000..."` vs `"since 2000..."`) inside `AboutSection.tsx` by wrapping the paragraph around `<strong>Shreeji Hydraulics</strong>` in explicit template literals (`{`...`}`). Wrapped `Wholesales & Suppliers Store` in `<span>` tags in `AboutSection.tsx` and `HeroSection.tsx`.
+  2. Fixed country selector hydration mismatch (`Falkland Islands` vs `Falkland Islands (Islas Malvinas)`) in `ContactClient.tsx` / `src/utils/countryCodes.ts` caused by host system ICU/CLDR variances in `Intl.DisplayNames`. Replaced runtime `Intl.DisplayNames` with deterministic static English country dictionary imported from `react-phone-number-input/locale/en` with strict `"en"` locale sorting.
+  3. Passed ESLint, Prettier format, Knip audit, and full Next.js static build.
+
+- **Task:** Upgrade Teckon brand trademark to registered trademark symbol (`®`).
+- **Action:**
+  1. Replaced all 118 instances of `™` across `src/` and `public/` with the registered trademark symbol `®` (`COMPANY.brand = "Teckon®"`, `COMPANY.brandFull = "Teckon® Quality Spares"`, App Router metadata titles, OpenGraph, JSON-LD schemas, web app manifest, blog authors/content, and LLM reference docs).
+  2. Enhanced UI logo visibility and design fidelity: replaced system font glyphs in `Navbar.tsx` (desktop & mobile drawer), `Footer.tsx`, and `Preloader.tsx` with a custom, pixel-crisp vector SVG registered trademark (`<circle stroke="currentColor" strokeWidth="1.6" /><path d="..." />`). Set compact kerning (`tracking-tight`) matching the official brand badge, placed `®` tight against the last letter `N` (`ml-0.5 -mt-2` / `-mt-3.5`), and removed excessive tracking (`tracking-[0.25em]`) from `Preloader.tsx` to mirror the real badge design.
+  3. Verified 0 remaining `™` occurrences, passed ESLint, Prettier format, Knip audit, and Next.js static build (75/75 pages).
+
 - **Task:** Sync homepage product display card styling and interactions with product listing page.
 - **Action:** Updated [ProductsCarousel.tsx](file:///Users/dishen/Downloads/test/src/components/home/ProductsCarousel.tsx) to match [ProductsClient.tsx](file:///Users/dishen/Downloads/test/src/app/products/ProductsClient.tsx). Added `cardVariants` and `buttonVariants` for spring-based hover effects, updated image container height and padding, changed category badge style, integrated the interactive Glassmorphic Specs Hover Overlay to display technical specifications on hover, updated typography styling, and converted the "View Details" CTA button to the animated Dribbble-style "Inquire & Details" hover button. Cast specs values to string to resolve TypeScript type-check issues, and verified clean build output.
 - **Task:** Implement smooth layout and entry/exit filtering transitions on the product catalog and blog listing pages.
@@ -258,6 +270,42 @@ This file serves as the agent's short-term memory of recent tasks, issues resolv
 - **Task:** Centralize website URL to `COMPANY.url` from `src/lib/data.ts`.
 - **Action:** Replaced all hardcoded occurrences of `https://teckon.vercel.app` across all pages, structured JSON-LD schemas, metadata, and components (`contact`, `products`, `quality`, `privacy-policy`, `terms`, `about`, `blog`, `careers`, `events`, `ProductB2BPanel`) with `COMPANY.url`.
 - **Action:** Verified `npm run lint`, `npm run format`, and `npm run build` pass cleanly.
+
+### Session: October 22, 2026
+- **Task:** Re-position brand copy, tagline, metadata, search index, and UI across the site to "Wholesales & Suppliers Store for Auto Parts" & "JCB, L&T, JD, TARAX, CAT, EARTHMOVING SPARES OF WHOLESALER".
+- **Action:**
+  - Updated `src/types/company-info.ts` to add `headline`, `subTagline`, and `wholesalerBrands` fields to `CompanyInfo`.
+  - Updated `COMPANY` in `src/lib/data.ts` with wholesale positioning tagline, headline, and brands list.
+  - Harmonized brand naming for Indian heavy machinery: added `"TARAX"` and `"TERAX"` to Terex products' crossReferences and descriptions, and `"L&T"` and `"JD"` to L770 products' crossReferences and descriptions, enabling fuzzy search and direct keywords to resolve properly.
+  - Updated root metadata, keywords, Open Graph, and Twitter tags in `src/app/layout.tsx`.
+  - Updated `HeroSection.tsx` badge, main `h1`, intro paragraph, and trust indicators.
+  - Updated `AboutSection.tsx` and `WhyChooseUs.tsx` to highlight Teckon as a Wholesales & Suppliers Store for heavy earthmoving auto parts for JCB, L&T, JD, TARAX, and CAT.
+  - Updated `ProductsClient.tsx` catalog hero heading, description, and filter tabs (`TARAX / Terex Parts`, `L&T / JD (Tata JD)`).
+  - Updated `src/app/products/page.tsx` metadata and JSON-LD schema.
+  - Updated `Navbar.tsx` and `Footer.tsx` product category links, brand description, and legal disclaimer.
+  - Updated `PartnersMarquee.tsx` to include JCB Machinery, L&T Construction, John Deere / JD, TARAX / Terex, and Caterpillar CAT.
+  - Updated `public/llms.txt` and `public/llms-full.txt` AI citation and discovery reference documents.
+  - Verified `bun x knip` reports 0 issues, `npm run lint` passes with 0 warnings, `npm run format` formats cleanly, and `npm run build` generates 75/75 static routes successfully.
+- **Task:** Center dashed connecting line on Vision & Mission logos on the About page and enable Google Maps redirection on location click.
+- **Action:**
+  - In `src/app/about/page.tsx`: Replaced inaccurate `left-10 md:left-12` with responsive centering `left-[60px] md:left-[68px] -translate-x-1/2` based on card padding (`p-8 md:p-10`) and icon width (`w-14` = 56px). Adjusted `top` and `bottom` to `top-14 md:top-[68px]` and `bottom-28 md:bottom-32`, and set `relative z-10` on icon containers so the dashed timeline line starts and ends cleanly behind the icons without protruding into empty space.
+  - In `src/types/company-info.ts` & `src/lib/data.ts`: Centralized `mapsUrl: "https://maps.app.goo.gl/uxAsDhUD7DvfASts8"` under `COMPANY.address`.
+  - In `src/components/layout/Footer.tsx`: Wrapped the location address in an accessible `<a>` tag pointing to `COMPANY.address.mapsUrl` with `target="_blank" rel="noopener noreferrer"` and hover accent styling.
+  - In `src/components/contact/ContactClient.tsx`: Updated address card to reference `COMPANY.address.mapsUrl`.
+  - Verified `bun x knip` reports 0 issues, `npm run lint` passes with 0 warnings, `npm run format` formats cleanly, and `npm run build` generates 75/75 routes.
+- **Task:** Add bauma CONEXPO INDIA 2026 event record and image to Events & Exhibitions section.
+- **Action:**
+  - Added the new `bauma CONEXPO INDIA 2026` record at index 0 of `EVENTS` in `src/lib/data.ts` with year "2026", Greater Noida location, expo description, and image reference `/images/events/bauma-india-2026.webp`.
+  - Integrated the generated high-resolution 16:9 WebP exhibition image (`1672x941`) at `public/images/events/bauma-india-2026.webp`.
+  - Updated `public/llms-full.txt` timeline range to `2014–2026` and added `bauma CONEXPO INDIA 2026` to the expos attended directory.
+  - Verified `bun x knip` reports 0 issues, `npm run lint` passes with 0 warnings, `npm run format` formats cleanly, and `npm run build` generates all 75 static routes successfully.
+- **Task:** Standardize UI display to "Terex" while preserving "TARAX" in search indexing, keywords, metadata, and LLM documentation.
+- **Action:**
+  - Standardized customer-facing UI to "Terex" across `HeroSection.tsx`, `AboutSection.tsx`, `WhyChooseUs.tsx`, `PartnersMarquee.tsx`, `ProductsCarousel.tsx`, `ProductsClient.tsx`, `Navbar.tsx`, `Footer.tsx`, and `src/app/about/page.tsx`.
+  - In `src/lib/data.ts`: Updated `categoryLabel` of Terex parts to `"Terex Parts"`, cleaned description and specs UI text, and retained/enriched `crossReferences` with `["TARAX", "TERAX", "TARAX-PARTS"]` so typing "tarax" in search returns all Terex products.
+  - In `src/app/layout.tsx` and `src/app/products/page.tsx`: Updated descriptions to `"Terex (TARAX)"` while preserving SEO keywords for both terms.
+  - In `public/llms.txt` and `public/llms-full.txt`: Documented both spellings for AI discovery and answer engine optimization.
+  - Verified `bun x knip` reports 0 issues, `npm run lint` passes with 0 warnings, `npm run format` formats cleanly, and `npm run build` compiles all 75 routes.
 
 ## Previous Milestones
 1. **SEO Optimization & Keyword Audit:** Updated configurations, keywords, and tags.

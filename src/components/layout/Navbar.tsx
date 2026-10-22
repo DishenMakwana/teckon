@@ -55,7 +55,7 @@ const productCategories: ProductCategory[] = [
     icon: Hammer,
   },
   {
-    name: "L770 / Tata JD",
+    name: "L&T / JD / L770",
     href: "/products?category=l770",
     desc: "Compatible loader spares & seal kits",
     icon: Zap,
@@ -143,8 +143,26 @@ export default function Navbar(): React.JSX.Element {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="bg-[#FFBE00] text-[#0B0F19] px-3 py-1.5 rounded-lg font-black text-lg tracking-wide group-hover:bg-[#1E293B] group-hover:text-white transition-colors">
-              TECKON™
+            <div className="bg-[#FFBE00] text-[#0B0F19] px-3.5 py-1.5 rounded-lg font-black text-lg tracking-tight group-hover:bg-[#1E293B] group-hover:text-white transition-colors inline-flex items-center">
+              <span>TECKON</span>
+              <svg
+                viewBox="0 0 16 16"
+                className="w-[13px] h-[13px] sm:w-[14px] sm:h-[14px] ml-0.5 -mt-2 shrink-0"
+                fill="none"
+                aria-label="Registered"
+              >
+                <circle
+                  cx="8"
+                  cy="8"
+                  r="6.8"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                />
+                <path
+                  d="M6 4.5H9.2C10.2 4.5 11 5.2 11 6.1C11 6.9 10.4 7.5 9.7 7.7L11.2 11.5H9.7L8.4 8H7.3V11.5H6V4.5ZM7.3 6.9H9C9.5 6.9 9.8 6.6 9.8 6.2C9.8 5.8 9.5 5.6 9 5.6H7.3V6.9Z"
+                  fill="currentColor"
+                />
+              </svg>
             </div>
             <div className="hidden sm:block">
               <div className="text-[#1E293B] font-bold text-sm leading-tight">
@@ -336,8 +354,26 @@ export default function Navbar(): React.JSX.Element {
               className="fixed right-0 top-0 h-full w-80 bg-white shadow-2xl z-50 lg:hidden overflow-y-auto"
             >
               <div className="p-4 border-b border-gray-100 flex items-center justify-between">
-                <div className="bg-[#FFBE00] text-[#0B0F19] px-3 py-1.5 rounded-lg font-black text-lg tracking-wide">
-                  TECKON™
+                <div className="bg-[#FFBE00] text-[#0B0F19] px-3.5 py-1.5 rounded-lg font-black text-lg tracking-tight inline-flex items-center">
+                  <span>TECKON</span>
+                  <svg
+                    viewBox="0 0 16 16"
+                    className="w-[13px] h-[13px] sm:w-[14px] sm:h-[14px] ml-0.5 -mt-2 shrink-0"
+                    fill="none"
+                    aria-label="Registered"
+                  >
+                    <circle
+                      cx="8"
+                      cy="8"
+                      r="6.8"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                    />
+                    <path
+                      d="M6 4.5H9.2C10.2 4.5 11 5.2 11 6.1C11 6.9 10.4 7.5 9.7 7.7L11.2 11.5H9.7L8.4 8H7.3V11.5H6V4.5ZM7.3 6.9H9C9.5 6.9 9.8 6.6 9.8 6.2C9.8 5.8 9.5 5.6 9 5.6H7.3V6.9Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </div>
                 <button
                   onClick={() => setMobileOpen(false)}

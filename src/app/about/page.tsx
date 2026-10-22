@@ -20,9 +20,9 @@ import { COMPANY } from "@/lib/data";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/about" },
-  title: "About Us — Teckon™ Quality Spares | Shreeji Hydraulics",
+  title: "About Us — Teckon® Quality Spares | Shreeji Hydraulics",
   description:
-    "Learn about Teckon™ (Shreeji Hydraulics), established in 2000 in Rajkot, Gujarat. Meet our founders Mr. Alpesh Patel and Mr. J.C. Patel and discover our vision and values.",
+    "Learn about Teckon® (Shreeji Hydraulics), established in 2000 in Rajkot, Gujarat. Meet our founders Mr. Alpesh Patel and Mr. J.C. Patel and discover our vision and values.",
   keywords: [
     "About Teckon",
     "Shreeji Hydraulics history",
@@ -112,9 +112,9 @@ export default function AboutPage(): React.JSX.Element {
   const aboutSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    name: "About Us — Teckon™ Quality Spares | Shreeji Hydraulics",
+    name: "About Us — Teckon® Quality Spares | Shreeji Hydraulics",
     description:
-      "Learn about Teckon™ (Shreeji Hydraulics), established in 2000 in Rajkot, Gujarat. Meet our founders Mr. Alpesh Patel and Mr. J.C. Patel and discover our vision and values.",
+      "Learn about Teckon® (Shreeji Hydraulics), established in 2000 in Rajkot, Gujarat. Meet our founders Mr. Alpesh Patel and Mr. J.C. Patel and discover our vision and values.",
     url: `${COMPANY.url}/about`,
     mainEntity: {
       "@type": "Organization",
@@ -160,11 +160,12 @@ export default function AboutPage(): React.JSX.Element {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <BreadcrumbBar items={[{ label: "About Us" }]} />
           <h1 className="text-4xl sm:text-5xl font-black text-white mt-6 mb-4">
-            About Teckon™
+            About Teckon®
           </h1>
           <p className="text-white/70 text-xl max-w-2xl">
-            Over 25 years of delivering premium hydraulic parts and spares
-            across India and beyond.
+            Wholesales &amp; Suppliers Store for Auto Parts &amp; Earthmoving
+            Spares — over 25 years supplying JCB, L&amp;T, JD, Terex, and CAT
+            components across India.
           </p>
         </div>
       </section>
@@ -321,14 +322,14 @@ export default function AboutPage(): React.JSX.Element {
             {/* Right Column: High-Craft Cards Stack */}
             <div className="lg:col-span-7 flex flex-col gap-8 relative">
               {/* Connecting line */}
-              <div className="absolute left-10 md:left-12 top-10 bottom-10 w-0.5 border-l-2 border-dashed border-slate-200 pointer-events-none hidden sm:block" />
+              <div className="absolute left-[60px] md:left-[68px] -translate-x-1/2 top-14 md:top-[68px] bottom-28 md:bottom-32 w-0.5 border-l-2 border-dashed border-slate-300 pointer-events-none hidden sm:block" />
 
               {/* Vision Card */}
               <div className="group relative bg-slate-50/30 border border-slate-200/60 rounded-3xl p-8 md:p-10 hover:bg-white hover:border-teckon-blue/30 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(11,15,25,0.04)] overflow-hidden flex flex-col sm:flex-row gap-6 items-start">
                 <span className="absolute right-6 bottom-4 text-7xl font-mono font-black text-slate-200/20 select-none group-hover:text-teckon-blue/5 transition-colors duration-300 uppercase pointer-events-none">
                   Vision
                 </span>
-                <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 flex items-center justify-center shrink-0 group-hover:bg-teckon-blue/10 group-hover:border-teckon-blue/20 transition-all duration-300 shadow-sm">
+                <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 flex items-center justify-center shrink-0 group-hover:bg-teckon-blue/10 group-hover:border-teckon-blue/20 transition-all duration-300 shadow-sm relative z-10">
                   <Target className="w-7 h-7 text-teckon-blue group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div className="relative z-10 flex-1">
@@ -348,7 +349,7 @@ export default function AboutPage(): React.JSX.Element {
                 <span className="absolute right-6 bottom-4 text-7xl font-mono font-black text-slate-200/20 select-none group-hover:text-[#FF6B35]/5 transition-colors duration-300 uppercase pointer-events-none">
                   Mission
                 </span>
-                <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 flex items-center justify-center shrink-0 group-hover:bg-[#FF6B35]/10 group-hover:border-[#FF6B35]/20 transition-all duration-300 shadow-sm">
+                <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 flex items-center justify-center shrink-0 group-hover:bg-[#FF6B35]/10 group-hover:border-[#FF6B35]/20 transition-all duration-300 shadow-sm relative z-10">
                   <Rocket className="w-7 h-7 text-[#FF6B35] group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div className="relative z-10 flex-1">
@@ -404,7 +405,7 @@ export default function AboutPage(): React.JSX.Element {
       <section id="cta" className="py-16 bg-[#FFBE00]">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black text-[#0B0F19] mb-4">
-            Ready to Partner with Teckon™?
+            Ready to Partner with Teckon®?
           </h2>
           <p className="text-[#0B0F19]/70 mb-8">
             Contact our team today for a quick quote on hydraulic spares for

@@ -7,7 +7,7 @@ import { Home, Wrench, Phone } from "lucide-react";
 
 export default function NotFound(): React.JSX.Element {
   useEffect(() => {
-    document.title = "404 — Page Not Found | Teckon™ Quality Spares";
+    document.title = "404 — Page Not Found | Teckon® Quality Spares";
   }, []);
 
   // Stagger animation container

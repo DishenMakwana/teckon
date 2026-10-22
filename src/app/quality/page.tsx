@@ -19,9 +19,9 @@ import { COMPANY } from "@/lib/data";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/quality" },
-  title: "Quality & Manufacturing | Teckon™ Quality Spares",
+  title: "Quality & Manufacturing | Teckon® Quality Spares",
   description:
-    "ISO 9001:2015 certified hydraulic parts manufacturing. Learn about Teckon™'s precision manufacturing process, quality control, and certifications.",
+    "ISO 9001:2015 certified hydraulic parts manufacturing. Learn about Teckon®'s precision manufacturing process, quality control, and certifications.",
   keywords: [
     "ISO 9001:2015 certified",
     "hydraulic parts quality control",
@@ -78,7 +78,7 @@ const steps: StepItem[] = [
     icon: BadgeCheck,
     title: "Final Testing",
     description:
-      "Hydraulic pressure and performance testing on certified test benches. Only parts that pass all tests receive the Teckon™ quality approval.",
+      "Hydraulic pressure and performance testing on certified test benches. Only parts that pass all tests receive the Teckon® quality approval.",
   },
 ];
 
@@ -109,9 +109,9 @@ export default function QualityPage(): React.JSX.Element {
   const qualitySchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "Quality & Manufacturing | Teckon™ Quality Spares",
+    name: "Quality & Manufacturing | Teckon® Quality Spares",
     description:
-      "ISO 9001:2015 certified hydraulic parts manufacturing. Learn about Teckon™'s precision manufacturing process, quality control, and certifications.",
+      "ISO 9001:2015 certified hydraulic parts manufacturing. Learn about Teckon®'s precision manufacturing process, quality control, and certifications.",
     url: `${COMPANY.url}/quality`,
   };
 
@@ -142,7 +142,7 @@ export default function QualityPage(): React.JSX.Element {
             Precision | Performance | Perfection
           </h1>
           <p className="text-white/70 text-xl max-w-2xl">
-            Teckon™ is ISO 9001:2015 certified, maintaining the highest
+            Teckon® is ISO 9001:2015 certified, maintaining the highest
             standards across every stage of production. All hydraulic parts
             undergo rigorous testing to ensure reliability and durability.
           </p>
@@ -160,7 +160,7 @@ export default function QualityPage(): React.JSX.Element {
               Manufacturing Process
             </h2>
             <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-              Every Teckon™ hydraulic part passes through a rigorous 6-stage
+              Every Teckon® hydraulic part passes through a rigorous 6-stage
               manufacturing and quality process.
             </p>
           </div>

@@ -76,7 +76,7 @@ export async function generateMetadata({
   if (!product) return { title: "Product Not Found" };
   return {
     alternates: { canonical: `/products/${slug}` },
-    title: `${product.name} | Teckon™ Quality Spares`,
+    title: `${product.name} | Teckon® Quality Spares`,
     description: product.description,
     keywords: [
       product.name,
@@ -93,7 +93,7 @@ export async function generateMetadata({
       `hydraulic parts supplier for ${product.model} backhoe loader`,
     ],
     openGraph: {
-      title: `${product.name} | Teckon™ Quality Spares`,
+      title: `${product.name} | Teckon® Quality Spares`,
       description: product.description,
       images: [{ url: product.image, alt: product.name }],
       type: "website",
