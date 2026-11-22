@@ -3,9 +3,9 @@ import type { MetadataRoute } from "next";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Shreeji Hydraulics",
-    short_name: "Teckon™",
+    short_name: "Teckon®",
     description:
-      "Premium replacement hydraulic parts & spares for JCB, Terex, CAT, and heavy machinery. ISO 9001:2015 certified in Rajkot, Gujarat.",
+      "Premium replacement hydraulic parts & spares for JCB, L&T, JD, Terex, CAT, and heavy earthmoving machinery. ISO 9001:2015 certified in Rajkot, Gujarat.",
     start_url: "/",
     display: "standalone",
     background_color: "#0B0F19",

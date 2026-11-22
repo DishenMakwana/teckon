@@ -7,9 +7,9 @@ import { COMPANY } from "@/lib/data";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/careers" },
-  title: "Careers | Teckon™ Quality Spares",
+  title: "Careers | Teckon® Quality Spares",
   description:
-    "Join the Teckon™ team. We're looking for talented individuals passionate about hydraulic engineering and manufacturing excellence.",
+    "Join the Teckon® team. We're looking for talented individuals passionate about hydraulic engineering and manufacturing excellence.",
   keywords: [
     "work at Shreeji Hydraulics",
     "careers in hydraulics",
@@ -45,9 +45,9 @@ export default function CareersPage(): React.JSX.Element {
   const careersSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "Careers | Teckon™ Quality Spares",
+    name: "Careers | Teckon® Quality Spares",
     description:
-      "Join the Teckon™ team. We're looking for talented individuals passionate about hydraulic engineering and manufacturing excellence.",
+      "Join the Teckon® team. We're looking for talented individuals passionate about hydraulic engineering and manufacturing excellence.",
     url: `${COMPANY.url}/careers`,
   };
 
@@ -75,7 +75,7 @@ export default function CareersPage(): React.JSX.Element {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <BreadcrumbBar items={[{ label: "Careers" }]} />
           <h1 className="text-4xl sm:text-5xl font-black text-white mt-6 mb-4">
-            Join the Teckon™ Team
+            Join the Teckon® Team
           </h1>
           <p className="text-white/70 text-xl max-w-2xl">
             Be part of India&apos;s leading hydraulic parts company. We&apos;re
@@ -90,7 +90,7 @@ export default function CareersPage(): React.JSX.Element {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-[#C2410C] font-semibold text-sm uppercase tracking-widest mb-3 block">
-              Life at Teckon™
+              Life at Teckon®
             </span>
             <h2 className="text-4xl font-black text-[#111111]">Our Culture</h2>
           </div>

@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Award, Map, Boxes, ShieldCheck } from "lucide-react";
 import { CounterProps, StatItem } from "@/types/home";
+import { COMPANY } from "@/lib/data";
+import { getYearsOfExperience } from "@/lib/utils";
 
 function Counter({ end, duration = 2000 }: CounterProps): React.JSX.Element {
   const [count, setCount] = useState<number>(0);
@@ -28,15 +30,15 @@ function Counter({ end, duration = 2000 }: CounterProps): React.JSX.Element {
 
 const stats: StatItem[] = [
   {
-    end: 25,
+    end: getYearsOfExperience(),
     suffix: "+",
     label: "Years of Experience",
     icon: Award,
-    tag: "Est. 2000",
-    description: "Serving construction & mining sectors for over two decades.",
+    tag: `Est. ${COMPANY.founded}`,
+    description: `Serving construction & mining sectors for over ${getYearsOfExperience()} years.`,
   },
   {
-    end: 10,
+    end: 6,
     suffix: "+",
     label: "States Served",
     icon: Map,

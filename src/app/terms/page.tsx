@@ -4,9 +4,9 @@ import { COMPANY } from "@/lib/data";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/terms" },
-  title: "Terms & Conditions | Teckon™ Quality Spares",
+  title: "Terms & Conditions | Teckon® Quality Spares",
   description:
-    "Terms and conditions for using Teckon™ Quality Spares (Shreeji Hydraulics) website and services.",
+    "Terms and conditions for using Teckon® Quality Spares (Shreeji Hydraulics) website and services.",
   keywords: [
     "Teckon terms of service",
     "Shreeji Hydraulics terms & conditions",
@@ -19,9 +19,9 @@ export default function TermsPage(): React.JSX.Element {
   const termsSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "Terms & Conditions | Teckon™ Quality Spares",
+    name: "Terms & Conditions | Teckon® Quality Spares",
     description:
-      "Terms and conditions for using Teckon™ Quality Spares (Shreeji Hydraulics) website and services.",
+      "Terms and conditions for using Teckon® Quality Spares (Shreeji Hydraulics) website and services.",
     url: `${COMPANY.url}/terms`,
   };
 

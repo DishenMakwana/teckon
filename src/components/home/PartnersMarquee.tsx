@@ -8,14 +8,14 @@ export default function PartnersMarquee(): React.JSX.Element {
   const inView = useInView(ref, { once: true });
 
   const partners: string[] = [
-    "JCB India",
-    "Terex Equipment",
-    "Caterpillar",
-    "Tata Construction",
+    "JCB Machinery",
     "L&T Construction",
+    "John Deere / JD",
+    "Terex Equipment",
+    "Caterpillar CAT",
+    "Hitachi Construction",
     "Volvo CE",
     "Komatsu India",
-    "Mahindra EPC",
     "Escorts Construction",
     "BEML Limited",
   ];

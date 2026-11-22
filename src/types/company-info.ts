@@ -11,6 +11,7 @@ interface CompanyAddressInfo {
   line1: string;
   line2: string;
   full: string;
+  mapsUrl: string;
 }
 
 interface CompanySocialInfo {
@@ -27,6 +28,9 @@ export interface CompanyInfo {
   brand: string;
   brandFull: string;
   tagline: string;
+  headline?: string;
+  subTagline?: string;
+  wholesalerBrands?: string[];
   url: string;
   founded: number;
   email: string;

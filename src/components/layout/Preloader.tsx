@@ -123,7 +123,7 @@ export default function Preloader(): React.JSX.Element {
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
               />
               <div className="relative flex items-center gap-2 sm:gap-3">
-                <div className="flex items-center rounded-2xl border border-[#FFBE00]/40 bg-[#FFBE00] px-4 py-2.5 text-2xl font-black tracking-[0.25em] text-[#0B0F19] shadow-[0_0_24px_rgba(255,190,0,0.16)] sm:text-3xl">
+                <div className="flex items-center rounded-2xl border border-[#FFBE00]/40 bg-[#FFBE00] px-4 sm:px-5 py-2.5 text-2xl font-black tracking-tight text-[#0B0F19] shadow-[0_0_24px_rgba(255,190,0,0.16)] sm:text-3xl">
                   {LETTERS.map(
                     (letter: string, index: number): React.JSX.Element => (
                       <motion.span
@@ -151,9 +151,26 @@ export default function Preloader(): React.JSX.Element {
                       stiffness: 450,
                       damping: 18,
                     }}
-                    className="ml-1 inline-block align-super text-sm"
+                    className="ml-0.5 -mt-3 sm:-mt-4 inline-flex items-center"
                   >
-                    ™
+                    <svg
+                      viewBox="0 0 16 16"
+                      className="w-4 h-4 sm:w-5 sm:h-5 shrink-0"
+                      fill="none"
+                      aria-label="Registered"
+                    >
+                      <circle
+                        cx="8"
+                        cy="8"
+                        r="6.8"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                      />
+                      <path
+                        d="M6 4.5H9.2C10.2 4.5 11 5.2 11 6.1C11 6.9 10.4 7.5 9.7 7.7L11.2 11.5H9.7L8.4 8H7.3V11.5H6V4.5ZM7.3 6.9H9C9.5 6.9 9.8 6.6 9.8 6.2C9.8 5.8 9.5 5.6 9 5.6H7.3V6.9Z"
+                        fill="currentColor"
+                      />
+                    </svg>
                   </motion.span>
                 </div>
                 <div className="hidden h-14 w-px bg-white/15 sm:block" />

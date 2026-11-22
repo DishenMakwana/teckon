@@ -5,6 +5,7 @@ import {
   isPossiblePhoneNumber,
   isValidPhoneNumber,
 } from "react-phone-number-input";
+import enLabels from "react-phone-number-input/locale/en";
 import { validatePhoneNumberLength, getExampleNumber } from "libphonenumber-js";
 import mobileExamples from "libphonenumber-js/mobile/examples";
 
@@ -30,24 +31,12 @@ export const getFormattedCountryList = (): {
   popularCountries: CountryCallingCodeInfo[];
   allCountries: CountryCallingCodeInfo[];
 } => {
-  const regionNames =
-    typeof Intl !== "undefined" && Intl.DisplayNames
-      ? new Intl.DisplayNames(["en"], { type: "region" })
-      : null;
-
   const rawCountries = getCountries();
   const countryMap = new Map<Country, CountryCallingCodeInfo>();
 
   for (const iso of rawCountries) {
     const callingCode = `+${getCountryCallingCode(iso)}`;
-    let name: string = iso;
-    if (regionNames) {
-      try {
-        name = regionNames.of(iso) || iso;
-      } catch {
-        name = iso;
-      }
-    }
+    const name: string = enLabels[iso] || iso;
     countryMap.set(iso, {
       iso,
       name,
@@ -62,7 +51,7 @@ export const getFormattedCountryList = (): {
 
   const allCountries: CountryCallingCodeInfo[] = Array.from(
     countryMap.values()
-  ).sort((a, b) => a.name.localeCompare(b.name));
+  ).sort((a, b) => a.name.localeCompare(b.name, "en"));
 
   return { popularCountries, allCountries };
 };

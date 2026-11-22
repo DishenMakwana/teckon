@@ -9,9 +9,9 @@ const ContactClient = dynamic(
 
 export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
-  title: "Request a Quote & Contact Us | Teckon™ Quality Spares",
+  title: "Request a Quote & Contact Us | Teckon® Quality Spares",
   description:
-    "Get in touch with Shreeji Hydraulics (Teckon™) in Rajkot, Gujarat. Request custom quotes for hydraulic pumps, cylinder seal kits, and spares. Direct WhatsApp and phone contacts available.",
+    "Get in touch with Shreeji Hydraulics (Teckon®) in Rajkot, Gujarat. Request custom quotes for hydraulic pumps, cylinder seal kits, and spares. Direct WhatsApp and phone contacts available.",
   keywords: [
     "contact Shreeji Hydraulics",
     "JCB parts quotation",
@@ -31,9 +31,9 @@ export default function ContactPage(): React.JSX.Element {
   const contactSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    name: "Request a Quote & Contact Us | Teckon™ Quality Spares",
+    name: "Request a Quote & Contact Us | Teckon® Quality Spares",
     description:
-      "Get in touch with Shreeji Hydraulics (Teckon™) in Rajkot, Gujarat. Request custom quotes for hydraulic pumps, cylinder seal kits, and spares. Direct WhatsApp and phone contacts available.",
+      "Get in touch with Shreeji Hydraulics (Teckon®) in Rajkot, Gujarat. Request custom quotes for hydraulic pumps, cylinder seal kits, and spares. Direct WhatsApp and phone contacts available.",
     url: `${COMPANY.url}/contact`,
     mainEntity: {
       "@type": "LocalBusiness",
@@ -42,10 +42,10 @@ export default function ContactPage(): React.JSX.Element {
       email: COMPANY.email,
       address: {
         "@type": "PostalAddress",
-        streetAddress: "36-C Bhaktinagar, Udhyognagar, Gondal Road",
+        streetAddress: "36-C, Gondal Rd, UDHYOGNAGAR, Bhakti Nagar",
         addressLocality: "Rajkot",
         addressRegion: "Gujarat",
-        postalCode: "360004",
+        postalCode: "360002",
         addressCountry: "IN",
       },
     },

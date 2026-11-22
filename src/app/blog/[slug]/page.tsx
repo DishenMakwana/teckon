@@ -81,7 +81,7 @@ export async function generateMetadata({
 
   return {
     alternates: { canonical: `/blog/${slug}` },
-    title: `${post.title} | Teckon™ Blog`,
+    title: `${post.title} | Teckon® Blog`,
     description: post.excerpt,
     keywords: [
       post.title,
@@ -96,7 +96,7 @@ export async function generateMetadata({
     ],
     openGraph: {
       type: "article",
-      title: `${post.title} | Teckon™ Blog`,
+      title: `${post.title} | Teckon® Blog`,
       description: post.excerpt,
       publishedTime: post.date,
       authors: [post.author],

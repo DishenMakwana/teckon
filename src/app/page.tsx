@@ -164,8 +164,8 @@ export default async function HomePage(): Promise<React.JSX.Element> {
             Need Hydraulic Spares for Your Equipment?
           </h2>
           <p className="text-[#0B0F19]/70 mb-8">
-            Contact our technical team for same-day quotes on JCB, Terex, CAT,
-            and all other heavy machinery hydraulic parts.
+            Contact our technical team for same-day quotes on JCB, L&amp;T, JD,
+            Terex, CAT, and all other heavy machinery hydraulic parts.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link

@@ -23,21 +23,21 @@ const SECTIONS: Section[] = [
     title: "1. Acceptance of Terms",
     tldr: "By using our website, you agree to these Terms. If you don't agree, please do not use the site.",
     content:
-      "By accessing and using the Teckon™ Quality Spares website (teckon.in), you accept and agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our website. These terms may be updated periodically, and continued use of the site constitutes acceptance of any changes.",
+      "By accessing and using the Teckon® Quality Spares website (teckon.in), you accept and agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our website. These terms may be updated periodically, and continued use of the site constitutes acceptance of any changes.",
   },
   {
     id: "ip",
     title: "2. Intellectual Property Rights",
     tldr: "All site content (text, designs, logos, images) belongs to Shreeji Hydraulics. You cannot copy or distribute it without permission.",
     content:
-      "All content on this website, including text, images, logos, product descriptions, and technical data, is the property of Shreeji Hydraulics (Teckon™ Quality Spares) and is protected under Indian copyright laws. You may not reproduce, distribute, or use any content without our prior written permission.",
+      "All content on this website, including text, images, logos, product descriptions, and technical data, is the property of Shreeji Hydraulics (Teckon® Quality Spares) and is protected under Indian copyright laws. You may not reproduce, distribute, or use any content without our prior written permission.",
   },
   {
     id: "brand-representation",
     title: "3. Brand Representation & Compatibility References",
-    tldr: "We supply our proprietary Teckon™ brand parts as well as genuine OEM and other third-party brand parts. OEM names are used solely for cross-reference.",
+    tldr: "We supply our proprietary Teckon® brand parts as well as genuine OEM and other third-party brand parts. OEM names are used solely for cross-reference.",
     content:
-      "Teckon™ (by Shreeji Hydraulics) provides both proprietary and third-party product choices on this platform:\n\n(a) Teckon™ Branded Parts: High-quality aftermarket and replacement parts designed and manufactured under our own Teckon™ trademark.\n\n(b) Third-Party & OEM Branded Parts: We also supply original and replacement parts manufactured by other brands and Original Equipment Manufacturers (OEMs). The respective brand of each product is clearly labeled on its catalog showcase page.\n\n(c) OEM Disclaimers: Any reference to OEM brand names, logos, symbols, or model numbers (such as JCB, Caterpillar, John Deere, etc.) is intended solely as compatibility references for the convenience of our customers. Teckon™ is an independent supplier of replacement parts and is not affiliated with, endorsed by, or authorized by any of these OEMs.\n\n(d) Intellectual Property: All third-party trademarks and trade names remain the property of their respective owners.",
+      "Teckon® (by Shreeji Hydraulics) provides both proprietary and third-party product choices on this platform:\n\n(a) Teckon® Branded Parts: High-quality aftermarket and replacement parts designed and manufactured under our own Teckon® registered trademark.\n\n(b) Third-Party & OEM Branded Parts: We also supply original and replacement parts manufactured by other brands and Original Equipment Manufacturers (OEMs). The respective brand of each product is clearly labeled on its catalog showcase page.\n\n(c) OEM Disclaimers: Any reference to OEM brand names, logos, symbols, or model numbers (such as JCB, Caterpillar, John Deere, etc.) is intended solely as compatibility references for the convenience of our customers. Teckon® is an independent supplier of replacement parts and is not affiliated with, endorsed by, or authorized by any of these OEMs.\n\n(d) Intellectual Property: All third-party trademarks and trade names remain the property of their respective owners.",
   },
   {
     id: "showcase-platform",
@@ -51,7 +51,7 @@ const SECTIONS: Section[] = [
     title: "5. Product Information",
     tldr: "We aim for accuracy but reserve the right to change specifications or prices. Images are illustrative; actual parts may vary.",
     content:
-      "We strive to ensure all product information, specifications, and pricing on this website are accurate. However, Teckon™ reserves the right to modify products, specifications, or prices without notice. Product images are for illustration purposes only. Actual products may vary. All sales are subject to our standard commercial terms.",
+      "We strive to ensure all product information, specifications, and pricing on this website are accurate. However, Teckon® reserves the right to modify products, specifications, or prices without notice. Product images are for illustration purposes only. Actual products may vary. All sales are subject to our standard commercial terms.",
   },
   {
     id: "prohibited",
@@ -65,14 +65,14 @@ const SECTIONS: Section[] = [
     title: "7. Limitation of Liability",
     tldr: "We are not liable for indirect damages. Our liability is strictly limited to the value of products purchased from us.",
     content:
-      "To the maximum extent permitted by law, Teckon™ Quality Spares shall not be liable for any indirect, incidental, special, or consequential damages arising from the use of our website or products. Our liability shall not exceed the value of products purchased in the transaction giving rise to the claim.",
+      "To the maximum extent permitted by law, Teckon® Quality Spares shall not be liable for any indirect, incidental, special, or consequential damages arising from the use of our website or products. Our liability shall not exceed the value of products purchased in the transaction giving rise to the claim.",
   },
   {
     id: "warranty",
     title: "8. Warranty",
     tldr: "We offer a limited warranty on manufacturing defects. It does not cover improper installation or misuse.",
     content:
-      "All Teckon™ hydraulic parts come with a limited warranty as specified at the time of purchase. Warranty covers manufacturing defects under normal operating conditions. Damage caused by improper installation, misuse, or unauthorized modifications is not covered. Warranty claims must be made within the warranty period with proof of purchase.",
+      "All Teckon® hydraulic parts come with a limited warranty as specified at the time of purchase. Warranty covers manufacturing defects under normal operating conditions. Damage caused by improper installation, misuse, or unauthorized modifications is not covered. Warranty claims must be made within the warranty period with proof of purchase.",
   },
   {
     id: "governing-law",
@@ -285,9 +285,9 @@ export default function TermsClient(): React.JSX.Element {
                 <div className="prose prose-slate max-w-none border-b border-gray-100 pb-6 mb-8 print:pb-3 print:mb-5">
                   <p className="text-slate-700 leading-relaxed text-sm sm:text-base font-medium">
                     Please read these Terms and Conditions carefully before
-                    using the Teckon™ Quality Spares website or engaging our
+                    using the Teckon® Quality Spares website or engaging our
                     services. These terms constitute a legally binding agreement
-                    between you and Shreeji Hydraulics (Teckon™ Quality Spares).
+                    between you and Shreeji Hydraulics (Teckon® Quality Spares).
                   </p>
                 </div>
 

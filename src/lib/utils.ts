@@ -1,4 +1,31 @@
 import { ProductSpecsInput } from "@/types/product";
+import { COMPANY } from "@/lib/data";
+
+const CURRENT_RUNNING_YEAR: number = 2026;
+
+/**
+ * Calculates years of industry experience based on establishment year (COMPANY.founded = 2000)
+ * and the current running year (defaults to 2026).
+ *
+ * @param currentYear Optional override for the running year, defaults to 2026.
+ * @returns Number of years of experience (e.g. 26).
+ */
+export function getYearsOfExperience(
+  currentYear: number = CURRENT_RUNNING_YEAR
+): number {
+  const year = currentYear || CURRENT_RUNNING_YEAR;
+  return Math.max(0, year - COMPANY.founded);
+}
+
+/**
+ * Returns formatted years of experience string with a suffix (e.g. "26+").
+ *
+ * @param suffix Optional suffix string, defaults to "+".
+ * @returns Formatted string (e.g. "26+").
+ */
+export function getExperienceText(suffix: string = "+"): string {
+  return `${getYearsOfExperience()}${suffix}`;
+}
 
 /**
  * Formats an ISO date string (YYYY-MM-DD) into a human-readable date

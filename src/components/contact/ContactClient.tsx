@@ -16,6 +16,7 @@ import {
 import BreadcrumbBar from "@/components/ui/BreadcrumbBar";
 import { sendInquiryAction } from "@/app/actions/contact";
 import { FormData, BusinessHourDay } from "@/types/contact";
+import { COMPANY } from "@/lib/data";
 import {
   getFormattedCountryList,
   getMaxPhoneLengthForCountry,
@@ -196,8 +197,8 @@ export default function ContactClient(): React.JSX.Element {
                 icon: MapPin,
                 title: "Address",
                 content:
-                  "36-C Bhaktinagar, Udhyognagar, Gondal Road, Rajkot-2, Gujarat 360004",
-                href: "https://maps.app.goo.gl/uxAsDhUD7DvfASts8",
+                  "36-C, Gondal Rd, UDHYOGNAGAR, Bhakti Nagar, Rajkot, Gujarat 360002",
+                href: COMPANY.address.mapsUrl,
               },
               {
                 icon: Mail,
@@ -536,7 +537,7 @@ export default function ContactClient(): React.JSX.Element {
                   allowFullScreen
                   loading="eager"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Teckon™ Shreeji Hydraulics Location — Gondal Road, Rajkot, Gujarat"
+                  title="Teckon® Shreeji Hydraulics Location — Gondal Road, Rajkot, Gujarat"
                   className="w-full h-full border-0"
                 />
               </div>

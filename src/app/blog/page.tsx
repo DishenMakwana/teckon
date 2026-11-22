@@ -11,9 +11,9 @@ export const unstable_instant: boolean = false;
 
 export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
-  title: "Blog & News | Teckon™ Quality Spares",
+  title: "Blog & News | Teckon® Quality Spares",
   description:
-    "Technical guides, industry news, and company updates from Teckon™ — India's hydraulic parts specialists.",
+    "Technical guides, industry news, and company updates from Teckon® — India's hydraulic parts specialists.",
   keywords: [
     "JCB spares maintenance",
     "excavator parts guides",
@@ -34,9 +34,9 @@ export default async function BlogPage(): Promise<React.JSX.Element> {
   const blogListSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    name: "Blog & News | Teckon™ Quality Spares",
+    name: "Blog & News | Teckon® Quality Spares",
     description:
-      "Technical guides, industry news, and company updates from Teckon™ — India's hydraulic parts specialists.",
+      "Technical guides, industry news, and company updates from Teckon® — India's hydraulic parts specialists.",
     url: `${COMPANY.url}/blog`,
     blogPost: blogPosts.map(
       (post: BlogPost): Record<string, unknown> => ({
@@ -77,7 +77,7 @@ export default async function BlogPage(): Promise<React.JSX.Element> {
             Blog & Industry News
           </h1>
           <p className="text-white/70 text-xl max-w-2xl">
-            Technical guides, maintenance tips, and updates from the Teckon™
+            Technical guides, maintenance tips, and updates from the Teckon®
             team.
           </p>
         </div>

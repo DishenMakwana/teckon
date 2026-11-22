@@ -263,7 +263,7 @@ export default function PrivacyPolicyClient(): React.JSX.Element {
                 {/* Introduction statement */}
                 <div className="prose prose-slate max-w-none border-b border-gray-100 pb-6 mb-8 print:pb-3 print:mb-5">
                   <p className="text-slate-700 leading-relaxed text-sm sm:text-base font-medium">
-                    Teckon™ Quality Spares (Shreeji Hydraulics) is committed to
+                    Teckon® Quality Spares (Shreeji Hydraulics) is committed to
                     protecting your privacy. This policy explains how we
                     collect, use, and safeguard your personal information when
                     you use our website or services.
